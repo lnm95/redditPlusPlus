@@ -1,7 +1,7 @@
 {
     "name": "reddit-plus-plus",
     "description": "Userscript for reddit.com",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "author": {
         "name": "lnm95"
     },
@@ -14,7 +14,7 @@
         "debug": "webpack --config config/webpack.config.dev.cjs",
         "prod": "webpack --config config/webpack.config.prod.cjs ",
         "release": "cross-env npm_config_release=true webpack --config config/webpack.config.prod.cjs ",
-        "postrelease": "npm version patch",
+        "postrelease": "npm version patch --no-git-tag-version",
         "prepare": "husky install",
         "lint-staged": "lint-staged"
     },
