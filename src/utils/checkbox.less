@@ -1,0 +1,51 @@
+.pp_checkBox_container {
+    float: right;
+    position: relative;
+}
+
+.pp_checkBox_buttonActive {
+    justify-content: flex-end !important;
+    background-color: #0079d3 !important;
+}
+
+.pp_checkBox_button {
+    position: relative;
+    cursor: pointer;
+    overflow: visible;
+    display: flex;
+    justify-content: start;
+    background: transparent;
+    background-color: var(--checkBox-background);
+    padding: initial;
+    height: 24px;
+    width: 37.5px;
+    border-radius: 100px;
+    border: 2px solid transparent;
+    transition: background-color 0.2s linear;
+}
+
+.pp_checkBox_knob {
+    height: 19.5px;
+    width: 19.5px;
+    background-color: #fff;
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.1),
+        0 2px 3px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.5s linear;
+    border-radius: 57%;
+}
+
+.pp_checkBox_panelArea {
+    width: 200px;
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+:root.theme-light {
+    --checkBox-background: #1a1a1b1a !important;
+}
+:root {
+    --checkBox-background: #81818152;
+}

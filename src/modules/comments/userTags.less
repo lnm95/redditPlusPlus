@@ -1,0 +1,63 @@
+.pp_tagsPanel {
+    display: flex;
+    justify-content: space-around;
+    width: auto;
+    border-bottom: solid 1px var(--color-neutral-border-weak);
+    padding: 4px;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.pp_tagButton {
+    cursor: pointer;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    height: 45px;
+    padding: 4px 20px;
+    margin: 0px 0px;
+    color: var(--color-neutral-border-weak);
+    border-radius: 5px;
+}
+
+.pp_tagButton svg {
+    width: 20px;
+    transition: transform 0.15s;
+}
+
+.pp_tagButton:hover svg {
+    transform: scale(1.2, 1.2);
+    transition: transform 0.3s;
+}
+
+.pp_tagButton:hover {
+    background-color: var(--color-neutral-background-hover);
+}
+
+.pp_tagButtonActive:hover {
+    opacity: 0.8;
+}
+
+.pp_tagHint_offset {
+    left: 50%;
+    position: absolute;
+}
+
+.pp_tagHintContainer {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+}
+
+.pp_tagHint {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: -35px;
+    height: 25px;
+    padding: 0px 12px;
+    color: var(--color-neutral-background-weak);
+    font: var(--font-small);
+    background-color: var(--color-neutral-content-strong);
+    border-radius: 5px;
+}

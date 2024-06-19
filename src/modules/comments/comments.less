@@ -1,0 +1,24 @@
+// ghosted
+.pp_muted_avatar {
+    opacity: 0.5;
+}
+
+.pp_muted_content {
+    color: var(--pp-color-muted-conent);
+    transition: color 0.2s;
+}
+
+.pp_muted_content:hover {
+    color: var(--pp-color-muted-conent-hover);
+}
+
+// vars
+
+:root.theme-light {
+    --pp-color-muted-conent: #a5a5a5 !important;
+    --pp-color-muted-conent-hover: #636363 !important;
+}
+:root {
+    --pp-color-muted-conent: #595959;
+    --pp-color-muted-conent-hover: #adadad;
+}

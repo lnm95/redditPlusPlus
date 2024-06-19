@@ -1,0 +1,60 @@
+article > shreddit-post {
+    background-color: #00000000 !important;
+    padding-top: 10px !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+article > shreddit-post::before {
+    border-radius: 15px !important;
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+    background: linear-gradient(var(--color-neutral-background-hover), var(--color-neutral-background));
+    transition: opacity 0.2s;
+}
+
+article > shreddit-post:hover::before {
+    opacity: 1;
+}
+
+// override gold
+shreddit-post[gold-count]:not(shreddit-post[gold-count='']) {
+    background-image: linear-gradient(rgba(255, 214, 53, 0.2), rgba(255, 214, 53, 0)) !important;
+}
+
+shreddit-post[gold-count]:not(shreddit-post[gold-count=''])::before {
+    background: linear-gradient(#fbed2966, var(--color-neutral-background)) !important;
+}
+
+// stickied
+.stickied::after {
+    border-radius: 15px !important;
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 1;
+    z-index: -2;
+    background: linear-gradient(var(--stickiedColor), var(--color-neutral-background)) !important;
+}
+
+.stickied::before {
+    background: linear-gradient(var(--stickiedHoverColor), var(--color-neutral-background)) !important;
+}
+
+:root.theme-light {
+    --stickiedColor: #0e8a001c !important;
+    --stickiedHoverColor: #18900b3d !important;
+}
+:root {
+    --stickiedColor: #0e8a001c;
+    --stickiedHoverColor: #18900b3d;
+}

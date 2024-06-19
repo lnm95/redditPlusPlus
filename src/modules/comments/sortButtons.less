@@ -1,0 +1,34 @@
+.pp_sortDropdown_hidden {
+    display: none;
+}
+
+.pp_sortButton {
+    color: var(--color-neutral-content-weak);
+    font: var(--font-button-sm);
+    text-wrap: nowrap;
+    border-radius: 32px;
+    height: 32px;
+    padding-left: 10px;
+    padding-right: 14px;
+    gap: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //background-color: var(--color-button-plain-background-hover);
+    cursor: pointer;
+}
+
+.pp_sortButton > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pp_sortButton:hover {
+    background-color: var(--color-button-plain-background-hover) !important;
+}
+
+.pp_sortButton_active {
+    color: var(--color-neutral-content-strong) !important;
+    background-color: var(--color-secondary-background-selected);
+}

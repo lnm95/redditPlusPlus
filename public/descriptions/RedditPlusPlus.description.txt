@@ -1,0 +1,55 @@
+<br>
+<mark>Reddit's updates may broke the userscript so feel free to report bugs.</mark>
+
+<mark>The userscript has many boilerplate code because webpack is used. To see source code visit <a href="https://github.com/lnm95/redditPlusPlus">github</a></mark>
+
+<h2>Features</h2>
+<ul>
+    <h4>Common</h4>
+    <li>Redirect from old.reddit links to new-new reddit.</li>
+    <li>Replace right sidebar to screen border.</li>
+    <li>Limit width of content feed.</li>
+    <li>Make comments/posts text bigger.</li>
+    <li>Better visual of the notification popup.</li>
+    <li>Saved bookmark (unwrap from context menu).</li>
+    <li>Autocollapse awards</li>
+
+    <h4>Left sidebar</h4>
+    <li>Saving collapsed state for elements.</li>
+    <li>Community filter.</li>
+
+    <h4>Subreddits</h4>
+    <li>Unwrap feed buttons (Hot/New/Top)</li>
+    <li>Flairs bar to faster navigation.</li>
+
+    <h4>Posts</h4>
+    <li>Hide posts by flairs.</li>
+    <li>Selectable text.</li>
+    <li>Unwrap text posts by button.</li>
+
+    <h4>Comments</h4>
+    <li>Unwrap comments sort buttons, remember latest used sort.</li>
+    <li>User info (karma, leaf mark for new users).</li>
+    <li>User tags (set by context menu):</li>
+    <ul>
+        <li>Cosmetic (liked, warned)</li>
+        <li>Active (follow, block)</li>
+    </ul>
+    <li>View an image without redirect.</li>
+    <li>Autocollapse AutoModerator's comments</li>
+    <li>Unwrap "more replies"</li>
+</ul>
+
+<h2>Settings</h2>
+<ul>
+    <li>Open profile menu (avatar in header) and click "Reddit++" to main settings.</li>
+    <li>Open subreddit context menu (three dots button) and click "Flairs settigns" to flairs settings.</li>
+</ul>
+
+<h2>Compatibility</h2>
+<ul>
+    <li>Only desktop.</li>
+    <li>Only new-new design. Old version (old.reddit, new.reddit) are not supported.</li>
+    <li>Community themes are not supported.</li>
+    <li>Script tested on <b>chrome/firefox</b> with <b>tampermonkey/violentmonkey</b>. Ability to work on other configurations are not guaranteed.</li>
+</ul>

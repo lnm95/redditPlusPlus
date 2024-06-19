@@ -1,0 +1,46 @@
+.pp_bannedPost {
+    visibility: hidden !important;
+    max-height: 0px;
+}
+
+.pp_post_shareButton :is(span):not(.flex) {
+    visibility: hidden !important;
+    max-width: 0px;
+}
+
+.pp_post_shareButton .text-16 {
+    margin-right: 0px !important;
+}
+
+.pp_post_tittle {
+    text-decoration: none !important;
+}
+
+.pp_post_noWrap {
+    -webkit-line-clamp: 999;
+}
+
+.pp_post_unwrapContainer {
+    position: relative;
+    height: 0px;
+    bottom: 0px;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 10;
+}
+
+.pp_post_unwrapButton {
+    position: relative;
+    background-color: var(--color-button-secondary-background);
+    width: 46px;
+    height: 46px;
+    bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    color: var(--color-button-secondary-text);
+    margin-right: 15px;
+    pointer-events: fill !important;
+    z-index: 10;
+}

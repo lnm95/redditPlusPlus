@@ -1,0 +1,77 @@
+.pp_window_container {
+    cursor: pointer;
+    position: fixed;
+    top: 0px;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000b3;
+}
+
+.pp_window {
+    cursor: auto;
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+    height: fit-content;
+    min-height: 200px;
+    max-height: 75%;
+    border-radius: 15px;
+    background-color: var(--color-neutral-background);
+    box-shadow: 0px 0px 50px 0px #00000070;
+}
+
+.pp_window_tittleContainer {
+    height: 48px;
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pp_window_tittle {
+    margin-left: 1rem;
+}
+
+.pp_window_closeButton {
+    margin: 1rem;
+}
+
+.pp_window_content {
+    display: flex;
+    flex-direction: column;
+    overflow-y: overlay;
+}
+
+.pp_window_footer {
+    height: 2rem;
+    min-height: 2rem;
+}
+
+.pp_window_elementsContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin: 20px 40px;
+    gap: 0.5rem;
+}
+
+.pp_window_element {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 3rem;
+}
+
+.pp_window_elementsContainer > .pp_window_element:hover {
+    background-color: var(--color-neutral-background-hover);
+    border-radius: 15px;
+}
+
+.pp_window_scrollContent {
+    overflow-y: scroll;
+}

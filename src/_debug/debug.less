@@ -1,0 +1,38 @@
+.pp_debug_profilerContainer {
+    position: fixed;
+    top: 60px;
+    margin-left: 10px;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    z-index: 100;
+    pointer-events: none;
+}
+
+@media (min-width: 1200px) {
+    .pp_debug_profilerContainer {
+        margin-left: 275px !important;
+    }
+}
+
+.pp_debug_profiler {
+    background: #000000d5;
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    border-radius: 20px;
+    color: rgba(255, 255, 255, 0.781);
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    white-space: pre;
+}
+
+.pp_debug_rendered {
+    border-style: dotted;
+    border-color: #35ca18;
+    border-width: 1px;
+}
