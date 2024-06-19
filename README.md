@@ -1,6 +1,8 @@
 # Reddit++
 
-Userscript for reddit.com
+<div>
+<img width="820" src="https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/scr/readme.png" alt="Reddit++">
+</div>
 
 ## User
 
