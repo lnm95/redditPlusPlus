@@ -1,3 +1,4 @@
+import { pp_log } from '../modules/toaster';
 import { Migration } from './migrations';
 
 // from 0.2.x
@@ -14,7 +15,7 @@ export const migration_1_0_0 = new Migration(`1.0.0`, () => {
     }
 
     const hideUnsaved = settingsDatabase[`savedBookmarkHideUnsaved`];
-    if (bookmarks != undefined) {
+    if (hideUnsaved != undefined) {
         settingsDatabase[`savedBookmarkPostsShowAlways`] = !hideUnsaved;
         settingsDatabase[`savedBookmarkCommentsShowAlways`] = !hideUnsaved;
         delete settingsDatabase[`savedBookmarkHideUnsaved`];

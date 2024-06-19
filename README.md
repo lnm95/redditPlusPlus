@@ -15,9 +15,9 @@ To usage Reddit++ follow next steps:
 
 Using `Visual Studio Code` is recommended.
 
-Required `Node.js`.
-
 ### Getting started
+
+Required `Node.js`.
 
 Command `npm i` to install dependencies
 
