@@ -1,5 +1,3 @@
-# Reddit++
-
 <div>
 <img width="820" src="https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/scr/readme.png" alt="Reddit++">
 </div>
@@ -16,7 +14,8 @@ To usage Reddit++ follow next steps:
 [That template](https://github.com/trim21/webpack-userscript-template) is used for project.
 
 Using `Visual Studio Code` is recommended.
-Required `Node.js`
+
+Required `Node.js`.
 
 ### Getting started
 
@@ -25,10 +24,15 @@ Command `npm i` to install dependencies
 ### Debug
 
 Command `npm run debug` to start debug process
+
 Add generated script-wrapper `redditPlusPlus.dev.user.js` to userscript manager
+
 Allow local files for userscript manager (extension settings)
+
 While debug process is running the script automatically refreshed in browser
+
 To stop debug process kill active terminal
+
 
 Command `npm run prod` to assembly production
 
