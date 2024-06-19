@@ -25,18 +25,24 @@ Command `npm i` to install dependencies
 
 Command `npm run debug` to start debug process
 
-Add generated script-wrapper `redditPlusPlus.dev.user.js` to userscript manager
+Add generated script-wrapper `redditPlusPlus.dev.user.js` from `/dist` to userscript manager
 
-Allow local files for userscript manager (extension settings)
+Allow local files for userscript manager (extesions > details > allow access to file URLs).
 
 While debug process is running the script automatically refreshed in browser
 
 To stop debug process kill active terminal
 
+### Preview
 
-Command `npm run prod` to assembly production
-
+Command `npm run preview` to build preview of production in `/dist`
 
 ### Release
 
-Command `npm run release` to build in `/public` and automatically patch version
+Command `npm run release` to build production in `/public` and automatically patch version
+
+### Known issues
+
+Debug process periodically gones to memory leak that's crash browser.
+
+Intersection observer cause poor performance in posts with a lot of comments.

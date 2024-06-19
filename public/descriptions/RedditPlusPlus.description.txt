@@ -30,11 +30,7 @@
     <h4>Comments</h4>
     <li>Unwrap comments sort buttons, remember latest used sort.</li>
     <li>User info (karma, leaf mark for new users).</li>
-    <li>User tags (set by context menu):</li>
-    <ul>
-        <li>Cosmetic (liked, warned)</li>
-        <li>Active (follow, block)</li>
-    </ul>
+    <li>User tags (cosmetic: liked, warned; active: follow, block). </li>
     <li>View an image without redirect.</li>
     <li>Autocollapse AutoModerator's comments</li>
     <li>Unwrap "more replies"</li>
