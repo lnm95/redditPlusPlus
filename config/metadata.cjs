@@ -9,7 +9,7 @@ module.exports = {
         $: 'A lot of enhancements for new design of reddit.com like unwrapped feed buttons, bigger fonts, view images without redirect and many more...',
         ru: 'Множество улучшений для нового интерфейса reddit.com, таких как развернутые кнопки лент, увеличенный шрифт, увеличение изображений без редиректа и много другое...'
     },
-    namespace: 'redditPlusPlus',
+    namespace: 'RedditPlusPlus',
     version: version,
     author: author,
     require: [],
