@@ -1,0 +1,7 @@
+node_modules
+dist
+.code-workspace
+.idea
+.vscode
+*.ai
+
