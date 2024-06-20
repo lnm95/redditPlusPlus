@@ -11,6 +11,8 @@ metadata.name = {
     ru: 'Reddit++ Debug'
 };
 
+metadata.namespace = metadata.namespace + `Debug`;
+
 metadata.require.push('file://' + path.resolve(__dirname, '../dist/redditPlusPlus.debug.js'));
 
 const cfg = merge(webpackConfig, {

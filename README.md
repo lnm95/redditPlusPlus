@@ -6,7 +6,7 @@
 
 To usage Reddit++ follow next steps:
 
-1. Install `tampermonkey`, `violentmonkey` or any other extension which used to run userscripts.
+1. Install `tampermonkey`, `violentmonkey` or any other userscript manager.
 2. Go to [script homepage](https://greasyfork.org/ru/scripts/490046-reddit) and click install.
 
 ## Developer
@@ -29,7 +29,7 @@ Add generated script-wrapper `redditPlusPlus.dev.user.js` from `/dist` to usersc
 
 Allow local files for userscript manager (extesions > details > allow access to file URLs).
 
-While debug process is running the script automatically refreshed in browser
+While debug process is running the script automatically refresh in browser
 
 To stop debug process kill active terminal
 

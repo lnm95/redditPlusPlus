@@ -11,6 +11,8 @@ if(!process.env.npm_config_release){
         $: 'Reddit++ Preview',
         ru: 'Reddit++ Preview'
     };
+
+    metadata.namespace = metadata.namespace + `Preview`;
 }
 
 const cfg = merge(webpackConfig, {
