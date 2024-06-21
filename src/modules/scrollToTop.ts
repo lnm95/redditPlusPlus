@@ -2,14 +2,17 @@ import { buildSvg } from '../utils/svg';
 import { appendNew } from '../utils/tools';
 import { css } from './customCSS';
 import style from './scrollToTop.less';
-
 import scrollButtonSvg from '@resources/scrollButton.svg';
-import { notify } from './toaster';
 import { settings } from './settings/settings';
 
-let scrollToTop: HTMLElement = null;
-
 const START_Y: number = 1000;
+
+let scrollToTop: HTMLElement = null;
+let scrollButton: HTMLElement = null;
+
+let prevScrollHeight: number = 0;
+let isWide = false;
+let isBottom = false;
 
 export function renderScrollToTop() {
     if (settings.SCROLL_TO_TOP.isDisabled()) return;
@@ -20,38 +23,49 @@ export function renderScrollToTop() {
 
     scrollToTop = appendNew(main.parentElement, `div`, `pp_scrollToTop`);
 
-    const scrollButton = buildSvg(scrollButtonSvg, 40, 40);
+    scrollButton = buildSvg(scrollButtonSvg, 40, 40) as HTMLElement;
     scrollToTop.append(scrollButton);
 
     scrollToTop.addEventListener(`click`, () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        isBottom = false;
-        scrollToTop.classList.toggle(`pp_scrollToTop_hidden`, true);
+        if (isBottom) {
+            prevScrollHeight = window.scrollY;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            isBottom = false;
+        } else if (prevScrollHeight > 0) {
+            window.scrollTo({ top: prevScrollHeight, behavior: 'smooth' });
+            prevScrollHeight = 0;
+            isBottom = true;
+        }
+
+        refreshScrollToTop();
     });
 
-    let hasSpace = false;
-    let isBottom = false;
-    let prevState = false;
-
-    checkSpace();
     window.addEventListener('resize', event => {
-        checkSpace();
+        checkScreenWidth();
     });
 
-    function checkSpace() {
-        hasSpace = window.innerWidth > 1490;
-
-        scrollToTop.style.left = `${280 + (window.innerWidth - 1490) * 0.26}px`;
-
-        scrollToTop.classList.toggle(`pp_scrollToTop_hidden`, !(hasSpace && isBottom));
-    }
-
+    let prevIsBottom = false;
     setInterval(() => {
         isBottom = window.scrollY > START_Y;
 
-        if (prevState != !(hasSpace && isBottom)) {
-            prevState = !prevState;
-            scrollToTop.classList.toggle(`pp_scrollToTop_hidden`, prevState);
+        if (isBottom != prevIsBottom) {
+            prevIsBottom = isBottom;
+            refreshScrollToTop();
         }
-    }, 1000);
+    }, 330);
+
+    checkScreenWidth();
+}
+
+function checkScreenWidth() {
+    isWide = window.innerWidth > 1490;
+    scrollToTop.style.left = `${280 + (window.innerWidth - 1490) * 0.26}px`;
+    refreshScrollToTop();
+}
+
+function refreshScrollToTop() {
+    const hidden = !(isWide && (isBottom || prevScrollHeight > 0));
+    const inverted = !isBottom && prevScrollHeight > 0;
+    scrollToTop.classList.toggle(`pp_scrollToTop_hidden`, hidden);
+    scrollButton.classList.toggle(`pp_scrollToTop_inverted`, inverted);
 }
