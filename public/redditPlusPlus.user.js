@@ -4,7 +4,7 @@
 // @description      A lot of enhancements for new design of reddit.com like unwrapped feed buttons, bigger fonts, view images without redirect and many more...
 // @description:ru   Множество улучшений для нового интерфейса reddit.com, таких как развернутые кнопки лент, увеличенный шрифт, увеличение изображений без редиректа и много другое...
 // @namespace        RedditPlusPlus
-// @version          1.0.3
+// @version          1.0.4
 // @author           lnm95
 // @icon             data:image/png;base64,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
 // @source           https://github.com/lnm95/redditPlusPlus
@@ -253,6 +253,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_sortDropdown_hidden {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  margin-left: 5px;
 }
 .pp_sortButton > span {
   display: flex;
@@ -798,6 +799,22 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_settings_subtittle {
 .pp_settings_changesBanner_active {
   opacity: 1 !important;
 }
+.pp_settings_arrowArea {
+  width: 200px;
+  min-width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.pp_settings_arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pp_settings_arrowLeft {
+  transform: scale(-1, 1);
+}
 `, ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
@@ -1077,7 +1094,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `@media (min-width: 1392px) {
     margin-right: 300px;
   }
   .pp_mainFeed {
-    width: 700px !important;
+    width: var(--pp-content-width) !important;
   }
   .pp_rightSidebar {
     grid-column-start: 3;
@@ -1601,6 +1618,13 @@ module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 40 40\
 
 /***/ }),
 
+/***/ "./resources/settingsArrow.svg":
+/***/ ((module) => {
+
+module.exports = "<svg fill=\"currentColor\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m7.942 15.442-.884-.884L11.616 10 7.058 5.442l.884-.884 5 5a.624.624 0 0 1 0 .884l-5 5Z\" style=\"fill:currentColor;stroke:none;stroke-width:0px\"></path></svg>"
+
+/***/ }),
+
 /***/ "./resources/settingsButton.svg":
 /***/ ((module) => {
 
@@ -1883,7 +1907,7 @@ class CustomCSS {
     addRule(rule) {
         this.rootStylesheet.insertRule(rule, 0);
     }
-    addVar(name, lightValue, darkValue) {
+    addVar(name, lightValue, darkValue = null) {
         this.addRule(`:root.theme-light { ${name}: ${lightValue} !important;}`);
         this.addRule(`:root { ${name}: ${darkValue ?? lightValue};}`);
     }
@@ -1963,7 +1987,7 @@ class Database {
 
 ;// CONCATENATED MODULE: ./src/modules/settings/settings.ts
 
-class SettingProperty {
+class SettingBoolProperty {
     constructor(name, defailtValue = true) {
         this.name = name;
         this.defailtValue = defailtValue;
@@ -1980,47 +2004,70 @@ class SettingProperty {
         settingsDatabase.set(this.name, overridedValue == null ? this.isDisabled() : overridedValue);
     }
     getChild(postfix, defaultValue = true) {
-        return new SettingProperty(this.name + postfix, defaultValue);
+        return new SettingBoolProperty(this.name + postfix, defaultValue);
+    }
+}
+class SettingDropdownProperty {
+    constructor(name, values, defaultIndex = 0) {
+        this.name = name;
+        this.values = values;
+        this.defaultIndex = defaultIndex;
+    }
+    get() {
+        const rawValue = settingsDatabase.get(this.name);
+        const isDefault = rawValue instanceof Object;
+        return isDefault ? this.values[this.defaultIndex] : rawValue;
+    }
+    switch(shift) {
+        let index = this.values.indexOf(this.get()) + shift;
+        if (index < 0) {
+            index = this.values.length - 1;
+        }
+        if (index >= this.values.length) {
+            index = 0;
+        }
+        settingsDatabase.set(this.name, this.values[index]);
     }
 }
 class SettingsManager {
     constructor() {
         this.revision = this.getRevision();
-        this.WIDE_MODE = new SettingProperty(`wideMode`);
-        this.BIGGER_FONTS = new SettingProperty(`biggerFonts`);
-        this.NOTIFY_POPUP = new SettingProperty(`notifyPopup`);
-        this.REDIRECT_SUGGESTION = new SettingProperty(`redirectSuggestion`);
-        this.REDIRECT_FORCED = new SettingProperty(`redirectForced`, false);
+        this.WIDE_MODE = new SettingBoolProperty(`wideMode`);
+        this.CONTENT_WIDTH = new SettingDropdownProperty(`contentWidth`, [`650px`, `700px`, `750px`, `800px`], 1);
+        this.BIGGER_FONTS = new SettingBoolProperty(`biggerFonts`);
+        this.NOTIFY_POPUP = new SettingBoolProperty(`notifyPopup`);
+        this.REDIRECT_SUGGESTION = new SettingBoolProperty(`redirectSuggestion`);
+        this.REDIRECT_FORCED = new SettingBoolProperty(`redirectForced`, false);
         // left sidebar
-        this.SUB_FILTER = new SettingProperty(`sidebarSubFilter`);
-        this.SIDEBAR_CUSTOMS = new SettingProperty(`sidebarCustoms`);
-        this.SIDEBAR_RECENT = new SettingProperty(`sidebarRecent`);
-        this.SIDEBAR_SUBS = new SettingProperty(`sidebarSubs`);
-        this.SIDEBAR_RESOURCES = new SettingProperty(`sidebarResources`);
+        this.SUB_FILTER = new SettingBoolProperty(`sidebarSubFilter`);
+        this.SIDEBAR_CUSTOMS = new SettingBoolProperty(`sidebarCustoms`);
+        this.SIDEBAR_RECENT = new SettingBoolProperty(`sidebarRecent`);
+        this.SIDEBAR_SUBS = new SettingBoolProperty(`sidebarSubs`);
+        this.SIDEBAR_RESOURCES = new SettingBoolProperty(`sidebarResources`);
         // common
-        this.SCROLL_TO_TOP = new SettingProperty(`scrollToTop`);
-        this.COLLAPSE_AWARDS = new SettingProperty(`collapseAwards`);
-        this.COLLAPSE_AWARDS_COMPLETELY = new SettingProperty(`collapseAwardsCompletely`, false);
+        this.SCROLL_TO_TOP = new SettingBoolProperty(`scrollToTop`);
+        this.COLLAPSE_AWARDS = new SettingBoolProperty(`collapseAwards`);
+        this.COLLAPSE_AWARDS_COMPLETELY = new SettingBoolProperty(`collapseAwardsCompletely`, false);
         // feed
-        this.FEED_BUTTONS = new SettingProperty(`feedButtons`);
-        this.FLAIR_BAR = new SettingProperty(`flairbar`);
-        this.BACKPLATES = new SettingProperty(`backplates`);
-        this.SELECTABLE_POSTS = new SettingProperty(`selectablePosts`);
-        this.UNWRAP_POST = new SettingProperty(`unwrapPost`);
-        this.SAVED_BOOKMARK_POSTS = new SettingProperty(`savedBookmarkPosts`);
-        this.SAVED_BOOKMARK_POSTS_SHOW_ALWAYAS = new SettingProperty(`savedBookmarkPostsShowAlways`, false);
+        this.FEED_BUTTONS = new SettingBoolProperty(`feedButtons`);
+        this.FLAIR_BAR = new SettingBoolProperty(`flairbar`);
+        this.BACKPLATES = new SettingBoolProperty(`backplates`);
+        this.SELECTABLE_POSTS = new SettingBoolProperty(`selectablePosts`);
+        this.UNWRAP_POST = new SettingBoolProperty(`unwrapPost`);
+        this.SAVED_BOOKMARK_POSTS = new SettingBoolProperty(`savedBookmarkPosts`);
+        this.SAVED_BOOKMARK_POSTS_SHOW_ALWAYAS = new SettingBoolProperty(`savedBookmarkPostsShowAlways`, false);
         // comments
-        this.COMMENTS_SORT_BUTTONS = new SettingProperty(`commentSortButtons`);
-        this.COMMENTS_REMEMBER_SORT = new SettingProperty(`commentRememberSort`);
-        this.UNWRAP_MORE_REPLIES = new SettingProperty(`unwrapMoreReplies`, false);
-        this.USER_INFO = new SettingProperty(`userInfo`);
-        this.USER_TAGS = new SettingProperty(`userTags`);
-        this.SHOW_NAMES = new SettingProperty(`showNames`);
-        this.HIDE_SHARE = new SettingProperty(`hideShare`);
-        this.GHOSTED_COMMENTS = new SettingProperty(`ghostedComments`);
-        this.COLLAPSE_AUTOMODERATOR = new SettingProperty(`collapseAutomoderator`);
-        this.SAVED_BOOKMARK_COMMENTS = new SettingProperty(`savedBookmarkComments`);
-        this.SAVED_BOOKMARK_COMMENTS_SHOW_ALWAYAS = new SettingProperty(`savedBookmarkCommentsShowAlways`, false);
+        this.COMMENTS_SORT_BUTTONS = new SettingBoolProperty(`commentSortButtons`);
+        this.COMMENTS_REMEMBER_SORT = new SettingBoolProperty(`commentRememberSort`);
+        this.UNWRAP_MORE_REPLIES = new SettingBoolProperty(`unwrapMoreReplies`, false);
+        this.USER_INFO = new SettingBoolProperty(`userInfo`);
+        this.USER_TAGS = new SettingBoolProperty(`userTags`);
+        this.SHOW_NAMES = new SettingBoolProperty(`showNames`);
+        this.HIDE_SHARE = new SettingBoolProperty(`hideShare`);
+        this.GHOSTED_COMMENTS = new SettingBoolProperty(`ghostedComments`);
+        this.COLLAPSE_AUTOMODERATOR = new SettingBoolProperty(`collapseAutomoderator`);
+        this.SAVED_BOOKMARK_COMMENTS = new SettingBoolProperty(`savedBookmarkComments`);
+        this.SAVED_BOOKMARK_COMMENTS_SHOW_ALWAYAS = new SettingBoolProperty(`savedBookmarkCommentsShowAlways`, false);
         // Reload all pages with dirted settings
         window.addEventListener('storage', event => {
             if (this.isDirt()) {
@@ -2053,6 +2100,7 @@ function renderWideMode(pageContainer, rightSidebar) {
     if (settings.WIDE_MODE.isDisabled())
         return;
     css.addStyle(wideMode/* default */.A, `wideMode`);
+    css.addVar(`--pp-content-width`, settings.CONTENT_WIDTH.get());
     // prevent additional render when rightbar already moved
     if (rightSidebar.parentNode == pageContainer) {
         return;
@@ -2921,25 +2969,24 @@ async function renderContent(post) {
     }
     renderUnwrapPostButton(post, postContent);
 }
-function renderUnwrapPostButton(post, postContent) {
-    // need short delay to make sure that image was loaded
-    setTimeout(() => {
-        const renderedHeight = postContent.getBoundingClientRect().height;
-        postContent.classList.add(`pp_post_noWrap`);
-        const actualHeight = postContent.getBoundingClientRect().height;
-        postContent.classList.remove(`pp_post_noWrap`);
-        if (actualHeight > renderedHeight + 5) {
-            const unwrapContainer = appendNew(post, `div`, `pp_post_unwrapContainer`);
-            post.shadowRoot.append(unwrapContainer);
-            const unwrapButton = appendNew(unwrapContainer, `div`, `pp_post_unwrapButton`);
-            const unwrapIcon = buildSvg((postUnwrapButton_default()), 25, 25);
-            unwrapButton.append(unwrapIcon);
-            unwrapButton.addEventListener(`click`, () => {
-                postContent.classList.add(`pp_post_noWrap`);
-                unwrapContainer.remove();
-            }, { once: true });
-        }
-    }, 100);
+async function renderUnwrapPostButton(post, postContent) {
+    // hack to await when post loaded properly
+    const postShadowRoot = await dynamicElement(() => post.shadowRoot, MAX_LOAD_LAG);
+    const renderedHeight = postContent.getBoundingClientRect().height;
+    postContent.classList.add(`pp_post_noWrap`);
+    const actualHeight = postContent.getBoundingClientRect().height;
+    postContent.classList.remove(`pp_post_noWrap`);
+    if (actualHeight > renderedHeight + 5) {
+        const unwrapContainer = appendNew(post, `div`, `pp_post_unwrapContainer`);
+        post.shadowRoot.append(unwrapContainer);
+        const unwrapButton = appendNew(unwrapContainer, `div`, `pp_post_unwrapButton`);
+        const unwrapIcon = buildSvg((postUnwrapButton_default()), 25, 25);
+        unwrapButton.append(unwrapIcon);
+        unwrapButton.addEventListener(`click`, () => {
+            postContent.classList.add(`pp_post_noWrap`);
+            unwrapContainer.remove();
+        }, { once: true });
+    }
 }
 
 // EXTERNAL MODULE: ./src/modules/feed/feedButtons.less
@@ -4244,7 +4291,12 @@ function renderNotifications(container) {
 
 // EXTERNAL MODULE: ./src/modules/settings/settingsWindow.less
 var settingsWindow = __webpack_require__("./src/modules/settings/settingsWindow.less");
+// EXTERNAL MODULE: ./resources/settingsArrow.svg
+var settingsArrow = __webpack_require__("./resources/settingsArrow.svg");
+var settingsArrow_default = /*#__PURE__*/__webpack_require__.n(settingsArrow);
 ;// CONCATENATED MODULE: ./src/modules/settings/settingsWindow.ts
+
+
 
 
 
@@ -4262,7 +4314,8 @@ function renderSettingsWindow(win, context) {
     changesBanner.textContent = `Page will be reloaded to apply new settings`;
     const scroll = appendNew(win.content, `div`, [`pp_window_scrollContent`, `styled-scrollbars`]);
     const elements = appendNew(scroll, `div`, `pp_window_elementsContainer`);
-    addSettingToggle(`Wide mode`, `Make focus on the content by replaced right sidebar and limited width of content`, settings.WIDE_MODE);
+    addSettingToggle(`Wide mode`, `Make focus on the content by replacing right sidebar to screen border`, settings.WIDE_MODE);
+    addSettingDropdown(`Content width`, null, settings.CONTENT_WIDTH);
     addSettingToggle(`Bigger fonts`, `Make fonts bigger for better reading`, settings.BIGGER_FONTS);
     addSettingToggle(`Better notify popup`, `Make notify popup a bit larger and remove useless button`, settings.NOTIFY_POPUP);
     addSettingToggle(`Redirect suggestion`, `Show suggestion to redirect from old.reddit and new.reddit to compatible pages`, settings.REDIRECT_SUGGESTION);
@@ -4328,6 +4381,51 @@ function renderSettingsWindow(win, context) {
             changed = !changed;
             changesBannerContainer.classList.toggle(`pp_settings_changesBanner_active`, changes > 0);
         });
+    }
+    function addSettingDropdown(tittleText, descriptionText, setting) {
+        const propertyArea = appendNew(elements, `div`, `pp_window_element`);
+        const header = appendNew(propertyArea, `div`, `pp_settings_propertyHeader`);
+        const tittle = appendNew(header, `div`, `pp_settings_propertyHeader_tittle`);
+        tittle.textContent = tittleText;
+        if (descriptionText != null) {
+            const description = appendNew(header, `div`, `pp_settings_propertyHeader_description`);
+            description.textContent = descriptionText;
+        }
+        else {
+            propertyArea.classList.add(`pp_settings_property_oneLine`);
+        }
+        const buttonContainer = appendNew(propertyArea, `div`, `pp_settings_propertyButtonContainer`);
+        const toggleArea = appendNew(buttonContainer, `div`, `pp_settings_arrowArea`);
+        const leftButton = appendNew(toggleArea, `div`, [`pp_settings_arrow`, `pp_settings_arrowLeft`, `button`, `button-plain`, `button-medium`, `px-[var(--rem8)]`]);
+        const leftButtonSvg = buildSvg((settingsArrow_default()), 20, 20);
+        leftButton.append(leftButtonSvg);
+        const dropdownCurrent = appendNew(toggleArea, `div`, [`text-secondary`, `font-normal`]);
+        dropdownCurrent.textContent = setting.get();
+        const rightButton = appendNew(toggleArea, `div`, [`pp_settings_arrow`, `button`, `button-plain`, `button-medium`, `px-[var(--rem8)]`]);
+        const rightButtonSvg = buildSvg((settingsArrow_default()), 20, 20);
+        rightButton.append(rightButtonSvg);
+        const originValue = setting.get();
+        let changed = false;
+        leftButton.addEventListener(`click`, e => {
+            switchList(-1);
+        });
+        rightButton.addEventListener(`click`, e => {
+            switchList(1);
+        });
+        function switchList(shift) {
+            setting.switch(shift);
+            const currentValue = setting.get();
+            dropdownCurrent.textContent = currentValue;
+            if (currentValue != originValue && !changed) {
+                changed = true;
+                changes++;
+            }
+            if (currentValue == originValue && changed) {
+                changed = false;
+                changes--;
+            }
+            changesBannerContainer.classList.toggle(`pp_settings_changesBanner_active`, changes > 0);
+        }
     }
 }
 function closeSettingsWindow() {
@@ -4464,7 +4562,7 @@ async function startRedditPlusPlus() {
     }
     pp_meta = document.createElement(`meta`);
     pp_meta.setAttribute(`name`, `reddit-plus-plus`);
-    pp_meta.setAttribute(`version`, "1.0.3");
+    pp_meta.setAttribute(`version`, "1.0.4");
     document.head.append(pp_meta);
     // call latest migration
     migration_1_0_0.check();

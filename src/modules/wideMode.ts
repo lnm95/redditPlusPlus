@@ -7,6 +7,8 @@ export function renderWideMode(pageContainer: Element, rightSidebar: Element) {
 
     css.addStyle(wideModeStyle, `wideMode`);
 
+    css.addVar(`--pp-content-width`, settings.CONTENT_WIDTH.get());
+
     // prevent additional render when rightbar already moved
     if (rightSidebar.parentNode == pageContainer) {
         return;

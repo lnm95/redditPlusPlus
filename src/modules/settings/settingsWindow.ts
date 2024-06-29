@@ -1,8 +1,11 @@
+import { buildSvg } from '../../utils/svg';
 import { appendNew } from '../../utils/tools';
 import { Window } from '../../utils/window';
 import { css } from '../customCSS';
-import { SettingProperty, settings } from './settings';
+import { PrefsKey } from './prefs';
+import { SettingDropdownProperty, SettingBoolProperty, settings } from './settings';
 import style from './settingsWindow.less';
+import arrowSvg from "@resources/settingsArrow.svg"; 
 
 css.addStyle(style);
 
@@ -24,7 +27,8 @@ function renderSettingsWindow(win: Window, context: any) {
 
     const elements = appendNew(scroll, `div`, `pp_window_elementsContainer`);
 
-    addSettingToggle(`Wide mode`, `Make focus on the content by replaced right sidebar and limited width of content`, settings.WIDE_MODE);
+    addSettingToggle(`Wide mode`, `Make focus on the content by replacing right sidebar to screen border`, settings.WIDE_MODE);
+    addSettingDropdown(`Content width`, null, settings.CONTENT_WIDTH);
     addSettingToggle(`Bigger fonts`, `Make fonts bigger for better reading`, settings.BIGGER_FONTS);
     addSettingToggle(`Better notify popup`, `Make notify popup a bit larger and remove useless button`, settings.NOTIFY_POPUP);
     addSettingToggle(`Redirect suggestion`, `Show suggestion to redirect from old.reddit and new.reddit to compatible pages`, settings.REDIRECT_SUGGESTION);
@@ -69,7 +73,7 @@ function renderSettingsWindow(win: Window, context: any) {
         subtittle.textContent = text;
     }
 
-    function addSettingToggle(tittleText: string, descriptionText: string, setting: SettingProperty) {
+    function addSettingToggle(tittleText: string, descriptionText: string, setting: SettingBoolProperty) {
         const propertyArea = appendNew(elements, `div`, `pp_window_element`);
 
         const header = appendNew(propertyArea, `div`, `pp_settings_propertyHeader`);
@@ -104,6 +108,66 @@ function renderSettingsWindow(win: Window, context: any) {
 
             changesBannerContainer.classList.toggle(`pp_settings_changesBanner_active`, changes > 0);
         });
+    }
+
+
+    function addSettingDropdown(tittleText: string, descriptionText: string, setting: SettingDropdownProperty) {
+        const propertyArea = appendNew(elements, `div`, `pp_window_element`);
+
+        const header = appendNew(propertyArea, `div`, `pp_settings_propertyHeader`);
+        const tittle = appendNew(header, `div`, `pp_settings_propertyHeader_tittle`);
+        tittle.textContent = tittleText;
+        if (descriptionText != null) {
+            const description = appendNew(header, `div`, `pp_settings_propertyHeader_description`);
+            description.textContent = descriptionText;
+        } else {
+            propertyArea.classList.add(`pp_settings_property_oneLine`);
+        }
+
+        const buttonContainer = appendNew(propertyArea, `div`, `pp_settings_propertyButtonContainer`);
+
+        const toggleArea = appendNew(buttonContainer, `div`, `pp_settings_arrowArea`);
+
+        const leftButton = appendNew(toggleArea, `div`, [`pp_settings_arrow`, `pp_settings_arrowLeft`, `button`, `button-plain`, `button-medium`, `px-[var(--rem8)]`]);
+        const leftButtonSvg = buildSvg(arrowSvg, 20, 20);
+        leftButton.append(leftButtonSvg);
+
+        const dropdownCurrent = appendNew(toggleArea, `div`, [`text-secondary`, `font-normal`]);
+        dropdownCurrent.textContent = setting.get();
+
+        const rightButton = appendNew(toggleArea, `div`, [`pp_settings_arrow`, `button`, `button-plain`, `button-medium`, `px-[var(--rem8)]`]);
+        const rightButtonSvg = buildSvg(arrowSvg, 20, 20);
+        rightButton.append(rightButtonSvg);
+
+        const originValue = setting.get();
+        let changed = false;
+        
+        leftButton.addEventListener(`click`, e => {
+            switchList(-1);
+        });
+
+        rightButton.addEventListener(`click`, e => {
+            switchList(1);
+        });
+        
+        function switchList(shift:number){
+            setting.switch(shift);
+
+            const currentValue = setting.get();
+
+            dropdownCurrent.textContent = currentValue;
+
+            if(currentValue != originValue && !changed){
+                changed = true;
+                changes++;
+            }
+            if(currentValue == originValue && changed){
+                changed = false;
+                changes--;
+            }
+
+            changesBannerContainer.classList.toggle(`pp_settings_changesBanner_active`, changes > 0);
+        }
     }
 }
 

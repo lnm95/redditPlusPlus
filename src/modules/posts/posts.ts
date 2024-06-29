@@ -105,31 +105,32 @@ async function renderContent(post: Element) {
     renderUnwrapPostButton(post, postContent);
 }
 
-function renderUnwrapPostButton(post: Element, postContent: Element) {
-    // need short delay to make sure that image was loaded
-    setTimeout(() => {
-        const renderedHeight = postContent.getBoundingClientRect().height;
+async function renderUnwrapPostButton(post: Element, postContent: Element) {
+    // hack to await when post loaded properly
+    const postShadowRoot = await dynamicElement(() => post.shadowRoot, MAX_LOAD_LAG);
 
-        postContent.classList.add(`pp_post_noWrap`);
-        const actualHeight = postContent.getBoundingClientRect().height;
-        postContent.classList.remove(`pp_post_noWrap`);
 
-        if (actualHeight > renderedHeight + 5) {
-            const unwrapContainer = appendNew(post, `div`, `pp_post_unwrapContainer`);
-            post.shadowRoot.append(unwrapContainer);
-            const unwrapButton = appendNew(unwrapContainer, `div`, `pp_post_unwrapButton`);
+    const renderedHeight = postContent.getBoundingClientRect().height;
 
-            const unwrapIcon = buildSvg(unwrapButtonSvg, 25, 25);
-            unwrapButton.append(unwrapIcon);
+    postContent.classList.add(`pp_post_noWrap`);
+    const actualHeight = postContent.getBoundingClientRect().height;
+    postContent.classList.remove(`pp_post_noWrap`);
 
-            unwrapButton.addEventListener(
-                `click`,
-                () => {
-                    postContent.classList.add(`pp_post_noWrap`);
-                    unwrapContainer.remove();
-                },
-                { once: true }
-            );
-        }
-    }, 100);
+    if (actualHeight > renderedHeight + 5) {
+        const unwrapContainer = appendNew(post, `div`, `pp_post_unwrapContainer`);
+        post.shadowRoot.append(unwrapContainer);
+        const unwrapButton = appendNew(unwrapContainer, `div`, `pp_post_unwrapButton`);
+
+        const unwrapIcon = buildSvg(unwrapButtonSvg, 25, 25);
+        unwrapButton.append(unwrapIcon);
+
+        unwrapButton.addEventListener(
+            `click`,
+            () => {
+                postContent.classList.add(`pp_post_noWrap`);
+                unwrapContainer.remove();
+            },
+            { once: true }
+        );
+    }
 }

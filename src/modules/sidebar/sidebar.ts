@@ -1,7 +1,7 @@
 import { observeFor } from '../../utils/tools';
 import { checkIsRendered, dynamicElement } from '../../utils/tools';
 import { css } from '../customCSS';
-import { SettingProperty, settings } from '../settings/settings';
+import { SettingBoolProperty, settings } from '../settings/settings';
 import { pp_log } from '../toaster';
 import style from './sidebar.less';
 import { renderSubFilter } from './subFilter';
@@ -117,7 +117,7 @@ class SidebarSection {
     public hr: Element;
 }
 
-async function renderSidebarSection(preloadContainer: Element, setting: SettingProperty, sectionLoader: Function) {
+async function renderSidebarSection(preloadContainer: Element, setting: SettingBoolProperty, sectionLoader: Function) {
     if (checkIsRendered(preloadContainer)) return;
 
     preloadContainer.classList.add(`pp_sidebar_loadingSection`);

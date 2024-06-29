@@ -42,7 +42,7 @@ class CustomCSS {
         this.rootStylesheet.insertRule(rule, 0);
     }
 
-    addVar(name: string, lightValue: string, darkValue: string) {
+    addVar(name: string, lightValue: string, darkValue: string = null) {
         this.addRule(`:root.theme-light { ${name}: ${lightValue} !important;}`);
         this.addRule(`:root { ${name}: ${darkValue ?? lightValue};}`);
     }
