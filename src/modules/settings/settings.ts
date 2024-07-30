@@ -83,6 +83,7 @@ class SettingsManager {
     // feed
     public FEED_BUTTONS = new SettingBoolProperty(`feedButtons`);
     public FLAIR_BAR = new SettingBoolProperty(`flairbar`);
+    public COLLAPSE_HIGHLIGHTS = new SettingBoolProperty(`collapseHighlights`, false);
     public BACKPLATES = new SettingBoolProperty(`backplates`);
     public SELECTABLE_POSTS = new SettingBoolProperty(`selectablePosts`);
     public UNWRAP_POST = new SettingBoolProperty(`unwrapPost`);

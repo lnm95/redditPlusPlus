@@ -11,12 +11,16 @@ css.addStyle(style);
 export async function renderFlairBar(main: Element) {
     if (settings.FLAIR_BAR.isDisabled()) return;
 
-    const feedContent = await dynamicElement(() => main?.querySelector(`shreddit-title`)?.parentElement, MAX_LOAD_LAG);
+    let feedContent = await dynamicElement(() => main?.querySelector(`shreddit-title`)?.parentElement, MAX_LOAD_LAG);
 
     // skip render for non feed page
     if (feedContent == null) return;
 
-    //if(checkIsRendered(feedContent)) return;
+    const subHighlights = main?.querySelector(`community-highlight-carousel`) as HTMLElement;
+
+    if(subHighlights != null){
+        feedContent = subHighlights;
+    }
 
     const prevFlairMenu = feedContent.parentElement?.querySelector(`.pp_flairBar`)?.parentElement;
     if (prevFlairMenu != null) {
@@ -36,6 +40,10 @@ export async function renderFlairBar(main: Element) {
     feedContent.before(flairMenuContainer);
 
     const flairMenu = appendNew(flairMenuContainer, `div`, `pp_flairBar`);
+
+    if(subHighlights != null){
+        flairMenu.classList.add(`pp_flairBar_highlights`);        
+    }
 
     const ul = appendNew(flairMenu, `ul`, [`p-0`, `m-0`, `list-none`, `gap-xs`, `flex`, `flex-row`, `pp_flairBar_list`]);
     let flairsRendered = 0;

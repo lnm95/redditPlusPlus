@@ -6,6 +6,8 @@ import style from './subs.less';
 import { FlairData } from './flair';
 import { checkIsRendered, dynamicElement } from '../../utils/tools';
 import { flairsWindow } from './flairWindow';
+import { MAX_LOAD_LAG } from '../../defines';
+import { settings } from '../settings/settings';
 
 css.addStyle(style);
 
@@ -70,6 +72,8 @@ export async function renderSub(main: Element) {
     renderMasthead(main);
 
     renderFlairBar(main);
+
+    renderHighlights(main);
 }
 
 async function renderMasthead(main: Element) {
@@ -80,6 +84,16 @@ async function renderMasthead(main: Element) {
     masthead.querySelector(`section`).classList.add(`pp_mastheadSection`);
 
     document.body.addEventListener(`click`, renderContextMenu);
+}
+
+async function renderHighlights(main : Element){
+    if(settings.COLLAPSE_HIGHLIGHTS.isDisabled()) return;
+
+    const highlightButton = await dynamicElement(() => main?.querySelector(`community-highlight-carousel`)?.shadowRoot?.querySelector(`button`), MAX_LOAD_LAG);
+    
+    if(highlightButton != null){
+        (highlightButton as HTMLElement).click();
+    }
 }
 
 function renderContextMenu(e: MouseEvent) {
