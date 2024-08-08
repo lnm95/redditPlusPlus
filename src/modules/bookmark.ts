@@ -95,6 +95,7 @@ export async function renderBookmarkPost(post: Element, forced: boolean = false,
 
         const bookmarkButton = downVoteButton.cloneNode(true) as Element;
         bookmarkButton.classList.add(`pp_bookmark_post`);
+        bookmarkButton.removeAttribute(`disabled`);
         bookmarkButton.removeAttribute(`downvote`);
         bookmarkButton.setAttribute(`bookmark`, ``);
         downVoteButton.after(bookmarkButton);
