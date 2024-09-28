@@ -14,12 +14,16 @@ let prevScrollHeight: number = 0;
 let isWide = false;
 let isBottom = false;
 
+let contentBlock : HTMLElement = null;
+
 export function renderScrollToTop() {
     if (settings.SCROLL_TO_TOP.isDisabled()) return;
 
     css.addStyle(style, `scrollToTop`);
 
     const main = document.body.querySelector(`.main-container`).parentElement;
+
+    contentBlock = document.body.querySelector(`.main-container`);
 
     scrollToTop = appendNew(main.parentElement, `div`, `pp_scrollToTop`);
 
@@ -59,7 +63,10 @@ export function renderScrollToTop() {
 
 function checkScreenWidth() {
     isWide = window.innerWidth > 1490;
-    scrollToTop.style.left = `${280 + (window.innerWidth - 1490) * 0.26}px`;
+
+    const rect = contentBlock.getBoundingClientRect();    
+    scrollToTop.style.left = `${(300 + rect.left) / 2 - 50}px`;
+    
     refreshScrollToTop();
 }
 

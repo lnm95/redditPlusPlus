@@ -30,12 +30,7 @@ export async function renderPost(post: Element) {
         const postFlairText = decodeURIComponent(postFlair.href.split(`%22`)[1]);
 
         if (flairData.banned != undefined && flairData.banned.includes(postFlairText)) {
-            const next = post.parentElement.nextElementSibling;
-            next.classList.add(`pp_bannedPost`);
-            post.parentElement.classList.add(`pp_bannedPost`);
-            post.classList.add(`pp_bannedPost`);
-            post.querySelector(`faceplate-tracker[source="post_credit_bar"]`).classList.add(`pp_bannedPost`);
-
+            hideBannedPost(post);
             return;
         }
     }
@@ -56,6 +51,17 @@ export async function renderPost(post: Element) {
 
         const tittle = await dynamicElement(() => post.querySelector(`a[slot="title"]`), MAX_LOAD_LAG);
         tittle?.classList?.add(`pp_post_tittle`);
+    }
+}
+
+async function hideBannedPost(post: Element) {
+    const next = await dynamicElement(() => post.parentElement.nextElementSibling, MAX_LOAD_LAG);
+
+    if (next != null) {
+        next.classList.add(`pp_bannedPost`);
+        post.parentElement.classList.add(`pp_bannedPost`);
+        post.classList.add(`pp_bannedPost`);
+        post.querySelector(`faceplate-tracker[source="post_credit_bar"]`).classList.add(`pp_bannedPost`);
     }
 }
 
