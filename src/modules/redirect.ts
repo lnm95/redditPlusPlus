@@ -1,7 +1,7 @@
 import { appendNew } from '../utils/tools';
 import { settings } from './settings/settings';
 
-import style from './reddirect.less';
+import style from './redirect.less';
 import { css } from './customCSS';
 import { checkSortCommentsRedirect } from './comments/sortButtons';
 
@@ -37,7 +37,7 @@ function renderSuggestion(redirect: string) {
 
     const container = appendNew(document.body, `div`, `pp_redirectContainer`);
     const box = appendNew(container, `div`, `pp_redirectBox`);
-    box.textContent = `Click here to reddirect on compatible page (${secondsToRedirect})`;
+    box.textContent = `Click here to redirect on compatible page (${secondsToRedirect})`;
 
     box.addEventListener(`click`, () => {
         window.location.assign(redirect);
@@ -45,7 +45,7 @@ function renderSuggestion(redirect: string) {
 
     const suggestionId = setInterval(() => {
         secondsToRedirect--;
-        box.textContent = `Click here to reddirect on compatible page (${secondsToRedirect})`;
+        box.textContent = `Click here to redirect on compatible page (${secondsToRedirect})`;
         if (secondsToRedirect <= 0) {
             clearInterval(suggestionId);
             container.remove();
