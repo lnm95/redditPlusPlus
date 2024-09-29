@@ -31,13 +31,22 @@ export async function renderCollapseAward(target: Element, targetType: ModuleTag
 
         if (upVoteButton == null) return;
 
-        awardButton.classList.toggle(`pp_awardButton_collapsed`, upVoteButton.getAttribute(`aria-pressed`) != `true`);
+        awardButton.classList.toggle(`pp_awardButton_hidden`, isCollapsed(upVoteButton));
+        awardButton.classList.toggle(`pp_awardButton_collapsed`, isCollapsed(upVoteButton));
         setTimeout(() => {
             awardButton.classList.add(`pp_awardButton`);
         }, 500);
 
         upVoteButton.addEventListener(`click`, () => {
-            awardButton.classList.toggle(`pp_awardButton_collapsed`, upVoteButton.getAttribute(`aria-pressed`) != `true`);
+            awardButton.classList.toggle(`pp_awardButton_hidden`, isCollapsed(upVoteButton));
+            
+            setTimeout(() => {
+                awardButton.classList.toggle(`pp_awardButton_collapsed`, isCollapsed(upVoteButton));
+            }, 10);
         });
     }
+}
+
+function isCollapsed(upVoteButton: Element): boolean {
+    return upVoteButton.getAttribute(`aria-pressed`) != `true`;
 }

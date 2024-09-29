@@ -1,3 +1,4 @@
+import { SHOW_RENDERED_POSTS } from '../../_debug/debug';
 import { IS_POST, MAX_LOAD_LAG } from '../../defines';
 import { buildSvg } from '../../utils/svg';
 import { appendNew, checkIsRendered, dynamicElement } from '../../utils/tools';
@@ -20,20 +21,9 @@ if (settings.BACKPLATES.isEnabled()) {
 export async function renderPost(post: Element) {
     if (checkIsRendered(post)) return;
 
+    checkVisability(post);
+
     applyShadowRoot(post);
-
-    const sub = post.getAttribute(`subreddit-prefixed-name`).replace(`r/`, ``);
-    const flairData = flairs.get(sub);
-
-    const postFlair = post.querySelector(`shreddit-post-flair`)?.querySelector(`a`);
-    if (postFlair != null) {
-        const postFlairText = decodeURIComponent(postFlair.href.split(`%22`)[1]);
-
-        if (flairData.banned != undefined && flairData.banned.includes(postFlairText)) {
-            hideBannedPost(post);
-            return;
-        }
-    }
 
     renderContent(post);
 
@@ -52,16 +42,27 @@ export async function renderPost(post: Element) {
         const tittle = await dynamicElement(() => post.querySelector(`a[slot="title"]`), MAX_LOAD_LAG);
         tittle?.classList?.add(`pp_post_tittle`);
     }
+
+    if(DEBUG && SHOW_RENDERED_POSTS){
+        post.classList.add(`pp_debug_rendered`);
+    }
 }
 
-async function hideBannedPost(post: Element) {
-    const next = await dynamicElement(() => post.parentElement.nextElementSibling, MAX_LOAD_LAG);
+async function checkVisability(post: Element) {
+    const sub = post.getAttribute(`subreddit-prefixed-name`).replace(`r/`, ``);
+    const flairData = flairs.get(sub);
 
-    if (next != null) {
-        next.classList.add(`pp_bannedPost`);
-        post.parentElement.classList.add(`pp_bannedPost`);
-        post.classList.add(`pp_bannedPost`);
-        post.querySelector(`faceplate-tracker[source="post_credit_bar"]`).classList.add(`pp_bannedPost`);
+    const postFlair = await dynamicElement(() => post.querySelector(`shreddit-post-flair`)?.querySelector(`a`), MAX_LOAD_LAG) as HTMLAnchorElement;
+    
+    if (postFlair != null) {
+        const postFlairText = decodeURIComponent(postFlair.href.split(`%22`)[1]);
+
+        if (flairData.banned != undefined && flairData.banned.includes(postFlairText)) {
+            const next = await dynamicElement(() => post.parentElement.nextElementSibling, MAX_LOAD_LAG);
+
+            post.remove();
+            next?.remove();
+        }
     }
 }
 

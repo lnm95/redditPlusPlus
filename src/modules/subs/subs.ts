@@ -40,7 +40,7 @@ async function subDataLoader(sub: string): Promise<SubData> {
 
     const loadedFlairs = [] as Array<FlairData>;
 
-    if (json != null) {
+    if (json != null && json.message == null) {
         for (const loadedFlair of json) {
             const flair = { text: loadedFlair.text, color: loadedFlair.text_color, background: loadedFlair.background_color, richtext: loadedFlair.richtext } as FlairData;
 
