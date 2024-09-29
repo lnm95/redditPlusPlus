@@ -7,7 +7,7 @@
 To usage Reddit++ follow next steps:
 
 1. Install `tampermonkey`, `violentmonkey` or any other userscript manager.
-2. Go to [script homepage](https://greasyfork.org/ru/scripts/490046-reddit) and click install.
+2. Go to [script homepage](https://greasyfork.org/en/scripts/490046-reddit) and click install.
 
 ## Developer
 

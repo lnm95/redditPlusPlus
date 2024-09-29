@@ -36,7 +36,15 @@ class CommentSortConfig {
     overrideName?: string;
 }
 
-const SORT_SEPARATOR: string = `?sort=`;
+const SORT_SEPARATOR: string = `sort=`;
+
+function isCurrentSort(href: string, sort: string): boolean {
+    // if there is no sort query param, then it is the default sort (confidence)
+    if (sort === 'confidence' && !href.includes('?')) {
+        return true;
+    }
+    return href.includes(`${SORT_SEPARATOR}${sort}`);
+}
 
 const COMMENTS_SORT_CONFIGS = new Map<string, CommentSortConfig>([
     [
@@ -44,7 +52,7 @@ const COMMENTS_SORT_CONFIGS = new Map<string, CommentSortConfig>([
         {
             icon: bestSvg,
             href: `confidence`,
-            isCurrent: href => !href.includes(SORT_SEPARATOR) || href.includes(`/?sort=confidence`)
+            isCurrent: href => isCurrentSort(href, 'confidence')
         }
     ],
     [
@@ -52,7 +60,7 @@ const COMMENTS_SORT_CONFIGS = new Map<string, CommentSortConfig>([
         {
             icon: topSvg,
             href: `top`,
-            isCurrent: href => href.includes(`/?sort=top`)
+            isCurrent: href => isCurrentSort(href, 'top')
         }
     ],
     [
@@ -60,7 +68,7 @@ const COMMENTS_SORT_CONFIGS = new Map<string, CommentSortConfig>([
         {
             icon: newSvg,
             href: `new`,
-            isCurrent: href => href.includes(`/?sort=new`)
+            isCurrent: href => isCurrentSort(href, 'new')
         }
     ],
     [
@@ -68,7 +76,7 @@ const COMMENTS_SORT_CONFIGS = new Map<string, CommentSortConfig>([
         {
             icon: controversialSvg,
             href: `controversial`,
-            isCurrent: href => href.includes(`/?sort=controversial`)
+            isCurrent: href => isCurrentSort(href, 'controversial')
         }
     ],
     [
@@ -76,7 +84,7 @@ const COMMENTS_SORT_CONFIGS = new Map<string, CommentSortConfig>([
         {
             icon: oldSvg,
             href: `old`,
-            isCurrent: href => href.includes(`/?sort=old`)
+            isCurrent: href => isCurrentSort(href, 'old')
         }
     ],
     [
@@ -84,7 +92,7 @@ const COMMENTS_SORT_CONFIGS = new Map<string, CommentSortConfig>([
         {
             icon: qaSvg,
             href: `qa`,
-            isCurrent: href => href.includes(`/?sort=qa`),
+            isCurrent: href => isCurrentSort(href, 'qa'),
             overrideName: `Q&A`
         }
     ]
@@ -111,11 +119,15 @@ export function checkSortCommentsRedirect(): boolean {
         }
 
         let postHref = window.location.href;
+
+        const hasQueryThatIsNotSort = postHref.includes('?') && !postHref.includes(SORT_SEPARATOR);
         if (postHref.includes(SORT_SEPARATOR)) {
-            postHref = postHref.split(SORT_SEPARATOR)[0];
+            const separatorIndex = postHref.indexOf(SORT_SEPARATOR);
+            const newString = postHref.slice(0, separatorIndex - 1);
+            postHref = newString;
         }
 
-        window.location.assign(postHref + SORT_SEPARATOR + config.href);
+        window.location.replace(postHref + (hasQueryThatIsNotSort ? '&' : '?') + SORT_SEPARATOR + config.href);
         return true;
     }
 
