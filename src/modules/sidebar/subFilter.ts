@@ -6,6 +6,7 @@ import { PrefsKey, prefs } from '../settings/prefs';
 
 import subFilterSvg from '@resources/subFilter.svg';
 import subFilterClearSvg from '@resources/subFilterClear.svg';
+import { notify } from '../toaster';
 
 css.addStyle(style);
 
@@ -16,10 +17,10 @@ export async function renderSubFilter(container: Element) {
 
     const filterContainer = appendNew(container, `div`, `pp_subFilter_container`);
 
-    const createSubButton = (await dynamicElement(() => container.querySelector(`left-nav-create-community-button`))) as HTMLElement;
+    const createSubButton = (await dynamicElement(() => container.querySelector(`.left-nav-create-community-button`))) as HTMLElement;
 
     createSubButton.style.width = `65px`;
-    const createSubText = await dynamicElement(() => createSubButton.shadowRoot?.querySelector(`div[role="button"]`)?.querySelector(`.text-14`));
+    const createSubText = await dynamicElement(() => createSubButton.querySelector(`.text-14`));
     createSubText.remove();
     createSubButton.replaceWith(filterContainer);
     filterContainer.append(createSubButton);
