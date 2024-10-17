@@ -85,28 +85,28 @@ export async function renderComments(container: Element) {
     // mutations
     if (commentsMutations != null) {
         commentsMutations.disconnect();
-    } else{
+    } else {
         commentsMutations = new MutationObserver(mutations => {
             for (const mutation of mutations) {
                 for (const node of mutation.addedNodes) {
                     if (node instanceof HTMLElement) {
                         // static comments
                         const commentTree = node.parentElement?.querySelector(`shreddit-comment-tree`);
-    
+
                         if (commentTree != null) {
                             registryAllRoots(commentTree);
-    
+
                             // singal to commentsSort buttons that comments refreshed
                             OnCommentsTreeLoaded();
                         }
-    
+
                         // dynamic comments
                         if (node.matches(`shreddit-comment`)) {
                             if (node.getAttribute(`depth`) == `0`) {
                                 registryRoot(node);
                             } else {
                                 registryComment(node);
-    
+
                                 registryAllComments(node);
                             }
                         }
@@ -114,7 +114,7 @@ export async function renderComments(container: Element) {
                 }
             }
         });
-    }    
+    }
 
     commentsMutations.observe(container, { childList: true, subtree: true });
 
@@ -208,12 +208,20 @@ export async function renderComment(comment: Element) {
     }
 
     // registry image
-    const image = commentBody.querySelector(`faceplate-img`) as HTMLImageElement;
-    if (image != null) {
+    const imageContainer = commentBody.querySelector(`figure[class="rte-media"]`);
+    if (imageContainer != null) {
+        const imageAnchor = imageContainer.querySelector(`a`) as HTMLAnchorElement;
+        const href = imageAnchor.getAttribute(`href`);
+        imageAnchor.removeAttribute(`href`);
+
+        let image = imageContainer.querySelector(`img`) as HTMLImageElement | HTMLVideoElement;
+        if (image == null) {
+            image = imageContainer.querySelector(`shreddit-player-2`);
+        }
         image.classList.add(`pp_imageViewable`);
-        image.parentElement.removeAttribute(`href`);
-        image.addEventListener(`click`, () => {
-            imageViewer.open(image.getAttribute(`src`));
+
+        imageAnchor.addEventListener(`click`, () => {
+            imageViewer.open(href);
         });
     }
 
