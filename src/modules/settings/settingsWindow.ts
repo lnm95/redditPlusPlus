@@ -46,6 +46,12 @@ function renderSettingsWindow(win: Window, context: any) {
     addSettingToggle(`Collapse Awards`, `Automatic collapse the award's button for none upvoted posts and comments`, settings.COLLAPSE_AWARDS);
     addSettingToggle(`Remove Awards`, `Remove the award's buttons completely`, settings.COLLAPSE_AWARDS_COMPLETELY);
 
+    addSubtittle(`Default feeds`);
+    addSettingDropdown(`Home`, null, settings.DEFAULT_FEED_HOME);
+    addSettingDropdown(`Popular`, null, settings.DEFAULT_FEED_POPULAR);
+    addSettingDropdown(`All`, null, settings.DEFAULT_FEED_ALL);
+    addSettingDropdown(`Subreddit's`, null, settings.DEFAULT_FEED_SUB);
+
     addSubtittle(`Feed`);
     addSettingToggle(`Feed buttons`, `Unwrap feed sorting buttons`, settings.FEED_BUTTONS);
     addSettingToggle(`Flairs bar`, `Display available flairs to faster navigation. Specific flairs may be hidden via subreddit's flairs settings`, settings.FLAIR_BAR);

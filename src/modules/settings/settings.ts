@@ -1,4 +1,6 @@
 import { Database } from '../../utils/database';
+import { FeedLocation } from '../feed/feedLocation';
+import { GetFeeds } from '../feed/feedType';
 
 export class SettingBoolProperty {
     name: string;
@@ -47,6 +49,11 @@ export class SettingDropdownProperty {
         return isDefault ? this.values[this.defaultIndex] : rawValue as string;
     }
 
+
+    isDefault():boolean {
+        return this.get() == this.values[this.defaultIndex];
+    }
+
     switch(shift:number): void {
         let index = this.values.indexOf(this.get()) + shift;
 
@@ -80,6 +87,11 @@ class SettingsManager {
     public SCROLL_TO_TOP = new SettingBoolProperty(`scrollToTop`);
     public COLLAPSE_AWARDS = new SettingBoolProperty(`collapseAwards`);
     public COLLAPSE_AWARDS_COMPLETELY = new SettingBoolProperty(`collapseAwardsCompletely`, false);
+    // feed sorts
+    public DEFAULT_FEED_HOME = new SettingDropdownProperty(`defaultFeedHome`, GetFeeds(FeedLocation.Home), 0);
+    public DEFAULT_FEED_POPULAR = new SettingDropdownProperty(`defaultFeedPopular`, GetFeeds(FeedLocation.Popular), 1);
+    public DEFAULT_FEED_ALL = new SettingDropdownProperty(`defaultFeedAll`, GetFeeds(FeedLocation.All), 0);
+    public DEFAULT_FEED_SUB = new SettingDropdownProperty(`defaultFeedSub`, GetFeeds(FeedLocation.Sub), 0);
     // feed
     public FEED_BUTTONS = new SettingBoolProperty(`feedButtons`);
     public FLAIR_BAR = new SettingBoolProperty(`flairbar`);

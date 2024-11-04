@@ -4,7 +4,7 @@
 // @description      A lot of enhancements for new design of reddit.com like unwrapped feed buttons, bigger fonts, view images without redirect and many more...
 // @description:ru   Множество улучшений для нового интерфейса reddit.com, таких как развернутые кнопки лент, увеличенный шрифт, увеличение изображений без редиректа и много другое...
 // @namespace        RedditPlusPlus
-// @version          1.0.11
+// @version          1.0.12
 // @author           lnm95
 // @icon             data:image/png;base64,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
 // @source           https://github.com/lnm95/redditPlusPlus
@@ -371,7 +371,47 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_tagsPanel {
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `.pp_feedButtonsContainer {
+___CSS_LOADER_EXPORT___.push([module.id, `.pp_feedPanel {
+  flex-direction: row;
+}
+.pp_feedPanel_space {
+  width: 100%;
+}
+.pp_defaultFeed_mark {
+  color: var(--color-neutral-content-weak);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  margin: 0px 5px 9px 5px;
+  padding: 0px 8px;
+  position: relative;
+  cursor: pointer;
+}
+.pp_defaultFeed_mark:hover {
+  background-color: var(--button-color-background-hover);
+}
+.pp_defaultFeed_mark:active {
+  background-color: var(--button-color-background-activated);
+}
+.pp_defaultFeed_mark_hint {
+  display: none;
+  position: absolute;
+  top: -32px;
+  left: 16px;
+}
+.pp_defaultFeed_mark:hover > .pp_defaultFeed_mark_hint {
+  display: block !important;
+}
+.pp_defaultFeed_mark_hint > span {
+  color: #c7c7c7;
+  background-color: rgba(0, 0, 0, 0.712);
+  text-wrap-mode: nowrap;
+  border-radius: 18px;
+  padding: 4px 8px;
+  position: relative;
+  left: -50%;
+}
+.pp_feedButtonsContainer {
   justify-content: space-between;
   height: 40px !important;
 }
@@ -1575,6 +1615,13 @@ module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\
 
 /***/ }),
 
+/***/ "./resources/feedButtons/feedButtonBest_empty.svg":
+/***/ ((module) => {
+
+module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\"><path d=\"M8.82,1.51l1.43,3.4a.86.86,0,0,0,.66.47l3.62.28A.91.91,0,0,1,15,7.22L12.3,9.62a.84.84,0,0,0-.25.76l.81,3.55a.92.92,0,0,1-1.33,1L8.41,13a.91.91,0,0,0-.82,0L4.47,14.89a.92.92,0,0,1-1.33-1L4,10.38a.84.84,0,0,0-.25-.76L1,7.22a.91.91,0,0,1,.5-1.56l3.62-.28a.86.86,0,0,0,.66-.47l1.43-3.4A.91.91,0,0,1,8.82,1.51Z\" style=\"fill:none; stroke:currentColor\"></path></svg>"
+
+/***/ }),
+
 /***/ "./resources/feedButtons/feedButtonHot.svg":
 /***/ ((module) => {
 
@@ -1991,7 +2038,39 @@ class Database {
     }
 }
 
+;// CONCATENATED MODULE: ./src/modules/feed/feedLocation.ts
+var FeedLocation;
+(function (FeedLocation) {
+    FeedLocation[FeedLocation["Sub"] = 0] = "Sub";
+    FeedLocation[FeedLocation["Home"] = 1] = "Home";
+    FeedLocation[FeedLocation["Popular"] = 2] = "Popular";
+    FeedLocation[FeedLocation["All"] = 3] = "All";
+})(FeedLocation || (FeedLocation = {}));
+function GetFeedLocation() {
+    if (window.location.href.includes(`?feed=home`) || window.location.href == `https://www.reddit.com/`)
+        return FeedLocation.Home;
+    if (window.location.href.includes(`reddit.com/r/popular/`))
+        return FeedLocation.Popular;
+    if (window.location.href.includes(`reddit.com/r/all/`))
+        return FeedLocation.All;
+    return FeedLocation.Sub;
+}
+
+;// CONCATENATED MODULE: ./src/modules/feed/feedType.ts
+
+function GetFeeds(location) {
+    const defaultFeeds = [`Hot`, `New`, `Top`, `Rising`];
+    if (location == FeedLocation.Home || location == FeedLocation.Popular) {
+        return [`Best`].concat(defaultFeeds);
+    }
+    else {
+        return defaultFeeds;
+    }
+}
+
 ;// CONCATENATED MODULE: ./src/modules/settings/settings.ts
+
+
 
 class SettingBoolProperty {
     constructor(name, defailtValue = true) {
@@ -2024,6 +2103,9 @@ class SettingDropdownProperty {
         const isDefault = rawValue instanceof Object;
         return isDefault ? this.values[this.defaultIndex] : rawValue;
     }
+    isDefault() {
+        return this.get() == this.values[this.defaultIndex];
+    }
     switch(shift) {
         let index = this.values.indexOf(this.get()) + shift;
         if (index < 0) {
@@ -2054,6 +2136,11 @@ class SettingsManager {
         this.SCROLL_TO_TOP = new SettingBoolProperty(`scrollToTop`);
         this.COLLAPSE_AWARDS = new SettingBoolProperty(`collapseAwards`);
         this.COLLAPSE_AWARDS_COMPLETELY = new SettingBoolProperty(`collapseAwardsCompletely`, false);
+        // feed sorts
+        this.DEFAULT_FEED_HOME = new SettingDropdownProperty(`defaultFeedHome`, GetFeeds(FeedLocation.Home), 0);
+        this.DEFAULT_FEED_POPULAR = new SettingDropdownProperty(`defaultFeedPopular`, GetFeeds(FeedLocation.Popular), 1);
+        this.DEFAULT_FEED_ALL = new SettingDropdownProperty(`defaultFeedAll`, GetFeeds(FeedLocation.All), 0);
+        this.DEFAULT_FEED_SUB = new SettingDropdownProperty(`defaultFeedSub`, GetFeeds(FeedLocation.Sub), 0);
         // feed
         this.FEED_BUTTONS = new SettingBoolProperty(`feedButtons`);
         this.FLAIR_BAR = new SettingBoolProperty(`flairbar`);
@@ -2299,10 +2386,14 @@ function renderSidebar(sidebar) {
                 const openState = await dynamicElement(() => subsSection.getAttribute(`open`));
                 if (openState) {
                 }
+                let hrElement = subsSection.nextElementSibling;
+                while (hrElement != null && !hrElement.matches(`hr`)) {
+                    hrElement = hrElement.nextElementSibling;
+                }
                 return {
                     container: subsSection,
                     button: customFeedsButton,
-                    hr: subsSection.nextElementSibling
+                    hr: hrElement
                 };
             });
             return true;
@@ -2325,7 +2416,7 @@ function renderSidebar(sidebar) {
                 return {
                     container: helper,
                     button: button,
-                    hr: recentSection.querySelector(`hr`)
+                    hr: recentSection.nextElementSibling //recentSection.querySelector(`hr`)
                 };
             });
             return true;
@@ -2439,6 +2530,9 @@ async function renderBookmarkPost(post, forced = false, forcedValue = undefined)
     if (settings.SAVED_BOOKMARK_POSTS.isDisabled())
         return;
     const contextMenu = await dynamicElement(() => post.querySelector(`shreddit-post-overflow-menu`)?.shadowRoot?.querySelector(`faceplate-dropdown-menu`)?.querySelector(`faceplate-menu`), 3000);
+    if (contextMenu == undefined) {
+        return;
+    }
     let isSaved = true;
     let saveButton = null;
     contextMenu.querySelectorAll(`li`).forEach(element => {
@@ -2831,10 +2925,13 @@ function closeFlairsWindow() {
 css.addStyle(subs/* default */.A);
 const FLAIR_HIDDEN = `hidden`;
 const FLAIR_BANNED = `banned`;
+class SubSettings {
+}
 class SubFlairsData {
 }
 class SubData {
 }
+const subSettings = new Database(`SUBS_SETTINGS`);
 const flairs = new Database(`FLAIRS`);
 const subs_subs = new Database(`SUBS`, { isCleanupable: true, validator: subDataValidator, loader: subDataLoader });
 function subDataValidator(subData) {
@@ -2957,6 +3054,9 @@ async function renderPost(post) {
     
 }
 async function checkVisability(post) {
+    if (window.location.href.includes(`/comments/`)) {
+        return;
+    }
     const sub = post.getAttribute(`subreddit-prefixed-name`).replace(`r/`, ``);
     const flairData = flairs.get(sub);
     const postFlair = await dynamicElement(() => post.querySelector(`shreddit-post-flair`)?.querySelector(`a`), MAX_LOAD_LAG);
@@ -3025,6 +3125,9 @@ async function renderUnwrapPostButton(post, postContent) {
 
 // EXTERNAL MODULE: ./src/modules/feed/feedButtons.less
 var feedButtons = __webpack_require__("./src/modules/feed/feedButtons.less");
+// EXTERNAL MODULE: ./resources/feedButtons/feedButtonBest_empty.svg
+var feedButtonBest_empty = __webpack_require__("./resources/feedButtons/feedButtonBest_empty.svg");
+var feedButtonBest_empty_default = /*#__PURE__*/__webpack_require__.n(feedButtonBest_empty);
 // EXTERNAL MODULE: ./resources/feedButtons/feedButtonBest.svg
 var feedButtonBest = __webpack_require__("./resources/feedButtons/feedButtonBest.svg");
 var feedButtonBest_default = /*#__PURE__*/__webpack_require__.n(feedButtonBest);
@@ -3040,7 +3143,48 @@ var feedButtonRising_default = /*#__PURE__*/__webpack_require__.n(feedButtonRisi
 // EXTERNAL MODULE: ./resources/feedButtons/feedButtonTop.svg
 var feedButtonTop = __webpack_require__("./resources/feedButtons/feedButtonTop.svg");
 var feedButtonTop_default = /*#__PURE__*/__webpack_require__.n(feedButtonTop);
+;// CONCATENATED MODULE: ./src/modules/feed/feedRedirect.ts
+
+
+
+function GetDefaultFeedProperty(location) {
+    switch (location) {
+        case FeedLocation.Home:
+            return settings.DEFAULT_FEED_HOME;
+        case FeedLocation.Popular:
+            return settings.DEFAULT_FEED_POPULAR;
+        case FeedLocation.All:
+            return settings.DEFAULT_FEED_ALL;
+        default:
+            return settings.DEFAULT_FEED_SUB;
+    }
+}
+function IsUnsetedFeed() {
+    if (window.location.href == `https://www.reddit.com/`)
+        return true;
+    if (window.location.href.includes(`?feed=home`)) {
+        return window.location.href.includes(`reddit.com/?feed=home`);
+    }
+    else {
+        return window.location.href.split(`/r/`)[1].split(`/`).length < 3;
+    }
+}
+function CheckFeedRedirect(location, sort) {
+    if (location == FeedLocation.Sub) {
+        const currentSubSettings = subSettings.get(getCurrentSub());
+        if (currentSubSettings.defaultFeed != undefined) {
+            return currentSubSettings.defaultFeed == sort;
+        }
+    }
+    const defaultFeedProperty = GetDefaultFeedProperty(location);
+    return (!defaultFeedProperty.isDefault() && defaultFeedProperty.get() == sort);
+}
+
 ;// CONCATENATED MODULE: ./src/modules/feed/feedButtons.ts
+
+
+
+
 
 
 
@@ -3060,8 +3204,6 @@ const BUTTONS_SVG = {
     Top: (feedButtonTop_default()),
     Rising: (feedButtonRising_default())
 };
-const FEED_BUTTONS_EXTENDED = [`Best`, `Hot`, `New`, `Top`, `Rising`];
-const FEED_BUTTONS = [`Hot`, `New`, `Top`, `Rising`];
 const BUTTON_CLASSES = [
     `inline-flex`,
     `flex-col`,
@@ -3083,26 +3225,24 @@ async function renderFeedButtons(main, feedDropdown) {
     // get current feed
     const currentFeed = feedDropdown?.querySelector(`div[slot="selected-item"]`)?.textContent;
     feedDropdown?.remove();
-    const isHome = window.location.href.includes(`?feed=home`) || window.location.href == `https://www.reddit.com/`;
-    const isPopular = window.location.href.includes(`reddit.com/r/popular/`);
-    const isAll = window.location.href.includes(`reddit.com/r/all/`);
+    const location = GetFeedLocation();
     // get container
     let buttonsContainer = null;
     let hrefGenerator = null;
-    if (isHome || isPopular || isAll) {
+    if (location != FeedLocation.Sub) {
         const originContainer = await dynamicElement(() => main.querySelector(`shreddit-layout-event-setter`)?.parentElement);
         originContainer.classList.add(`pp_feedButtonsContainer`);
         buttonsContainer = document.createElement(`div`);
         buttonsContainer.classList.add(`flex`, `mx-md`, `shrink-0`, `pp_feedContainer`);
         originContainer.prepend(buttonsContainer);
-        if (isHome) {
+        if (location == FeedLocation.Home) {
             hrefGenerator = feed => {
                 return `/${feed.toLowerCase()}/?feed=home`;
             };
         }
         else {
             hrefGenerator = feed => {
-                return `/r/${isPopular ? `popular` : `all`}/${feed.toLowerCase()}/`;
+                return `/r/${(location == FeedLocation.Popular) ? `popular` : `all`}/${feed.toLowerCase()}/`;
             };
         }
     }
@@ -3116,9 +3256,37 @@ async function renderFeedButtons(main, feedDropdown) {
         hrefGenerator = feed => {
             return `/r/${subName}/${feed.toLowerCase()}/`;
         };
+        // render default feed dropdown
+        const feedpanel = buttonsContainer.parentElement;
+        feedpanel.classList.toggle(`justify-between`, false);
+        feedpanel.classList.toggle(`flex-wrap`, false);
+        feedpanel.classList.toggle(`pp_feedPanel`, true);
+        const space = document.createElement(`div`);
+        space.classList.add(`pp_feedPanel_space`);
+        buttonsContainer.after(space);
+        let currentSubSettings = subSettings.get(subName);
+        const isDefault = (currentSubSettings.defaultFeed == undefined) ? (currentFeed == settings.DEFAULT_FEED_SUB.get()) : (currentFeed == currentSubSettings.defaultFeed);
+        const defaultFeedMark = document.createElement(`div`);
+        defaultFeedMark.classList.add(`pp_defaultFeed_mark`);
+        let svg = buildSvg(isDefault ? (feedButtonBest_default()) : (feedButtonBest_empty_default()), 16, 16);
+        defaultFeedMark.append(svg);
+        space.after(defaultFeedMark);
+        const defaultFeedMarkHint = appendNew(defaultFeedMark, `div`, `pp_defaultFeed_mark_hint`);
+        const defaultFeedMarkHintSpan = appendNew(defaultFeedMarkHint, `span`);
+        defaultFeedMarkHintSpan.textContent = isDefault ? `${currentFeed} is default feed for r/${subName}` : `Set ${currentFeed} as default feed for r/${subName}`;
+        if (!isDefault) {
+            defaultFeedMark.addEventListener(`click`, () => {
+                const updatedSvg = buildSvg((feedButtonBest_default()), 16, 16);
+                svg.replaceWith(updatedSvg);
+                defaultFeedMarkHintSpan.textContent = `${currentFeed} is default feed for r/${subName}`;
+                currentSubSettings.defaultFeed = currentFeed;
+                subSettings.set(subName, currentSubSettings);
+            }, { once: true });
+        }
     }
     // render buttons
-    const feeds = isHome || isPopular ? FEED_BUTTONS_EXTENDED : FEED_BUTTONS;
+    const feeds = GetFeeds(location);
+    const isUnseted = IsUnsetedFeed();
     for (const feed of feeds) {
         const button = appendNew(buttonsContainer, `a`, BUTTON_CLASSES);
         button.href = hrefGenerator(feed);
@@ -3133,6 +3301,9 @@ async function renderFeedButtons(main, feedDropdown) {
         }
         const spanText = appendNew(spanContainer, `span`);
         spanText.textContent = feed;
+        if (isUnseted && CheckFeedRedirect(location, feed)) {
+            button.click();
+        }
     }
 }
 
@@ -4191,14 +4362,13 @@ async function renderComment(comment) {
         const imageAnchor = imageContainer.querySelector(`a`);
         const href = imageAnchor.getAttribute(`href`);
         imageAnchor.removeAttribute(`href`);
-        // href
         let image = imageContainer.querySelector(`img`);
         if (image == null) {
             image = imageContainer.querySelector(`shreddit-player-2`);
         }
         image.classList.add(`pp_imageViewable`);
         imageAnchor.addEventListener(`click`, () => {
-            imageViewer_imageViewer.open(href); //image.getAttribute(`src`)
+            imageViewer_imageViewer.open(href);
         });
     }
     renderCollapseAward(comment, IS_COMMENT);
@@ -4384,6 +4554,11 @@ function renderSettingsWindow(win, context) {
     addSettingToggle(`Scroll to top button`, null, settings.SCROLL_TO_TOP);
     addSettingToggle(`Collapse Awards`, `Automatic collapse the award's button for none upvoted posts and comments`, settings.COLLAPSE_AWARDS);
     addSettingToggle(`Remove Awards`, `Remove the award's buttons completely`, settings.COLLAPSE_AWARDS_COMPLETELY);
+    addSubtittle(`Default feeds`);
+    addSettingDropdown(`Home`, null, settings.DEFAULT_FEED_HOME);
+    addSettingDropdown(`Popular`, null, settings.DEFAULT_FEED_POPULAR);
+    addSettingDropdown(`All`, null, settings.DEFAULT_FEED_ALL);
+    addSettingDropdown(`Subreddit's`, null, settings.DEFAULT_FEED_SUB);
     addSubtittle(`Feed`);
     addSettingToggle(`Feed buttons`, `Unwrap feed sorting buttons`, settings.FEED_BUTTONS);
     addSettingToggle(`Flairs bar`, `Display available flairs to faster navigation. Specific flairs may be hidden via subreddit's flairs settings`, settings.FLAIR_BAR);
@@ -4617,7 +4792,7 @@ async function startRedditPlusPlus() {
     }
     pp_meta = document.createElement(`meta`);
     pp_meta.setAttribute(`name`, `reddit-plus-plus`);
-    pp_meta.setAttribute(`version`, "1.0.11");
+    pp_meta.setAttribute(`version`, "1.0.12");
     document.head.append(pp_meta);
     // call latest migration
     migration_1_0_0.check();

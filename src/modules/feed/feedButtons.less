@@ -1,3 +1,51 @@
+.pp_feedPanel {
+    flex-direction: row;
+}
+
+.pp_feedPanel_space {
+    width: 100%;
+}
+
+.pp_defaultFeed_mark {
+    color: var(--color-neutral-content-weak);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    margin: 0px 5px 9px 5px;
+    padding: 0px 8px;
+    position: relative;
+    cursor: pointer;
+}
+
+.pp_defaultFeed_mark:hover {
+    background-color: var(--button-color-background-hover);
+}
+
+.pp_defaultFeed_mark:active {
+    background-color: var(--button-color-background-activated);
+}
+
+.pp_defaultFeed_mark_hint {
+    display: none;
+    position: absolute;
+    top: -32px;
+    left: 16px;
+}
+
+.pp_defaultFeed_mark:hover > .pp_defaultFeed_mark_hint {
+    display: block !important;
+}
+
+.pp_defaultFeed_mark_hint > span {
+    color: #c7c7c7;
+    background-color: rgba(0, 0, 0, 0.712);
+    text-wrap-mode: nowrap;
+    border-radius: 18px;    
+    padding: 4px 8px;    
+    position: relative;
+    left: -50%;
+}
+
 .pp_feedButtonsContainer {
     justify-content: space-between;
     height: 40px !important;

@@ -49,6 +49,10 @@ export async function renderPost(post: Element) {
 }
 
 async function checkVisability(post: Element) {
+    if(window.location.href.includes(`/comments/`)) {
+        return;
+    }
+    
     const sub = post.getAttribute(`subreddit-prefixed-name`).replace(`r/`, ``);
     const flairData = flairs.get(sub);
 

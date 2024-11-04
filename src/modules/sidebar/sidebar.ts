@@ -52,10 +52,16 @@ export function renderSidebar(sidebar: Element) {
                 if (openState) {
                 }
 
+                let hrElement = subsSection.nextElementSibling;
+
+                while(hrElement != null && !hrElement.matches(`hr`)){
+                    hrElement = hrElement.nextElementSibling;
+                }
+
                 return {
                     container: subsSection,
                     button: customFeedsButton,
-                    hr: subsSection.nextElementSibling
+                    hr: hrElement
                 } as SidebarSection;
             });
             return true;
@@ -84,7 +90,7 @@ export function renderSidebar(sidebar: Element) {
                 return {
                     container: helper,
                     button: button,
-                    hr: recentSection.querySelector(`hr`)
+                    hr: recentSection.nextElementSibling //recentSection.querySelector(`hr`)
                 } as SidebarSection;
             });
             return true;

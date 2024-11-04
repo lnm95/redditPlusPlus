@@ -14,6 +14,10 @@ css.addStyle(style);
 export const FLAIR_HIDDEN: string = `hidden`;
 export const FLAIR_BANNED: string = `banned`;
 
+class SubSettings {
+    defaultFeed: string;
+}
+
 class SubFlairsData {
     hidden: Array<string>;
     banned: Array<string>;
@@ -25,6 +29,7 @@ class SubData implements ICleanupableData {
     flairs: Array<FlairData>;
 }
 
+export const subSettings: Database<SubSettings> = new Database<SubSettings>(`SUBS_SETTINGS`);
 export const flairs: Database<SubFlairsData> = new Database<SubFlairsData>(`FLAIRS`);
 export const subs: Database<SubData> = new Database<SubData>(`SUBS`, { isCleanupable: true, validator: subDataValidator, loader: subDataLoader } as DatabaseConfig<SubData>);
 

@@ -28,6 +28,7 @@
 
     <h4>Сабреддиты</h4>
     <li><details><summary>Кнопки лент Hot/New/Top</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/scr/feedButtons.png alt="feedButtons"></details></li>
+    <li>Переопределение лент по умолчанию (глобально или для конкретных сабов).</li>
     <li>Флеир бар для быстрой навигации.</li>
 
     <h4>Посты</h4>
