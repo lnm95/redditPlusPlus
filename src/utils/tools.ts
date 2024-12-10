@@ -36,11 +36,11 @@ export async function dynamicElement(elementRequest: Function, maxLifetime: numb
     });
 }
 
-interface ObservAction {
+interface ObserveAction {
     (elment: HTMLElement): void | boolean;
 }
 
-export function observeFor(root: Element, action: ObservAction) {
+export function observeFor(root: Element, action: ObserveAction, includeChilds: boolean = true) {
     const result = action(root as HTMLElement);
 
     if (result != undefined && result == true) {
@@ -70,7 +70,7 @@ export function observeFor(root: Element, action: ObservAction) {
         }
     });
 
-    observer.observe(root, { childList: true, subtree: true });
+    observer.observe(root, { childList: true, subtree: includeChilds });
 }
 
 export function checkIsRendered(node: Element, key: string = `pp-rendered`) {

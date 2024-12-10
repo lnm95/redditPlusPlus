@@ -1,6 +1,8 @@
 import wideModeStyle from './wideMode.less';
 import { css } from './customCSS';
 import { settings } from './settings/settings';
+import { observeFor } from '../utils/tools';
+import { notify } from './toaster';
 
 export function renderWideMode(pageContainer: Element, rightSidebar: Element) {
     if (settings.WIDE_MODE.isDisabled()) return;
@@ -14,9 +16,26 @@ export function renderWideMode(pageContainer: Element, rightSidebar: Element) {
         return;
     }
 
-    const originContainer = rightSidebar.parentNode;
+    const originContainer = rightSidebar.parentElement;
 
     let isWideMode = !(window.innerWidth >= 1392);
+
+    // fix for context lookup
+    observeFor(pageContainer, renderContextPopup, false);
+    observeFor(originContainer, renderContextPopup, false);
+
+    function renderContextPopup(element: HTMLElement) : boolean {        
+        if(element.classList.contains(`rounded-[16px]`)) {
+            element.classList.add(`pp_rightSidebar_contextLookup`);
+            
+            if(window.innerWidth < 1392 && element.parentNode != rightSidebar.parentNode) {    
+                rightSidebar.after(element);
+            }
+        }
+
+        return false;
+    }   
+
 
     refreshAppRender();
     window.addEventListener('resize', event => {

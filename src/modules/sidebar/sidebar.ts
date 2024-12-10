@@ -90,7 +90,7 @@ export function renderSidebar(sidebar: Element) {
                 return {
                     container: helper,
                     button: button,
-                    hr: recentSection.nextElementSibling //recentSection.querySelector(`hr`)
+                    hr: recentSection.querySelector(`hr`)
                 } as SidebarSection;
             });
             return true;
