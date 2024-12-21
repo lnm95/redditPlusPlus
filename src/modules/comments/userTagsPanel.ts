@@ -4,7 +4,7 @@ import { appendNew } from '../../utils/tools';
 import { css } from '../customCSS';
 import { settings } from '../settings/settings';
 import { notify } from '../toaster';
-import { BLOCK_OPERATION, FOLLOW_OPERATION } from '../userOperations';
+import { BLOCK_OPERATION, FOLLOW_OPERATION } from '../users/userOperations';
 import { USERTAG_CONFIGS, UserTag, UserTagConfig, renderUserTags, tags } from './userTags';
 
 class UserTagButtonContext {

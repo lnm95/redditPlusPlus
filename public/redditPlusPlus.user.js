@@ -4,7 +4,7 @@
 // @description      A lot of enhancements for new design of reddit.com like unwrapped feed buttons, bigger fonts, view images without redirect and many more...
 // @description:ru   Множество улучшений для нового интерфейса reddit.com, таких как развернутые кнопки лент, увеличенный шрифт, увеличение изображений без редиректа и много другое...
 // @namespace        RedditPlusPlus
-// @version          1.0.13
+// @version          1.0.14
 // @author           lnm95
 // @icon             data:image/png;base64,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
 // @source           https://github.com/lnm95/redditPlusPlus
@@ -2155,6 +2155,7 @@ class SettingsManager {
         this.BACKPLATES = new SettingBoolProperty(`backplates`);
         this.SELECTABLE_POSTS = new SettingBoolProperty(`selectablePosts`);
         this.UNWRAP_POST = new SettingBoolProperty(`unwrapPost`);
+        this.SHOW_POST_AUTHOR = new SettingBoolProperty(`showPostAuthor`);
         this.SAVED_BOOKMARK_POSTS = new SettingBoolProperty(`savedBookmarkPosts`);
         this.SAVED_BOOKMARK_POSTS_SHOW_ALWAYAS = new SettingBoolProperty(`savedBookmarkPostsShowAlways`, false);
         // comments
@@ -3030,6 +3031,109 @@ function renderContextMenu(e) {
     link.prepend(menuAboutButton);
 }
 
+;// CONCATENATED MODULE: ./src/modules/users/users.ts
+
+
+
+class UserData {
+}
+const users = new Database(`USERS`, { isCleanupable: true, validator: userDataValidator, loader: userDataLoader });
+function userDataValidator(userData) {
+    return userData.accountId == undefined;
+}
+async function userDataLoader(userId) {
+    let userData = {};
+    try {
+        const response = await fetch(`https://oauth.reddit.com/user/${userId}/about.json`, { cache: `no-cache`, method: `get` });
+        if (!response.ok) {
+            pp_log(`Failed to load user (${userId}) data with code ${response.status} : ${response.statusText}`);
+            
+            return userData;
+        }
+        const json = await response.json();
+        if (json.data?.is_suspended == true || json.data?.is_blocked == true) {
+            userData.banned = true;
+            return userData;
+        }
+        userData.rating = (json.data?.link_karma ?? 0) + (json.data?.comment_karma ?? 0) / 2;
+        if (json.data?.subreddit?.title) {
+            userData.nick = json.data.subreddit.title;
+        }
+        userData.created = json.data?.created ?? 0;
+        userData.accountId = json.kind + `_` + json.data?.id;
+        return userData;
+    }
+    catch (e) {
+        pp_log(`Failed to load user (${userId}) data with error ${e}`);
+        
+        return userData;
+    }
+}
+
+// EXTERNAL MODULE: ./resources/comments/newUser.svg
+var newUser = __webpack_require__("./resources/comments/newUser.svg");
+var newUser_default = /*#__PURE__*/__webpack_require__.n(newUser);
+// EXTERNAL MODULE: ./resources/comments/bannedUser.svg
+var bannedUser = __webpack_require__("./resources/comments/bannedUser.svg");
+var bannedUser_default = /*#__PURE__*/__webpack_require__.n(bannedUser);
+;// CONCATENATED MODULE: ./src/modules/users/userInfo.ts
+
+
+
+
+
+
+
+
+const NEWUSER_SECONDS_SHIFT = DAY_SECONDS * 64;
+let loadQueueLock = false;
+async function renderUserInfo(userId, nickName, tagsAnchor, infoAnchor, target) {
+    if (settings.USER_INFO.isDisabled())
+        return;
+    
+    await dynamicElement(() => (loadQueueLock ? null : true));
+    loadQueueLock = true;
+    const userData = await users.getWithLoader(userId, isLoaded => {
+        if (isLoaded) {
+            setTimeout(() => {
+                loadQueueLock = false;
+            }, 150 + Math.random() * 100);
+        }
+        else {
+            loadQueueLock = false;
+        }
+    });
+    
+    if (settings.SHOW_NAMES.isEnabled() && userData.nick != undefined && userData.nick) {
+        nickName.textContent = userData.nick;
+    }
+    const rating = document.createElement(`div`);
+    rating.classList.add(`text-neutral-content-weak`, `text-12`);
+    if (userData.rating != undefined) {
+        rating.textContent = userData.rating < 10000 ? `${Math.round(userData.rating / 100) / 10}K` : `${Math.round(userData.rating / 1000)}K`;
+        infoAnchor.after(rating);
+        const point = document.createElement(`span`);
+        if (target.isComment) {
+            point.classList.add(`inline-block`, `my-0`, `mx-2xs`, `text-12`, `text-neutral-content-weak`);
+        }
+        else {
+            point.classList.add(`inline-block`, `my-0`, `created-separator`, `text-neutral-content-weak`);
+        }
+        point.textContent = `•`;
+        rating.after(point);
+    }
+    if (userData.created != undefined && userData.created > Date.now() / 1000 - NEWUSER_SECONDS_SHIFT) {
+        const newSvg = buildSvg((newUser_default()), 20, 20);
+        newSvg.setAttribute(`viewBox`, `-2 -2 20 20`);
+        tagsAnchor.before(newSvg);
+    }
+    if (userData.banned != undefined && userData.banned) {
+        const newSvg = buildSvg((bannedUser_default()), 20, 20);
+        newSvg.setAttribute(`viewBox`, `-2 -2 20 20`);
+        tagsAnchor.before(newSvg);
+    }
+}
+
 // EXTERNAL MODULE: ./src/modules/posts/posts.less
 var posts = __webpack_require__("./src/modules/posts/posts.less");
 // EXTERNAL MODULE: ./src/modules/posts/postsBackplates.less
@@ -3038,6 +3142,7 @@ var postsBackplates = __webpack_require__("./src/modules/posts/postsBackplates.l
 var postUnwrapButton = __webpack_require__("./resources/postUnwrapButton.svg");
 var postUnwrapButton_default = /*#__PURE__*/__webpack_require__.n(postUnwrapButton);
 ;// CONCATENATED MODULE: ./src/modules/posts/posts.ts
+
 
 
 
@@ -3059,6 +3164,7 @@ async function renderPost(post) {
         return;
     checkVisability(post);
     applyShadowRoot(post);
+    renderHeader(post);
     renderContent(post);
     renderShareButtonPost(post);
     renderBookmarkPost(post);
@@ -3097,6 +3203,33 @@ async function renderShareButtonPost(post) {
     const shareButton = await dynamicElement(() => post.shadowRoot?.querySelector(`shreddit-post-share-button`)?.shadowRoot?.querySelector(`button`));
     css.registry(shareButton.parentNode.parentNode);
     shareButton.classList.add(`pp_post_shareButton`);
+}
+async function renderHeader(post) {
+    const author = post.getAttribute(`author`);
+    if (post.getAttribute(`view-context`) == `AggregateFeed`) {
+        if (settings.SHOW_POST_AUTHOR.isDisabled())
+            return;
+        const anchor = await dynamicElement(() => post.querySelector(`span[slot="credit-bar"]`)?.querySelector(`.created-separator`), MAX_LOAD_LAG);
+        const userNameLink = document.createElement(`a`);
+        userNameLink.classList.add(`flex`, `items-center`, `text-neutral-content`, `visited:text-neutral-content-weak`, `a`, `cursor-pointer`, `no-visited`, `no-underline`, `hover:no-underline`);
+        userNameLink.setAttribute(`href`, `/user/${author}/`);
+        anchor.before(userNameLink);
+        const userName = appendNew(userNameLink, `div`, [`text-neutral-content-weak`, `text-12`]);
+        userName.textContent = author;
+        const point = document.createElement(`span`);
+        point.classList.add(`inline-block`, `my-0`, `created-separator`, `text-neutral-content-weak`);
+        point.textContent = `•`;
+        userNameLink.before(point);
+        // userInfo
+        renderUserInfo(author, userName, anchor, anchor, IS_POST);
+    }
+    else {
+        // userInfo
+        const creditBar = await dynamicElement(() => post.querySelector(`span[slot="credit-bar"]`), MAX_LOAD_LAG);
+        const userName = await dynamicElement(() => creditBar.querySelector(`span[slot="authorName"]`)?.querySelector(`a`)?.querySelector(`.whitespace-nowrap`), MAX_LOAD_LAG);
+        const anchor = await dynamicElement(() => creditBar.querySelector(`.created-separator`), MAX_LOAD_LAG);
+        renderUserInfo(author, userName, anchor, anchor, IS_POST);
+    }
 }
 async function renderContent(post) {
     const postContent = await dynamicElement(() => post.querySelector(`.feed-card-text-preview`), MAX_LOAD_LAG);
@@ -3544,46 +3677,7 @@ const imageViewer_imageViewer = new ImageViewer();
 var hideShare = __webpack_require__("./src/modules/comments/hideShare.less");
 // EXTERNAL MODULE: ./src/modules/comments/comments.less
 var comments = __webpack_require__("./src/modules/comments/comments.less");
-;// CONCATENATED MODULE: ./src/modules/users.ts
-
-
-
-class UserData {
-}
-const users = new Database(`USERS`, { isCleanupable: true, validator: userDataValidator, loader: userDataLoader });
-function userDataValidator(userData) {
-    return userData.accountId == undefined;
-}
-async function userDataLoader(userId) {
-    let userData = {};
-    try {
-        const response = await fetch(`https://oauth.reddit.com/user/${userId}/about.json`, { cache: `no-cache`, method: `get` });
-        if (!response.ok) {
-            pp_log(`Failed to load user (${userId}) data with code ${response.status} : ${response.statusText}`);
-            
-            return userData;
-        }
-        const json = await response.json();
-        if (json.data?.is_suspended == true || json.data?.is_blocked == true) {
-            userData.banned = true;
-            return userData;
-        }
-        userData.rating = (json.data?.link_karma ?? 0) + (json.data?.comment_karma ?? 0) / 2;
-        if (json.data?.subreddit?.title) {
-            userData.nick = json.data.subreddit.title;
-        }
-        userData.created = json.data?.created ?? 0;
-        userData.accountId = json.kind + `_` + json.data?.id;
-        return userData;
-    }
-    catch (e) {
-        pp_log(`Failed to load user (${userId}) data with error ${e}`);
-        
-        return userData;
-    }
-}
-
-;// CONCATENATED MODULE: ./src/modules/userOperations.ts
+;// CONCATENATED MODULE: ./src/modules/users/userOperations.ts
 
 
 
@@ -4160,69 +4254,6 @@ function renderMoreReplies(comment) {
     }
 }
 
-// EXTERNAL MODULE: ./resources/comments/newUser.svg
-var newUser = __webpack_require__("./resources/comments/newUser.svg");
-var newUser_default = /*#__PURE__*/__webpack_require__.n(newUser);
-// EXTERNAL MODULE: ./resources/comments/bannedUser.svg
-var bannedUser = __webpack_require__("./resources/comments/bannedUser.svg");
-var bannedUser_default = /*#__PURE__*/__webpack_require__.n(bannedUser);
-;// CONCATENATED MODULE: ./src/modules/comments/userInfo.ts
-
-
-
-
-
-
-
-
-const NEWUSER_SECONDS_SHIFT = DAY_SECONDS * 64;
-let loadQueueLock = false;
-async function renderUserInfo(comment) {
-    if (settings.USER_INFO.isDisabled())
-        return;
-    
-    await dynamicElement(() => (loadQueueLock ? null : true));
-    loadQueueLock = true;
-    const userId = comment.getAttribute(`author`);
-    const userData = await users.getWithLoader(userId, isLoaded => {
-        if (isLoaded) {
-            setTimeout(() => {
-                loadQueueLock = false;
-            }, 150 + Math.random() * 100);
-        }
-        else {
-            loadQueueLock = false;
-        }
-    });
-    
-    let nickName = comment.querySelector(`faceplate-tracker[noun="comment_author"]`).querySelector(`a`);
-    if (settings.SHOW_NAMES.isEnabled() && userData.nick != undefined && userData.nick) {
-        nickName.textContent = userData.nick;
-    }
-    const infoAnchor = comment.querySelector(`div[pp-anchor="info"]`);
-    const rating = document.createElement(`div`);
-    rating.classList.add(`text-neutral-content-weak`, `text-12`);
-    if (userData.rating != undefined) {
-        rating.textContent = userData.rating < 10000 ? `${Math.round(userData.rating / 100) / 10}K` : `${Math.round(userData.rating / 1000)}K`;
-        infoAnchor.after(rating);
-        const point = document.createElement(`span`);
-        point.classList.add(`inline-block`, `my-0`, `mx-2xs`, `text-12`, `text-neutral-content-weak`);
-        point.textContent = `•`;
-        rating.after(point);
-    }
-    const tagsAnchor = comment.querySelector(`div[pp-anchor="tags"]`);
-    if (userData.created != undefined && userData.created > Date.now() / 1000 - NEWUSER_SECONDS_SHIFT) {
-        const newSvg = buildSvg((newUser_default()), 20, 20);
-        newSvg.setAttribute(`viewBox`, `-2 -2 20 20`);
-        tagsAnchor.before(newSvg);
-    }
-    if (userData.banned != undefined && userData.banned) {
-        const newSvg = buildSvg((bannedUser_default()), 20, 20);
-        newSvg.setAttribute(`viewBox`, `-2 -2 20 20`);
-        tagsAnchor.before(newSvg);
-    }
-}
-
 ;// CONCATENATED MODULE: ./src/modules/comments/comments.ts
 
 
@@ -4393,7 +4424,9 @@ async function renderComment(comment) {
     }
     renderCollapseAward(comment, IS_COMMENT);
     renderUserTags(comment);
-    renderUserInfo(comment);
+    const userId = comment.getAttribute(`author`);
+    const userName = comment.querySelector(`faceplate-tracker[noun="comment_author"]`).querySelector(`a`);
+    renderUserInfo(userId, userName, tagsAnchor, infoAnchor, IS_COMMENT);
     const contextMenuButton = await dynamicElement(() => comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`faceplate-dropdown-menu`));
     renderCommentBookmark(comment);
     contextMenuButton.addEventListener(`click`, () => {
@@ -4547,7 +4580,7 @@ var settingsArrow_default = /*#__PURE__*/__webpack_require__.n(settingsArrow);
 
 
 css.addStyle(settingsWindow/* default */.A);
-const settingsWindow_settingsWindow = new Window('Settings', renderSettingsWindow, closeSettingsWindow);
+const settingsWindow_settingsWindow = new Window('Reddit++ Settings', renderSettingsWindow, closeSettingsWindow);
 let changes = 0;
 function renderSettingsWindow(win, context) {
     // hack to close user menu
@@ -4586,6 +4619,7 @@ function renderSettingsWindow(win, context) {
     addSettingToggle(`Selectable text`, `Make a text selectable when posts viewed in feed`, settings.SELECTABLE_POSTS);
     addSettingToggle(`Unwrap button`, `Show the unwrap button for long-text posts in feed`, settings.UNWRAP_POST);
     addSettingToggle(`Soft background`, `Make the background of posts with soft gradient color`, settings.BACKPLATES);
+    addSettingToggle(`Show post's author`, `Relates to Home, Popular and All feeds`, settings.SHOW_POST_AUTHOR);
     addSettingToggle(`Show bookmark`, `Show the bookmark button for saved and upvoted posts`, settings.SAVED_BOOKMARK_POSTS);
     addSettingToggle(`Show bookmark always`, `Show the bookmark button for all posts`, settings.SAVED_BOOKMARK_POSTS_SHOW_ALWAYAS);
     addSubtittle(`Comments`);
@@ -4700,7 +4734,7 @@ var settingsButton_default = /*#__PURE__*/__webpack_require__.n(settingsButton);
 
 css.addStyle(header/* default */.A);
 let notificationsInitialized = false;
-async function renderHeader(container) {
+async function header_renderHeader(container) {
     const nav = await dynamicElement(() => container.querySelector(`reddit-header-large`)?.querySelector(`nav`));
     if (checkIsRendered(nav))
         return;
@@ -4812,7 +4846,7 @@ async function startRedditPlusPlus() {
     }
     pp_meta = document.createElement(`meta`);
     pp_meta.setAttribute(`name`, `reddit-plus-plus`);
-    pp_meta.setAttribute(`version`, "1.0.13");
+    pp_meta.setAttribute(`version`, "1.0.14");
     document.head.append(pp_meta);
     // call latest migration
     migration_1_0_0.check();
@@ -4824,12 +4858,12 @@ async function startRedditPlusPlus() {
         pp_log(`Reddit++ was stopped for a non compatible page`);
         return;
     }
-    renderHeader(documentBody);
+    header_renderHeader(documentBody);
     renderApp();
     observeFor(documentBody, element => {
         // header
         if (element.matches(`reddit-header-large`) == true) {
-            renderHeader(element.parentElement);
+            header_renderHeader(element.parentElement);
         }
         // content
         const isSubPage = element.matches(`dsa-transparency-modal-provider`) == true;

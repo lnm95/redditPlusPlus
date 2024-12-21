@@ -62,7 +62,7 @@ export const SHOW_RENDERED_COMMENTS: boolean = false;
 export const SHOW_LOGS: boolean = true;
 
 export const PROFILE_DYNAMIC_ELEMENTS: boolean = true;
-export const PROFILE_COMMENTS: boolean = true;
+export const PROFILE_USER_DATA: boolean = true;
 
 const profiler = new DebugProfiler();
 
@@ -73,6 +73,6 @@ if(PROFILE_DYNAMIC_ELEMENTS){
     profiler.stats.push(profiler_dynamicElements);
 }
 
-if (PROFILE_COMMENTS) {
+if (PROFILE_USER_DATA) {
     profiler.stats.push(profiler_comments);
 }

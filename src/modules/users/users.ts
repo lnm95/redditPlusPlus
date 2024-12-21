@@ -1,6 +1,6 @@
-import { PROFILE_COMMENTS, profiler_comments } from '../_debug/debug';
-import { Database, DatabaseConfig } from '../utils/database';
-import { pp_log } from './toaster';
+import { PROFILE_USER_DATA, profiler_comments } from '../../_debug/debug';
+import { Database, DatabaseConfig } from '../../utils/database';
+import { pp_log } from '../toaster';
 
 export class UserData {
     accountId: string;
@@ -25,7 +25,7 @@ async function userDataLoader(userId: string): Promise<UserData> {
         if (!response.ok) {
             pp_log(`Failed to load user (${userId}) data with code ${response.status} : ${response.statusText}`);
 
-            if (DEBUG && PROFILE_COMMENTS) {
+            if (DEBUG && PROFILE_USER_DATA) {
                 profiler_comments.userDataFailed++;
             }
             
@@ -50,7 +50,7 @@ async function userDataLoader(userId: string): Promise<UserData> {
     } catch (e) {
         pp_log(`Failed to load user (${userId}) data with error ${e}`);
 
-        if (DEBUG && PROFILE_COMMENTS) {
+        if (DEBUG && PROFILE_USER_DATA) {
             profiler_comments.userDataFailed++;
         }
 

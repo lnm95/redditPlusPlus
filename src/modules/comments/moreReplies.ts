@@ -1,4 +1,4 @@
-import { PROFILE_COMMENTS, profiler_comments } from '../../_debug/debug';
+import { PROFILE_USER_DATA, profiler_comments } from '../../_debug/debug';
 import { checkIsRendered } from '../../utils/tools';
 import { settings } from '../settings/settings';
 import { pp_log } from '../toaster';
@@ -12,7 +12,7 @@ export function renderMoreReplies(comment: Element) {
         if (moreReplies instanceof HTMLElement) {
             // loadable replies
             if (moreReplies.matches(`faceplate-partial`) && moreReplies.getAttribute(`src`)?.includes(`/more-comments/`) && !checkIsRendered(moreReplies)) {
-                if (DEBUG && PROFILE_COMMENTS) {
+                if (DEBUG && PROFILE_USER_DATA) {
                     profiler_comments.moreRepliesRendered++;
                 }
 
@@ -33,7 +33,7 @@ export function renderMoreReplies(comment: Element) {
                         clearInterval(refreshAwaiter);
                         pp_log(`Unable load more replies`);
 
-                        if (DEBUG && PROFILE_COMMENTS) {
+                        if (DEBUG && PROFILE_USER_DATA) {
                             profiler_comments.moreRepliesFailed++;
                         }
                     }

@@ -7,6 +7,7 @@ import { renderCollapseAward } from '../collapseAwards';
 import { css } from '../customCSS';
 import { settings } from '../settings/settings';
 import { flairs } from '../subs/subs';
+import { renderUserInfo } from '../users/userInfo';
 import style from './posts.less';
 import backplatesStyle from './postsBackplates.less';
 
@@ -25,6 +26,7 @@ export async function renderPost(post: Element) {
 
     applyShadowRoot(post);
 
+    renderHeader(post);
     renderContent(post);
 
     renderShareButtonPost(post);
@@ -82,6 +84,45 @@ async function renderShareButtonPost(post: Element) {
     css.registry(shareButton.parentNode.parentNode as ShadowRoot);
 
     shareButton.classList.add(`pp_post_shareButton`);
+}
+
+async function renderHeader(post: Element) {
+    
+    const author = post.getAttribute(`author`);
+    
+    if(post.getAttribute(`view-context`) == `AggregateFeed`) {
+        if(settings.SHOW_POST_AUTHOR.isDisabled()) return;
+
+        const anchor = await dynamicElement(() => post.querySelector(`span[slot="credit-bar"]`)?.querySelector(`.created-separator`), MAX_LOAD_LAG);
+        
+        const userNameLink = document.createElement(`a`);
+        userNameLink.classList.add(`flex`, `items-center`, `text-neutral-content`, `visited:text-neutral-content-weak`, `a`, `cursor-pointer`, `no-visited`, `no-underline`, `hover:no-underline`);
+        userNameLink.setAttribute(`href`, `/user/${author}/`);
+        anchor.before(userNameLink);
+
+        const userName = appendNew(userNameLink, `div`, [`text-neutral-content-weak`, `text-12`]);
+        userName.textContent = author;
+
+        const point = document.createElement(`span`);
+        point.classList.add(`inline-block`, `my-0`, `created-separator`, `text-neutral-content-weak`);
+        point.textContent = `•`;
+        userNameLink.before(point);
+
+        // userInfo
+        renderUserInfo(author, userName, anchor, anchor, IS_POST);
+
+    } else {
+        // userInfo
+        const creditBar = await dynamicElement(() => post.querySelector(`span[slot="credit-bar"]`), MAX_LOAD_LAG);
+        const userName = await dynamicElement(() => creditBar.querySelector(`span[slot="authorName"]`)?.querySelector(`a`)?.querySelector(`.whitespace-nowrap`), MAX_LOAD_LAG);
+        const anchor = await dynamicElement(() => creditBar.querySelector(`.created-separator`), MAX_LOAD_LAG);
+
+        renderUserInfo(author, userName, anchor, anchor, IS_POST);
+    }
+
+
+
+    
 }
 
 async function renderContent(post: Element) {

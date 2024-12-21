@@ -99,6 +99,7 @@ class SettingsManager {
     public BACKPLATES = new SettingBoolProperty(`backplates`);
     public SELECTABLE_POSTS = new SettingBoolProperty(`selectablePosts`);
     public UNWRAP_POST = new SettingBoolProperty(`unwrapPost`);
+    public SHOW_POST_AUTHOR = new SettingBoolProperty(`showPostAuthor`);
     public SAVED_BOOKMARK_POSTS = new SettingBoolProperty(`savedBookmarkPosts`);
     public SAVED_BOOKMARK_POSTS_SHOW_ALWAYAS = new SettingBoolProperty(`savedBookmarkPostsShowAlways`, false);
     // comments

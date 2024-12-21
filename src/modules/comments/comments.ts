@@ -10,9 +10,9 @@ import { renderContextMenu } from './contextMenu';
 import { renderUserTags } from './userTags';
 import { renderCollapseAward } from '../collapseAwards';
 import { OnCommentsTreeLoaded, renderCommentsSortButtons } from './sortButtons';
-import { SHOW_RENDERED_COMMENTS, PROFILE_COMMENTS, profiler_comments } from '../../_debug/debug';
+import { SHOW_RENDERED_COMMENTS, PROFILE_USER_DATA, profiler_comments } from '../../_debug/debug';
 import { renderMoreReplies } from './moreReplies';
-import { renderUserInfo } from './userInfo';
+import { renderUserInfo } from '../users/userInfo';
 import { pp_log } from '../toaster';
 
 let rootIntersector: IntersectionObserver = null;
@@ -31,7 +31,7 @@ export async function renderComments(container: Element) {
     if (rootIntersector != null) {
         rootIntersector.disconnect();
 
-        if (DEBUG && PROFILE_COMMENTS) {
+        if (DEBUG && PROFILE_USER_DATA) {
             profiler_comments.observedRoots = 0;
         }
     } else {
@@ -44,7 +44,7 @@ export async function renderComments(container: Element) {
                         // registry childs when root becomes visible
                         registryAllComments(entry.target.parentElement);
 
-                        if (DEBUG && PROFILE_COMMENTS) {
+                        if (DEBUG && PROFILE_USER_DATA) {
                             profiler_comments.observedRoots--;
                         }
 
@@ -59,7 +59,7 @@ export async function renderComments(container: Element) {
     if (commentsIntersector != null) {
         commentsIntersector.disconnect();
 
-        if (DEBUG && PROFILE_COMMENTS) {
+        if (DEBUG && PROFILE_USER_DATA) {
             profiler_comments.observedChilds = 0;
             profiler_comments.moreRepliesRendered = 0;
         }
@@ -70,7 +70,7 @@ export async function renderComments(container: Element) {
                     if (entry.isIntersecting) {
                         renderComment(entry.target.parentElement);
 
-                        if (DEBUG && PROFILE_COMMENTS) {
+                        if (DEBUG && PROFILE_USER_DATA) {
                             profiler_comments.observedChilds--;
                         }
 
@@ -134,7 +134,7 @@ function registryRoot(comment: Element) {
 
     rootIntersector.observe(comment.querySelector(`div[slot="commentMeta"]`));
 
-    if (DEBUG && PROFILE_COMMENTS) {
+    if (DEBUG && PROFILE_USER_DATA) {
         profiler_comments.observedRoots++;
     }
 }
@@ -150,7 +150,7 @@ function registryComment(comment: Element) {
 
     commentsIntersector.observe(comment.querySelector(`div[slot="commentMeta"]`));
 
-    if (DEBUG && PROFILE_COMMENTS) {
+    if (DEBUG && PROFILE_USER_DATA) {
         profiler_comments.observedChilds++;
     }
 }
@@ -229,7 +229,9 @@ export async function renderComment(comment: Element) {
 
     renderUserTags(comment);
 
-    renderUserInfo(comment);
+    const userId = comment.getAttribute(`author`);
+    const userName = comment.querySelector(`faceplate-tracker[noun="comment_author"]`).querySelector(`a`);
+    renderUserInfo(userId, userName, tagsAnchor, infoAnchor, IS_COMMENT);
 
     const contextMenuButton = await dynamicElement(() => comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`faceplate-dropdown-menu`));
 

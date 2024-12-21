@@ -9,7 +9,7 @@ import arrowSvg from "@resources/settingsArrow.svg";
 
 css.addStyle(style);
 
-export const settingsWindow: Window = new Window('Settings', renderSettingsWindow, closeSettingsWindow);
+export const settingsWindow: Window = new Window('Reddit++ Settings', renderSettingsWindow, closeSettingsWindow);
 
 let changes: number = 0;
 
@@ -59,6 +59,7 @@ function renderSettingsWindow(win: Window, context: any) {
     addSettingToggle(`Selectable text`, `Make a text selectable when posts viewed in feed`, settings.SELECTABLE_POSTS);
     addSettingToggle(`Unwrap button`, `Show the unwrap button for long-text posts in feed`, settings.UNWRAP_POST);
     addSettingToggle(`Soft background`, `Make the background of posts with soft gradient color`, settings.BACKPLATES);
+    addSettingToggle(`Show post's author`, `Relates to Home, Popular and All feeds`, settings.SHOW_POST_AUTHOR);
     addSettingToggle(`Show bookmark`, `Show the bookmark button for saved and upvoted posts`, settings.SAVED_BOOKMARK_POSTS);
     addSettingToggle(`Show bookmark always`, `Show the bookmark button for all posts`, settings.SAVED_BOOKMARK_POSTS_SHOW_ALWAYAS);
 

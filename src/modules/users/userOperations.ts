@@ -1,5 +1,5 @@
-import { getCookie } from '../utils/tools';
-import { notify } from './toaster';
+import { getCookie } from '../../utils/tools';
+import { notify } from '../toaster';
 import { users } from './users';
 
 class UserOperation {
