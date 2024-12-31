@@ -21,6 +21,8 @@ export function IsUnsetedFeed() {
 
     if(window.location.href == `https://www.reddit.com/`) return true;
 
+    if(window.location.href.includes(`/?f=flair_name`)) return false;
+
     if (window.location.href.includes(`?feed=home`)) {
         return window.location.href.includes(`reddit.com/?feed=home`);
     } else {
