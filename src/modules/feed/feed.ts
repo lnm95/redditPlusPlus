@@ -11,7 +11,7 @@ export async function renderFeed(container: Element) {
     // skip user page
     if (window.location.href.includes(`/user/`)) return;
 
-    const main = await dynamicElement(() => container.querySelector(`#main-content`));
+    const main = await dynamicElement(() => container.querySelector(`#subgrid-container`));
 
     // render embedded posts
     main.querySelectorAll(`shreddit-post`).forEach(post => {
