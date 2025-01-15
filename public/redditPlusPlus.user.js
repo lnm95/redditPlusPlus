@@ -4867,7 +4867,6 @@ async function startRedditPlusPlus() {
         if (element.matches(`reddit-header-large`) == true) {
             header_renderHeader(element.parentElement);
         }
-        console.log(element);
         // content
         const isSubPage = element.matches(`shreddit-app`) == true;
         const isMainPage = element.classList.contains(`grid-container`) && element.parentElement.matches(`shreddit-app`) == true;

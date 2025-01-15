@@ -52,8 +52,6 @@ async function startRedditPlusPlus() {
             renderHeader(element.parentElement);
         }
 
-        console.log(element);
-
         // content
         const isSubPage = element.matches(`shreddit-app`) == true;
         const isMainPage = element.classList.contains(`grid-container`) && element.parentElement.matches(`shreddit-app`) == true;
