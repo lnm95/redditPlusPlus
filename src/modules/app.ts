@@ -13,7 +13,7 @@ import { renderScrollToTop } from './scrollToTop';
 export async function renderApp() {
     css.addStyle(style, `app`);
 
-    const app = await dynamicElement(() => document.body.querySelector(`dsa-transparency-modal-provider`));
+    const app = await dynamicElement(() => document.body.querySelector(`shreddit-app`));
 
     if (checkIsRendered(app)) return;
 
