@@ -145,14 +145,14 @@ export async function renderCommentsSortButtons(container: Element) {
 
     if (sortContainer == null) return;
 
-    const searchSpan = await dynamicElement(() => container.querySelector(`comment-body-header`)?.querySelector(`pdp-comment-search-input`)?.shadowRoot?.querySelector(`.pr-xs`), MAX_LOAD_LAG);
-
     if (checkIsRendered(sortContainer)) {
         return;
     }
 
+    renderSearchComments(container);
+
     sortContainer.querySelector(`shreddit-sort-dropdown`).classList.add(`pp_sortDropdown_hidden`);
-    searchSpan.textContent = `Search`;
+    
 
     let currentSort: string = undefined;
 
@@ -188,6 +188,15 @@ export async function renderCommentsSortButtons(container: Element) {
 
     sortButtonsRendered = true;
 }
+
+async function renderSearchComments(container: Element){
+    const searchSpan = await dynamicElement(() => container.querySelector(`comment-body-header`)?.querySelector(`pdp-comment-search-input`)?.shadowRoot?.querySelector(`.pr-xs`), MAX_LOAD_LAG);
+    
+    if(searchSpan == null) return;
+    
+    searchSpan.textContent = `Search`;
+}
+
 
 let isCommentsSortLocked: boolean = false;
 

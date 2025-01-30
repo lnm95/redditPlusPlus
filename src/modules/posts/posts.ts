@@ -7,6 +7,7 @@ import { renderCollapseAward } from '../collapseAwards';
 import { css } from '../customCSS';
 import { settings } from '../settings/settings';
 import { flairs } from '../subs/subs';
+import { notify } from '../toaster';
 import { renderUserInfo } from '../users/userInfo';
 import style from './posts.less';
 import backplatesStyle from './postsBackplates.less';
@@ -113,16 +114,15 @@ async function renderHeader(post: Element) {
 
     } else {
         // userInfo
-        const creditBar = await dynamicElement(() => post.querySelector(`span[slot="credit-bar"]`), MAX_LOAD_LAG);
+        const creditBar = await dynamicElement(() => post.querySelector(`[slot="credit-bar"]`), MAX_LOAD_LAG); // usually it's span, but sometimes div                
         const userName = await dynamicElement(() => creditBar.querySelector(`span[slot="authorName"]`)?.querySelector(`a`)?.querySelector(`.whitespace-nowrap`), MAX_LOAD_LAG);
-        const anchor = await dynamicElement(() => creditBar.querySelector(`.created-separator`), MAX_LOAD_LAG);
+        
+        const anchor = creditBar.querySelector(`.created-separator`);
+        if(anchor == null) return; // post view
 
         renderUserInfo(author, userName, anchor, anchor, IS_POST);
     }
 
-
-
-    
 }
 
 async function renderContent(post: Element) {

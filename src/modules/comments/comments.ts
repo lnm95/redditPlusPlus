@@ -13,7 +13,6 @@ import { OnCommentsTreeLoaded, renderCommentsSortButtons } from './sortButtons';
 import { SHOW_RENDERED_COMMENTS, PROFILE_USER_DATA, profiler_comments } from '../../_debug/debug';
 import { renderMoreReplies } from './moreReplies';
 import { renderUserInfo } from '../users/userInfo';
-import { pp_log } from '../toaster';
 
 let rootIntersector: IntersectionObserver = null;
 let commentsIntersector: IntersectionObserver = null;
@@ -192,7 +191,12 @@ export async function renderComment(comment: Element) {
 
     const tagsAnchor = document.createElement(`div`);
     tagsAnchor.setAttribute(`pp-anchor`, `tags`);
-    nickname.parentElement.querySelector(`.ml-2xs`).after(tagsAnchor);
+    const OPTag = nickname.parentElement.querySelector(`.ml-2xs`);
+    if (OPTag != null) {
+        OPTag.after(tagsAnchor);
+    } else {
+        nickname.after(tagsAnchor);
+    }
 
     const time = await dynamicElement(() => nickname.parentElement.querySelector(`time`)?.parentElement?.parentElement, MAX_LOAD_LAG);
 
