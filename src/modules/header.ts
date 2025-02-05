@@ -57,6 +57,10 @@ function renderSettingsButton() {
 
     let originSettingsButton = userMenu.querySelector(`faceplate-tracker[noun="settings"]`);
 
+    if (originSettingsButton == null) {
+        originSettingsButton = userMenu.querySelector(`faceplate-tracker[noun="login"]`);
+    }
+
     let ppSettingsButton = originSettingsButton.cloneNode(true) as Element;
     ppSettingsButton.setAttribute(`noun`, `pp-settings`);
 
