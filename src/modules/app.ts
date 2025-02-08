@@ -31,9 +31,6 @@ export async function renderApp() {
     const mainFeed = pageContainer.querySelector(`.subgrid-container`);
     mainFeed.classList.add(`pp_mainFeed`);
 
-    const mainContainer = mainFeed.querySelector(`.main-container`);
-    mainContainer.classList.add(`pp_mainContainer`);
-
     const rightSidebar = await dynamicElement(() => document.body.querySelector(`#right-sidebar-container`));
     rightSidebar.classList.add(`pp_rightSidebar`);
     rightSidebar.classList.toggle(`styled-scrollbars`, true);
