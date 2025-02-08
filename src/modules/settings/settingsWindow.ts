@@ -29,6 +29,7 @@ function renderSettingsWindow(win: Window, context: any) {
 
     addSettingToggle(`Wide mode`, `Make focus on the content by replacing right sidebar to screen border`, settings.WIDE_MODE);
     addSettingDropdown(`Content width`, null, settings.CONTENT_WIDTH);
+    addSettingDropdown(`Content offset`, null, settings.CONTENT_OFFSET);
     addSettingToggle(`Bigger fonts`, `Make fonts bigger for better reading`, settings.BIGGER_FONTS);
     addSettingToggle(`Better notify popup`, `Make notify popup a bit larger and remove useless button`, settings.NOTIFY_POPUP);
     addSettingToggle(`Redirect suggestion`, `Show suggestion to redirect from old.reddit and new.reddit to compatible pages`, settings.REDIRECT_SUGGESTION);

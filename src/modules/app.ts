@@ -28,7 +28,11 @@ export async function renderApp() {
     const pageContainer = leftSidebar.parentElement;
     pageContainer.classList.add(`pp_pageContainer`);
 
-    pageContainer.querySelector(`.subgrid-container`).classList.add(`pp_mainFeed`);
+    const mainFeed = pageContainer.querySelector(`.subgrid-container`);
+    mainFeed.classList.add(`pp_mainFeed`);
+
+    const mainContainer = mainFeed.querySelector(`.main-container`);
+    mainContainer.classList.add(`pp_mainContainer`);
 
     const rightSidebar = await dynamicElement(() => document.body.querySelector(`#right-sidebar-container`));
     rightSidebar.classList.add(`pp_rightSidebar`);

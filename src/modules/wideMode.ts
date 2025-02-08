@@ -11,6 +11,8 @@ export function renderWideMode(pageContainer: Element, rightSidebar: Element) {
 
     css.addVar(`--pp-content-width`, settings.CONTENT_WIDTH.get());
 
+    css.addVar(`--pp-content-offset`, settings.CONTENT_OFFSET.get());
+
     // prevent additional render when rightbar already moved
     if (rightSidebar.parentNode == pageContainer) {
         return;

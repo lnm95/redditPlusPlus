@@ -73,6 +73,7 @@ class SettingsManager {
 
     public WIDE_MODE = new SettingBoolProperty(`wideMode`);
     public CONTENT_WIDTH = new SettingDropdownProperty(`contentWidth`, [`650px`, `700px`, `750px`, `800px`, `900px`, `1000px`], 1);
+    public CONTENT_OFFSET = new SettingDropdownProperty(`contentOffset`, [`-1000px`, `-900px`, `-800px`, `-700px`, `-600px`, `-500px`, `-400px`, `-300px`, `-200px`, `-100px`, `0px`, `100px`, `200px`, `300px`, `400px`, `500px`, `600px`, `700px`, `800px`, `900px`, `1000px`], 10);
     public BIGGER_FONTS = new SettingBoolProperty(`biggerFonts`);
     public NOTIFY_POPUP = new SettingBoolProperty(`notifyPopup`);
     public REDIRECT_SUGGESTION = new SettingBoolProperty(`redirectSuggestion`);
