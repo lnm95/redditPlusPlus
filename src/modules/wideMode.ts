@@ -22,6 +22,9 @@ export function renderWideMode(pageContainer: Element, rightSidebar: Element) {
 
     let isWideMode = !(window.innerWidth >= 1392);
 
+    const mainContainer = pageContainer.querySelector(`.main-container`);
+    mainContainer.className = `main-container gap-lg w-full`;
+    
     // fix for context lookup
     observeFor(pageContainer, renderContextPopup, false);
     observeFor(originContainer, renderContextPopup, false);
