@@ -115,6 +115,7 @@ class SettingsManager {
     public COLLAPSE_AUTOMODERATOR = new SettingBoolProperty(`collapseAutomoderator`);
     public SAVED_BOOKMARK_COMMENTS = new SettingBoolProperty(`savedBookmarkComments`);
     public SAVED_BOOKMARK_COMMENTS_SHOW_ALWAYAS = new SettingBoolProperty(`savedBookmarkCommentsShowAlways`, false);
+    public HIDE_RELATED_POSTS = new SettingBoolProperty(`hideRelatedPosts`, false);
 
     constructor() {
         // Reload all pages with dirted settings

@@ -13,6 +13,7 @@ import { OnCommentsTreeLoaded, renderCommentsSortButtons } from './sortButtons';
 import { SHOW_RENDERED_COMMENTS, PROFILE_USER_DATA, profiler_comments } from '../../_debug/debug';
 import { renderMoreReplies } from './moreReplies';
 import { renderUserInfo } from '../users/userInfo';
+import { notify } from '../toaster';
 
 let rootIntersector: IntersectionObserver = null;
 let commentsIntersector: IntersectionObserver = null;
@@ -108,6 +109,14 @@ export async function renderComments(container: Element) {
 
                                 registryAllComments(node);
                             }
+                        }
+
+                        if (settings.HIDE_RELATED_POSTS.isEnabled() && node.matches(`h2`) && node.textContent.includes(`Related posts`)) {
+                            const relatedHeader = node;
+                            const relatedPosts = relatedHeader.nextSibling;
+                            
+                            relatedHeader.remove();
+                            relatedPosts.remove();
                         }
                     }
                 }

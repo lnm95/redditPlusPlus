@@ -76,6 +76,7 @@ function renderSettingsWindow(win: Window, context: any) {
     addSettingToggle(`Collapse unwanted`, `Automatic collapse all automoderator and mod's pinned comments`, settings.COLLAPSE_AUTOMODERATOR);
     addSettingToggle(`Show bookmark`, `Show the bookmark button for saved comments`, settings.SAVED_BOOKMARK_COMMENTS);
     addSettingToggle(`Show bookmark always`, `Show the bookmark button for all comments`, settings.SAVED_BOOKMARK_COMMENTS_SHOW_ALWAYAS);
+    addSettingToggle(`Hide related posts`, null, settings.HIDE_RELATED_POSTS);
 
     function addSubtittle(text: string) {
         const subtittle = appendNew(elements, `h3`, `pp_settings_subtittle`);
