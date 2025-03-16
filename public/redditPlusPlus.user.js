@@ -4,7 +4,7 @@
 // @description      A lot of enhancements for new design of reddit.com like unwrapped feed buttons, bigger fonts, view images without redirect and many more...
 // @description:ru   Множество улучшений для нового интерфейса reddit.com, таких как развернутые кнопки лент, увеличенный шрифт, увеличение изображений без редиректа и много другое...
 // @namespace        RedditPlusPlus
-// @version          1.0.24
+// @version          1.0.25
 // @author           lnm95
 // @icon             data:image/png;base64,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
 // @source           https://github.com/lnm95/redditPlusPlus
@@ -706,7 +706,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_scrollToTop {
   width: 100px;
   height: 100%;
   bottom: 0px;
-  background: linear-gradient(0deg, var(--scrollLineColor) 0%, var(--scrollLineTransparentColor) 20%);
+  background: linear-gradient(0deg, var(--scrollLineColor) 1%, var(--scrollLineTransparentColor) 30%);
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -751,7 +751,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_scrollToTop {
   --scrollButtonColor: #c9d1d4c2 !important;
 }
 :root {
-  --scrollLineColor: #2a323633;
+  --scrollLineColor: #3f484d33;
   --scrollLineTransparentColor: #2a323600;
   --scrollButtonColor: #0e1113;
 }
@@ -1827,7 +1827,7 @@ function observeFor(root, action, includeChilds = true) {
     observer.observe(root, { childList: true, subtree: includeChilds });
 }
 function checkIsRendered(node, key = `pp-rendered`) {
-    if (node.getAttribute(key) != null) {
+    if (node == null || node.getAttribute(key) != null) {
         return true;
     }
     else {
@@ -2146,6 +2146,7 @@ class SettingsManager {
         this.SCROLL_TO_TOP = new SettingBoolProperty(`scrollToTop`);
         this.COLLAPSE_AWARDS = new SettingBoolProperty(`collapseAwards`);
         this.COLLAPSE_AWARDS_COMPLETELY = new SettingBoolProperty(`collapseAwardsCompletely`, false);
+        this.IMAGE_VIEWER = new SettingBoolProperty(`imageViewer`);
         // feed sorts
         this.DEFAULT_FEED_HOME = new SettingDropdownProperty(`defaultFeedHome`, GetFeeds(FeedLocation.Home), 0);
         this.DEFAULT_FEED_POPULAR = new SettingDropdownProperty(`defaultFeedPopular`, GetFeeds(FeedLocation.Popular), 1);
@@ -2508,6 +2509,159 @@ if (settings.BIGGER_FONTS.isEnabled()) {
     css.addStyle(biggerFonts/* default */.A);
 }
 function renderBiggerFonts() { }
+
+// EXTERNAL MODULE: ./resources/imageCloseButton.svg
+var imageCloseButton = __webpack_require__("./resources/imageCloseButton.svg");
+var imageCloseButton_default = /*#__PURE__*/__webpack_require__.n(imageCloseButton);
+// EXTERNAL MODULE: ./src/utils/imageViewer.less
+var imageViewer = __webpack_require__("./src/utils/imageViewer.less");
+;// CONCATENATED MODULE: ./src/utils/imageViewer.ts
+
+
+
+
+
+css.addStyle(imageViewer/* default */.A);
+class Mouse {
+}
+class Drag {
+}
+class ImageViewer {
+    constructor() {
+        this.openned = false;
+        this.viewer = null;
+        this.container = null;
+        this.image = null;
+        this.mouse = { x: 0, y: 0 };
+        this.drag = {
+            enabled: false,
+            start: { x: 0, y: 0 },
+            current: { x: 0, y: 0 },
+            scale: 1
+        };
+        this.scrollImage = this.scrollImage.bind(this);
+        this.startDrag = this.startDrag.bind(this);
+        this.mouseMove = this.mouseMove.bind(this);
+        this.endDrag = this.endDrag.bind(this);
+    }
+    open(src) {
+        if (this.openned)
+            return;
+        this.openned = true;
+        if (this.viewer == null) {
+            this.build();
+        }
+        this.image.src = src;
+        window.addEventListener('wheel', this.scrollImage, { passive: false });
+        this.image.addEventListener('mousedown', this.startDrag);
+        document.addEventListener('mousemove', this.mouseMove);
+        this.image.addEventListener('mouseup', this.endDrag);
+        this.image.addEventListener('mouseleave', this.endDrag);
+        // reset pos
+        this.drag.current = { x: 0, y: 0 };
+        this.drag.scale = 1;
+        this.updateTransform();
+        document.body.appendChild(this.viewer);
+    }
+    close() {
+        this.viewer.remove();
+        this.drag.enabled = false;
+        this.container.classList.toggle(`pp_imageViewer_drag`, false);
+        window.removeEventListener('wheel', this.scrollImage);
+        this.image.removeEventListener('mousedown', this.startDrag);
+        document.removeEventListener('mousemove', this.mouseMove);
+        this.image.removeEventListener('mouseup', this.endDrag);
+        this.image.removeEventListener('mouseleave', this.endDrag);
+        this.openned = false;
+    }
+    build() {
+        this.viewer = document.createElement(`div`);
+        this.viewer.classList.add(`pp_imageViewer`);
+        this.viewer.dataset.open = String(false);
+        const closeButton = appendNew(this.viewer, `div`, `pp_imageViewer_closeButton`);
+        const closeSvg = buildSvg((imageCloseButton_default()), 40, 40);
+        closeButton.appendChild(closeSvg);
+        this.container = appendNew(this.viewer, `div`, `pp_imageViewer_imageContainer`);
+        this.image = appendNew(this.container, `img`, `pp_imageViewer_image`);
+        this.image.alt = `Comment image`;
+        this.image.ondragstart = function () {
+            return false;
+        };
+        // close
+        this.viewer.addEventListener('click', e => {
+            if (e.target != this.image) {
+                this.close();
+            }
+        });
+        closeButton.addEventListener('click', () => {
+            this.close();
+        });
+    }
+    updateTransform() {
+        this.container.style.transform = `translate(${this.drag.current.x}px, ${this.drag.current.y}px) scale(${this.drag.scale}, ${this.drag.scale})`;
+    }
+    startDrag(event) {
+        this.drag.start.x = event.screenX - this.drag.current.x;
+        this.drag.start.y = event.screenY - this.drag.current.y;
+        this.drag.enabled = true;
+        this.container.classList.toggle(`pp_imageViewer_drag`, true);
+    }
+    mouseMove(event) {
+        this.mouse.x = event.clientX;
+        this.mouse.y = event.clientY;
+        if (this.drag.enabled) {
+            this.drag.current.x = event.screenX - this.drag.start.x;
+            this.drag.current.y = event.screenY - this.drag.start.y;
+            this.updateTransform();
+        }
+    }
+    endDrag() {
+        this.fit(1);
+        this.drag.enabled = false;
+        this.container.classList.toggle(`pp_imageViewer_drag`, false);
+    }
+    scrollImage(e) {
+        const m = Math.max(1.0, 1.0 + Math.log2(this.drag.scale * this.drag.scale));
+        const prevScale = this.drag.scale;
+        this.drag.scale = Math.max(0.5, this.drag.scale + (-e.deltaY / 1000) * m);
+        const rect = this.image.getBoundingClientRect();
+        const hh = rect.height / 2;
+        const hw = rect.width / 2;
+        const dy = rect.y + hh;
+        const dx = rect.x + hw;
+        const os = this.drag.scale / prevScale - 1;
+        this.drag.current.y -= Math.min(Math.max(this.mouse.y - dy, -hh), hh) * os;
+        this.drag.current.x -= Math.min(Math.max(this.mouse.x - dx, -hw), hw) * os;
+        if (e.deltaY > 0) {
+            this.drag.current.y /= 1.1;
+            this.drag.current.x /= 1.1;
+        }
+        this.fit(0.33);
+        e.preventDefault();
+    }
+    fit(force) {
+        const offset = 0;
+        const rect = this.image.getBoundingClientRect();
+        const left = offset - rect.left;
+        const right = rect.right - window.innerWidth + offset;
+        if (left > 0 && right < 0) {
+            this.drag.current.x += (rect.width > window.innerWidth ? -right : left) * force;
+        }
+        else if (left < 0 && right > 0) {
+            this.drag.current.x += (rect.width > window.innerWidth ? left : -right) * force;
+        }
+        const top = offset - rect.top;
+        const bottom = rect.bottom - window.innerHeight + offset;
+        if (top > 0 && bottom < 0) {
+            this.drag.current.y += (rect.height > window.innerHeight ? -bottom : top) * force;
+        }
+        else if (top < 0 && bottom > 0) {
+            this.drag.current.y += (rect.height > window.innerHeight ? top : -bottom) * force;
+        }
+        this.updateTransform();
+    }
+}
+const imageViewer_imageViewer = new ImageViewer();
 
 // EXTERNAL MODULE: ./src/modules/bookmark.less
 var bookmark = __webpack_require__("./src/modules/bookmark.less");
@@ -3162,6 +3316,7 @@ var postUnwrapButton_default = /*#__PURE__*/__webpack_require__.n(postUnwrapButt
 
 
 
+
 css.addStyle(posts/* default */.A);
 if (settings.BACKPLATES.isEnabled()) {
     css.addStyle(postsBackplates/* default */.A);
@@ -3241,6 +3396,12 @@ async function renderHeader(post) {
     }
 }
 async function renderContent(post) {
+    // comments view
+    if (window.location.href.includes(`/comments/`)) {
+        registerImages(post, false);
+        return;
+    }
+    // feed view
     const postContent = await dynamicElement(() => post.querySelector(`.feed-card-text-preview`), MAX_LOAD_LAG);
     if (postContent == null)
         return;
@@ -3249,6 +3410,9 @@ async function renderContent(post) {
     }
     // fix bad formated text
     postContent.classList.remove(`feed-card-text-preview`);
+    // enable pointer events
+    const postAnchor = post.querySelector(`a[slot="text-body"]`);
+    postAnchor.classList.toggle(`pointer-events-none`, false);
     // forced load preview images
     for (const content of postContent.childNodes) {
         if (content instanceof Element && content.matches(`object`)) {
@@ -3263,7 +3427,43 @@ async function renderContent(post) {
             }
         }
     }
+    registerImages(post, true);
     renderUnwrapPostButton(post, postContent);
+}
+async function registerImages(post, isFeed) {
+    if (settings.IMAGE_VIEWER.isDisabled())
+        return;
+    if (isFeed) {
+        const anyImage = await dynamicElement(() => post.querySelector(`faceplate-img`), MAX_LOAD_LAG);
+        if (anyImage != null) {
+            post.querySelectorAll(`faceplate-img`).forEach(imageContainer => {
+                const href = imageContainer.getAttribute(`src`);
+                console.log('post img => ' + href);
+                let image = imageContainer.shadowRoot?.querySelector(`img`);
+                if (image != null) {
+                    image.classList.add(`pp_imageViewable`);
+                }
+                imageContainer.addEventListener(`click`, () => {
+                    imageViewer_imageViewer.open(href);
+                });
+            });
+        }
+    }
+    else {
+        post.querySelectorAll(`figure[class="rte-media"]`).forEach(imageContainer => {
+            const imageAnchor = imageContainer.querySelector(`a`);
+            const href = imageAnchor.getAttribute(`href`);
+            imageAnchor.removeAttribute(`href`);
+            let image = imageContainer.querySelector(`img`);
+            if (image == null) {
+                image = imageContainer.querySelector(`shreddit-player-2`);
+            }
+            image.classList.add(`pp_imageViewable`);
+            imageAnchor.addEventListener(`click`, () => {
+                imageViewer_imageViewer.open(href);
+            });
+        });
+    }
 }
 async function renderUnwrapPostButton(post, postContent) {
     // hack to await when post loaded properly
@@ -3479,9 +3679,6 @@ async function renderFeedButtons(main, feedDropdown) {
 
 let postObserver = null;
 async function renderFeed(container) {
-    // skip user page
-    if (window.location.href.includes(`/user/`))
-        return;
     const main = await dynamicElement(() => container.querySelector(`#subgrid-container`));
     // render embedded posts
     main.querySelectorAll(`shreddit-post`).forEach(post => {
@@ -3501,6 +3698,16 @@ async function renderFeed(container) {
         initialPostsObserver.disconnect();
     }, MAX_LOAD_LAG);
     // render loaded posts
+    initializePostObserver(main);
+    renderSub(main);
+    const feedDropdown = await dynamicElement(() => main.querySelector(`shreddit-sort-dropdown`), MAX_LOAD_LAG);
+    // skip non feed page
+    const isInvalidDropdown = (feedDropdown == null || feedDropdown.getAttribute(`trigger-id`) == `comment-sort-button`) && !window.location.href.includes(`/about/`);
+    if (isInvalidDropdown)
+        return;
+    renderFeedButtons(main, feedDropdown);
+}
+function initializePostObserver(target) {
     if (postObserver != null) {
         postObserver.disconnect();
     }
@@ -3521,168 +3728,8 @@ async function renderFeed(container) {
             }
         }
     });
-    postObserver.observe(main, { childList: true, subtree: true });
-    renderSub(main);
-    const feedDropdown = await dynamicElement(() => main.querySelector(`shreddit-sort-dropdown`), MAX_LOAD_LAG);
-    // skip non feed page
-    const isInvalidDropdown = (feedDropdown == null || feedDropdown.getAttribute(`trigger-id`) == `comment-sort-button`) && !window.location.href.includes(`/about/`);
-    if (isInvalidDropdown)
-        return;
-    renderFeedButtons(main, feedDropdown);
+    postObserver.observe(target, { childList: true, subtree: true });
 }
-
-// EXTERNAL MODULE: ./resources/imageCloseButton.svg
-var imageCloseButton = __webpack_require__("./resources/imageCloseButton.svg");
-var imageCloseButton_default = /*#__PURE__*/__webpack_require__.n(imageCloseButton);
-// EXTERNAL MODULE: ./src/utils/imageViewer.less
-var imageViewer = __webpack_require__("./src/utils/imageViewer.less");
-;// CONCATENATED MODULE: ./src/utils/imageViewer.ts
-
-
-
-
-
-css.addStyle(imageViewer/* default */.A);
-class Mouse {
-}
-class Drag {
-}
-class ImageViewer {
-    constructor() {
-        this.openned = false;
-        this.viewer = null;
-        this.container = null;
-        this.image = null;
-        this.mouse = { x: 0, y: 0 };
-        this.drag = {
-            enabled: false,
-            start: { x: 0, y: 0 },
-            current: { x: 0, y: 0 },
-            scale: 1
-        };
-        this.scrollImage = this.scrollImage.bind(this);
-        this.startDrag = this.startDrag.bind(this);
-        this.mouseMove = this.mouseMove.bind(this);
-        this.endDrag = this.endDrag.bind(this);
-    }
-    open(src) {
-        if (this.openned)
-            return;
-        this.openned = true;
-        if (this.viewer == null) {
-            this.build();
-        }
-        this.image.src = src;
-        window.addEventListener('wheel', this.scrollImage, { passive: false });
-        this.image.addEventListener('mousedown', this.startDrag);
-        document.addEventListener('mousemove', this.mouseMove);
-        this.image.addEventListener('mouseup', this.endDrag);
-        this.image.addEventListener('mouseleave', this.endDrag);
-        // reset pos
-        this.drag.current = { x: 0, y: 0 };
-        this.drag.scale = 1;
-        this.updateTransform();
-        document.body.appendChild(this.viewer);
-    }
-    close() {
-        this.viewer.remove();
-        this.drag.enabled = false;
-        this.container.classList.toggle(`pp_imageViewer_drag`, false);
-        window.removeEventListener('wheel', this.scrollImage);
-        this.image.removeEventListener('mousedown', this.startDrag);
-        document.removeEventListener('mousemove', this.mouseMove);
-        this.image.removeEventListener('mouseup', this.endDrag);
-        this.image.removeEventListener('mouseleave', this.endDrag);
-        this.openned = false;
-    }
-    build() {
-        this.viewer = document.createElement(`div`);
-        this.viewer.classList.add(`pp_imageViewer`);
-        this.viewer.dataset.open = String(false);
-        const closeButton = appendNew(this.viewer, `div`, `pp_imageViewer_closeButton`);
-        const closeSvg = buildSvg((imageCloseButton_default()), 40, 40);
-        closeButton.appendChild(closeSvg);
-        this.container = appendNew(this.viewer, `div`, `pp_imageViewer_imageContainer`);
-        this.image = appendNew(this.container, `img`, `pp_imageViewer_image`);
-        this.image.alt = `Comment image`;
-        this.image.ondragstart = function () {
-            return false;
-        };
-        // close
-        this.viewer.addEventListener('click', e => {
-            if (e.target != this.image) {
-                this.close();
-            }
-        });
-        closeButton.addEventListener('click', () => {
-            this.close();
-        });
-    }
-    updateTransform() {
-        this.container.style.transform = `translate(${this.drag.current.x}px, ${this.drag.current.y}px) scale(${this.drag.scale}, ${this.drag.scale})`;
-    }
-    startDrag(event) {
-        this.drag.start.x = event.screenX - this.drag.current.x;
-        this.drag.start.y = event.screenY - this.drag.current.y;
-        this.drag.enabled = true;
-        this.container.classList.toggle(`pp_imageViewer_drag`, true);
-    }
-    mouseMove(event) {
-        this.mouse.x = event.clientX;
-        this.mouse.y = event.clientY;
-        if (this.drag.enabled) {
-            this.drag.current.x = event.screenX - this.drag.start.x;
-            this.drag.current.y = event.screenY - this.drag.start.y;
-            this.updateTransform();
-        }
-    }
-    endDrag() {
-        this.fit(1);
-        this.drag.enabled = false;
-        this.container.classList.toggle(`pp_imageViewer_drag`, false);
-    }
-    scrollImage(e) {
-        const m = Math.max(1.0, 1.0 + Math.log2(this.drag.scale * this.drag.scale));
-        const prevScale = this.drag.scale;
-        this.drag.scale = Math.max(0.5, this.drag.scale + (-e.deltaY / 1000) * m);
-        const rect = this.image.getBoundingClientRect();
-        const hh = rect.height / 2;
-        const hw = rect.width / 2;
-        const dy = rect.y + hh;
-        const dx = rect.x + hw;
-        const os = this.drag.scale / prevScale - 1;
-        this.drag.current.y -= Math.min(Math.max(this.mouse.y - dy, -hh), hh) * os;
-        this.drag.current.x -= Math.min(Math.max(this.mouse.x - dx, -hw), hw) * os;
-        if (e.deltaY > 0) {
-            this.drag.current.y /= 1.1;
-            this.drag.current.x /= 1.1;
-        }
-        this.fit(0.33);
-        e.preventDefault();
-    }
-    fit(force) {
-        const offset = 0;
-        const rect = this.image.getBoundingClientRect();
-        const left = offset - rect.left;
-        const right = rect.right - window.innerWidth + offset;
-        if (left > 0 && right < 0) {
-            this.drag.current.x += (rect.width > window.innerWidth ? -right : left) * force;
-        }
-        else if (left < 0 && right > 0) {
-            this.drag.current.x += (rect.width > window.innerWidth ? left : -right) * force;
-        }
-        const top = offset - rect.top;
-        const bottom = rect.bottom - window.innerHeight + offset;
-        if (top > 0 && bottom < 0) {
-            this.drag.current.y += (rect.height > window.innerHeight ? -bottom : top) * force;
-        }
-        else if (top < 0 && bottom > 0) {
-            this.drag.current.y += (rect.height > window.innerHeight ? top : -bottom) * force;
-        }
-        this.updateTransform();
-    }
-}
-const imageViewer_imageViewer = new ImageViewer();
 
 // EXTERNAL MODULE: ./src/modules/comments/hideShare.less
 var hideShare = __webpack_require__("./src/modules/comments/hideShare.less");
@@ -4437,7 +4484,7 @@ async function renderComment(comment) {
     }
     // registry image
     const imageContainer = commentBody.querySelector(`figure[class="rte-media"]`);
-    if (imageContainer != null) {
+    if (imageContainer != null && settings.IMAGE_VIEWER.isEnabled()) {
         const imageAnchor = imageContainer.querySelector(`a`);
         const href = imageAnchor.getAttribute(`href`);
         imageAnchor.removeAttribute(`href`);
@@ -4529,7 +4576,22 @@ function refreshScrollToTop() {
     scrollToTop_scrollButton.classList.toggle(`pp_scrollToTop_inverted`, inverted);
 }
 
+;// CONCATENATED MODULE: ./src/modules/users/userPage.ts
+
+
+
+async function renderUserPage(container) {
+    const feed = await dynamicElement(() => container.querySelector(`#subgrid-container`)?.querySelector(`shreddit-feed`));
+    // render embedded posts
+    feed.querySelectorAll(`shreddit-post`).forEach(post => {
+        renderPost(post);
+    });
+    // render loaded posts
+    initializePostObserver(feed);
+}
+
 ;// CONCATENATED MODULE: ./src/modules/app.ts
+
 
 
 
@@ -4544,7 +4606,12 @@ async function renderApp() {
     const app = await dynamicElement(() => document.body.querySelector(`shreddit-app`)?.querySelector(`.grid-container`));
     if (checkIsRendered(app))
         return;
-    renderFeed(document.body);
+    if (window.location.href.includes(`/user/`)) {
+        renderUserPage(document.body);
+    }
+    else {
+        renderFeed(document.body);
+    }
     renderComments(document.body);
     const leftSidebar = await dynamicElement(() => document.body.querySelector(`#left-sidebar-container`), 3000);
     renderSidebar(leftSidebar);
@@ -4637,6 +4704,7 @@ function renderSettingsWindow(win, context) {
     addSettingToggle(`Scroll to top button`, null, settings.SCROLL_TO_TOP);
     addSettingToggle(`Collapse Awards`, `Automatic collapse the award's button for none upvoted posts and comments`, settings.COLLAPSE_AWARDS);
     addSettingToggle(`Remove Awards`, `Remove the award's buttons completely`, settings.COLLAPSE_AWARDS_COMPLETELY);
+    addSettingToggle(`Image viewer`, `Open (zoom) comment's images without redirect`, settings.IMAGE_VIEWER);
     addSubtittle(`Default feeds`);
     addSettingDropdown(`Home`, null, settings.DEFAULT_FEED_HOME);
     addSettingDropdown(`Popular`, null, settings.DEFAULT_FEED_POPULAR);
@@ -4880,7 +4948,7 @@ async function startRedditPlusPlus() {
     }
     pp_meta = document.createElement(`meta`);
     pp_meta.setAttribute(`name`, `reddit-plus-plus`);
-    pp_meta.setAttribute(`version`, "1.0.24");
+    pp_meta.setAttribute(`version`, "1.0.25");
     document.head.append(pp_meta);
     // call latest migration
     migration_1_0_0.check();

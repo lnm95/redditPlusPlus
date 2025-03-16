@@ -88,6 +88,7 @@ class SettingsManager {
     public SCROLL_TO_TOP = new SettingBoolProperty(`scrollToTop`);
     public COLLAPSE_AWARDS = new SettingBoolProperty(`collapseAwards`);
     public COLLAPSE_AWARDS_COMPLETELY = new SettingBoolProperty(`collapseAwardsCompletely`, false);
+    public IMAGE_VIEWER = new SettingBoolProperty(`imageViewer`);
     // feed sorts
     public DEFAULT_FEED_HOME = new SettingDropdownProperty(`defaultFeedHome`, GetFeeds(FeedLocation.Home), 0);
     public DEFAULT_FEED_POPULAR = new SettingDropdownProperty(`defaultFeedPopular`, GetFeeds(FeedLocation.Popular), 1);

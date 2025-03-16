@@ -9,6 +9,7 @@ import { renderFeed } from './feed/feed';
 import { notify } from './toaster';
 import { renderComments } from './comments/comments';
 import { renderScrollToTop } from './scrollToTop';
+import { renderUserPage } from './users/userPage';
 
 export async function renderApp() {
     css.addStyle(style, `app`);
@@ -17,7 +18,11 @@ export async function renderApp() {
 
     if (checkIsRendered(app)) return;
 
-    renderFeed(document.body);
+    if (window.location.href.includes(`/user/`)) {
+        renderUserPage(document.body);
+    } else {
+        renderFeed(document.body);
+    }    
 
     renderComments(document.body);
 

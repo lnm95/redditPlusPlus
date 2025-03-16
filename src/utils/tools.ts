@@ -74,7 +74,7 @@ export function observeFor(root: Element, action: ObserveAction, includeChilds: 
 }
 
 export function checkIsRendered(node: Element, key: string = `pp-rendered`) {
-    if (node.getAttribute(key) != null) {
+    if (node == null || node.getAttribute(key) != null) {
         return true;
     } else {
         node.setAttribute(key, ``);

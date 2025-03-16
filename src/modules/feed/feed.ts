@@ -2,15 +2,12 @@ import { MAX_LOAD_LAG } from '../../defines';
 import { dynamicElement } from '../../utils/tools';
 import { renderPost } from '../posts/posts';
 import { renderSub } from '../subs/subs';
-import { notify } from '../toaster';
 import { renderFeedButtons } from './feedButtons';
 
 let postObserver: MutationObserver = null;
 
 export async function renderFeed(container: Element) {
-    // skip user page
-    if (window.location.href.includes(`/user/`)) return;
-
+    
     const main = await dynamicElement(() => container.querySelector(`#subgrid-container`));
 
     // render embedded posts
@@ -35,6 +32,21 @@ export async function renderFeed(container: Element) {
     }, MAX_LOAD_LAG);
 
     // render loaded posts
+    initializePostObserver(main);    
+
+    renderSub(main);
+
+    const feedDropdown = await dynamicElement(() => main.querySelector(`shreddit-sort-dropdown`), MAX_LOAD_LAG);
+
+    // skip non feed page
+    const isInvalidDropdown = (feedDropdown == null || feedDropdown.getAttribute(`trigger-id`) == `comment-sort-button`) && !window.location.href.includes(`/about/`);
+
+    if (isInvalidDropdown) return;
+
+    renderFeedButtons(main, feedDropdown);
+}
+
+export function initializePostObserver(target: Element){
     if (postObserver != null) {
         postObserver.disconnect();
     }
@@ -58,16 +70,5 @@ export async function renderFeed(container: Element) {
         }
     });
 
-    postObserver.observe(main, { childList: true, subtree: true });
-
-    renderSub(main);
-
-    const feedDropdown = await dynamicElement(() => main.querySelector(`shreddit-sort-dropdown`), MAX_LOAD_LAG);
-
-    // skip non feed page
-    const isInvalidDropdown = (feedDropdown == null || feedDropdown.getAttribute(`trigger-id`) == `comment-sort-button`) && !window.location.href.includes(`/about/`);
-
-    if (isInvalidDropdown) return;
-
-    renderFeedButtons(main, feedDropdown);
+    postObserver.observe(target, { childList: true, subtree: true });
 }

@@ -46,6 +46,7 @@ function renderSettingsWindow(win: Window, context: any) {
     addSettingToggle(`Scroll to top button`, null, settings.SCROLL_TO_TOP);
     addSettingToggle(`Collapse Awards`, `Automatic collapse the award's button for none upvoted posts and comments`, settings.COLLAPSE_AWARDS);
     addSettingToggle(`Remove Awards`, `Remove the award's buttons completely`, settings.COLLAPSE_AWARDS_COMPLETELY);
+    addSettingToggle(`Image viewer`, `Open (zoom) images instead default redirect behaviour`, settings.IMAGE_VIEWER);
 
     addSubtittle(`Default feeds`);
     addSettingDropdown(`Home`, null, settings.DEFAULT_FEED_HOME);

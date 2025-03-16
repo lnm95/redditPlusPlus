@@ -1,5 +1,6 @@
 import { SHOW_RENDERED_POSTS } from '../../_debug/debug';
 import { IS_POST, MAX_LOAD_LAG } from '../../defines';
+import { imageViewer } from '../../utils/imageViewer';
 import { buildSvg } from '../../utils/svg';
 import { appendNew, checkIsRendered, dynamicElement } from '../../utils/tools';
 import { renderBookmarkPost } from '../bookmark';
@@ -46,21 +47,21 @@ export async function renderPost(post: Element) {
         tittle?.classList?.add(`pp_post_tittle`);
     }
 
-    if(DEBUG && SHOW_RENDERED_POSTS){
+    if (DEBUG && SHOW_RENDERED_POSTS) {
         post.classList.add(`pp_debug_rendered`);
     }
 }
 
 async function checkVisability(post: Element) {
-    if(window.location.href.includes(`/comments/`)) {
+    if (window.location.href.includes(`/comments/`)) {
         return;
     }
-    
+
     const sub = post.getAttribute(`subreddit-prefixed-name`).replace(`r/`, ``);
     const flairData = flairs.get(sub);
 
     const postFlair = await dynamicElement(() => post.querySelector(`shreddit-post-flair`)?.querySelector(`a`), MAX_LOAD_LAG) as HTMLAnchorElement;
-    
+
     if (postFlair != null) {
         const postFlairText = decodeURIComponent(postFlair.href.split(`%22`)[1]);
 
@@ -88,14 +89,14 @@ async function renderShareButtonPost(post: Element) {
 }
 
 async function renderHeader(post: Element) {
-    
+
     const author = post.getAttribute(`author`);
-    
-    if(post.getAttribute(`view-context`) == `AggregateFeed`) {
-        if(settings.SHOW_POST_AUTHOR.isDisabled()) return;
+
+    if (post.getAttribute(`view-context`) == `AggregateFeed`) {
+        if (settings.SHOW_POST_AUTHOR.isDisabled()) return;
 
         const anchor = await dynamicElement(() => post.querySelector(`span[slot="credit-bar"]`)?.querySelector(`.created-separator`), MAX_LOAD_LAG);
-        
+
         const userNameLink = document.createElement(`a`);
         userNameLink.classList.add(`flex`, `items-center`, `text-neutral-content`, `visited:text-neutral-content-weak`, `a`, `cursor-pointer`, `no-visited`, `no-underline`, `hover:no-underline`);
         userNameLink.setAttribute(`href`, `/user/${author}/`);
@@ -116,9 +117,9 @@ async function renderHeader(post: Element) {
         // userInfo
         const creditBar = await dynamicElement(() => post.querySelector(`[slot="credit-bar"]`), MAX_LOAD_LAG); // usually it's span, but sometimes div                
         const userName = await dynamicElement(() => creditBar.querySelector(`span[slot="authorName"]`)?.querySelector(`a`)?.querySelector(`.whitespace-nowrap`), MAX_LOAD_LAG);
-        
+
         const anchor = creditBar.querySelector(`.created-separator`);
-        if(anchor == null) return; // post view
+        if (anchor == null) return; // post view
 
         renderUserInfo(author, userName, anchor, anchor, IS_POST);
     }
@@ -126,6 +127,16 @@ async function renderHeader(post: Element) {
 }
 
 async function renderContent(post: Element) {
+    // comments view
+    if (window.location.href.includes(`/comments/`)) {
+
+        registerImages(post, false);       
+
+        return;
+    }
+
+    // feed view
+
     const postContent = await dynamicElement(() => post.querySelector(`.feed-card-text-preview`), MAX_LOAD_LAG);
 
     if (postContent == null) return;
@@ -136,6 +147,10 @@ async function renderContent(post: Element) {
 
     // fix bad formated text
     postContent.classList.remove(`feed-card-text-preview`);
+
+    // fix click events
+    const postAnchor = post.querySelector(`a[slot="text-body"]`);
+    postAnchor.classList.toggle(`pointer-events-none`, false);
 
     // forced load preview images
     for (const content of postContent.childNodes) {
@@ -154,7 +169,53 @@ async function renderContent(post: Element) {
         }
     }
 
+    registerImages(post, true);
+
     renderUnwrapPostButton(post, postContent);
+}
+
+async function registerImages(post:Element, isFeed : boolean){
+    if (settings.IMAGE_VIEWER.isDisabled()) return;
+
+    if(isFeed){
+        const anyImage = await dynamicElement(() => post.querySelector(`faceplate-img`), MAX_LOAD_LAG);
+
+        if (anyImage != null) {
+            post.querySelectorAll(`faceplate-img`).forEach(imageContainer => {
+
+                const href = imageContainer.getAttribute(`src`);
+
+                console.log('post img => ' + href);
+
+                let image = imageContainer.shadowRoot?.querySelector(`img`) as HTMLImageElement;
+                if (image != null) {
+                    image.classList.add(`pp_imageViewable`);
+                }
+
+                imageContainer.addEventListener(`click`, () => {
+                    imageViewer.open(href);
+                });
+            });
+        }
+
+    } else{
+
+        post.querySelectorAll(`figure[class="rte-media"]`).forEach(imageContainer => {
+            const imageAnchor = imageContainer.querySelector(`a`) as HTMLAnchorElement;
+            const href = imageAnchor.getAttribute(`href`);
+            imageAnchor.removeAttribute(`href`);
+
+            let image = imageContainer.querySelector(`img`) as HTMLImageElement | HTMLVideoElement;
+            if (image == null) {
+                image = imageContainer.querySelector(`shreddit-player-2`);
+            }
+            image.classList.add(`pp_imageViewable`);
+
+            imageAnchor.addEventListener(`click`, () => {
+                imageViewer.open(href);
+            });
+        });
+    }
 }
 
 async function renderUnwrapPostButton(post: Element, postContent: Element) {

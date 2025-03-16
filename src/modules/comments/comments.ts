@@ -222,7 +222,7 @@ export async function renderComment(comment: Element) {
 
     // registry image
     const imageContainer = commentBody.querySelector(`figure[class="rte-media"]`);
-    if (imageContainer != null) {
+    if (imageContainer != null && settings.IMAGE_VIEWER.isEnabled()) {
         const imageAnchor = imageContainer.querySelector(`a`) as HTMLAnchorElement;
         const href = imageAnchor.getAttribute(`href`);
         imageAnchor.removeAttribute(`href`);
