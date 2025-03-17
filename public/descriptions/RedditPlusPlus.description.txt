@@ -41,7 +41,7 @@
     <li><details><summary>Unwrap comments sort buttons, remember latest used sort.</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/scr/commentsSort.png alt="commentsSort"></details></li>
     <li>User info (karma, leaf mark for new users).</li>
     <li><details><summary>User tags (cosmetic: liked, warned; active: follow, block).</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/scr/userTags.png alt="userTags"></details></li>
-    <li>View an image without redirect.</li>
+    <li>Zoom comment's images (like post's images) instead redirect on click.</li>
     <li>Autocollapse AutoModerator's comments.</li>
     <li>Unwrap "more replies".</li>
 </ul>
