@@ -1,0 +1,92 @@
+.pp_filter_list {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin: 20px 40px;
+    gap: 0.5rem;
+    list-style: none;
+}
+
+.pp_filter_element {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.5rem;
+
+    border: solid 2px;
+    border-radius: 15px;
+
+    box-shadow: var(--filterShadowColor) 0px 2px 4px 0px;
+}
+
+:root {
+    --filterShadowColor: #d9d9d9;
+}
+:root.theme-dark {
+    --filterShadowColor: #5d5d5d !important;
+}
+
+.pp_filter_dragged {
+    opacity: 0.25;
+}
+
+.pp_filter_element > div {
+    width: 100%;
+    padding: 0px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.pp_filter_element_dragAnchor {
+    cursor: grab;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 48px;
+    height: 40px;
+    color: #8a8f91;
+}
+
+.pp_window_elementsContainer > .pp_filter_element:hover {
+    background-color: var(--color-neutral-background-hover);
+}
+
+.pp_filter_element_colorPicker {
+    cursor: pointer;
+    width: 36px;
+    height: 40px;
+    margin: 2px;
+}
+
+.pp_filter_element_colorPicker > input {
+    height: 100%;
+}
+
+.pp_filter_element_toggles {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.pp_filter_element_toggles > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.pp_filter_element_toggles > div > span {
+    text-wrap-mode: nowrap;
+}
+
+.pp_filter_addButton {
+    //border: solid 2px red;
+    //background-color: red;
+
+    height: 3rem;
+    border-radius: 15px;
+}

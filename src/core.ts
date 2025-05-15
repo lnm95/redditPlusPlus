@@ -20,7 +20,7 @@ async function startRedditPlusPlus() {
     // check dublicates
     let pp_meta = document.head.querySelector(`meta[name="reddit-plus-plus"]`);
     if (pp_meta != null) {
-        notify(`Reddit++ runned more that one times. Check out userscript manager to disable dublicates.`, { time: 10000 });
+        notify(`Reddit++ runned more that one times. Check out userscript manager to disable dublicates.`, { seconds: 10 });
         return;
     }
 

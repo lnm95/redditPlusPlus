@@ -7,7 +7,6 @@ import { renderFeedButtons } from './feedButtons';
 let postObserver: MutationObserver = null;
 
 export async function renderFeed(container: Element) {
-    
     const main = await dynamicElement(() => container.querySelector(`#subgrid-container`));
 
     // render embedded posts
@@ -32,7 +31,7 @@ export async function renderFeed(container: Element) {
     }, MAX_LOAD_LAG);
 
     // render loaded posts
-    initializePostObserver(main);    
+    initializePostObserver(main);
 
     renderSub(main);
 
@@ -46,7 +45,7 @@ export async function renderFeed(container: Element) {
     renderFeedButtons(main, feedDropdown);
 }
 
-export function initializePostObserver(target: Element){
+export function initializePostObserver(target: Element) {
     if (postObserver != null) {
         postObserver.disconnect();
     }

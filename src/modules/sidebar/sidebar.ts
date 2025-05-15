@@ -13,7 +13,6 @@ let resourcesInitialized = false;
 export function renderSidebar(sidebar: Element) {
     sidebar.classList.add(`pp_defaultText`);
 
-
     observeFor(sidebar, (element: HTMLElement) => {
         const customFeedsSection = element.matches(`faceplate-expandable-section-helper`) ? element : sidebar.querySelector(`faceplate-expandable-section-helper`);
 
@@ -54,7 +53,7 @@ export function renderSidebar(sidebar: Element) {
 
                 let hrElement = subsSection.nextElementSibling;
 
-                while(hrElement != null && !hrElement.matches(`hr`)){
+                while (hrElement != null && !hrElement.matches(`hr`)) {
                     hrElement = hrElement.nextElementSibling;
                 }
 
@@ -97,11 +96,11 @@ export function renderSidebar(sidebar: Element) {
         }
     });
 
-    if(!resourcesInitialized){
+    if (!resourcesInitialized) {
         resourcesInitialized = true;
         observeFor(sidebar, (element: HTMLElement) => {
             const resources = sidebar.querySelector(`summary[aria-controls="RESOURCES"]`);
-    
+
             if (resources != null) {
                 const resourcesContainer = resources.parentElement.parentElement;
                 const resourceSection: SidebarSection = {
@@ -109,12 +108,12 @@ export function renderSidebar(sidebar: Element) {
                     button: resources,
                     hr: null
                 };
-    
+
                 renderSidebarSection(resourcesContainer, settings.SIDEBAR_RESOURCES, () => resourceSection);
                 return true;
             }
         });
-    }    
+    }
 }
 
 class SidebarSection {

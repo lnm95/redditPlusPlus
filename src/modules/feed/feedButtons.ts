@@ -1,5 +1,6 @@
 import { CURRENT_COLOR, NONE_COLOR, buildSvg } from '../../utils/svg';
-import { appendNew, checkIsRendered, dynamicElement } from '../../utils/tools';
+import { checkIsRendered, dynamicElement } from '../../utils/tools';
+import { appendElement } from '../../utils/element';
 import { css } from '../customCSS';
 import { settings } from '../settings/settings';
 import { FeedLocation, GetFeedLocation } from './feedLocation';
@@ -25,7 +26,6 @@ const BUTTONS_SVG: { [key: string]: string } = {
     Top: buttonTop,
     Rising: buttonRising
 };
-
 
 const BUTTON_CLASSES = [
     `inline-flex`,
@@ -73,7 +73,7 @@ export async function renderFeedButtons(main: Element, feedDropdown: Element) {
             };
         } else {
             hrefGenerator = feed => {
-                return `/r/${(location == FeedLocation.Popular) ? `popular` : `all`}/${feed.toLowerCase()}/`;
+                return `/r/${location == FeedLocation.Popular ? `popular` : `all`}/${feed.toLowerCase()}/`;
             };
         }
     } else {
@@ -95,13 +95,13 @@ export async function renderFeedButtons(main: Element, feedDropdown: Element) {
         feedpanel.classList.toggle(`justify-between`, false);
         feedpanel.classList.toggle(`flex-wrap`, false);
         feedpanel.classList.toggle(`pp_feedPanel`, true);
-        
+
         const space = document.createElement(`div`);
         space.classList.add(`pp_feedPanel_space`);
         buttonsContainer.after(space);
 
         let currentSubSettings = subSettings.get(subName);
-        const isDefault = (currentSubSettings.defaultFeed == undefined) ? (currentFeed == settings.DEFAULT_FEED_SUB.get()) : (currentFeed == currentSubSettings.defaultFeed);
+        const isDefault = currentSubSettings.defaultFeed == undefined ? currentFeed == settings.DEFAULT_FEED_SUB.get() : currentFeed == currentSubSettings.defaultFeed;
 
         const defaultFeedMark = document.createElement(`div`);
         defaultFeedMark.classList.add(`pp_defaultFeed_mark`);
@@ -109,21 +109,24 @@ export async function renderFeedButtons(main: Element, feedDropdown: Element) {
         defaultFeedMark.append(svg);
         space.after(defaultFeedMark);
 
-        const defaultFeedMarkHint = appendNew(defaultFeedMark, `div`, `pp_defaultFeed_mark_hint`);
-        const defaultFeedMarkHintSpan = appendNew(defaultFeedMarkHint, `span`);
+        const defaultFeedMarkHint = appendElement(defaultFeedMark, `div`, `pp_defaultFeed_mark_hint`);
+        const defaultFeedMarkHintSpan = appendElement(defaultFeedMarkHint, `span`);
         defaultFeedMarkHintSpan.textContent = isDefault ? `${currentFeed} is default feed for r/${subName}` : `Set ${currentFeed} as default feed for r/${subName}`;
 
-        if(!isDefault){
-            defaultFeedMark.addEventListener(`click`, () => {
-                const updatedSvg = buildSvg(buttonBest, 16, 16);
-                svg.replaceWith(updatedSvg);
+        if (!isDefault) {
+            defaultFeedMark.addEventListener(
+                `click`,
+                () => {
+                    const updatedSvg = buildSvg(buttonBest, 16, 16);
+                    svg.replaceWith(updatedSvg);
 
-                defaultFeedMarkHintSpan.textContent = `${currentFeed} is default feed for r/${subName}`;
+                    defaultFeedMarkHintSpan.textContent = `${currentFeed} is default feed for r/${subName}`;
 
-                currentSubSettings.defaultFeed = currentFeed;
-                subSettings.set(subName, currentSubSettings);
-
-            }, {once:true});
+                    currentSubSettings.defaultFeed = currentFeed;
+                    subSettings.set(subName, currentSubSettings);
+                },
+                { once: true }
+            );
         }
     }
 
@@ -132,14 +135,14 @@ export async function renderFeedButtons(main: Element, feedDropdown: Element) {
     const isUnseted = IsUnsetedFeed();
 
     for (const feed of feeds) {
-        const button = appendNew(buttonsContainer, `a`, BUTTON_CLASSES) as HTMLAnchorElement;
+        const button = appendElement(buttonsContainer, `a`, BUTTON_CLASSES) as HTMLAnchorElement;
         button.href = hrefGenerator(feed);
 
         const isCurrent = feed == currentFeed;
         button.classList.toggle(`bg-secondary-background-selected`, isCurrent);
         button.classList.toggle(`!text-neutral-content-strong`, isCurrent);
 
-        const spanContainer = appendNew(button, `span`, [`inline-flex`, `flex-row`, `items-center`, `gap-xs`, `py-[var(--rem10)]`, `leading-5`, `font-14`, `pp_feedButton`]);
+        const spanContainer = appendElement(button, `span`, [`inline-flex`, `flex-row`, `items-center`, `gap-xs`, `py-[var(--rem10)]`, `leading-5`, `font-14`, `pp_feedButton`]);
 
         let graphic = BUTTONS_SVG[feed];
         if (graphic != null) {
@@ -148,12 +151,11 @@ export async function renderFeedButtons(main: Element, feedDropdown: Element) {
             spanContainer.append(svg);
         }
 
-        const spanText = appendNew(spanContainer, `span`);
+        const spanText = appendElement(spanContainer, `span`);
         spanText.textContent = feed;
 
-        if(isUnseted && CheckFeedRedirect(location, feed)){
+        if (isUnseted && CheckFeedRedirect(location, feed)) {
             button.click();
         }
     }
-
 }

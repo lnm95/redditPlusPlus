@@ -29,10 +29,7 @@ const webpackConfig = {
             },
             {
                 test: /\.less$/,
-                use: [ 
-                    'css-loader',
-                    'less-loader'
-                ]
+                use: ['css-loader', 'less-loader']
             },
             {
                 test: /\.svg$/,
@@ -42,7 +39,6 @@ const webpackConfig = {
     },
     plugins: []
 };
-
 
 // cleanup removed modules
 webpackConfig.plugins.push(

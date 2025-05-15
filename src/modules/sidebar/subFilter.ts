@@ -1,100 +1,80 @@
-import { appendNew, checkIsRendered, dynamicElement } from '../../utils/tools';
-import style from './subFilter.less';
-import { css } from '../customCSS';
-import { buildSvg } from '../../utils/svg';
+import { checkIsRendered, dynamicElement } from '../../utils/tools';
+import { appendElement } from '../../utils/element';
 import { PrefsKey, prefs } from '../settings/prefs';
 
 import subFilterSvg from '@resources/subFilter.svg';
 import subFilterClearSvg from '@resources/subFilterClear.svg';
 import { notify } from '../toaster';
+import { InputParams, renderUIInput } from '../../utils/UI/input';
+import { CURRENT_COLOR, NONE_COLOR } from '../../utils/svg';
 
-css.addStyle(style);
-
-let filter: Map<string, HTMLElement>;
+let filter: Map<string, HTMLElement> = null;
 
 export async function renderSubFilter(container: Element) {
     if (checkIsRendered(container, `pp-sub-filter`)) return;
 
-    const filterContainer = appendNew(container, `div`, `pp_subFilter_container`);
-
     const createSubButton = (await dynamicElement(() => container.querySelector(`.left-nav-create-community-button`))) as HTMLElement;
+
+    // filter database
+    if (filter != null) {
+        filter.clear();
+    } else {
+        filter = new Map<string, HTMLElement>();
+    }
+
+    const subsContainer = container.querySelector(`left-nav-communities-controller`).shadowRoot;
+
+    subsContainer.querySelectorAll(`left-nav-community-item`).forEach(sub => {
+        filter.set(sub.getAttribute(`prefixedname`).replace(`r/`, ``).toLowerCase(), sub as HTMLElement);
+    });
+
+    // filter value
+    let initValue = prefs.get(PrefsKey.SUB_FILTER);
+    if (initValue == null || initValue instanceof Object) {
+        initValue = ``;
+    }
+
+    const input = renderUIInput(
+        container,
+        `Filter`,
+        initValue,
+        value => {
+            onChangeFilter(value);
+        },
+        {
+            icon: subFilterSvg,
+            iconConfig: { strokeColor: NONE_COLOR, fillColor: CURRENT_COLOR },
+            cleanButton: true,
+            filter: (input: string) => input.trim()
+        }
+    );
+
+    // minify the create sub button
 
     createSubButton.style.width = `65px`;
     const createSubText = await dynamicElement(() => createSubButton.querySelector(`.text-14`));
     createSubText.remove();
-    createSubButton.replaceWith(filterContainer);
-    filterContainer.append(createSubButton);
+    createSubButton.replaceWith(input);
+    input.prepend(createSubButton);
 
-    const filterButton = appendNew(filterContainer, `div`, [`pp_subFilter`, `button`, `button-bordered`]);
-    filterButton.setAttribute(`tabindex`, `0`);
-
-    const sr = filterButton.attachShadow({ mode: 'open' });
-    css.registry(sr);
-
-    const span = appendNew(filterButton, `span`, [`flex`, `items-center`, `justify-center`, `pp_subFilter_span`]);
-    sr.appendChild(span);
-    const iconSpan = appendNew(span, `span`, [`flex`, `items-center`, `justify-center`]);
-    const icon = buildSvg(subFilterSvg, 16, 16);
-    iconSpan.append(icon);
-
-    const inputContainer = appendNew(span, `div`, [`label-container`, `without-label`]);
-    const inputSpan = appendNew(inputContainer, `span`, [`input-container`, `activated`]);
-    const input = appendNew(inputSpan, `input`, `pp_subFilter_input`) as HTMLInputElement;
-    input.type = `text`;
-    input.placeholder = `Filter`;
-
-    const clearContainer = appendNew(filterContainer, `div`, `pp_pp_subFilter_clearContainer`);
-    const clearButton = appendNew(clearContainer, `button`, [`pp_subFilter_clear`, `button-plain`, `pp_hidden`]);
-    const clearIcon = buildSvg(subFilterClearSvg, 16, 16);
-    clearButton.append(clearIcon);
-
-    filterButton.addEventListener(`focus`, () => {
+    const inputButton = input.querySelector(`.pp_ui_input_button`);
+    inputButton.addEventListener(`focus`, () => {
         createSubButton.style.display = `none`;
     });
-    filterButton.addEventListener(`focusout`, () => {
+    inputButton.addEventListener(`focusout`, () => {
         createSubButton.style.display = `block`;
     });
 
-    input.addEventListener(`input`, () => {
-        const pattern = input.value.trim().toLowerCase();
-        onChangeFilter(pattern);
+    // init
 
-        clearButton.classList.toggle(`pp_hidden`, pattern.length == 0);
-    });
-
-    clearButton.addEventListener(`click`, () => {
-        input.value = ``;
-        onChangeFilter(``);
-        clearButton.classList.toggle(`pp_hidden`, true);
-    });
-
-    // init filter database
-    if (filter != null) {
-        filter.clear();
-    }
-
-    filter = new Map<string, HTMLElement>();
-
-    const itemContainer = container.querySelector(`left-nav-communities-controller`).shadowRoot;
-
-    itemContainer.querySelectorAll(`left-nav-community-item`).forEach(item => {
-        filter.set(item.getAttribute(`prefixedname`).replace(`r/`, ``).toLowerCase(), item as HTMLElement);
-    });
-
-    // init value
-    const initPattern = prefs.get(PrefsKey.SUB_FILTER);
-    if (!(initPattern instanceof Object)) {
-        input.value = initPattern;
-        onChangeFilter(initPattern);
-        clearButton.classList.toggle(`pp_hidden`, initPattern.length == 0);
-    }
+    onChangeFilter(initValue);
 }
 
-function onChangeFilter(pattern: string) {
-    prefs.set(PrefsKey.SUB_FILTER, pattern);
+function onChangeFilter(value: string) {
+    prefs.set(PrefsKey.SUB_FILTER, value);
 
     filter.forEach((item, sub) => {
-        if (sub.includes(pattern)) {
+        if (sub.includes(value.toLowerCase())) {
             item.style.removeProperty(`display`);
         } else {
             item.style.display = `none`;

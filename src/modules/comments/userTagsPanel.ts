@@ -1,6 +1,6 @@
 import { DAY_SECONDS, HOUR_SECONDS } from '../../defines';
 import { buildSvg } from '../../utils/svg';
-import { appendNew } from '../../utils/tools';
+import { appendElement } from '../../utils/element';
 import { css } from '../customCSS';
 import { settings } from '../settings/settings';
 import { notify } from '../toaster';
@@ -29,7 +29,7 @@ export function renderUserTagsPanel(contextMenu: Element, userId: string) {
     tagHintContainer.classList.add(`pp_tagHintContainer`);
     tagHintOffset.prepend(tagHintContainer);
 
-    const tagHint = appendNew(tagHintContainer, `div`, `pp_tagHint`);
+    const tagHint = appendElement(tagHintContainer, `div`, `pp_tagHint`);
     tagHint.style.display = `none`;
 
     const tagsPanel = document.createElement(`div`);
@@ -41,7 +41,7 @@ export function renderUserTagsPanel(contextMenu: Element, userId: string) {
     });
 
     function renderTagButton(config: UserTagConfig, userTag: string) {
-        const tagButton = appendNew(tagsPanel, `span`, `pp_tagButton`);
+        const tagButton = appendElement(tagsPanel, `span`, `pp_tagButton`);
         tagButton.setAttribute(`userTag`, userTag);
 
         const subscribeIcon = buildSvg(config.button, 20, 20);

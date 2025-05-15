@@ -6,8 +6,8 @@ module.exports = {
         ru: 'Reddit++'
     },
     description: {
-        $: 'A lot of enhancements for new design of reddit.com like unwrapped feed buttons, bigger fonts, view images without redirect and many more...',
-        ru: 'Множество улучшений для нового интерфейса reddit.com, таких как развернутые кнопки лент, увеличенный шрифт, увеличение изображений без редиректа и много другое...'
+        $: 'A lot of enhancements for new design of reddit.com like unwrapped feed buttons, bigger fonts, view images without redirect, filtering content by keywords and many more...',
+        ru: 'Множество улучшений для нового интерфейса reddit.com, таких как развернутые кнопки лент, увеличенный шрифт, увеличение изображений без редиректа, фильтрация контента по ключевым словам и много другое...'
     },
     namespace: 'RedditPlusPlus',
     version: version,

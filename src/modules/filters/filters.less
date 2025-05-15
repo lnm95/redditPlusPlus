@@ -1,0 +1,99 @@
+.pp_hidden_comment > [slot='commentAvatar'] {
+    display: none;
+}
+
+.pp_hidden_comment > [slot='commentMeta'] {
+    display: none;
+}
+
+.pp_hidden_comment > [slot='comment'] {
+    display: none;
+}
+
+.pp_hidden_comment > [slot='actionRow'] {
+    display: none;
+}
+
+.pp_hidden_button {
+    position: relative;
+    left: -32px;
+    display: flex;
+    align-items: center;
+    padding: 0px 16px;
+    width: fit-content;
+    gap: 8px;
+    background-color: var(--color-neutral-background);
+}
+
+.pp_blured_content {
+    filter: opacity(50%) saturate(50%) blur(6px);
+    max-height: 40px !important;
+    user-select: none;
+    cursor: pointer;
+    overflow-y: hidden;
+}
+
+.pp_blured_content_area {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+}
+
+.pp_blured_content:hover {
+    filter: opacity(75%) saturate(75%) blur(4px);
+}
+
+.pp_blured_content_animator {
+    max-height: 9999px;
+    transition:
+        max-height 1s ease-in,
+        filter 0.2s ease;
+}
+
+.pp_blured_button_container {
+    display: flex;
+    justify-content: center;
+    max-height: 0px;
+}
+
+.pp_blured_button {
+    //background-color: runtime
+    border-radius: 8px;
+    z-index: 1;
+    pointer-events: none;
+    position: relative;
+    top: 6px;
+    height: 100%;
+    max-width: 75%;
+    box-shadow: 0px 0px 0px 2px #ffffff61;
+}
+
+.pp_blured_button_content {
+    display: flex;
+    align-items: center;
+    padding: 0px 16px;
+    gap: 6px;
+    color: #ffffff;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.pp_blured_button_content > svg {
+    min-width: 16px;
+}
+
+.pp_blured_button_content > span {
+    display: block;
+    overflow: hidden;
+    padding: 6px;
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    //text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.582);
+}

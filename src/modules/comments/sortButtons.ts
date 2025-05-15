@@ -1,6 +1,7 @@
 import { MAX_LOAD_LAG } from '../../defines';
 import { buildSvg } from '../../utils/svg';
-import { appendNew, checkIsRendered, dynamicElement } from '../../utils/tools';
+import { checkIsRendered, dynamicElement } from '../../utils/tools';
+import { appendElement } from '../../utils/element';
 import { css } from '../customCSS';
 import { settings } from '../settings/settings';
 import { notify } from '../toaster';
@@ -152,7 +153,6 @@ export async function renderCommentsSortButtons(container: Element) {
     renderSearchComments(container);
 
     sortContainer.querySelector(`shreddit-sort-dropdown`).classList.add(`pp_sortDropdown_hidden`);
-    
 
     let currentSort: string = undefined;
 
@@ -171,7 +171,7 @@ export async function renderCommentsSortButtons(container: Element) {
     });
 
     function renderButton(sort: string, config: CommentSortConfig) {
-        const button = appendNew(sortContainer, `div`, `pp_sortButton`);
+        const button = appendElement(sortContainer, `div`, `pp_sortButton`);
         button.classList.toggle(`pp_sortButton_active`, sort == currentSort);
         button.setAttribute(`commentSort`, sort);
 
@@ -179,24 +179,23 @@ export async function renderCommentsSortButtons(container: Element) {
             switchSort(sort);
         });
 
-        const iconSpan = appendNew(button, `span`);
+        const iconSpan = appendElement(button, `span`);
         const iconSvg = buildSvg(config.icon, 16, 16);
         iconSpan.append(iconSvg);
-        const labelSpan = appendNew(button, `span`);
+        const labelSpan = appendElement(button, `span`);
         labelSpan.textContent = config.overrideName != undefined ? config.overrideName : sort;
     }
 
     sortButtonsRendered = true;
 }
 
-async function renderSearchComments(container: Element){
+async function renderSearchComments(container: Element) {
     const searchSpan = await dynamicElement(() => container.querySelector(`comment-body-header`)?.querySelector(`pdp-comment-search-input`)?.shadowRoot?.querySelector(`.pr-xs`), MAX_LOAD_LAG);
-    
-    if(searchSpan == null) return;
-    
+
+    if (searchSpan == null) return;
+
     searchSpan.textContent = `Search`;
 }
-
 
 let isCommentsSortLocked: boolean = false;
 

@@ -82,7 +82,7 @@ export async function renderUserTags(comment: Element) {
         const tagSvg = buildSvg(config.icon, 20, 20);
         tagSvg.setAttribute(`userTag`, `true`);
         tagSvg.setAttribute(`viewBox`, `-4 -4 20 20`);
-        (tagSvg as HTMLElement).style.color = config.color;
+        tagSvg.style.color = config.color;
         tagsContainer.after(tagSvg);
     }
 }

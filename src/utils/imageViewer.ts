@@ -1,5 +1,5 @@
 import { buildSvg } from './svg';
-import { appendNew } from './tools';
+import { appendElement } from './element';
 
 import imageCloseButtonSvg from '@resources/imageCloseButton.svg';
 
@@ -95,14 +95,14 @@ class ImageViewer {
         this.viewer.classList.add(`pp_imageViewer`);
         this.viewer.dataset.open = String(false);
 
-        const closeButton = appendNew(this.viewer, `div`, `pp_imageViewer_closeButton`);
+        const closeButton = appendElement(this.viewer, `div`, `pp_imageViewer_closeButton`);
 
         const closeSvg = buildSvg(imageCloseButtonSvg, 40, 40);
         closeButton.appendChild(closeSvg);
 
-        this.container = appendNew(this.viewer, `div`, `pp_imageViewer_imageContainer`);
+        this.container = appendElement(this.viewer, `div`, `pp_imageViewer_imageContainer`);
 
-        this.image = appendNew(this.container, `img`, `pp_imageViewer_image`) as HTMLImageElement;
+        this.image = appendElement(this.container, `img`, `pp_imageViewer_image`) as HTMLImageElement;
         this.image.alt = `Comment image`;
         this.image.ondragstart = function () {
             return false;

@@ -1,5 +1,6 @@
 import { MAX_LOAD_LAG } from '../../defines';
-import { appendNew, dynamicElement } from '../../utils/tools';
+import { dynamicElement } from '../../utils/tools';
+import { appendElement } from '../../utils/element';
 import { css } from '../customCSS';
 import { settings } from '../settings/settings';
 import { renderFlair } from './flair';
@@ -18,7 +19,7 @@ export async function renderFlairBar(main: Element) {
 
     const subHighlights = main?.querySelector(`community-highlight-carousel`) as HTMLElement;
 
-    if(subHighlights != null){
+    if (subHighlights != null) {
         feedContent = subHighlights;
     }
 
@@ -39,19 +40,19 @@ export async function renderFlairBar(main: Element) {
     const flairMenuContainer = document.createElement(`div`);
     feedContent.before(flairMenuContainer);
 
-    const flairMenu = appendNew(flairMenuContainer, `div`, `pp_flairBar`);
+    const flairMenu = appendElement(flairMenuContainer, `div`, `pp_flairBar`);
 
-    if(subHighlights != null){
-        flairMenu.classList.add(`pp_flairBar_highlights`);        
+    if (subHighlights != null) {
+        flairMenu.classList.add(`pp_flairBar_highlights`);
     }
 
-    const ul = appendNew(flairMenu, `ul`, [`p-0`, `m-0`, `list-none`, `gap-xs`, `flex`, `flex-row`, `pp_flairBar_list`]);
+    const ul = appendElement(flairMenu, `ul`, [`p-0`, `m-0`, `list-none`, `gap-xs`, `flex`, `flex-row`, `pp_flairBar_list`]);
     let flairsRendered = 0;
 
     for (const flair of subData.flairs) {
         if (flairsData.hidden != undefined && flairsData.hidden.includes(flair.text)) continue;
 
-        const li = appendNew(ul, `li`, `max-w-full`);
+        const li = appendElement(ul, `li`, `max-w-full`);
 
         renderFlair(li, sub, flair);
 
@@ -69,11 +70,11 @@ export async function renderFlairBar(main: Element) {
     borderContainer.classList.add(`pp_flairBar_bordersContainer`);
     flairMenuContainer.prepend(borderContainer);
 
-    const borderLeftC = appendNew(borderContainer, `div`, `pp_flairBar_preBorder`);
-    const borderLeft = appendNew(borderLeftC, `div`, [`pp_flairBar_border`, `pp_flairBar_border_left`]);
+    const borderLeftC = appendElement(borderContainer, `div`, `pp_flairBar_preBorder`);
+    const borderLeft = appendElement(borderLeftC, `div`, [`pp_flairBar_border`, `pp_flairBar_border_left`]);
     borderLeft.textContent = ` `;
-    const borderRightC = appendNew(borderContainer, `div`, `pp_flairBar_preBorder`);
-    const borderRight = appendNew(borderRightC, `div`, [`pp_flairBar_border`, `pp_flairBar_border_right`]);
+    const borderRightC = appendElement(borderContainer, `div`, `pp_flairBar_preBorder`);
+    const borderRight = appendElement(borderRightC, `div`, [`pp_flairBar_border`, `pp_flairBar_border_right`]);
     borderRight.textContent = ` `;
 
     const hr = document.createElement(`hr`);

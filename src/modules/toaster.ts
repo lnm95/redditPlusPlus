@@ -1,19 +1,19 @@
 import { dynamicElement } from '../utils/tools';
 
-class NotifyConfig {
-    time?: number;
+export interface NotifyConfig {
+    seconds?: number;
     color?: string;
 }
 
-export const DEFAULT_NOTIFY_TIME: number = 3000;
+export async function notify(message: string, config?: NotifyConfig) {
+    const { seconds, color } = { seconds: 3, color: null, ...config };
 
-export async function notify(message: string, config: NotifyConfig = {}) {
     let toaster = await dynamicElement(() => document.body?.querySelector(`alert-controller`)?.shadowRoot?.querySelector(`toaster-lite`));
 
     let toast = document.createElement(`faceplate-toast`);
     toast.classList.add(`theme-rpl`);
-    if (config.color != undefined) {
-        toast.style.backgroundColor = config.color;
+    if (color != null) {
+        toast.style.backgroundColor = color;
     }
     toast.textContent = message;
 
@@ -21,12 +21,12 @@ export async function notify(message: string, config: NotifyConfig = {}) {
 
     setTimeout(() => {
         toast.setAttribute(`_fading`, ``);
-    }, config?.time ?? DEFAULT_NOTIFY_TIME);
+    }, seconds * 1000);
 }
 
 export function pp_log(message: string) {
     if (DEBUG) {
-        notify(message, { color: `#df911d` });
+        notify(message, { seconds: 6, color: `#df911d` });
     }
 
     console.log(`Reddit++: ${message}`);

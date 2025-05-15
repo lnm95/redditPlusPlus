@@ -1,4 +1,5 @@
-import { DAY_SECONDS, HOUR_SECONDS } from '../defines';
+import { profiler } from '../_debug/debug';
+import { DAY_SECONDS, HOUR_SECONDS, secondsToTime } from '../defines';
 
 export interface ICleanupableData {
     timestamp: number;
@@ -46,7 +47,8 @@ export class Database<T> {
 
         // cleanup database
         if (this.isCleanupable && GM_getValue(this.cleanupKey, 0) < Date.now()) {
-            const timestampLimit = Date.now() - 1000 * 2 * DAY_SECONDS;
+            const items = Object.entries(this.data).length;
+            const timestampLimit = Date.now() - secondsToTime(DAY_SECONDS * (1000 / items));
 
             this.data = Object.fromEntries(Object.entries(this.data).filter(([key, value]) => (value as ICleanupableData).timestamp > timestampLimit));
             this.refreshed = Date.now();
@@ -62,6 +64,10 @@ export class Database<T> {
         if (this.data == undefined || this.refreshed < lastRefreshed) {
             this.refreshed = lastRefreshed;
             this.data = GM_getValue(this.databaseKey, {});
+
+            if (DEBUG) {
+                profiler.databases.set(this.databaseKey.replace(`_DATABASE`, ``), Object.entries(this.data).length);
+            }
         }
     }
 

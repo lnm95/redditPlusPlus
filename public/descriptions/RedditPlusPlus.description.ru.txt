@@ -12,18 +12,18 @@
 
 <h2>Описание</h2>
 <ul>
-    <li><details><summary>Общий вид после reddit++ (кликабельно).</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/scr/page.png alt="common view"></details></li>
     <h4>Общее</h4>
-    <li>Редирект ссылок с старой версией на актуальную версию.</li>
-    <li>Перемещение правого сайдбара к границе экрана.</li>
-    <li>Уменьшение ширины ленты с контентом.</li>
+    <li><details><summary>Правый сайдбар перемещён, чтобы контент был централизован.</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/scr/page.png alt="common view"></details></li>
     <li>Увеличение шрифтов в комментариях и постах.</li>
-    <li>Улучшение читаемости попапа с уведомлениями.</li>
-    <li>Автоматическое сворачивание "Awards".</li>
+    <li>Фильтрация комментариев и постов по ключевым словам или регулярным выражениям. Посты также можно фильтровать по флеирам.</li>
+    <li>Увеличение изображений без перехода на другую вкладку.</li>
     <li><details><summary>Возможность вынести закладку сохранёного из контекстного меню.</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/scr/bookmarks.png alt="bookmarks"></details></li>
+    <li>Автоматическое сворачивание "Awards".</li>
+    <li>Редирект ссылок с старой версией на актуальную версию.</li>
 
     <h4>Левый садбар</h4>
-    <li>Сохранение свернутых элементов.</li>
+    <li>Сохранение свернутых категорий.</li>
+    <li>Сокрытие категорий (через настройки).</li>
     <li>Фильтр сообществ.</li>
 
     <h4>Сабреддиты</h4>
@@ -32,15 +32,14 @@
     <li>Флеир бар для быстрой навигации.</li>
 
     <h4>Посты</h4>
-    <li>Сокрытие постов по флеирам.</li>
+    <li>Градиентный фон.</li>
     <li>Выделяемый текст.</li>
     <li><details><summary>Развёртывание текстовых постов по кнопке.</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/scr/post.png alt="post"></details></li>
 
     <h4>Комментарии</h4>
     <li><details><summary>Кнопки сортировки комментариев, сохранение сортировки комментариев.</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/scr/commentsSort.png alt="commentsSort"></details></li>
-    <li>Информация о пользователе (рейтинг, индикация новых пользователей).</li>
+    <li>Информация о пользователе (рейтинг, индикация новых пользователей, замена имени пользователя на никнеймы).</li>
     <li><details><summary>Теги пользователей (декоративные: liked, warned; функциональные: follow, block).</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/scr/userTags.png alt="userTags"></details></li>
-    <li>Увеличение изображений без перехода на другую вкладку.</li>
     <li>Автоматическое сворачивание комментариев от AutoModerator.</li>
     <li>Развёртывание "more replies".</li>
 </ul>

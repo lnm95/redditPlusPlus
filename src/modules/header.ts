@@ -1,6 +1,7 @@
 import { observeFor } from '../utils/tools';
 import { NONE_COLOR, buildSvg } from '../utils/svg';
-import { appendNew, checkIsRendered, dynamicElement } from '../utils/tools';
+import { checkIsRendered, dynamicElement } from '../utils/tools';
+import { appendElement } from '../utils/element';
 import { css } from './customCSS';
 import style from './header.less';
 import { renderNotifications } from './notifications';
@@ -8,12 +9,9 @@ import { settings } from './settings/settings';
 import { settingsWindow } from './settings/settingsWindow';
 import settingsButtonSvg from '@resources/settingsButton.svg';
 
-
 css.addStyle(style);
 
-
 let notificationsInitialized = false;
-
 
 export async function renderHeader(container: Element) {
     const nav = await dynamicElement(() => container.querySelector(`reddit-header-large`)?.querySelector(`nav`));
@@ -41,7 +39,7 @@ export async function renderHeader(container: Element) {
     }
 
     const logo = container.querySelector(`#reddit-logo`);
-    const logoPP = appendNew(logo, `div`, `pp_logo`);
+    const logoPP = appendElement(logo, `div`, `pp_logo`);
     logoPP.textContent = `++`;
     if (DEBUG) {
         logoPP.innerHTML = logoPP.textContent + ` <sup>(dev ${VERSION})</sup>`;

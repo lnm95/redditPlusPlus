@@ -1,4 +1,4 @@
-import { PROFILE_DYNAMIC_ELEMENTS, profiler_dynamicElements } from "../_debug/debug";
+import { PROFILE_DYNAMIC_ELEMENTS, profiler_dynamicElements } from '../_debug/debug';
 
 const DYNAMIC_ELEMENT_FREQUENCY: number = 10;
 
@@ -10,7 +10,7 @@ export async function dynamicElement(elementRequest: Function, maxLifetime: numb
             return resolve(element);
         }
 
-        if(DEBUG && PROFILE_DYNAMIC_ELEMENTS){
+        if (DEBUG && PROFILE_DYNAMIC_ELEMENTS) {
             profiler_dynamicElements.dynamicElement++;
         }
 
@@ -25,7 +25,7 @@ export async function dynamicElement(elementRequest: Function, maxLifetime: numb
             }
 
             if (element != null || forced) {
-                if(DEBUG && PROFILE_DYNAMIC_ELEMENTS){
+                if (DEBUG && PROFILE_DYNAMIC_ELEMENTS) {
                     profiler_dynamicElements.dynamicElement--;
                 }
 
@@ -47,7 +47,7 @@ export function observeFor(root: Element, action: ObserveAction, includeChilds: 
         return;
     }
 
-    if(DEBUG && PROFILE_DYNAMIC_ELEMENTS){
+    if (DEBUG && PROFILE_DYNAMIC_ELEMENTS) {
         profiler_dynamicElements.observeFor++;
     }
 
@@ -61,7 +61,7 @@ export function observeFor(root: Element, action: ObserveAction, includeChilds: 
                         observer.disconnect();
                         observer = null;
 
-                        if(DEBUG && PROFILE_DYNAMIC_ELEMENTS){
+                        if (DEBUG && PROFILE_DYNAMIC_ELEMENTS) {
                             profiler_dynamicElements.observeFor--;
                         }
                     }
@@ -80,23 +80,6 @@ export function checkIsRendered(node: Element, key: string = `pp-rendered`) {
         node.setAttribute(key, ``);
         return false;
     }
-}
-
-export function appendNew(prev: Element, name: string, classes: string | Array<string> = null) {
-    const el = document.createElement(name);
-
-    if (classes != null) {
-        if (typeof classes === `string` && classes) {
-            el.classList.add(classes);
-        } else {
-            for (const c of classes) {
-                el.classList.add(c);
-            }
-        }
-    }
-
-    prev.append(el);
-    return el;
 }
 
 export function getCookie(key: string) {
@@ -119,4 +102,16 @@ export function isLowerVersion(a: string, b: string): boolean {
     }
 
     return false;
+}
+
+export function animate(action: Function, seconds: number, step: number = 10) {
+    let ticks = (seconds * 1000) / step;
+    let timer = setInterval(() => {
+        action();
+
+        ticks--;
+        if (ticks < 0) {
+            clearInterval(timer);
+        }
+    }, step);
 }

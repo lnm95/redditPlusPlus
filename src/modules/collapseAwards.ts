@@ -39,7 +39,7 @@ export async function renderCollapseAward(target: Element, targetType: ModuleTag
 
         upVoteButton.addEventListener(`click`, () => {
             awardButton.classList.toggle(`pp_awardButton_hidden`, isCollapsed(upVoteButton));
-            
+
             setTimeout(() => {
                 awardButton.classList.toggle(`pp_awardButton_collapsed`, isCollapsed(upVoteButton));
             }, 10);

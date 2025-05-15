@@ -1,4 +1,4 @@
-import { appendNew } from '../utils/tools';
+import { appendElement } from '../utils/element';
 import { settings } from './settings/settings';
 
 import style from './redirect.less';
@@ -35,8 +35,8 @@ function renderSuggestion(redirect: string) {
 
     let secondsToRedirect = 19;
 
-    const container = appendNew(document.body, `div`, `pp_redirectContainer`);
-    const box = appendNew(container, `div`, `pp_redirectBox`);
+    const container = appendElement(document.body, `div`, `pp_redirectContainer`);
+    const box = appendElement(container, `div`, `pp_redirectBox`);
     box.textContent = `Click here to redirect on compatible page (${secondsToRedirect})`;
 
     box.addEventListener(`click`, () => {

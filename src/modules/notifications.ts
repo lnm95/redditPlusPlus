@@ -1,4 +1,4 @@
-import { appendNew } from '../utils/tools';
+import { appendElement } from '../utils/element';
 import { settings } from './settings/settings';
 import { css } from './customCSS';
 
@@ -18,7 +18,7 @@ export function renderNotifications(container: Element) {
 
             const subTittle = document.createElement(`div`);
             tittle.after(subTittle);
-            const subTittleContent = appendNew(subTittle, `span`, [`text-secondary-weak`, `font-normal`]);
+            const subTittleContent = appendElement(subTittle, `span`, [`text-secondary-weak`, `font-normal`]);
             let sub = item.parentElement.getAttribute(`href`);
             sub = sub.replace(`https://reddit.com/r/`, ``);
             sub = sub.split(`/`)[0];
@@ -27,11 +27,10 @@ export function renderNotifications(container: Element) {
 
         const time = item.querySelector(`faceplate-number`);
 
-        if(time != null){
+        if (time != null) {
             const spanAgo = document.createElement(`span`);
             spanAgo.textContent = ` ago`;
             time.after(spanAgo);
         }
-        
     });
 }

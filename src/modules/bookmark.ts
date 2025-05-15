@@ -55,7 +55,7 @@ export async function renderBookmarkPost(post: Element, forced: boolean = false,
 
     const contextMenu = await dynamicElement(() => post.querySelector(`shreddit-post-overflow-menu`)?.shadowRoot?.querySelector(`faceplate-dropdown-menu`)?.querySelector(`faceplate-menu`), 3000);
 
-    if(contextMenu == undefined) {
+    if (contextMenu == undefined) {
         return;
     }
 

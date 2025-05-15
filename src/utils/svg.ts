@@ -1,30 +1,46 @@
 export const NONE_COLOR: string = 'none';
 export const CURRENT_COLOR: string = 'currentColor';
 
-class SVGViewBox {
+export class SVGViewBox {
     w: number;
     h: number;
 }
 
-class SVGConfig {
+export interface SVGConfig {
     viewBox?: SVGViewBox;
-    strokeColor?: string = CURRENT_COLOR;
-    fillColor?: string = NONE_COLOR;
+    strokeColor?: string;
+    fillColor?: string;
 }
 
-export function buildSvg(graphic: any, w: number, h: number, config: SVGConfig = {}): Element {
-    const handle = document.createElement('div');
-    handle.innerHTML = graphic;
+const builderContainer = document.createElement('div');
 
-    const svg = handle.firstChild as Element;
+export function buildSvg(graphic: any, w: number, h: number, config?: SVGConfig): SVGSVGElement {
+    const { viewBox, strokeColor, fillColor } = { viewBox: null, strokeColor: CURRENT_COLOR, fillColor: CURRENT_COLOR, ...config };
+
+    builderContainer.innerHTML = graphic;
+
+    const svg = builderContainer.firstChild as SVGSVGElement;
     svg.setAttribute(`width`, `${w}px`);
     svg.setAttribute(`height`, `${h}px`);
 
-    if (config.viewBox != undefined) {
-        svg.setAttribute(`viewBox`, `0 0 ${config.viewBox.w} ${config.viewBox.h}`);
+    if (viewBox != null) {
+        svg.setAttribute(`viewBox`, `0 0 ${viewBox.w} ${viewBox.h}`);
     }
-    svg.setAttribute(`fill`, config?.fillColor ?? CURRENT_COLOR);
-    svg.setAttribute(`stroke`, config?.strokeColor ?? CURRENT_COLOR);
 
+    svg.setAttribute(`fill`, fillColor);
+    svg.setAttribute(`stroke`, strokeColor);
+
+    return svg;
+}
+
+export function appendSvg(target: Element, graphic: any, w: number, h: number, config: SVGConfig = {}): SVGSVGElement {
+    const svg = buildSvg(graphic, w, h, config);
+    target.append(svg);
+    return svg;
+}
+
+export function prependSvg(target: Element, graphic: any, w: number, h: number, config: SVGConfig = {}): SVGSVGElement {
+    const svg = buildSvg(graphic, w, h, config);
+    target.prepend(svg);
     return svg;
 }

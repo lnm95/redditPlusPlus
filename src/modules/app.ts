@@ -10,6 +10,8 @@ import { notify } from './toaster';
 import { renderComments } from './comments/comments';
 import { renderScrollToTop } from './scrollToTop';
 import { renderUserPage } from './users/userPage';
+import { clearHiddenContentButton } from './filters/hiddenContent';
+import { closeAllWindows } from '../utils/window';
 
 export async function renderApp() {
     css.addStyle(style, `app`);
@@ -18,11 +20,15 @@ export async function renderApp() {
 
     if (checkIsRendered(app)) return;
 
+    clearHiddenContentButton();
+
+    closeAllWindows();
+
     if (window.location.href.includes(`/user/`)) {
         renderUserPage(document.body);
     } else {
         renderFeed(document.body);
-    }    
+    }
 
     renderComments(document.body);
 

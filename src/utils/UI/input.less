@@ -1,0 +1,82 @@
+.pp_ui_input_container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.pp_ui_input_button {
+    border-color: var(--color-neutral-border-weak);
+    color: var(--color-secondary-weak);
+    font-weight: 400;
+
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    height: 40px;
+
+    //outline-color: var(--color-neutral-border-weak);
+    //outline-width: 1px;
+    //outline-style: solid;
+
+    color: var(--color-secondary-plain);
+}
+
+.pp_ui_input_button:hover {
+    background: var(--color-input-secondary-hover) !important;
+}
+
+.pp_ui_input_button:focus {
+    //outline-color:var(--color-neutral-content-weak);
+    border-color: var(--color-neutral-content-weak) !important;
+}
+
+.pp_ui_input_panel {
+    width: 100%;
+    margin: 0px 16px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 6px;
+}
+
+.pp_ui_input_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pp_ui_input_span {
+    width: 100%;
+}
+
+.pp_ui_input {
+    width: 100%;
+    background: 0 0;
+    border: none;
+    outline: 0;
+    text-overflow: ellipsis;
+    color: var(--color-neutral-content-strong);
+    font: inherit;
+    padding: 0px;
+    margin: 0px;
+}
+
+.pp_ui_input_clearContainer {
+    position: relative;
+    width: 0px;
+}
+
+.pp_ui_input_clearButton {
+    position: relative;
+    right: 40px;
+    top: 4px;
+
+    border-radius: 32px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

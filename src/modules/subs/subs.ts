@@ -8,10 +8,13 @@ import { checkIsRendered, dynamicElement } from '../../utils/tools';
 import { flairsWindow } from './flairWindow';
 import { MAX_LOAD_LAG } from '../../defines';
 import { settings } from '../settings/settings';
+import { requestAPI } from '../../utils/redditAPI';
 
 css.addStyle(style);
 
+// naming a bit weird just to save compatibility
 export const FLAIR_HIDDEN: string = `hidden`;
+export const FLAIR_BLURED: string = `blured`;
 export const FLAIR_BANNED: string = `banned`;
 
 class SubSettings {
@@ -20,6 +23,7 @@ class SubSettings {
 
 class SubFlairsData {
     hidden: Array<string>;
+    blured: Array<string>;
     banned: Array<string>;
 }
 
@@ -38,30 +42,21 @@ function subDataValidator(subData: SubData) {
 }
 
 async function subDataLoader(sub: string): Promise<SubData> {
-    let subData = {} as SubData;
+    let subData = { flairs: [] } as SubData;
 
-    const response = await fetch(`https://www.reddit.com/r/${sub}/api/link_flair_v2.json?raw_json=1`, { cache: `no-cache`, method: `get` });
-    const json = await response.json();
+    const { status, result } = await requestAPI(`/r/${sub}/api/link_flair_v2.json`);
 
-    const loadedFlairs = [] as Array<FlairData>;
-
-    if (json != null && json.message == null) {
-        for (const loadedFlair of json) {
+    if (result != null && result.message == null) {
+        for (const loadedFlair of result) {
             const flair = { text: loadedFlair.text, color: loadedFlair.text_color, background: loadedFlair.background_color, richtext: loadedFlair.richtext } as FlairData;
 
-            loadedFlairs.push(flair);
+            subData.flairs.push(flair);
         }
-
-        subData.flairs = loadedFlairs;
-
-        return subData;
-    } else {
-        subData.flairs = loadedFlairs;
-
-        pp_log(`Unable to load r/${sub} flairs data`);
 
         return subData;
     }
+
+    return subData;
 }
 
 export function getCurrentSub(): string {
@@ -71,7 +66,7 @@ export function getCurrentSub(): string {
 
 export async function renderSub(main: Element) {
     // skip page without feed
-    const checkIsFeed = main.querySelector(`shreddit-feed-error-banner`);
+    const checkIsFeed = await dynamicElement(() => main.querySelector(`shreddit-feed-error-banner`), MAX_LOAD_LAG);
     if (checkIsFeed == null) return;
 
     renderMasthead(main);
@@ -91,12 +86,12 @@ async function renderMasthead(main: Element) {
     document.body.addEventListener(`click`, renderContextMenu);
 }
 
-async function renderHighlights(main : Element){
-    if(settings.COLLAPSE_HIGHLIGHTS.isDisabled()) return;
+async function renderHighlights(main: Element) {
+    if (settings.COLLAPSE_HIGHLIGHTS.isDisabled()) return;
 
-    const highlightButton = await dynamicElement(() => main?.querySelector(`community-highlight-carousel`)?.shadowRoot?.querySelector(`button`), MAX_LOAD_LAG);
-    
-    if(highlightButton != null){
+    const highlightButton = await dynamicElement(() => main?.querySelector(`community-highlight-carousel`)?.shadowRoot?.querySelector(`button`), MAX_LOAD_LAG * 5);
+
+    if (highlightButton != null) {
         (highlightButton as HTMLElement).click();
     }
 }

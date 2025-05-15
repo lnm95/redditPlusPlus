@@ -3,7 +3,7 @@
     width: 100px;
     height: 100%;
     bottom: 0px;
-    //left:350px;
+    //left: runtime;
     background: linear-gradient(0deg, var(--scrollLineColor) 1%, var(--scrollLineTransparentColor) 30%);
     display: flex;
     justify-content: center;
@@ -11,8 +11,12 @@
     padding-bottom: 20px;
     cursor: pointer;
     color: var(--scrollLineTransparentColor);
+    opacity: 1;
 
-    transition: all 0.2s ease-in;
+    transition:
+        padding-bottom 0.2s ease-in,
+        color 0.2s ease-in,
+        opacity 1s ease;
 }
 
 .pp_scrollToTop_inverted {
@@ -20,18 +24,21 @@
 }
 
 .pp_scrollToTop_hidden {
-    visibility: hidden;
+    opacity: 0 !important;
 }
 
 .pp_scrollToTop_hidden::before {
-    visibility: hidden;
+    opacity: 0 !important;
 }
 
 .pp_scrollToTop:hover {
     padding-bottom: 50px !important;
     color: var(--scrollButtonColor);
 
-    transition: all 0.2s ease-out;
+    transition:
+        padding-bottom 0.2s ease-out,
+        color 0.2s ease-out,
+        opacity 1s ease;
 }
 
 .pp_scrollToTop::before {
@@ -52,13 +59,13 @@
     transition: opacity 0.2s ease-out;
 }
 
-:root.theme-light {
-    --scrollLineColor: #e5ebee6e !important;
-    --scrollLineTransparentColor: #e5ebee00 !important;
-    --scrollButtonColor: #c9d1d4c2 !important;
-}
 :root {
-    --scrollLineColor: #3f484d33;
-    --scrollLineTransparentColor: #30343600;
-    --scrollButtonColor: #969a9c;
+    --scrollLineColor: #e5ebee6e;
+    --scrollLineTransparentColor: #e5ebee00;
+    --scrollButtonColor: #c9d1d4c2;
+}
+:root.theme-dark {
+    --scrollLineColor: #3f484d33 !important;
+    --scrollLineTransparentColor: #30343600 !important;
+    --scrollButtonColor: #969a9c !important;
 }

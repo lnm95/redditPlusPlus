@@ -14,6 +14,7 @@ import { SHOW_RENDERED_COMMENTS, PROFILE_USER_DATA, profiler_comments } from '..
 import { renderMoreReplies } from './moreReplies';
 import { renderUserInfo } from '../users/userInfo';
 import { notify } from '../toaster';
+import { filterComment } from '../filters/filters';
 
 let rootIntersector: IntersectionObserver = null;
 let commentsIntersector: IntersectionObserver = null;
@@ -114,7 +115,7 @@ export async function renderComments(container: Element) {
                         if (settings.HIDE_RELATED_POSTS.isEnabled() && node.matches(`h2`) && node.textContent.includes(`Related posts`)) {
                             const relatedHeader = node;
                             const relatedPosts = relatedHeader.nextSibling;
-                            
+
                             relatedHeader.remove();
                             relatedPosts.remove();
                         }
@@ -169,6 +170,9 @@ export async function renderComment(comment: Element) {
     if (DEBUG && SHOW_RENDERED_COMMENTS) {
         commentBody.classList.add(`pp_debug_rendered`);
     }
+
+    // filter
+    filterComment(comment, commentBody);
 
     // collapse automoderator and pinned mods
     if (settings.COLLAPSE_AUTOMODERATOR.isEnabled()) {

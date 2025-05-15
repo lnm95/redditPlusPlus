@@ -1,0 +1,52 @@
+.pp_hiddenContent_button {
+    position: fixed;
+    width: fit-content;
+    height: 50px;
+    bottom: -100px;
+    border-radius: 12px;
+    border: solid 2px var(--color-button-secondary-background);
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 0px 16px;
+    cursor: pointer;
+    user-select: none;
+
+    transition:
+        bottom 0.4s ease,
+        background 0.15s ease;
+}
+
+.pp_hiddenContent_button:hover {
+    background: var(--color-button-secondary-background);
+    border-color: transparent;
+}
+
+.pp_hiddenContent_button:active {
+    background: var(--button-color-background-activated);
+    border-color: transparent;
+}
+
+.pp_hiddenContent_button > svg {
+    min-width: 16px;
+}
+
+.pp_hiddenContent_button > span {
+    font-weight: 500;
+    text-wrap-mode: nowrap;
+}
+
+.pp_hiddenContent_button_visible {
+    visibility: visible;
+    bottom: 20px;
+}
+
+:root {
+    --pp-backgroundButton: #848d9233;
+    --pp-backgroundButtonActive: #e5ebee6e;
+}
+:root.theme-dark {
+    --pp-backgroundButton: #3f484d33 !important;
+}

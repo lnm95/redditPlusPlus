@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name             Reddit++
 // @name:ru          Reddit++
-// @description      A lot of enhancements for new design of reddit.com like unwrapped feed buttons, bigger fonts, view images without redirect and many more...
-// @description:ru   Множество улучшений для нового интерфейса reddit.com, таких как развернутые кнопки лент, увеличенный шрифт, увеличение изображений без редиректа и много другое...
+// @description      A lot of enhancements for new design of reddit.com like unwrapped feed buttons, bigger fonts, view images without redirect, filtering content by keywords and many more...
+// @description:ru   Множество улучшений для нового интерфейса reddit.com, таких как развернутые кнопки лент, увеличенный шрифт, увеличение изображений без редиректа, фильтрация контента по ключевым словам и много другое...
 // @namespace        RedditPlusPlus
-// @version          1.0.26
+// @version          1.1.0
 // @author           lnm95
 // @icon             data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAQRklEQVR4nN2bCZAc1XnHf6+75569L0lI6DJCAmIQESBBEnFIwhyKwmHsshMnBRhSwQZifCSOKxw+iEPABldMUmCb4KtiCDKXicRhCZAAQSQkJJCwVtrVXtpzdmfnnu5+qdczOzuzO7M7e2BC/lVTuz3b773v+7/vescKpgi5fooNBB9HcgNwMbAE0Eq8B2nABurnw6KPQUUlhIbg6P4hQv0/wc0PEByhhNTi+alqA8bUm0yCrQguYS02m5Bcg2ReWe0sRY0LTloOl16PPHM9VDZAfwe89Isq8dwjX6C3x4ebuxB0zpa4s0dAgGqi3MwGrgcWTKmtADsG6flNcPkNuDZ+YXSSq+qhaRHS5TXEQ9+6AezTgFuB3Vl7mRGKm+NU4KYGwTeJ0grcOWXltQwBvzPh5wMeftGSpDs0iJQyR4L0V2KfeSGyqV6Q5jxsdiB4CDHFsUoMn4MadLJPDuehIfkyKY4g+QZQOeXRdehI6dzWVsXGnhP48hGNn728m6PNR5DWyORKTCFIBWqwfX71iEO75Foku4BbcvKvn6IO03YBm2Xs5FEE50yrvVCCQldS5+bOWvaKOv44GGb1Qh91G9ZQdfIKYrbElUiS9nqIKkE7WvGEex3S8oLgHOD7CP4ajUuwaGGDgK1ywuHzMXUXEPwNgv9BTkN5kf1oEEbnxwMVbLcbuKrO5JtN/dwY7OFq2UJgqIeuJLTZHjpjEN+zC9eWR9DC0cyUjc0CkuVYHEBws/O8ofzkVvDmWPMowJ1CYwf3AF+astI2GdO1GDFh9iXg8rY5nN/o4V+qO2gUJiQgVemn/9xPMnzmxViVDRih49TsfIyat55Gt6Uy/lwfJcb7J7by9YmUEULkvV4OAecKH0F+DlxR9O8y7yPy7Epmlc/FagNcbmzNxbNhnU+1VfPTZXE2eeMYZgrSKUiZzvtWdQArWI0R6UMbTmb6dOVJPfEkbybCZ9kp45MRMHkMyCj/G+D8ksqbI7MrQJMZQUX2+7QAL1DbCE0LYeFyrIaF+PvSXLDrGEsvWI4RMKHrCLT/Do63QH8Pen8UXZm8K6u4IjEpQMhMHCjmCqO4wpH5XHFpKRJyZBToMs4ChGAD/1Vy5hNZxZuqkQtOAa8f0d0CrYdhWH3vRa66BM68AJafA/UngMuL1A1StiScMKnxuTEUaaYJ6QT0dcDBN2DPdsSup6E7BRU4laGcuwSiw4i2d6F7KEOEf0KX2Mx5XM3tsqBeKN8FLhZ3I/m7ol3HgOpKWPcZ5NqroaYRNB0SUdizDXraYcUqWLEaaprAX5gl8wceJ38sDIM9cOBVeG83NC2AleeDL5gharAb8dtfwYu/hMGIKsImwn1slbdNnYAN4hYnxRRDCvBWwhXXIa+4BRoXFr6kSIgOQV15VXBJKHkGuiBQBd4xWnYfRTxxP/z6R5CMZIJjKQhuYov8YfkEXCIWYXMA6RhYIZQxhYGNn0TeeM945fMw4SxPKG+Z7RQJ/3YbbNmcsYLSMSGCziqek4cYQ0DxOsDiuaLKk/X5gIG95nLsMpQfyYDlZmaRlzyYpJ1sWoy1eiPSq0+2Kghi8aiTysdgPAEZ019esisb7Npq0v5qh4ucMKrMzFfCtokPhRk4dIhweztmMjEpCU7iSCUZ7uwkdPAQiaGw00+xdiI7F2ZFLbIqWI6Jnc2r42uYQgIuFmpx8bXJpJS2RTptkhzJgLaNrdwnL4YMtLbxznfv4sh1Gzl682fofWU7ZsosSYKjfNqk9+VtHL3pUxz9/Cb23/sdBtrac+84liEltm07WwcqCaWTKbBkeSYm+AcuFzWlCYCvAHMn7EQHbSBM4vgxwilJTGYEl7bMreAi0SR9W57B/9SPWWE287F5En33VpIqPRYx65HnRPNB7McfZOHh11i+WKeydRf9r7zIcH8oY1VKeSkxLctZH4QTFqmuFrRwpFwfqyZZaAU5AuQGZ2n5V5N2oYOwLTw7niC69zW6bEhIkRUu80q0sx1z306akiEqmiRBsx3/20+jtR/KFY35GPlO62omePhlqmstgr4Q9R17sN7aTux4d0bGrJXFpcZxCfG9O3DvfBJMu/xVjeBm+WdUjyMA4ezeVJTViRcCB16jcvN9iD2vk7Sk44/KFRTslImbKEGV+v0S2lrwDrbikokJXdWNScCTyBQ+4S58/YO44v1ImZlex9WU2ZsW2ls7qdh8H/79b4CnTOUzqCTKF8cTYHNT2V2oitc2aXjlCeY99T30vg5SQiMtbdK2xD1nLr6VZ2EuqEd63OD3Y/zhRRgLThrZ/yj60RcsxTj7IqgIIF0urAX1+FaejWfunIzp25K00ND725n71L3U73gSzTKns6j//EjUUMWk2khYC/ztlLpQsSAORjKKtew0UotOBdPCtixclQH0+nmYbjcuXzXi5LMQm26Fk1Y51fVIxhh1B6G+RtTMgXlLsawkdtWJxM+6FM+6P8c9b54TdE0JaUPHtfclgs89it43mNmGmUqRkUEVS9h25xFaMtxJPlt2os6HxwnDyK6jpNO2s4sjpYUel7jmL4HP3U4qFkVXawS3QSKRJB6JkE6lMJW7ZLOGYRi4XW58wQCeZefA4lXY8SiegB8pNMxEEsuysDRdcYzR1YpMJUdXh9OBxiZgm5GdgLXT6sQFeqwH14GXSa67DsvrxZa2s27XbInhcmMEK4nGE9x793d48/XXnZkcSWUyGzV1w0DXBYams+qcc/jq1/4eT7ASy7IxzRS2aWVyvrSxYiEqD2xDj3ZPvjcwESRXKqs35CUsxWTZNFmEtIX74B70Xc8wvPoqPJqGx0qg64bjDpbLjcdtEBse5pVtvyWZSIDbB5qGUK7gbJjYkErg9rhZceoK3G6DVCrtKK9SniIg5faSMgXB15/GdWA3pKypBr+xOFFlPv2OJVwEXDPtblRAjMfQBzoYPPF0YlXznGgtkwlMKbFsC03XaWxqIhwe4v3mZuxEHKSW3SWywEzi8vq48qqruO6GG6mtrycej5NMp0klU8SEm6h0oTfvpeFX38Lb9j5Cl7Oxp71bEfCXzh7vDAhQM+np7oDEMJG6E4lWzSVlK72SpNNpkqk0CxcvYeGixbh9AdISjGAF3qoqauobWLRkKZuuzCj/8ZVn0jcwQFzFi5TtKB+XBq7mPTQ++32q39qSUV6fsfJqApqF3OAsfD4xw46yuz/QvfYajq+7lvj8P0AIDYGFZtvomqC2tppELMq+vXt55713icbj+D0+Tj11OStPPwNfoILQ4KDj+xY6ttCcvB9o3cecFx6i8ZXHM4Fv9o5zHlcEvIlk1ax0l84QET3pdHrW30DojE9guoOOidu26bzichn4vT48Hje6pjnukkymiSfipNKZd9TGitDd6MkwNe88T9PzDxM8tCcT9GbxMM+UvCtS6+hxCRpmrVeV3Uwdq7KW2ClrGF51GfFla0hWNWIZXqTQnUwhle+rNCgEQjdAEwjLQk8ncA/34Du4g6pdTxE4uAs9MogwrNnw+UIIjisLSCIn3E8pD0vWwvzsKlq5xN4XkeF2rMp6rMZ5pBecgqk+DYuxKuqQhgep6wiVAdIxtEgIV08LxrH9GO3vYXR3YoR7Eenk6Cbrn9w4Kkq4H95+fKZSJ4RcP+1MOoozroZ/fqzgq95D79Jw46mZ2KACls+LDNQj/dVIvx+8rsweorQgnoZYDC02hIj2QjyRIdHFaLC760VYfWGu/1QqRfJH91Cx+RszEn12PKqyruBxcHCQ5sFhGjxk/FZFsngCMdSOsNpHzw5Gqs+RAxM9W126i6yZ6+cUPLa2HsObSJS5eisNI7uv4J1hPwXo6+t3Pjnb0rIjjIwixxxs55NRhj0ODAzQ199HfTQ6U1FT6oR3cKa95EPV7Cr3KxMtQOHqJ6O0NuYUqUxnVOW0GsO2ZnY9wJQMaSkIzaiXDxUzC1+GoFVz6+yfbRXUtrOmzXbOGj+GGL/JO8VO6NOcM/VZhBJMLW/9/uK76rMBXdfwer24vb6Z9SbZp2rVfbMpnJr5QCDAnDlNs9ltATweDzXVNQSra6bQqghs3jQQbC/Lla79IQRKJJ2GwiOwioogbrcL+6b/KO0Ke1+Fl/999FkVUpddX3r8usbcr4qAhoZ6PGsugLk/Ld3mZ3dAqLn0393scZKPXO9ccDqx5IvX3A3XFz8jLQaVCSaLA11dx2n64mq0cGvmi5+0wAmlT5ryIbMbKrpeekmYTCYZ+s1jND74F6VeeV88z8kZCQVPTDhi0/yyBBuBUjz//G0s+vv7aT3WSuSE00f/Uqby+WOUgpqAY8fa6ExYpTtQlp+rBG2eRDh37yZFKBTCNM3cDLtcLsck1U+R3fBUOTqRSDi1wNgjd7XTc7z7OB0dnSxLJsYNF4lEnLbOIUs2oKr+3W53bsaVgk4pnMzsFeaPYat7B+Ewbe3t6AP9pdWRzo2XLAEvsJ0NtCFL3LvrbicWizmsDg4N5ghQSldVVjn+WFVV5QioTDMajdLd3UNocJSsEagiRpE4NDSEL3RsdIyOVtql4ZCjFFNKKYJVNqmvq6eurhafz+d8r5QfGAg51aAaS405Mob6PRaLO9Xi4lB3qdlvEVvzLEBk3Orh7EXH8Xj+YVK6B/9AP3o8njmwVLPjdhOorMJ38mnoF27MECslw8MROjo7mfvSYwhNQ9ONnIBS2jSZJoHhPnyhg6PEPPiPGHOXUTscxkqnMwToOl6/n8raejyXfxp8PqcfRVBvXy/xt3ZQ0/oumqaj6VrubFlViAsskwXHdhcnwOZfR34dXQyleQAXtxW98BhqpvqXXxo9TxoLtUzNEqCgTFiZ4UW7HizVYhxcux5lzkQvnLculwmUFamZr205wClTGMOBYBjBf4485iKJ2MYgkgem1ltxKL+07Rlf4y0JZR1OpplOtWnziNhK28hjYQ8e7lOr2ZkIN2LqE2WB2YAThCdIgyXQhebcdcyhkIBnZAjJtz9QyT9cfJctsi1fgvE29EeOFbzx/1D5g2yV94/9cjwB6k6d7pwVRKYziqoB0mb6A40BKrWappU7WisDMQSXFnuteBRRt6nEJFdlikAFp97ePifPq5OdDwJqu03l/+HhYWzLLHeEryM5Wj4BCupeneR7ZXUf7neKk8OHm2k+coTOzi5kJDy76sci9PT0Ov2rgkyR7ErGJm+nLk/D/aWu0E98U1TtOKzn8ZJXZfOQXn4ZPUtXEQuHYXiAE1pewz/4fpnaTQ5ZvYTwyj9lQPeSjEao7D3KvMPPTtxOsJmtXDVWsandFs9cln4bpnmC/OFhGxGKXpae/KJkPir46kdQ+c2O8kEmDUQTE3CxuB3JHbMp2e8B9zk3xNXMl/GvM6UPRj56ykeczJV3KbocFK1X5QY+WsoLdqHxOfHfHJpq03Eu8BFTXi3gvsK5rJmO8gqFWWAdtyLKzP0fLsIIfoCLe8WzMzvYKYwBGp+ehbPiDxJqIfMwAR4Qv56dI71CAgTd/wcJOOZs2qp9yxfYLmZ6HjYGYwm4Bcki51/ef79Ql4gHEY4570fS4hzYpNkmtjF6X362AfwvvG5Pojz6v/sAAAAASUVORK5CYII=
 // @source           https://github.com/lnm95/redditPlusPlus
@@ -183,13 +183,13 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_muted_avatar {
 .pp_muted_content:hover {
   color: var(--pp-color-muted-conent-hover);
 }
-:root.theme-light {
-  --pp-color-muted-conent: #a5a5a5 !important;
-  --pp-color-muted-conent-hover: #636363 !important;
-}
 :root {
-  --pp-color-muted-conent: #595959;
-  --pp-color-muted-conent-hover: #adadad;
+  --pp-color-muted-conent: #a5a5a5;
+  --pp-color-muted-conent-hover: #636363;
+}
+:root.theme-dark {
+  --pp-color-muted-conent: #595959 !important;
+  --pp-color-muted-conent-hover: #adadad !important;
 }
 `, ""]);
 // Exports
@@ -429,6 +429,275 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_feedPanel {
 
 /***/ }),
 
+/***/ "./src/modules/filters/filters.less":
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/css-loader/dist/runtime/noSourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `.pp_hidden_comment > [slot='commentAvatar'] {
+  display: none;
+}
+.pp_hidden_comment > [slot='commentMeta'] {
+  display: none;
+}
+.pp_hidden_comment > [slot='comment'] {
+  display: none;
+}
+.pp_hidden_comment > [slot='actionRow'] {
+  display: none;
+}
+.pp_hidden_button {
+  position: relative;
+  left: -32px;
+  display: flex;
+  align-items: center;
+  padding: 0px 16px;
+  width: fit-content;
+  gap: 8px;
+  background-color: var(--color-neutral-background);
+}
+.pp_blured_content {
+  filter: opacity(50%) saturate(50%) blur(6px);
+  max-height: 40px !important;
+  user-select: none;
+  cursor: pointer;
+  overflow-y: hidden;
+}
+.pp_blured_content_area {
+  position: absolute;
+  content: '';
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+.pp_blured_content:hover {
+  filter: opacity(75%) saturate(75%) blur(4px);
+}
+.pp_blured_content_animator {
+  max-height: 9999px;
+  transition: max-height 1s ease-in, filter 0.2s ease;
+}
+.pp_blured_button_container {
+  display: flex;
+  justify-content: center;
+  max-height: 0px;
+}
+.pp_blured_button {
+  border-radius: 8px;
+  z-index: 1;
+  pointer-events: none;
+  position: relative;
+  top: 6px;
+  height: 100%;
+  max-width: 75%;
+  box-shadow: 0px 0px 0px 2px #ffffff61;
+}
+.pp_blured_button_content {
+  display: flex;
+  align-items: center;
+  padding: 0px 16px;
+  gap: 6px;
+  color: #ffffff;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+}
+.pp_blured_button_content > svg {
+  min-width: 16px;
+}
+.pp_blured_button_content > span {
+  display: block;
+  overflow: hidden;
+  padding: 6px;
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  font-weight: 500;
+  text-overflow: ellipsis;
+}
+`, ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./src/modules/filters/filtersWindow.less":
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/css-loader/dist/runtime/noSourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `.pp_filter_list {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  margin: 20px 40px;
+  gap: 0.5rem;
+  list-style: none;
+}
+.pp_filter_element {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 3.5rem;
+  border: solid 2px;
+  border-radius: 15px;
+  box-shadow: var(--filterShadowColor) 0px 2px 4px 0px;
+}
+:root {
+  --filterShadowColor: #d9d9d9;
+}
+:root.theme-dark {
+  --filterShadowColor: #5d5d5d !important;
+}
+.pp_filter_dragged {
+  opacity: 0.25;
+}
+.pp_filter_element > div {
+  width: 100%;
+  padding: 0px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.pp_filter_element_dragAnchor {
+  cursor: grab;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 48px;
+  height: 40px;
+  color: #8a8f91;
+}
+.pp_window_elementsContainer > .pp_filter_element:hover {
+  background-color: var(--color-neutral-background-hover);
+}
+.pp_filter_element_colorPicker {
+  cursor: pointer;
+  width: 36px;
+  height: 40px;
+  margin: 2px;
+}
+.pp_filter_element_colorPicker > input {
+  height: 100%;
+}
+.pp_filter_element_toggles {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.pp_filter_element_toggles > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.pp_filter_element_toggles > div > span {
+  text-wrap-mode: nowrap;
+}
+.pp_filter_addButton {
+  height: 3rem;
+  border-radius: 15px;
+}
+`, ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./src/modules/filters/hiddenContent.less":
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/css-loader/dist/runtime/noSourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `.pp_hiddenContent_button {
+  position: fixed;
+  width: fit-content;
+  height: 50px;
+  bottom: -100px;
+  border-radius: 12px;
+  border: solid 2px var(--color-button-secondary-background);
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 0px 16px;
+  cursor: pointer;
+  user-select: none;
+  transition: bottom 0.4s ease, background 0.15s ease;
+}
+.pp_hiddenContent_button:hover {
+  background: var(--color-button-secondary-background);
+  border-color: transparent;
+}
+.pp_hiddenContent_button:active {
+  background: var(--button-color-background-activated);
+  border-color: transparent;
+}
+.pp_hiddenContent_button > svg {
+  min-width: 16px;
+}
+.pp_hiddenContent_button > span {
+  font-weight: 500;
+  text-wrap-mode: nowrap;
+}
+.pp_hiddenContent_button_visible {
+  visibility: visible;
+  bottom: 20px;
+}
+:root {
+  --pp-backgroundButton: #848d9233;
+  --pp-backgroundButtonActive: #e5ebee6e;
+}
+:root.theme-dark {
+  --pp-backgroundButton: #3f484d33 !important;
+}
+`, ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./src/modules/header.less":
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -626,13 +895,13 @@ shreddit-post[gold-count]:not(shreddit-post[gold-count=''])::before {
 .stickied::before {
   background: linear-gradient(var(--stickiedHoverColor), var(--color-neutral-background)) !important;
 }
-:root.theme-light {
-  --stickiedColor: #0e8a001c !important;
-  --stickiedHoverColor: #18900b3d !important;
-}
 :root {
   --stickiedColor: #0e8a001c;
   --stickiedHoverColor: #18900b3d;
+}
+:root.theme-dark {
+  --stickiedColor: #0e8a001c !important;
+  --stickiedHoverColor: #18900b3d !important;
 }
 `, ""]);
 // Exports
@@ -713,21 +982,22 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_scrollToTop {
   padding-bottom: 20px;
   cursor: pointer;
   color: var(--scrollLineTransparentColor);
-  transition: all 0.2s ease-in;
+  opacity: 1;
+  transition: padding-bottom 0.2s ease-in, color 0.2s ease-in, opacity 1s ease;
 }
 .pp_scrollToTop_inverted {
   transform: scale(1, -1);
 }
 .pp_scrollToTop_hidden {
-  visibility: hidden;
+  opacity: 0 !important;
 }
 .pp_scrollToTop_hidden::before {
-  visibility: hidden;
+  opacity: 0 !important;
 }
 .pp_scrollToTop:hover {
   padding-bottom: 50px !important;
   color: var(--scrollButtonColor);
-  transition: all 0.2s ease-out;
+  transition: padding-bottom 0.2s ease-out, color 0.2s ease-out, opacity 1s ease;
 }
 .pp_scrollToTop::before {
   position: absolute;
@@ -745,15 +1015,15 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_scrollToTop {
   opacity: 1;
   transition: opacity 0.2s ease-out;
 }
-:root.theme-light {
-  --scrollLineColor: #e5ebee6e !important;
-  --scrollLineTransparentColor: #e5ebee00 !important;
-  --scrollButtonColor: #c9d1d4c2 !important;
-}
 :root {
-  --scrollLineColor: #3f484d33;
-  --scrollLineTransparentColor: #30343600;
-  --scrollButtonColor: #969a9c;
+  --scrollLineColor: #e5ebee6e;
+  --scrollLineTransparentColor: #e5ebee00;
+  --scrollButtonColor: #c9d1d4c2;
+}
+:root.theme-dark {
+  --scrollLineColor: #3f484d33 !important;
+  --scrollLineTransparentColor: #30343600 !important;
+  --scrollButtonColor: #969a9c !important;
 }
 `, ""]);
 // Exports
@@ -800,10 +1070,30 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_settings_subtittle {
   justify-content: center;
 }
 .pp_settings_propertyHeader_tittle {
+  display: flex;
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
   margin-bottom: 4px;
+}
+.pp_no_decoration {
+  text-decoration: none;
+}
+.pp_no_decoration:visited {
+  text-decoration: none;
+}
+.pp_no_decoration:hover {
+  text-decoration: none;
+}
+.pp_no_decoration:active {
+  text-decoration: none;
+}
+.pp_settings_propertyHeader_badge {
+  font-size: 12px;
+  margin: 0px 0px 0px 8px;
+  padding: 0px 4px;
+  border: 1px solid;
+  border-radius: 4px;
 }
 .pp_settings_propertyHeader_description {
   font-size: 12px;
@@ -839,22 +1129,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_settings_subtittle {
 .pp_settings_changesBanner_active {
   opacity: 1 !important;
 }
-.pp_settings_arrowArea {
-  width: 200px;
-  min-width: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-.pp_settings_arrow {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.pp_settings_arrowLeft {
-  transform: scale(-1, 1);
-}
 `, ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
@@ -888,90 +1162,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_sidebar_loadingSection {
 .pp_sidebar_collapsedSection {
   max-height: 43px !important;
   overflow-y: hidden !important;
-}
-`, ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./src/modules/sidebar/subFilter.less":
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/css-loader/dist/runtime/noSourceMaps.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-// Imports
-
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, `.pp_subFilter_container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 4px;
-}
-.pp_subFilter {
-  border-color: var(--color-neutral-border-weak);
-  color: var(--color-secondary-weak);
-  font-weight: 400;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 40px;
-  color: var(--color-secondary-plain);
-}
-.pp_subFilter:hover {
-  background: var(--color-input-secondary-hover) !important;
-}
-.pp_subFilter:focus {
-  border-color: var(--color-neutral-content-weak) !important;
-}
-.pp_subFilter_span {
-  width: 100%;
-  margin: 0px 16px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 6px;
-}
-.pp_subFilter_span > span {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.pp_subFilter_input {
-  width: 100%;
-  background: 0 0;
-  border: none;
-  outline: 0;
-  text-overflow: ellipsis;
-  color: var(--color-neutral-content-strong);
-  font: inherit;
-  padding: 0px;
-  margin: 0px;
-}
-.pp_pp_subFilter_clearContainer {
-  position: relative;
-  width: 0px;
-}
-.pp_subFilter_clear {
-  position: relative;
-  right: 40px;
-  top: 4px;
-  border-radius: 32px;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 `, ""]);
 // Exports
@@ -1034,11 +1224,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_flairBar {
 .pp_flairBar_border_right {
   --flair-border-orientation: 270deg;
 }
-:root.theme-light {
-  --color-neutral-background-transparent: #fff0 !important;
-}
 :root {
-  --color-neutral-background-transparent: #0b141600;
+  --color-neutral-background-transparent: #fff0;
+}
+:root.theme-dark {
+  --color-neutral-background-transparent: #0b141600 !important;
 }
 `, ""]);
 // Exports
@@ -1063,11 +1253,19 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_flairBar {
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `.pp_flairWindow_flairContainer {
+___CSS_LOADER_EXPORT___.push([module.id, `.pp_flairWindow_flair {
+  padding: 0rem 3rem;
+  gap: 8px;
+  align-items: center;
+}
+.pp_flairWindow_flair > span {
+  text-wrap-mode: nowrap;
+  margin-left: 3rem;
+}
+.pp_flairWindow_flairContainer {
   width: 100%;
   display: flex;
   align-items: center;
-  margin-left: 3rem;
 }
 .pp_flairWindow_columnTittle {
   margin: 20px 57px 10px 40px;
@@ -1135,6 +1333,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 ___CSS_LOADER_EXPORT___.push([module.id, `@media (min-width: 1392px) {
   .pp_pageContainer {
     margin-right: 300px;
+    --flex-nav-width: 272px !important;
   }
   .pp_mainFeed {
     width: var(--pp-content-width) !important;
@@ -1168,7 +1367,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `@media (min-width: 1392px) {
 
 /***/ }),
 
-/***/ "./src/utils/checkbox.less":
+/***/ "./src/utils/UI/input.less":
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1184,17 +1383,160 @@ ___CSS_LOADER_EXPORT___.push([module.id, `@media (min-width: 1392px) {
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `.pp_checkBox_container {
+___CSS_LOADER_EXPORT___.push([module.id, `.pp_ui_input_container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.pp_ui_input_button {
+  border-color: var(--color-neutral-border-weak);
+  color: var(--color-secondary-weak);
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  color: var(--color-secondary-plain);
+}
+.pp_ui_input_button:hover {
+  background: var(--color-input-secondary-hover) !important;
+}
+.pp_ui_input_button:focus {
+  border-color: var(--color-neutral-content-weak) !important;
+}
+.pp_ui_input_panel {
+  width: 100%;
+  margin: 0px 16px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+}
+.pp_ui_input_icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pp_ui_input_span {
+  width: 100%;
+}
+.pp_ui_input {
+  width: 100%;
+  background: 0 0;
+  border: none;
+  outline: 0;
+  text-overflow: ellipsis;
+  color: var(--color-neutral-content-strong);
+  font: inherit;
+  padding: 0px;
+  margin: 0px;
+}
+.pp_ui_input_clearContainer {
+  position: relative;
+  width: 0px;
+}
+.pp_ui_input_clearButton {
+  position: relative;
+  right: 40px;
+  top: 4px;
+  border-radius: 32px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+`, ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./src/utils/UI/options.less":
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/css-loader/dist/runtime/noSourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `.pp_ui_options {
+  width: min-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.pp_ui_options_container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.pp_ui_options_container > span {
+  width: max-content;
+  text-align: center;
+}
+.pp_ui_options_dots {
+  position: absolute;
+  top: 10px;
+  font-size: 20px;
+  pointer-events: none;
+}
+.pp_ui_options_arrow {
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+}
+.pp_ui_options_inversed {
+  transform: scale(-1, 1);
+}
+`, ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./src/utils/UI/toggle.less":
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/css-loader/dist/runtime/noSourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `.pp_ui_toggle {
   float: right;
   position: relative;
 }
-.pp_checkBox_buttonActive {
+.pp_ui_toggle_active {
   justify-content: flex-end !important;
   background-color: #0079d3 !important;
 }
-.pp_checkBox_button {
+.pp_ui_toggle_button {
   position: relative;
   cursor: pointer;
+  user-select: none;
   overflow: visible;
   display: flex;
   justify-content: start;
@@ -1207,7 +1549,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_checkBox_container {
   border: 2px solid transparent;
   transition: background-color 0.2s linear;
 }
-.pp_checkBox_knob {
+.pp_ui_toggle_knob {
   height: 19.5px;
   width: 19.5px;
   background-color: #fff;
@@ -1215,18 +1557,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_checkBox_container {
   transition: 0.5s linear;
   border-radius: 57%;
 }
-.pp_checkBox_panelArea {
-  width: 200px;
-  min-width: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-:root.theme-light {
-  --checkBox-background: #1a1a1b1a !important;
-}
 :root {
-  --checkBox-background: #81818152;
+  --checkBox-background: #1a1a1b1a;
+}
+:root.theme-dark {
+  --checkBox-background: #81818152 !important;
 }
 `, ""]);
 // Exports
@@ -1390,6 +1725,13 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_window_container {
 .pp_window_elementsContainer > .pp_window_element:hover {
   background-color: var(--color-neutral-background-hover);
   border-radius: 15px;
+}
+.pp_window_controlArea {
+  width: 200px;
+  min-width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .pp_window_scrollContent {
   overflow-y: scroll;
@@ -1617,6 +1959,27 @@ module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"-4 -4 20 2
 
 /***/ }),
 
+/***/ "./resources/contentFilter.svg":
+/***/ ((module) => {
+
+module.exports = "<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M3 4.6C3 4.03995 3 3.75992 3.10899 3.54601C3.20487 3.35785 3.35785 3.20487 3.54601 3.10899C3.75992 3 4.03995 3 4.6 3H19.4C19.9601 3 20.2401 3 20.454 3.10899C20.6422 3.20487 20.7951 3.35785 20.891 3.54601C21 3.75992 21 4.03995 21 4.6V6.33726C21 6.58185 21 6.70414 20.9724 6.81923C20.9479 6.92127 20.9075 7.01881 20.8526 7.10828C20.7908 7.2092 20.7043 7.29568 20.5314 7.46863L14.4686 13.5314C14.2957 13.7043 14.2092 13.7908 14.1474 13.8917C14.0925 13.9812 14.0521 14.0787 14.0276 14.1808C14 14.2959 14 14.4182 14 14.6627V17L10 21V14.6627C10 14.4182 10 14.2959 9.97237 14.1808C9.94787 14.0787 9.90747 13.9812 9.85264 13.8917C9.7908 13.7908 9.70432 13.7043 9.53137 13.5314L3.46863 7.46863C3.29568 7.29568 3.2092 7.2092 3.14736 7.10828C3.09253 7.01881 3.05213 6.92127 3.02763 6.81923C3 6.70414 3 6.58185 3 6.33726V4.6Z\" stroke=\"#000000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>"
+
+/***/ }),
+
+/***/ "./resources/deleteButton.svg":
+/***/ ((module) => {
+
+module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\"><path d=\"M 15 4 C 14.476563 4 13.941406 4.183594 13.5625 4.5625 C 13.183594 4.941406 13 5.476563 13 6 L 13 7 L 7 7 L 7 9 L 8 9 L 8 25 C 8 26.644531 9.355469 28 11 28 L 23 28 C 24.644531 28 26 26.644531 26 25 L 26 9 L 27 9 L 27 7 L 21 7 L 21 6 C 21 5.476563 20.816406 4.941406 20.4375 4.5625 C 20.058594 4.183594 19.523438 4 19 4 Z M 15 6 L 19 6 L 19 7 L 15 7 Z M 10 9 L 24 9 L 24 25 C 24 25.554688 23.554688 26 23 26 L 11 26 C 10.445313 26 10 25.554688 10 25 Z M 12 12 L 12 23 L 14 23 L 14 12 Z M 16 12 L 16 23 L 18 23 L 18 12 Z M 20 12 L 20 23 L 22 23 L 22 12 Z\"></path></svg>"
+
+/***/ }),
+
+/***/ "./resources/dragAnchor.svg":
+/***/ ((module) => {
+
+module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 14 13\"><rect y=\"5.5\" width=\"14\" height=\"2\" rx=\"1\"></rect><rect width=\"14\" height=\"2\" rx=\"1\"></rect><rect y=\"11\" width=\"14\" height=\"2\" rx=\"1\"></rect></svg>"
+
+/***/ }),
+
 /***/ "./resources/feedButtons/feedButtonBest.svg":
 /***/ ((module) => {
 
@@ -1659,10 +2022,24 @@ module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\
 
 /***/ }),
 
+/***/ "./resources/hiddenIco.svg":
+/***/ ((module) => {
+
+module.exports = "<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g id=\"Edit / Hide\"><path id=\"Vector\" d=\"M3.99989 4L19.9999 20M16.4999 16.7559C15.1473 17.4845 13.6185 17.9999 11.9999 17.9999C8.46924 17.9999 5.36624 15.5478 3.5868 13.7788C3.1171 13.3119 2.88229 13.0784 2.7328 12.6201C2.62619 12.2933 2.62616 11.7066 2.7328 11.3797C2.88233 10.9215 3.11763 10.6875 3.58827 10.2197C4.48515 9.32821 5.71801 8.26359 7.17219 7.42676M19.4999 14.6335C19.8329 14.3405 20.138 14.0523 20.4117 13.7803L20.4146 13.7772C20.8832 13.3114 21.1182 13.0779 21.2674 12.6206C21.374 12.2938 21.3738 11.7068 21.2672 11.38C21.1178 10.9219 20.8827 10.6877 20.4133 10.2211C18.6338 8.45208 15.5305 6 11.9999 6C11.6624 6 11.3288 6.02241 10.9999 6.06448M13.3228 13.5C12.9702 13.8112 12.5071 14 11.9999 14C10.8953 14 9.99989 13.1046 9.99989 12C9.99989 11.4605 10.2135 10.9711 10.5608 10.6113\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></g></svg>"
+
+/***/ }),
+
 /***/ "./resources/imageCloseButton.svg":
 /***/ ((module) => {
 
 module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 40 40\"><path d=\"m33.16001,9.52439l-2.37671,-2.37671l-10.691,10.691l-10.691,-10.691l-2.37671,2.37671l10.691,10.691l-10.691,10.691l2.37671,2.37671l10.691,-10.691l10.691,10.691l2.37671,-2.37671l-10.691,-10.691l10.691,-10.691z\" style=\"fill:currentColor;stroke:none;stroke-width:0px\"></path></svg>"
+
+/***/ }),
+
+/***/ "./resources/inputClear.svg":
+/***/ ((module) => {
+
+module.exports = "<svg fill=\"currentColor\" icon-name=\"clear-outline\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 18.75A8.75 8.75 0 1 1 18.75 10 8.76 8.76 0 0 1 10 18.75Zm3.567-11.433L10.884 10l2.683 2.683-.884.884L10 10.884l-2.683 2.683-.884-.884L9.116 10 6.433 7.317l.884-.884L10 9.116l2.683-2.683.884.884Z\" style=\"fill:currentColor;stroke:none;stroke-width:0px\"></path></svg>"
 
 /***/ }),
 
@@ -1701,17 +2078,10 @@ module.exports = "<svg fill=\"currentColor\" viewBox=\"0 0 20 20\" xmlns=\"http:
 
 /***/ }),
 
-/***/ "./resources/subFilterClear.svg":
-/***/ ((module) => {
-
-module.exports = "<svg fill=\"currentColor\" icon-name=\"clear-outline\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 18.75A8.75 8.75 0 1 1 18.75 10 8.76 8.76 0 0 1 10 18.75Zm3.567-11.433L10.884 10l2.683 2.683-.884.884L10 10.884l-2.683 2.683-.884-.884L9.116 10 6.433 7.317l.884-.884L10 9.116l2.683-2.683.884.884Z\" style=\"fill:currentColor;stroke:none;stroke-width:0px\"></path></svg>"
-
-/***/ }),
-
 /***/ "./resources/windowCloseButton.svg":
 /***/ ((module) => {
 
-module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\"><path d=\"M14,2h0a.75.75,0,0,0-1.06,0L8.15,6.78a.2.2,0,0,1-.3,0L3.06,2A.75.75,0,0,0,2,2H2A.75.75,0,0,0,2,3.06L6.78,7.85a.2.2,0,0,1,0,.3L2,12.94A.75.75,0,0,0,2,14H2a.75.75,0,0,0,1.06,0L7.85,9.22a.2.2,0,0,1,.3,0L12.94,14A.75.75,0,0,0,14,14h0a.75.75,0,0,0,0-1.06L9.22,8.15a.2.2,0,0,1,0-.3L14,3.06A.75.75,0,0,0,14,2Z\"></path></svg>"
+module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\"><path d=\"M14,2h0a.75.75,0,0,0-1.06,0L8.15,6.78a.2.2,0,0,1-.3,0L3.06,2A.75.75,0,0,0,2,2H2A.75.75,0,0,0,2,3.06L6.78,7.85a.2.2,0,0,1,0,.3L2,12.94A.75.75,0,0,0,2,14H2a.75.75,0,0,0,1.06,0L7.85,9.22a.2.2,0,0,1,.3,0L12.94,14A.75.75,0,0,0,14,14h0a.75.75,0,0,0,0-1.06L9.22,8.15a.2.2,0,0,1,0-.3L14,3.06A.75.75,0,0,0,14,2Z\" style=\"fill:currentColor;stroke:none;stroke-miterlimit:10;stroke-width:0px\"></path></svg>"
 
 /***/ })
 
@@ -1835,21 +2205,6 @@ function checkIsRendered(node, key = `pp-rendered`) {
         return false;
     }
 }
-function appendNew(prev, name, classes = null) {
-    const el = document.createElement(name);
-    if (classes != null) {
-        if (typeof classes === `string` && classes) {
-            el.classList.add(classes);
-        }
-        else {
-            for (const c of classes) {
-                el.classList.add(c);
-            }
-        }
-    }
-    prev.append(el);
-    return el;
-}
 function getCookie(key) {
     return document.cookie
         .split(`; `)
@@ -1869,24 +2224,32 @@ function isLowerVersion(a, b) {
     }
     return false;
 }
+function animate(action, seconds, step = 10) {
+    let ticks = (seconds * 1000) / step;
+    let timer = setInterval(() => {
+        action();
+        ticks--;
+        if (ticks < 0) {
+            clearInterval(timer);
+        }
+    }, step);
+}
 
 ;// CONCATENATED MODULE: ./src/modules/toaster.ts
 
-class NotifyConfig {
-}
-const DEFAULT_NOTIFY_TIME = 3000;
-async function notify(message, config = {}) {
+async function notify(message, config) {
+    const { seconds, color } = { seconds: 3, color: null, ...config };
     let toaster = await dynamicElement(() => document.body?.querySelector(`alert-controller`)?.shadowRoot?.querySelector(`toaster-lite`));
     let toast = document.createElement(`faceplate-toast`);
     toast.classList.add(`theme-rpl`);
-    if (config.color != undefined) {
-        toast.style.backgroundColor = config.color;
+    if (color != null) {
+        toast.style.backgroundColor = color;
     }
     toast.textContent = message;
     toaster.appendChild(toast);
     setTimeout(() => {
         toast.setAttribute(`_fading`, ``);
-    }, config?.time ?? DEFAULT_NOTIFY_TIME);
+    }, seconds * 1000);
 }
 function pp_log(message) {
     
@@ -1916,7 +2279,6 @@ class Migration {
 
 ;// CONCATENATED MODULE: ./src/_compatibility/migration_1_0_0.ts
 
-// from 0.2.x
 const migration_1_0_0 = new Migration(`1.0.0`, () => {
     const settingsDatabase = GM_getValue(`SETTINGS_DATABASE`, null);
     if (settingsDatabase == null)
@@ -1982,10 +2344,15 @@ class ModuleTaget {
 const IS_COMMENT = { isComment: true };
 const IS_POST = { isComment: false };
 const MAX_LOAD_LAG = 2000;
+const MIN_LOAD_LAG = 15;
 const HOUR_SECONDS = 60 * 60;
 const DAY_SECONDS = HOUR_SECONDS * 24;
+function secondsToTime(seconds) {
+    return seconds * 1000;
+}
 
 ;// CONCATENATED MODULE: ./src/utils/database.ts
+
 
 class DatabaseConfig {
 }
@@ -1998,9 +2365,9 @@ class Database {
         this.validator = config?.validator ?? null;
         this.loader = config?.loader ?? null;
         this.refresh();
-        // cleanup database
         if (this.isCleanupable && GM_getValue(this.cleanupKey, 0) < Date.now()) {
-            const timestampLimit = Date.now() - 1000 * 2 * DAY_SECONDS;
+            const items = Object.entries(this.data).length;
+            const timestampLimit = Date.now() - secondsToTime(DAY_SECONDS * (1000 / items));
             this.data = Object.fromEntries(Object.entries(this.data).filter(([key, value]) => value.timestamp > timestampLimit));
             this.refreshed = Date.now();
             GM_setValue(this.databaseKey, this.data);
@@ -2013,6 +2380,7 @@ class Database {
         if (this.data == undefined || this.refreshed < lastRefreshed) {
             this.refreshed = lastRefreshed;
             this.data = GM_getValue(this.databaseKey, {});
+            
         }
     }
     get(id) {
@@ -2112,49 +2480,77 @@ class SettingDropdownProperty {
         const isDefault = rawValue instanceof Object;
         return isDefault ? this.values[this.defaultIndex] : rawValue;
     }
+    getIndex() {
+        return this.values.indexOf(this.get());
+    }
     isDefault() {
         return this.get() == this.values[this.defaultIndex];
     }
-    switch(shift) {
-        let index = this.values.indexOf(this.get()) + shift;
-        if (index < 0) {
-            index = this.values.length - 1;
-        }
-        if (index >= this.values.length) {
-            index = 0;
-        }
+    set(index) {
         settingsDatabase.set(this.name, this.values[index]);
     }
+}
+class SettingStringProperty {
+    constructor(name, defaultValue, filter = null) {
+        this.name = name;
+        this.defaultValue = defaultValue;
+        this.filter = filter != null ? filter : (input) => input;
+    }
+    get() {
+        const rawValue = settingsDatabase.get(this.name);
+        const isDefault = rawValue instanceof Object;
+        return isDefault ? this.defaultValue : rawValue;
+    }
+    isDefault() {
+        return this.get() == this.defaultValue;
+    }
+    set(value) {
+        settingsDatabase.set(this.name, value);
+    }
+}
+function defaultFilter(defaultValue) {
+    return (input) => {
+        const parsed = parseInt(input).toString();
+        return parsed != `NaN` ? parsed : defaultValue.toString();
+    };
+}
+function defaultPositiveFilter(defaultValue) {
+    return (input) => {
+        const parsed = Math.abs(parseInt(input)).toString();
+        return parsed != `NaN` ? parsed : defaultValue.toString();
+    };
 }
 class SettingsManager {
     constructor() {
         this.revision = this.getRevision();
+        this.isDirted = false;
+        this.API_APP = new SettingStringProperty(`apiApp`, ``);
+        this.API_WARNINGS = new SettingBoolProperty(`apiWarnings`);
         this.WIDE_MODE = new SettingBoolProperty(`wideMode`);
-        this.CONTENT_WIDTH = new SettingDropdownProperty(`contentWidth`, [`650px`, `700px`, `750px`, `800px`, `900px`, `1000px`], 1);
-        this.CONTENT_OFFSET = new SettingDropdownProperty(`contentOffset`, [`-1000px`, `-900px`, `-800px`, `-700px`, `-600px`, `-500px`, `-400px`, `-300px`, `-200px`, `-100px`, `0px`, `100px`, `200px`, `300px`, `400px`, `500px`, `600px`, `700px`, `800px`, `900px`, `1000px`], 10);
+        this.CONTENT_WIDTH = new SettingStringProperty(`contentWidth`, `700`, defaultPositiveFilter(700));
+        this.CONTENT_OFFSET = new SettingStringProperty(`contentOffset`, `0`, defaultFilter(0));
         this.BIGGER_FONTS = new SettingBoolProperty(`biggerFonts`);
-        this.NOTIFY_POPUP = new SettingBoolProperty(`notifyPopup`);
+        this.SCROLL_TO_TOP = new SettingBoolProperty(`scrollToTop`);
+        this.IMAGE_VIEWER = new SettingBoolProperty(`imageViewer`);
+        this.COLLAPSE_AWARDS = new SettingBoolProperty(`collapseAwards`);
+        this.COLLAPSE_AWARDS_COMPLETELY = new SettingBoolProperty(`collapseAwardsCompletely`, false);
         this.REDIRECT_SUGGESTION = new SettingBoolProperty(`redirectSuggestion`);
         this.REDIRECT_FORCED = new SettingBoolProperty(`redirectForced`, false);
-        // left sidebar
+        this.NOTIFY_POPUP = new SettingBoolProperty(`notifyPopup`);
+        this.SHOW_FILTERED_CONTENT = new SettingBoolProperty(`showFilteredContent`);
+        this.FILTERED_CONTENT_MAX_COUNT = new SettingStringProperty(`filteredContentMaxCount`, `20`, defaultPositiveFilter(20));
         this.SUB_FILTER = new SettingBoolProperty(`sidebarSubFilter`);
         this.SIDEBAR_CUSTOMS = new SettingBoolProperty(`sidebarCustoms`);
         this.SIDEBAR_RECENT = new SettingBoolProperty(`sidebarRecent`);
         this.SIDEBAR_SUBS = new SettingBoolProperty(`sidebarSubs`);
         this.SIDEBAR_RESOURCES = new SettingBoolProperty(`sidebarResources`);
-        // common
-        this.SCROLL_TO_TOP = new SettingBoolProperty(`scrollToTop`);
-        this.COLLAPSE_AWARDS = new SettingBoolProperty(`collapseAwards`);
-        this.COLLAPSE_AWARDS_COMPLETELY = new SettingBoolProperty(`collapseAwardsCompletely`, false);
-        this.IMAGE_VIEWER = new SettingBoolProperty(`imageViewer`);
-        // feed sorts
         this.DEFAULT_FEED_HOME = new SettingDropdownProperty(`defaultFeedHome`, GetFeeds(FeedLocation.Home), 0);
         this.DEFAULT_FEED_POPULAR = new SettingDropdownProperty(`defaultFeedPopular`, GetFeeds(FeedLocation.Popular), 1);
         this.DEFAULT_FEED_ALL = new SettingDropdownProperty(`defaultFeedAll`, GetFeeds(FeedLocation.All), 0);
         this.DEFAULT_FEED_SUB = new SettingDropdownProperty(`defaultFeedSub`, GetFeeds(FeedLocation.Sub), 0);
-        // feed
         this.FEED_BUTTONS = new SettingBoolProperty(`feedButtons`);
         this.FLAIR_BAR = new SettingBoolProperty(`flairbar`);
+        this.FLAIR_SHOW_ALWAYS = new SettingBoolProperty(`flairShowAlways`, false);
         this.COLLAPSE_HIGHLIGHTS = new SettingBoolProperty(`collapseHighlights`, false);
         this.BACKPLATES = new SettingBoolProperty(`backplates`);
         this.SELECTABLE_POSTS = new SettingBoolProperty(`selectablePosts`);
@@ -2162,22 +2558,22 @@ class SettingsManager {
         this.SHOW_POST_AUTHOR = new SettingBoolProperty(`showPostAuthor`);
         this.SAVED_BOOKMARK_POSTS = new SettingBoolProperty(`savedBookmarkPosts`);
         this.SAVED_BOOKMARK_POSTS_SHOW_ALWAYAS = new SettingBoolProperty(`savedBookmarkPostsShowAlways`, false);
-        // comments
         this.COMMENTS_SORT_BUTTONS = new SettingBoolProperty(`commentSortButtons`);
         this.COMMENTS_REMEMBER_SORT = new SettingBoolProperty(`commentRememberSort`);
         this.UNWRAP_MORE_REPLIES = new SettingBoolProperty(`unwrapMoreReplies`, false);
-        this.USER_INFO = new SettingBoolProperty(`userInfo`);
+        this.USER_INFO = new SettingBoolProperty(`userInfo`, false);
+        this.SHOW_NAMES = new SettingBoolProperty(`showNames`, false);
+        this.USERNAME_MAX_SIMBOLS = new SettingStringProperty(`usernameMaxSimbols`, `50`, defaultPositiveFilter(50));
         this.USER_TAGS = new SettingBoolProperty(`userTags`);
-        this.SHOW_NAMES = new SettingBoolProperty(`showNames`);
         this.HIDE_SHARE = new SettingBoolProperty(`hideShare`);
         this.GHOSTED_COMMENTS = new SettingBoolProperty(`ghostedComments`);
         this.COLLAPSE_AUTOMODERATOR = new SettingBoolProperty(`collapseAutomoderator`);
         this.SAVED_BOOKMARK_COMMENTS = new SettingBoolProperty(`savedBookmarkComments`);
         this.SAVED_BOOKMARK_COMMENTS_SHOW_ALWAYAS = new SettingBoolProperty(`savedBookmarkCommentsShowAlways`, false);
         this.HIDE_RELATED_POSTS = new SettingBoolProperty(`hideRelatedPosts`, false);
-        // Reload all pages with dirted settings
         window.addEventListener('storage', event => {
-            if (this.isDirt()) {
+            if (this.isDirt() && !this.isDirted) {
+                this.isDirted = true;
                 document.addEventListener('visibilitychange', () => {
                     window.location.reload();
                 }, { once: true });
@@ -2204,21 +2600,23 @@ const settings = new SettingsManager();
 
 
 
+function safePixels(value) {
+    return `${parseInt(value)}px`;
+}
 function renderWideMode(pageContainer, rightSidebar) {
     if (settings.WIDE_MODE.isDisabled())
         return;
     css.addStyle(wideMode/* default */.A, `wideMode`);
-    css.addVar(`--pp-content-width`, settings.CONTENT_WIDTH.get());
-    css.addVar(`--pp-content-offset`, settings.CONTENT_OFFSET.get());
-    // prevent additional render when rightbar already moved
+    css.addVar(`--pp-content-width`, safePixels(settings.CONTENT_WIDTH.get()));
+    css.addVar(`--pp-content-offset`, safePixels(settings.CONTENT_OFFSET.get()));
     if (rightSidebar.parentNode == pageContainer) {
         return;
     }
+    rightSidebar.className = `right-sidebar min-w-0 w-[316px] max-w-[316px] hidden s:block styled-scrollbars xs:sticky xs:top-[56px] xs:max-h-[calc(100vh-var(--shreddit-header-height)-1px)] xs:overflow-y-auto xs:overflow-x-hidden pp_rightSidebar`;
     const originContainer = rightSidebar.parentElement;
     let isWideMode = !(window.innerWidth >= 1392);
     const mainContainer = pageContainer.querySelector(`.main-container`);
     mainContainer.className = `main-container gap-lg w-full`;
-    // fix for context lookup
     observeFor(pageContainer, renderContextPopup, false);
     observeFor(originContainer, renderContextPopup, false);
     function renderContextPopup(element) {
@@ -2250,122 +2648,202 @@ function renderWideMode(pageContainer, rightSidebar) {
 var modules_app = __webpack_require__("./src/modules/app.less");
 // EXTERNAL MODULE: ./src/modules/sidebar/sidebar.less
 var sidebar = __webpack_require__("./src/modules/sidebar/sidebar.less");
-// EXTERNAL MODULE: ./src/modules/sidebar/subFilter.less
-var subFilter = __webpack_require__("./src/modules/sidebar/subFilter.less");
-;// CONCATENATED MODULE: ./src/utils/svg.ts
-const NONE_COLOR = 'none';
-const CURRENT_COLOR = 'currentColor';
-class SVGViewBox {
-}
-class SVGConfig {
-    constructor() {
-        this.strokeColor = CURRENT_COLOR;
-        this.fillColor = NONE_COLOR;
-    }
-}
-function buildSvg(graphic, w, h, config = {}) {
-    const handle = document.createElement('div');
-    handle.innerHTML = graphic;
-    const svg = handle.firstChild;
-    svg.setAttribute(`width`, `${w}px`);
-    svg.setAttribute(`height`, `${h}px`);
-    if (config.viewBox != undefined) {
-        svg.setAttribute(`viewBox`, `0 0 ${config.viewBox.w} ${config.viewBox.h}`);
-    }
-    svg.setAttribute(`fill`, config?.fillColor ?? CURRENT_COLOR);
-    svg.setAttribute(`stroke`, config?.strokeColor ?? CURRENT_COLOR);
-    return svg;
-}
-
 ;// CONCATENATED MODULE: ./src/modules/settings/prefs.ts
 
 class PrefsKey {
 }
 PrefsKey.COMMENTS_CURRENT_SORT = `COMMENTS_CURRENT_SORT`;
 PrefsKey.SUB_FILTER = `SUB_FILTER`;
+PrefsKey.CONTENT_FILTERS = `CONTENT_FILTERS`;
 const prefs = new Database(`PREFS`);
 
 // EXTERNAL MODULE: ./resources/subFilter.svg
-var resources_subFilter = __webpack_require__("./resources/subFilter.svg");
-var subFilter_default = /*#__PURE__*/__webpack_require__.n(resources_subFilter);
-// EXTERNAL MODULE: ./resources/subFilterClear.svg
-var subFilterClear = __webpack_require__("./resources/subFilterClear.svg");
-var subFilterClear_default = /*#__PURE__*/__webpack_require__.n(subFilterClear);
+var subFilter = __webpack_require__("./resources/subFilter.svg");
+var subFilter_default = /*#__PURE__*/__webpack_require__.n(subFilter);
+;// CONCATENATED MODULE: ./src/utils/svg.ts
+const NONE_COLOR = 'none';
+const CURRENT_COLOR = 'currentColor';
+class SVGViewBox {
+}
+const builderContainer = document.createElement('div');
+function buildSvg(graphic, w, h, config) {
+    const { viewBox, strokeColor, fillColor } = { viewBox: null, strokeColor: CURRENT_COLOR, fillColor: CURRENT_COLOR, ...config };
+    builderContainer.innerHTML = graphic;
+    const svg = builderContainer.firstChild;
+    svg.setAttribute(`width`, `${w}px`);
+    svg.setAttribute(`height`, `${h}px`);
+    if (viewBox != null) {
+        svg.setAttribute(`viewBox`, `0 0 ${viewBox.w} ${viewBox.h}`);
+    }
+    svg.setAttribute(`fill`, fillColor);
+    svg.setAttribute(`stroke`, strokeColor);
+    return svg;
+}
+function appendSvg(target, graphic, w, h, config = {}) {
+    const svg = buildSvg(graphic, w, h, config);
+    target.append(svg);
+    return svg;
+}
+function prependSvg(target, graphic, w, h, config = {}) {
+    const svg = buildSvg(graphic, w, h, config);
+    target.prepend(svg);
+    return svg;
+}
+
+;// CONCATENATED MODULE: ./src/utils/element.ts
+function appendElement(target, name, classes = null) {
+    const el = buildElement(name, classes);
+    target.append(el);
+    return el;
+}
+function prependElement(target, name, classes = null) {
+    const el = buildElement(name, classes);
+    target.prepend(el);
+    return el;
+}
+function buildElement(name, classes = null) {
+    const el = document.createElement(name);
+    if (classes != null) {
+        if (typeof classes === `string` && classes) {
+            el.classList.add(classes);
+        }
+        else {
+            for (const c of classes) {
+                el.classList.add(c);
+            }
+        }
+    }
+    return el;
+}
+
+// EXTERNAL MODULE: ./resources/inputClear.svg
+var inputClear = __webpack_require__("./resources/inputClear.svg");
+var inputClear_default = /*#__PURE__*/__webpack_require__.n(inputClear);
+// EXTERNAL MODULE: ./src/utils/UI/input.less
+var input = __webpack_require__("./src/utils/UI/input.less");
+;// CONCATENATED MODULE: ./src/utils/UI/input.ts
+
+
+
+
+
+css.addStyle(input/* default */.A);
+function renderUIInput(container, placeholder, value, onChange, params) {
+    const { icon, iconConfig, cleanButton, alignCenter, filter } = {
+        icon: null,
+        iconConfig: { strokeColor: CURRENT_COLOR, fillColor: NONE_COLOR },
+        cleanButton: false,
+        alignCenter: false,
+        filter: (input) => input,
+        ...params
+    };
+    const inputContainer = appendElement(container, `div`, `pp_ui_input_container`);
+    const inputButton = appendElement(inputContainer, `div`, [`pp_ui_input_button`, `button`, `button-bordered`]);
+    inputButton.setAttribute(`tabindex`, `0`);
+    const inputShadowRoot = inputButton.attachShadow({ mode: 'open' });
+    css.registry(inputShadowRoot);
+    const inputPanel = appendElement(inputButton, `span`, [`pp_ui_input_panel`, `flex`, `items-center`, `justify-center`]);
+    inputShadowRoot.appendChild(inputPanel);
+    if (icon != null) {
+        const inputIconSpan = appendElement(inputPanel, `span`, `pp_ui_input_icon`);
+        appendSvg(inputIconSpan, icon, 16, 16, iconConfig);
+    }
+    const inputSpan = appendElement(inputPanel, `span`, `pp_ui_input_span`);
+    if (cleanButton == true) {
+        inputSpan.style.marginRight = `22px`;
+    }
+    const input = appendElement(inputSpan, `input`, `pp_ui_input`);
+    input.type = `text`;
+    input.placeholder = placeholder;
+    if (alignCenter == true) {
+        input.style.textAlign = `center`;
+    }
+    if (value != null && value.length > 0) {
+        input.value = value;
+    }
+    let clearButton = null;
+    if (cleanButton == true) {
+        const clearContainer = appendElement(inputContainer, `div`, `pp_ui_input_clearContainer`);
+        clearButton = appendElement(clearContainer, `button`, [`pp_ui_input_clearButton`, `button-plain`]);
+        clearButton.classList.toggle(`pp_hidden`, (input.value?.length ?? 0) == 0);
+        const clearIcon = buildSvg((inputClear_default()), 16, 16);
+        clearButton.append(clearIcon);
+        clearButton.addEventListener(`click`, () => {
+            input.value = filter(``);
+            onChange(input.value);
+            clearButton.classList.toggle(`pp_hidden`, true);
+        });
+    }
+    input.addEventListener(`input`, () => {
+        const value = filter(input.value.trim());
+        onChange(value);
+        if (cleanButton == true) {
+            clearButton.classList.toggle(`pp_hidden`, value.length == 0);
+        }
+    });
+    input.addEventListener(`focusout`, () => {
+        const value = filter(input.value.trim());
+        if (value != input.value) {
+            input.value = value;
+        }
+        if (cleanButton == true) {
+            clearButton.classList.toggle(`pp_hidden`, value.length == 0);
+        }
+    });
+    return inputContainer;
+}
+
 ;// CONCATENATED MODULE: ./src/modules/sidebar/subFilter.ts
 
 
 
 
 
-
-
-css.addStyle(subFilter/* default */.A);
-let filter;
+let filter = null;
 async function renderSubFilter(container) {
     if (checkIsRendered(container, `pp-sub-filter`))
         return;
-    const filterContainer = appendNew(container, `div`, `pp_subFilter_container`);
     const createSubButton = (await dynamicElement(() => container.querySelector(`.left-nav-create-community-button`)));
-    createSubButton.style.width = `65px`;
-    const createSubText = await dynamicElement(() => createSubButton.querySelector(`.text-14`));
-    createSubText.remove();
-    createSubButton.replaceWith(filterContainer);
-    filterContainer.append(createSubButton);
-    const filterButton = appendNew(filterContainer, `div`, [`pp_subFilter`, `button`, `button-bordered`]);
-    filterButton.setAttribute(`tabindex`, `0`);
-    const sr = filterButton.attachShadow({ mode: 'open' });
-    css.registry(sr);
-    const span = appendNew(filterButton, `span`, [`flex`, `items-center`, `justify-center`, `pp_subFilter_span`]);
-    sr.appendChild(span);
-    const iconSpan = appendNew(span, `span`, [`flex`, `items-center`, `justify-center`]);
-    const icon = buildSvg((subFilter_default()), 16, 16);
-    iconSpan.append(icon);
-    const inputContainer = appendNew(span, `div`, [`label-container`, `without-label`]);
-    const inputSpan = appendNew(inputContainer, `span`, [`input-container`, `activated`]);
-    const input = appendNew(inputSpan, `input`, `pp_subFilter_input`);
-    input.type = `text`;
-    input.placeholder = `Filter`;
-    const clearContainer = appendNew(filterContainer, `div`, `pp_pp_subFilter_clearContainer`);
-    const clearButton = appendNew(clearContainer, `button`, [`pp_subFilter_clear`, `button-plain`, `pp_hidden`]);
-    const clearIcon = buildSvg((subFilterClear_default()), 16, 16);
-    clearButton.append(clearIcon);
-    filterButton.addEventListener(`focus`, () => {
-        createSubButton.style.display = `none`;
-    });
-    filterButton.addEventListener(`focusout`, () => {
-        createSubButton.style.display = `block`;
-    });
-    input.addEventListener(`input`, () => {
-        const pattern = input.value.trim().toLowerCase();
-        onChangeFilter(pattern);
-        clearButton.classList.toggle(`pp_hidden`, pattern.length == 0);
-    });
-    clearButton.addEventListener(`click`, () => {
-        input.value = ``;
-        onChangeFilter(``);
-        clearButton.classList.toggle(`pp_hidden`, true);
-    });
-    // init filter database
     if (filter != null) {
         filter.clear();
     }
-    filter = new Map();
-    const itemContainer = container.querySelector(`left-nav-communities-controller`).shadowRoot;
-    itemContainer.querySelectorAll(`left-nav-community-item`).forEach(item => {
-        filter.set(item.getAttribute(`prefixedname`).replace(`r/`, ``).toLowerCase(), item);
-    });
-    // init value
-    const initPattern = prefs.get(PrefsKey.SUB_FILTER);
-    if (!(initPattern instanceof Object)) {
-        input.value = initPattern;
-        onChangeFilter(initPattern);
-        clearButton.classList.toggle(`pp_hidden`, initPattern.length == 0);
+    else {
+        filter = new Map();
     }
+    const subsContainer = container.querySelector(`left-nav-communities-controller`).shadowRoot;
+    subsContainer.querySelectorAll(`left-nav-community-item`).forEach(sub => {
+        filter.set(sub.getAttribute(`prefixedname`).replace(`r/`, ``).toLowerCase(), sub);
+    });
+    let initValue = prefs.get(PrefsKey.SUB_FILTER);
+    if (initValue == null || initValue instanceof Object) {
+        initValue = ``;
+    }
+    const input = renderUIInput(container, `Filter`, initValue, value => {
+        onChangeFilter(value);
+    }, {
+        icon: (subFilter_default()),
+        iconConfig: { strokeColor: NONE_COLOR, fillColor: CURRENT_COLOR },
+        cleanButton: true,
+        filter: (input) => input.trim()
+    });
+    createSubButton.style.width = `65px`;
+    const createSubText = await dynamicElement(() => createSubButton.querySelector(`.text-14`));
+    createSubText.remove();
+    createSubButton.replaceWith(input);
+    input.prepend(createSubButton);
+    const inputButton = input.querySelector(`.pp_ui_input_button`);
+    inputButton.addEventListener(`focus`, () => {
+        createSubButton.style.display = `none`;
+    });
+    inputButton.addEventListener(`focusout`, () => {
+        createSubButton.style.display = `block`;
+    });
+    onChangeFilter(initValue);
 }
-function onChangeFilter(pattern) {
-    prefs.set(PrefsKey.SUB_FILTER, pattern);
+function onChangeFilter(value) {
+    prefs.set(PrefsKey.SUB_FILTER, value);
     filter.forEach((item, sub) => {
-        if (sub.includes(pattern)) {
+        if (sub.includes(value.toLowerCase())) {
             item.style.removeProperty(`display`);
         }
         else {
@@ -2485,7 +2963,6 @@ async function renderSidebarSection(preloadContainer, setting, sectionLoader) {
         }
         section.button.addEventListener(`click`, (e) => {
             const button = e.currentTarget;
-            // hack because event may be called before aria-expanded was changed
             setTimeout(() => {
                 const isCollapsed = button.getAttribute(`aria-expanded`) === 'false';
                 settingCollapsed.switch(isCollapsed);
@@ -2557,7 +3034,6 @@ class ImageViewer {
         document.addEventListener('mousemove', this.mouseMove);
         this.image.addEventListener('mouseup', this.endDrag);
         this.image.addEventListener('mouseleave', this.endDrag);
-        // reset pos
         this.drag.current = { x: 0, y: 0 };
         this.drag.scale = 1;
         this.updateTransform();
@@ -2578,16 +3054,15 @@ class ImageViewer {
         this.viewer = document.createElement(`div`);
         this.viewer.classList.add(`pp_imageViewer`);
         this.viewer.dataset.open = String(false);
-        const closeButton = appendNew(this.viewer, `div`, `pp_imageViewer_closeButton`);
+        const closeButton = appendElement(this.viewer, `div`, `pp_imageViewer_closeButton`);
         const closeSvg = buildSvg((imageCloseButton_default()), 40, 40);
         closeButton.appendChild(closeSvg);
-        this.container = appendNew(this.viewer, `div`, `pp_imageViewer_imageContainer`);
-        this.image = appendNew(this.container, `img`, `pp_imageViewer_image`);
+        this.container = appendElement(this.viewer, `div`, `pp_imageViewer_imageContainer`);
+        this.image = appendElement(this.container, `img`, `pp_imageViewer_image`);
         this.image.alt = `Comment image`;
         this.image.ondragstart = function () {
             return false;
         };
-        // close
         this.viewer.addEventListener('click', e => {
             if (e.target != this.image) {
                 this.close();
@@ -2663,6 +3138,51 @@ class ImageViewer {
 }
 const imageViewer_imageViewer = new ImageViewer();
 
+;// CONCATENATED MODULE: ./src/utils/redditAPI.ts
+
+
+const tooManyRequestStatus = 429;
+let tooManyRequestTimeout = null;
+async function requestAPI(api) {
+    try {
+        if (tooManyRequestTimeout != null) {
+            if (Date.now() > tooManyRequestTimeout) {
+                tooManyRequestTimeout = null;
+            }
+            else {
+                return { status: tooManyRequestStatus, result: null };
+            }
+        }
+        const headers = new Headers({
+            Accept: 'text/vnd.reddit.partial+html, text/html;q=0.9',
+            'Content-Type': 'application/x-www-form-urlencoded'
+        });
+        const url = new URL(`https://www.reddit.com${api}`);
+        const appName = settings.API_APP.get();
+        if (appName != null && appName.length > 0) {
+            url.search = new URLSearchParams({ app: appName }).toString();
+        }
+        const response = await fetch(url, { credentials: 'include', method: `get`, headers: headers });
+        if (!response.ok) {
+            pp_log(`${api} request failed with code ${response.status} : ${response.statusText}`);
+            if (response.status == tooManyRequestStatus) {
+                const resetSeconds = parseInt(response.headers.get(`x-ratelimit-reset`));
+                tooManyRequestTimeout = Date.now() + resetSeconds * 1000 + 500;
+                if (settings.API_WARNINGS.isEnabled()) {
+                    notify(`API request hit a limit. Disable "API requests" features or set correct App name or wait ${resetSeconds} seconds`, { seconds: 15 });
+                }
+            }
+            return { status: response.status, result: null };
+        }
+        const json = await response.json();
+        return { status: response.status, result: json };
+    }
+    catch (e) {
+        pp_log(`${api} request failed with error: ${e}`);
+        return { status: `error`, result: null };
+    }
+}
+
 // EXTERNAL MODULE: ./src/modules/bookmark.less
 var bookmark = __webpack_require__("./src/modules/bookmark.less");
 // EXTERNAL MODULE: ./resources/bookmarkSaved.svg
@@ -2726,7 +3246,6 @@ async function renderBookmarkPost(post, forced = false, forcedValue = undefined)
             saveButton = element;
         }
     });
-    // just refresh bookmark button
     if (saveButton == null) {
         const upVoteButton = post.shadowRoot?.querySelector(`button[upvote]`);
         const bookmarkButton = post.shadowRoot?.querySelector(`button[bookmark]`);
@@ -2815,60 +3334,10 @@ function isCollapsed(upVoteButton) {
     return upVoteButton.getAttribute(`aria-pressed`) != `true`;
 }
 
-;// CONCATENATED MODULE: ./src/modules/subs/flair.ts
-
-class FlairData {
-}
-class RichElement {
-}
-function renderFlair(conatiner, sub, flair) {
-    const a = appendNew(conatiner, `a`, `no-decoration`);
-    a.href = `/r/` + sub + `/?f=flair_name%3A%22` + flair.text + `%22`;
-    const span = appendNew(a, `span`, [
-        `bg-tone-4`,
-        `inline-block`,
-        `truncate`,
-        `max-w-full`,
-        `text-12`,
-        `font-normal`,
-        `box-border`,
-        `px-[6px]`,
-        `rounded-[20px]`,
-        `leading-4`,
-        `max-w-full`,
-        `py-xs`,
-        `!px-sm`,
-        `leading-4`,
-        `h-xl`,
-        `inline-flex`
-    ]);
-    span.classList.add(flair.color == `light` ? `text-global-white` : `text-global-black`);
-    span.style.backgroundColor = flair.background;
-    for (const richElement of flair.richtext) {
-        if (richElement.e == `text`) {
-            const content = document.createTextNode(richElement.t);
-            span.appendChild(content);
-        }
-        if (richElement.e == `emoji`) {
-            const fimg = document.createElement(`faceplate-img`);
-            fimg.classList.add(`flair-image`);
-            fimg.setAttribute(`loading`, `lazy`);
-            fimg.setAttribute(`width`, `16`);
-            fimg.setAttribute(`height`, `16`);
-            fimg.setAttribute(`src`, richElement.u);
-            fimg.setAttribute(`alt`, richElement.a);
-            span.appendChild(fimg);
-        }
-    }
-    if (flair.richtext.length == 0) {
-        const content = document.createTextNode(flair.text);
-        span.appendChild(content);
-    }
-}
-
 // EXTERNAL MODULE: ./src/modules/subs/flairBar.less
 var flairBar = __webpack_require__("./src/modules/subs/flairBar.less");
 ;// CONCATENATED MODULE: ./src/modules/subs/flairBar.ts
+
 
 
 
@@ -2881,7 +3350,6 @@ async function renderFlairBar(main) {
     if (settings.FLAIR_BAR.isDisabled())
         return;
     let feedContent = await dynamicElement(() => main?.querySelector(`shreddit-title`)?.parentElement, MAX_LOAD_LAG);
-    // skip render for non feed page
     if (feedContent == null)
         return;
     const subHighlights = main?.querySelector(`community-highlight-carousel`);
@@ -2893,41 +3361,37 @@ async function renderFlairBar(main) {
         prevFlairMenu.remove();
     }
     const sub = getCurrentSub();
-    // load data
     const subData = await subs_subs.getWithLoader(sub);
     const flairsData = flairs.get(sub);
-    // skip render when sub haven't flairs
     if (subData.flairs == undefined || subData.flairs.length == 0)
         return;
     const flairMenuContainer = document.createElement(`div`);
     feedContent.before(flairMenuContainer);
-    const flairMenu = appendNew(flairMenuContainer, `div`, `pp_flairBar`);
+    const flairMenu = appendElement(flairMenuContainer, `div`, `pp_flairBar`);
     if (subHighlights != null) {
         flairMenu.classList.add(`pp_flairBar_highlights`);
     }
-    const ul = appendNew(flairMenu, `ul`, [`p-0`, `m-0`, `list-none`, `gap-xs`, `flex`, `flex-row`, `pp_flairBar_list`]);
+    const ul = appendElement(flairMenu, `ul`, [`p-0`, `m-0`, `list-none`, `gap-xs`, `flex`, `flex-row`, `pp_flairBar_list`]);
     let flairsRendered = 0;
     for (const flair of subData.flairs) {
         if (flairsData.hidden != undefined && flairsData.hidden.includes(flair.text))
             continue;
-        const li = appendNew(ul, `li`, `max-w-full`);
+        const li = appendElement(ul, `li`, `max-w-full`);
         renderFlair(li, sub, flair);
         flairsRendered++;
     }
-    // prevent render empty menu
     if (flairsRendered == 0) {
         flairMenuContainer.remove();
         return;
     }
-    // borders
     const borderContainer = document.createElement(`div`);
     borderContainer.classList.add(`pp_flairBar_bordersContainer`);
     flairMenuContainer.prepend(borderContainer);
-    const borderLeftC = appendNew(borderContainer, `div`, `pp_flairBar_preBorder`);
-    const borderLeft = appendNew(borderLeftC, `div`, [`pp_flairBar_border`, `pp_flairBar_border_left`]);
+    const borderLeftC = appendElement(borderContainer, `div`, `pp_flairBar_preBorder`);
+    const borderLeft = appendElement(borderLeftC, `div`, [`pp_flairBar_border`, `pp_flairBar_border_left`]);
     borderLeft.textContent = ` `;
-    const borderRightC = appendNew(borderContainer, `div`, `pp_flairBar_preBorder`);
-    const borderRight = appendNew(borderRightC, `div`, [`pp_flairBar_border`, `pp_flairBar_border_right`]);
+    const borderRightC = appendElement(borderContainer, `div`, `pp_flairBar_preBorder`);
+    const borderRight = appendElement(borderRightC, `div`, [`pp_flairBar_border`, `pp_flairBar_border_right`]);
     borderRight.textContent = ` `;
     const hr = document.createElement(`hr`);
     hr.classList.add(`border-0`, `border-b-sm`, `border-solid`, `border-b-neutral-border-weak`);
@@ -2935,7 +3399,6 @@ async function renderFlairBar(main) {
     const mymx = document.createElement(`div`);
     mymx.classList.add(`my-xs`, `mx-2xs0`);
     flairMenuContainer.prepend(mymx);
-    // navigation
     ul.style.left = `25px`;
     const ulRect = ul.getBoundingClientRect();
     const menuRect = flairMenu.getBoundingClientRect();
@@ -2960,10 +3423,97 @@ function onMoveOverFlairs(e, ul, flairMenu) {
 
 // EXTERNAL MODULE: ./src/modules/subs/subs.less
 var subs = __webpack_require__("./src/modules/subs/subs.less");
+// EXTERNAL MODULE: ./resources/settingsArrow.svg
+var settingsArrow = __webpack_require__("./resources/settingsArrow.svg");
+var settingsArrow_default = /*#__PURE__*/__webpack_require__.n(settingsArrow);
+// EXTERNAL MODULE: ./src/utils/UI/options.less
+var options = __webpack_require__("./src/utils/UI/options.less");
+;// CONCATENATED MODULE: ./src/utils/UI/options.ts
+
+
+
+
+
+css.addStyle(options/* default */.A);
+function renderUIOptions(container, index, values, onChange) {
+    let currentIndex = index;
+    const options = appendElement(container, `div`, `pp_ui_options`);
+    const leftButton = appendElement(options, `div`, [`pp_ui_options_arrow`, `pp_ui_options_inversed`, `button`, `button-plain`, `button-medium`, `px-[var(--rem8)]`]);
+    const leftButtonSvg = buildSvg((settingsArrow_default()), 20, 20);
+    leftButton.append(leftButtonSvg);
+    const contentContainer = appendElement(options, `div`, `pp_ui_options_container`);
+    const content = appendElement(contentContainer, `span`, [`text-secondary`, `font-normal`]);
+    let largerValue = values[0];
+    let largerLetters = largerValue.length;
+    for (const val of values) {
+        if (val.length > largerLetters) {
+            largerValue = val;
+            largerLetters = val.length;
+        }
+    }
+    content.textContent = largerValue;
+    const rect = content.getBoundingClientRect();
+    content.style.minWidth = `${rect.width}px`;
+    content.textContent = values[index];
+    const dots = appendElement(contentContainer, `span`, [`pp_ui_options_dots`, `text-secondary`, `font-normal`]);
+    dots.textContent = getDots();
+    const rightButton = appendElement(options, `div`, [`pp_ui_options_arrow`, `button`, `button-plain`, `button-medium`, `px-[var(--rem8)]`]);
+    const rightButtonSvg = buildSvg((settingsArrow_default()), 20, 20);
+    rightButton.append(rightButtonSvg);
+    leftButton.addEventListener(`click`, e => {
+        currentIndex--;
+        if (currentIndex < 0) {
+            currentIndex = values.length - 1;
+        }
+        change();
+    });
+    rightButton.addEventListener(`click`, e => {
+        currentIndex++;
+        if (currentIndex >= values.length) {
+            currentIndex = 0;
+        }
+        change();
+    });
+    function change() {
+        content.textContent = values[currentIndex];
+        dots.textContent = getDots();
+        onChange(currentIndex);
+    }
+    function getDots() {
+        let i = 0;
+        let result = ``;
+        while (i < values.length) {
+            result += i == currentIndex ? `•` : `◦`;
+            i++;
+        }
+        return result;
+    }
+    return options;
+}
+
+// EXTERNAL MODULE: ./src/utils/UI/toggle.less
+var toggle = __webpack_require__("./src/utils/UI/toggle.less");
+;// CONCATENATED MODULE: ./src/utils/UI/toggle.ts
+
+
+
+css.addStyle(toggle/* default */.A);
+function renderUIToggle(container, value, onClick) {
+    const toggle = appendElement(container, `div`, `pp_ui_toggle`);
+    const toggleButton = appendElement(toggle, `button`, `pp_ui_toggle_button`);
+    toggleButton.classList.toggle(`pp_ui_toggle_active`, value);
+    appendElement(toggleButton, `div`, `pp_ui_toggle_knob`);
+    let state = value;
+    toggleButton.addEventListener(`click`, () => {
+        state = !state;
+        toggleButton.classList.toggle(`pp_ui_toggle_active`, state);
+        onClick(state);
+    });
+    return toggle;
+}
+
 // EXTERNAL MODULE: ./src/utils/window.less
 var utils_window = __webpack_require__("./src/utils/window.less");
-// EXTERNAL MODULE: ./src/utils/checkbox.less
-var utils_checkbox = __webpack_require__("./src/utils/checkbox.less");
 // EXTERNAL MODULE: ./resources/windowCloseButton.svg
 var windowCloseButton = __webpack_require__("./resources/windowCloseButton.svg");
 var windowCloseButton_default = /*#__PURE__*/__webpack_require__.n(windowCloseButton);
@@ -2973,9 +3523,13 @@ var windowCloseButton_default = /*#__PURE__*/__webpack_require__.n(windowCloseBu
 
 
 
-
 css.addStyle(utils_window/* default */.A);
-css.addStyle(utils_checkbox/* default */.A);
+let currentWindows = [];
+function closeAllWindows() {
+    while (currentWindows.length > 0) {
+        currentWindows[currentWindows.length - 1].close();
+    }
+}
 class Window {
     constructor(tittle, render, onClose = null) {
         this.tittle = tittle;
@@ -2988,44 +3542,59 @@ class Window {
     build() {
         this.container = document.createElement(`div`);
         this.container.classList.add(`pp_window_container`);
+        let isContainerDown = false;
+        this.container.addEventListener('mousedown', e => {
+            isContainerDown = e.target == this.container;
+        });
         this.container.addEventListener('click', e => {
-            if (e.target == this.container) {
+            if (isContainerDown && e.target == this.container) {
                 this.close();
             }
         });
-        const win = appendNew(this.container, `div`, `pp_window`);
-        const tittleContainer = appendNew(win, `div`, `pp_window_tittleContainer`);
-        let tittle = appendNew(tittleContainer, `div`, [`pp_window_tittle`, `flex`, `flex-row`]);
-        tittle = appendNew(tittle, `span`, [`text-24`, `font-semibold`]);
+        const win = appendElement(this.container, `div`, `pp_window`);
+        const tittleContainer = appendElement(win, `div`, `pp_window_tittleContainer`);
+        let tittle = appendElement(tittleContainer, `div`, [`pp_window_tittle`, `flex`, `flex-row`]);
+        tittle = appendElement(tittle, `span`, [`text-24`, `font-semibold`]);
         tittle.textContent = this.tittle;
-        this.closeButton = appendNew(tittleContainer, `div`, [`pp_window_closeButton`, `flex`, `items-center`]);
-        this.closeButton = appendNew(this.closeButton, `button`, [`button`, `icon`, `inline-flex`, `items-center`, `justify-center`, `button-small`, `button-secondary`, `px-[var(--rem6)]`]);
+        this.closeButton = appendElement(tittleContainer, `div`, [`pp_window_closeButton`, `flex`, `items-center`]);
+        this.closeButton = appendElement(this.closeButton, `button`, [`button`, `icon`, `inline-flex`, `items-center`, `justify-center`, `button-small`, `button-secondary`, `px-[var(--rem6)]`]);
         this.closeButton.setAttribute(`tittle`, `Close ${this.tittle}`);
         this.closeButton.addEventListener('click', e => {
             this.close();
         });
-        this.closeButton = appendNew(this.closeButton, `span`, [`flex`, `items-center`, `justify-center`]);
-        this.closeButton = appendNew(this.closeButton, `span`, [`flex`]);
+        this.closeButton = appendElement(this.closeButton, `span`, [`flex`, `items-center`, `justify-center`]);
+        this.closeButton = appendElement(this.closeButton, `span`, [`flex`]);
         const svg = buildSvg((windowCloseButton_default()), 16, 16, { strokeColor: NONE_COLOR });
         this.closeButton.append(svg);
-        appendNew(win, `hr`, `border-b-neutral-border-weak`);
-        this.content = appendNew(win, `div`, `pp_window_content`);
-        appendNew(win, `div`, `pp_window_footer`).textContent = ` `;
+        appendElement(win, `hr`, `border-b-neutral-border-weak`);
+        this.content = appendElement(win, `div`, `pp_window_content`);
+        appendElement(win, `div`, `pp_window_footer`).textContent = ` `;
     }
     open(context = null) {
         if (this.container == null) {
             this.build();
         }
-        while (this.content.firstChild) {
-            this.content.removeChild(this.content.lastChild);
+        for (const w of currentWindows) {
+            w.container.remove();
         }
-        this.render(this, context);
+        currentWindows.push(this);
         document.body.appendChild(this.container);
         document.body.style.overflow = 'hidden';
+        this.render(this, context);
     }
     close() {
         this.container.remove();
-        document.body.style.overflow = 'visible';
+        currentWindows.splice(currentWindows.findIndex(w => w == this), 1);
+        if (currentWindows.length <= 0) {
+            document.body.style.overflow = 'visible';
+        }
+        while (this.content.firstChild) {
+            this.content.removeChild(this.content.lastChild);
+        }
+        if (currentWindows.length > 0) {
+            const previous = currentWindows[currentWindows.length - 1];
+            document.body.appendChild(previous.container);
+        }
         if (this.onClose != null) {
             this.onClose();
         }
@@ -3042,51 +3611,41 @@ var flairWindow = __webpack_require__("./src/modules/subs/flairWindow.less");
 
 
 
+
+
 css.addStyle(flairWindow/* default */.A);
 const flairsWindow = new Window('Flairs settings', renderFlairsWindow, closeFlairsWindow);
 class FlairWindowContext {
 }
+const visabilityOptions = [`Show`, `Blur`, `Hide`];
 function renderFlairsWindow(win, context) {
-    const titlePanel = appendNew(win.content, `div`, [`pp_window_element`, `pp_flairWindow_columnTittle`]);
-    const tittleBarArea = appendNew(titlePanel, `div`, `pp_checkBox_panelArea`);
-    const tittleBar = appendNew(tittleBarArea, `div`, [`text-14`, `font-semibold`, `mb-xs`]);
-    tittleBar.textContent = `Flairs bar:`;
-    const tittleFeedArea = appendNew(titlePanel, `div`, `pp_checkBox_panelArea`);
-    const tittleFeed = appendNew(tittleFeedArea, `div`, [`text-14`, `font-semibold`, `mb-xs`]);
-    tittleFeed.textContent = `Feed:`;
-    const scroll = appendNew(win.content, `div`, [`pp_window_scrollContent`, `styled-scrollbars`]);
-    const elements = appendNew(scroll, `div`, `pp_window_elementsContainer`);
+    const scroll = appendElement(win.content, `div`, [`pp_window_scrollContent`, `styled-scrollbars`]);
+    const elements = appendElement(scroll, `div`, `pp_window_elementsContainer`);
     const subData = subs_subs.get(context.sub);
     for (const flair of subData.flairs) {
-        const panel = appendNew(elements, `div`, `pp_window_element`);
-        const flairContainer = appendNew(panel, `div`, `pp_flairWindow_flairContainer`);
-        const flairsDataInit = flairs.get(context.sub);
-        addFlairToggle(FLAIR_HIDDEN);
-        addFlairToggle(FLAIR_BANNED);
-        function addFlairToggle(category) {
-            const checkboxArea = appendNew(panel, `div`, `pp_checkBox_panelArea`);
-            const checkBoxContainer = appendNew(checkboxArea, `div`, `pp_checkBox_container`);
-            const checkBoxBack = appendNew(checkBoxContainer, `button`, `pp_checkBox_button`);
-            const initState = !(flairsDataInit[category]?.includes(flair.text) ?? false);
-            checkBoxBack.classList.toggle(`pp_checkBox_buttonActive`, initState);
-            const knob = appendNew(checkBoxBack, `div`, `pp_checkBox_knob`);
-            checkBoxBack.addEventListener(`click`, e => {
-                const flairData = flairs.get(context.sub);
-                let state = flairData[category]?.includes(flair.text) ?? false;
-                checkBoxBack.classList.toggle(`pp_checkBox_buttonActive`, state);
-                if (state) {
-                    flairData[category] = flairData[category].filter(f => f != flair.text);
-                }
-                else {
-                    const categoryFlairs = flairData[category] ?? [];
-                    categoryFlairs.push(flair.text);
-                    flairData[category] = categoryFlairs;
-                }
-                flairs.set(context.sub, flairData);
-            });
-        }
-        // flair
+        const panel = appendElement(elements, `div`, [`pp_window_element`, `pp_flairWindow_flair`]);
+        const flairContainer = appendElement(panel, `div`, `pp_flairWindow_flairContainer`);
         renderFlair(flairContainer, context.sub, flair);
+        const onBarSpan = appendElement(panel, `span`);
+        onBarSpan.textContent = `Flairs bar:`;
+        renderUIToggle(panel, !getFlairData(context.sub, flair.text, FLAIR_HIDDEN), state => {
+            setFlairData(context.sub, flair.text, FLAIR_HIDDEN, !state);
+        });
+        const feedSpan = appendElement(panel, `span`);
+        feedSpan.textContent = `Feed:`;
+        const isBlured = getFlairData(context.sub, flair.text, FLAIR_BLURED);
+        const isBanned = getFlairData(context.sub, flair.text, FLAIR_BANNED);
+        const visability = isBanned ? 2 : isBlured ? 1 : 0;
+        renderUIOptions(panel, visability, visabilityOptions, index => {
+            setFlairData(context.sub, flair.text, FLAIR_BLURED, false);
+            setFlairData(context.sub, flair.text, FLAIR_BANNED, false);
+            if (index == 1) {
+                setFlairData(context.sub, flair.text, FLAIR_BLURED, true);
+            }
+            if (index == 2) {
+                setFlairData(context.sub, flair.text, FLAIR_BANNED, true);
+            }
+        });
     }
 }
 function closeFlairsWindow() {
@@ -3106,6 +3665,7 @@ function closeFlairsWindow() {
 
 css.addStyle(subs/* default */.A);
 const FLAIR_HIDDEN = `hidden`;
+const FLAIR_BLURED = `blured`;
 const FLAIR_BANNED = `banned`;
 class SubSettings {
 }
@@ -3120,31 +3680,23 @@ function subDataValidator(subData) {
     return subData.flairs == undefined;
 }
 async function subDataLoader(sub) {
-    let subData = {};
-    const response = await fetch(`https://www.reddit.com/r/${sub}/api/link_flair_v2.json?raw_json=1`, { cache: `no-cache`, method: `get` });
-    const json = await response.json();
-    const loadedFlairs = [];
-    if (json != null && json.message == null) {
-        for (const loadedFlair of json) {
+    let subData = { flairs: [] };
+    const { status, result } = await requestAPI(`/r/${sub}/api/link_flair_v2.json`);
+    if (result != null && result.message == null) {
+        for (const loadedFlair of result) {
             const flair = { text: loadedFlair.text, color: loadedFlair.text_color, background: loadedFlair.background_color, richtext: loadedFlair.richtext };
-            loadedFlairs.push(flair);
+            subData.flairs.push(flair);
         }
-        subData.flairs = loadedFlairs;
         return subData;
     }
-    else {
-        subData.flairs = loadedFlairs;
-        pp_log(`Unable to load r/${sub} flairs data`);
-        return subData;
-    }
+    return subData;
 }
 function getCurrentSub() {
     const raw = window.location.href.split(`reddit.com/r/`);
     return raw.length > 1 ? raw[1].split(`/`)[0] : null;
 }
 async function renderSub(main) {
-    // skip page without feed
-    const checkIsFeed = main.querySelector(`shreddit-feed-error-banner`);
+    const checkIsFeed = await dynamicElement(() => main.querySelector(`shreddit-feed-error-banner`), MAX_LOAD_LAG);
     if (checkIsFeed == null)
         return;
     renderMasthead(main);
@@ -3161,7 +3713,7 @@ async function renderMasthead(main) {
 async function renderHighlights(main) {
     if (settings.COLLAPSE_HIGHLIGHTS.isDisabled())
         return;
-    const highlightButton = await dynamicElement(() => main?.querySelector(`community-highlight-carousel`)?.shadowRoot?.querySelector(`button`), MAX_LOAD_LAG);
+    const highlightButton = await dynamicElement(() => main?.querySelector(`community-highlight-carousel`)?.shadowRoot?.querySelector(`button`), MAX_LOAD_LAG * 5);
     if (highlightButton != null) {
         highlightButton.click();
     }
@@ -3174,7 +3726,6 @@ function renderContextMenu(e) {
         return;
     const controlMenu = targetElement.shadowRoot.querySelector(`shreddit-subreddit-overflow-control`).shadowRoot.querySelector(`faceplate-menu`);
     const originButton = controlMenu.querySelector(`li`);
-    // flairs settings
     const menuFlairsButton = originButton.cloneNode(true);
     menuFlairsButton.querySelector(`.text-14`).textContent = `Flairs settings`;
     controlMenu.prepend(menuFlairsButton);
@@ -3182,7 +3733,6 @@ function renderContextMenu(e) {
     menuFlairsButton.addEventListener(`click`, () => {
         flairsWindow.open({ sub: sub });
     });
-    // about
     const link = document.createElement(`a`);
     link.href = `https://www.reddit.com/` + targetElement.getAttribute(`prefixed-name`) + `/about/`;
     link.classList.add(`no-underline`);
@@ -3190,6 +3740,80 @@ function renderContextMenu(e) {
     const menuAboutButton = originButton.cloneNode(true);
     menuAboutButton.querySelector(`.text-14`).textContent = `About`;
     link.prepend(menuAboutButton);
+}
+
+;// CONCATENATED MODULE: ./src/modules/subs/flair.ts
+
+
+class FlairData {
+}
+class RichElement {
+}
+function getFlairData(sub, flair, category) {
+    const flairsData = flairs.get(sub);
+    return flairsData[category]?.includes(flair) ?? false;
+}
+function setFlairData(sub, flair, category, value) {
+    const flairData = flairs.get(sub);
+    let categoryArray = flairData[category];
+    if (categoryArray == undefined || categoryArray == null) {
+        categoryArray = [];
+    }
+    if (value) {
+        categoryArray.push(flair);
+    }
+    else {
+        categoryArray = categoryArray.filter(f => f != flair);
+    }
+    flairData[category] = categoryArray;
+    flairs.set(sub, flairData);
+}
+function renderFlair(conatiner, sub, flair, minified = false) {
+    const a = appendElement(conatiner, `a`, `no-decoration`);
+    a.href = `/r/` + sub + `/?f=flair_name%3A%22` + flair.text + `%22`;
+    const span = appendElement(a, `span`, [
+        `bg-tone-4`,
+        `inline-block`,
+        `truncate`,
+        `max-w-full`,
+        `text-12`,
+        `font-normal`,
+        `box-border`,
+        `px-[6px]`,
+        `rounded-[20px]`,
+        `leading-4`,
+        `max-w-full`,
+        `py-xs`,
+        `!px-sm`,
+        `leading-4`,
+        `h-xl`,
+        `inline-flex`
+    ]);
+    if (minified) {
+        span.className = `bg-tone-4 inline-block truncate max-w-full text-12 font-normal align-text-bottom box-border px-[6px] rounded-[20px] leading-4  relative top-[-0.25rem] xs:top-[-2px] my-2xs xs:mb-sm py-0 `;
+    }
+    span.classList.add(flair.color == `light` ? `text-global-white` : `text-global-black`);
+    span.style.backgroundColor = flair.background;
+    for (const richElement of flair.richtext) {
+        if (richElement.e == `text`) {
+            const content = document.createTextNode(richElement.t);
+            span.appendChild(content);
+        }
+        if (richElement.e == `emoji`) {
+            const fimg = document.createElement(`faceplate-img`);
+            fimg.classList.add(`flair-image`);
+            fimg.setAttribute(`loading`, `lazy`);
+            fimg.setAttribute(`width`, `16`);
+            fimg.setAttribute(`height`, `16`);
+            fimg.setAttribute(`src`, richElement.u);
+            fimg.setAttribute(`alt`, richElement.a);
+            span.appendChild(fimg);
+        }
+    }
+    if (flair.richtext.length == 0) {
+        const content = document.createTextNode(flair.text);
+        span.appendChild(content);
+    }
 }
 
 ;// CONCATENATED MODULE: ./src/modules/users/users.ts
@@ -3204,31 +3828,22 @@ function userDataValidator(userData) {
 }
 async function userDataLoader(userId) {
     let userData = {};
-    try {
-        const response = await fetch(`https://oauth.reddit.com/user/${userId}/about.json`, { cache: `no-cache`, method: `get` });
-        if (!response.ok) {
-            pp_log(`Failed to load user (${userId}) data with code ${response.status} : ${response.statusText}`);
-            
-            return userData;
-        }
-        const json = await response.json();
-        if (json.data?.is_suspended == true || json.data?.is_blocked == true) {
-            userData.banned = true;
-            return userData;
-        }
-        userData.rating = (json.data?.link_karma ?? 0) + (json.data?.comment_karma ?? 0) / 2;
-        if (json.data?.subreddit?.title) {
-            userData.nick = json.data.subreddit.title;
-        }
-        userData.created = json.data?.created ?? 0;
-        userData.accountId = json.kind + `_` + json.data?.id;
-        return userData;
-    }
-    catch (e) {
-        pp_log(`Failed to load user (${userId}) data with error ${e}`);
+    const { status, result } = await requestAPI(`/user/${userId}/about.json`);
+    if (status != 404 && result == null) {
         
         return userData;
     }
+    if (status == 404 || result.data?.is_suspended == true || result.data?.is_blocked == true) {
+        userData.banned = true;
+        return userData;
+    }
+    userData.rating = (result.data?.link_karma ?? 0) + (result.data?.comment_karma ?? 0) / 2;
+    if (result.data?.subreddit?.title) {
+        userData.nick = result.data.subreddit.title;
+    }
+    userData.created = result.data?.created ?? 0;
+    userData.accountId = result.kind + `_` + result.data?.id;
+    return userData;
 }
 
 // EXTERNAL MODULE: ./resources/comments/newUser.svg
@@ -3249,7 +3864,7 @@ var bannedUser_default = /*#__PURE__*/__webpack_require__.n(bannedUser);
 const NEWUSER_SECONDS_SHIFT = DAY_SECONDS * 64;
 let loadQueueLock = false;
 async function renderUserInfo(userId, nickName, tagsAnchor, infoAnchor, target) {
-    if (settings.USER_INFO.isDisabled())
+    if (settings.USER_INFO.isDisabled() && settings.SHOW_NAMES.isDisabled())
         return;
     
     await dynamicElement(() => (loadQueueLock ? null : true));
@@ -3258,7 +3873,7 @@ async function renderUserInfo(userId, nickName, tagsAnchor, infoAnchor, target) 
         if (isLoaded) {
             setTimeout(() => {
                 loadQueueLock = false;
-            }, 150 + Math.random() * 100);
+            }, 16 + Math.random() * 32);
         }
         else {
             loadQueueLock = false;
@@ -3266,32 +3881,35 @@ async function renderUserInfo(userId, nickName, tagsAnchor, infoAnchor, target) 
     });
     
     if (settings.SHOW_NAMES.isEnabled() && userData.nick != undefined && userData.nick) {
-        nickName.textContent = userData.nick;
+        const maxSymbols = parseInt(settings.USERNAME_MAX_SIMBOLS.get());
+        nickName.textContent = maxSymbols <= 0 || userData.nick.length < maxSymbols ? userData.nick : userData.nick.slice(0, maxSymbols - 2) + `...`;
     }
-    const rating = document.createElement(`div`);
-    rating.classList.add(`text-neutral-content-weak`, `text-12`);
-    if (userData.rating != undefined) {
-        rating.textContent = userData.rating < 10000 ? `${Math.round(userData.rating / 100) / 10}K` : `${Math.round(userData.rating / 1000)}K`;
-        infoAnchor.after(rating);
-        const point = document.createElement(`span`);
-        if (target.isComment) {
-            point.classList.add(`inline-block`, `my-0`, `mx-2xs`, `text-12`, `text-neutral-content-weak`);
+    if (settings.USER_INFO.isEnabled()) {
+        const rating = document.createElement(`div`);
+        rating.classList.add(`text-neutral-content-weak`, `text-12`);
+        if (userData.rating != undefined) {
+            rating.textContent = userData.rating < 10000 ? `${Math.round(userData.rating / 100) / 10}K` : `${Math.round(userData.rating / 1000)}K`;
+            infoAnchor.after(rating);
+            const point = document.createElement(`span`);
+            if (target.isComment) {
+                point.classList.add(`inline-block`, `my-0`, `mx-2xs`, `text-12`, `text-neutral-content-weak`);
+            }
+            else {
+                point.classList.add(`inline-block`, `my-0`, `created-separator`, `text-neutral-content-weak`);
+            }
+            point.textContent = `•`;
+            rating.after(point);
         }
-        else {
-            point.classList.add(`inline-block`, `my-0`, `created-separator`, `text-neutral-content-weak`);
+        if (userData.created != undefined && userData.created > Date.now() / 1000 - NEWUSER_SECONDS_SHIFT) {
+            const newSvg = buildSvg((newUser_default()), 20, 20);
+            newSvg.setAttribute(`viewBox`, `-2 -2 20 20`);
+            tagsAnchor.before(newSvg);
         }
-        point.textContent = `•`;
-        rating.after(point);
-    }
-    if (userData.created != undefined && userData.created > Date.now() / 1000 - NEWUSER_SECONDS_SHIFT) {
-        const newSvg = buildSvg((newUser_default()), 20, 20);
-        newSvg.setAttribute(`viewBox`, `-2 -2 20 20`);
-        tagsAnchor.before(newSvg);
-    }
-    if (userData.banned != undefined && userData.banned) {
-        const newSvg = buildSvg((bannedUser_default()), 20, 20);
-        newSvg.setAttribute(`viewBox`, `-2 -2 20 20`);
-        tagsAnchor.before(newSvg);
+        if (userData.banned != undefined && userData.banned) {
+            const newSvg = buildSvg((bannedUser_default()), 20, 20);
+            newSvg.setAttribute(`viewBox`, `-2 -2 20 20`);
+            tagsAnchor.before(newSvg);
+        }
     }
 }
 
@@ -3302,6 +3920,320 @@ var postsBackplates = __webpack_require__("./src/modules/posts/postsBackplates.l
 // EXTERNAL MODULE: ./resources/postUnwrapButton.svg
 var postUnwrapButton = __webpack_require__("./resources/postUnwrapButton.svg");
 var postUnwrapButton_default = /*#__PURE__*/__webpack_require__.n(postUnwrapButton);
+// EXTERNAL MODULE: ./src/modules/filters/filters.less
+var filters = __webpack_require__("./src/modules/filters/filters.less");
+// EXTERNAL MODULE: ./resources/hiddenIco.svg
+var hiddenIco = __webpack_require__("./resources/hiddenIco.svg");
+var hiddenIco_default = /*#__PURE__*/__webpack_require__.n(hiddenIco);
+// EXTERNAL MODULE: ./src/modules/filters/hiddenContent.less
+var hiddenContent = __webpack_require__("./src/modules/filters/hiddenContent.less");
+;// CONCATENATED MODULE: ./src/modules/filters/hiddenContentWindow.ts
+
+
+
+const hiddenContentWindow = new Window('Hidden content', renderFiltersWindow, onCloseWindow);
+function renderFiltersWindow(win, context) {
+    const scroll = appendElement(win.content, `div`, [`pp_window_scrollContent`, `styled-scrollbars`]);
+    const elements = appendElement(scroll, `div`, `pp_window_elementsContainer`);
+    elements.style.margin = `20px 100px`;
+    for (const content of hiddenContent_hiddenContent) {
+        elements.prepend(content);
+    }
+}
+function onCloseWindow() {
+    for (const content of hiddenContent_hiddenContent) {
+        content.remove();
+    }
+}
+
+;// CONCATENATED MODULE: ./src/modules/filters/hiddenContent.ts
+
+
+
+
+
+
+
+
+css.addStyle(hiddenContent/* default */.A);
+const hiddenContent_hiddenContent = new Array();
+let totalHiddentContent = 0;
+let renderedHiddentContent = 0;
+let renderTimer = null;
+let hiddenContentButton = null;
+let hiddenContentSpan = null;
+let contentBlock = null;
+let sidebarBlock = null;
+function registerHiddenContent(content) {
+    hiddenContent_hiddenContent.push(content);
+    totalHiddentContent++;
+    if (hiddenContent_hiddenContent.length > parseInt(settings.FILTERED_CONTENT_MAX_COUNT.get())) {
+        hiddenContent_hiddenContent.splice(0, 1);
+    }
+    updateHiddenContentButton();
+}
+function clearHiddenContentButton() {
+    if (hiddenContentButton != null) {
+        hiddenContentButton.remove();
+        hiddenContent_hiddenContent.length = 0;
+        totalHiddentContent = 0;
+        renderedHiddentContent = 0;
+    }
+}
+async function renderHiddenContentButton() {
+    contentBlock = (await dynamicElement(() => document.body.querySelector(`.main-container`)));
+    sidebarBlock = (await dynamicElement(() => document.body.querySelector(`#right-sidebar-contents`)));
+    const main = contentBlock.parentElement;
+    if (hiddenContentButton == null) {
+        hiddenContentButton = buildElement(`div`, [`pp_hiddenContent_button`, `text-neutral-content-weak`]);
+        const icon = appendSvg(hiddenContentButton, (hiddenIco_default()), 16, 16, { strokeColor: CURRENT_COLOR, fillColor: NONE_COLOR });
+        hiddenContentSpan = appendElement(hiddenContentButton, `span`);
+        window.addEventListener('resize', event => {
+            checkScreenWidth();
+        });
+        hiddenContentButton.addEventListener(`click`, event => {
+            hiddenContentWindow.open();
+        });
+    }
+    else {
+        hiddenContentButton.classList.toggle(`pp_hiddenContent_button_visible`, false);
+    }
+    main.parentElement.append(hiddenContentButton);
+    setTimeout(() => {
+        hiddenContentButton.classList.add(`pp_hiddenContent_button_visible`);
+    }, 250);
+}
+function calculateRenderTime() {
+    const maxRenderTime = 250;
+    const delta = totalHiddentContent - renderedHiddentContent;
+    return delta > 0 ? maxRenderTime / delta : maxRenderTime;
+}
+async function updateHiddenContentButton() {
+    if (hiddenContentButton == null || hiddenContentButton.parentElement == null) {
+        await renderHiddenContentButton();
+    }
+    if (totalHiddentContent == 1) {
+        hiddenContentSpan.textContent = `1 post`;
+        renderedHiddentContent = 1;
+    }
+    else if (renderedHiddentContent < totalHiddentContent && renderTimer == null) {
+        renderTimer = setTimeout(() => {
+            renderedHiddentContent++;
+            hiddenContentSpan.textContent = `${renderedHiddentContent} posts`;
+            renderTimer = null;
+            updateHiddenContentButton();
+        }, calculateRenderTime());
+    }
+    checkScreenWidth();
+}
+function checkScreenWidth() {
+    const isWide = settings.WIDE_MODE.isEnabled();
+    const width = hiddenContentButton.getBoundingClientRect().width + 10;
+    const left = isWide ? contentBlock.getBoundingClientRect().right : sidebarBlock.getBoundingClientRect().right;
+    const right = isWide ? sidebarBlock.getBoundingClientRect().left : window.innerWidth - 16;
+    const charOffset = totalHiddentContent.toString().length * 3;
+    hiddenContentButton.style.left = `${(left + right) / 2 - (50 + charOffset)}px`;
+    hiddenContentButton.classList.toggle(`pp_hiddenContent_button_visible`, right - left > width);
+}
+
+;// CONCATENATED MODULE: ./src/modules/filters/filters.ts
+
+
+
+
+
+
+
+
+
+
+
+
+
+css.addStyle(filters/* default */.A);
+var FilterAction;
+(function (FilterAction) {
+    FilterAction[FilterAction["Hide"] = 0] = "Hide";
+    FilterAction[FilterAction["Blur"] = 1] = "Blur";
+    FilterAction[FilterAction["Hightlight"] = 2] = "Hightlight";
+})(FilterAction || (FilterAction = {}));
+const filterActions = Object.values(FilterAction).slice(0, Object.values(FilterAction).length / 2);
+class FilterData {
+}
+class Filter {
+}
+class FiltrationState {
+    constructor() {
+        this.hide = false;
+        this.blur = null;
+    }
+}
+let postsFilters = null;
+let commentsFilters = null;
+function buildFilters(dataFilter) {
+    let datas = prefs.get(PrefsKey.CONTENT_FILTERS);
+    if (!(datas instanceof Array)) {
+        datas = [];
+    }
+    const filters = [];
+    for (const data of datas) {
+        if (dataFilter(data) == true) {
+            filters.push({ regExp: new RegExp(data.expression, data.action == FilterAction.Hightlight ? `gi` : `i`), data: data });
+        }
+    }
+    return filters;
+}
+async function filterPost(post) {
+    const isFeed = !window.location.href.includes(`/comments/`);
+    if (postsFilters == null) {
+        postsFilters = buildFilters(data => data.posts == true);
+    }
+    const state = new FiltrationState();
+    state.isPost = true;
+    applyFilters(post.querySelector(`a[slot="title"]`), postsFilters, state);
+    post
+        .querySelector(`a[slot="text-body"]`)
+        ?.querySelectorAll(`p`)
+        ?.forEach(p => {
+        applyFilters(p, postsFilters, state);
+    });
+    if (isFeed && state.hide) {
+        hidePost();
+        return;
+    }
+    if (isFeed) {
+        const flairLock = await dynamicElement(() => (post.hasAttribute(`pp_flair`) ? post : null));
+        const flairText = post.getAttribute(`pp_flair`);
+        const sub = getSub(post);
+        const flairData = flairs.get(sub);
+        if (flairText.length > 0) {
+            if (flairData.banned?.includes(flairText) ?? false) {
+                state.hide = true;
+            }
+            if (flairData.blured?.includes(flairText) ?? false) {
+                const subData = subs_subs.get(sub);
+                const flairData = subData.flairs.find(f => f.text == flairText);
+                if (state.blur == null) {
+                    state.blur = { text: flairText, color: flairData.background };
+                }
+            }
+        }
+    }
+    if (isFeed && state.hide) {
+        hidePost();
+    }
+    else if (isFeed && state.blur != null) {
+        blurContent(post, state);
+    }
+    async function hidePost() {
+        const next = await dynamicElement(() => post.parentElement.nextElementSibling, MAX_LOAD_LAG);
+        post.remove();
+        next?.remove();
+        if (settings.SHOW_FILTERED_CONTENT.isEnabled()) {
+            registerHiddenContent(post);
+        }
+    }
+}
+function applyFilters(element, filters, state) {
+    const content = element?.textContent;
+    if (content == null || content.length == 0)
+        return;
+    for (const filter of filters) {
+        if (filter.data.action == FilterAction.Blur && state.blur != null)
+            continue;
+        if (filter.data.action == FilterAction.Hide && state.hide)
+            continue;
+        const matches = filter.regExp.exec(content);
+        if (matches != null && matches.length > 0) {
+            switch (filter.data.action) {
+                case FilterAction.Hide:
+                    state.hide = true;
+                    break;
+                case FilterAction.Blur:
+                    state.blur = { text: matchesToText(matches), color: filter.data.color };
+                    break;
+            }
+            highlightContent(matches, filter.data, element);
+        }
+    }
+}
+function filterComment(comment, commentBody) {
+    if (commentsFilters == null) {
+        commentsFilters = buildFilters(data => data.comments == true);
+    }
+    const state = new FiltrationState();
+    commentBody.querySelectorAll(`p`).forEach(p => {
+        applyFilters(p, commentsFilters, state);
+    });
+    if (state.hide) {
+        hideComment();
+    }
+    else if (state.blur != null) {
+        blurContent(commentBody, state);
+    }
+    function hideComment() {
+        comment.classList.add(`pp_hidden_comment`);
+        const showButtonContainer = appendElement(comment, `div`);
+        const showButton = appendElement(showButtonContainer, `div`, [`pp_hidden_button`, `button`, `button-plain-weak`, `button-small`]);
+        const icon = buildSvg((hiddenIco_default()), 16, 16, { strokeColor: CURRENT_COLOR, fillColor: NONE_COLOR });
+        showButton.append(icon);
+        const text = appendElement(showButton, `span`);
+        text.textContent = `Show a hidden comment`;
+        showButton.addEventListener(`click`, () => {
+            comment.classList.toggle(`pp_hidden_comment`, false);
+            showButtonContainer.remove();
+        }, { once: true });
+        comment.prepend(showButtonContainer);
+    }
+}
+function matchesToText(input) {
+    if (input.length > 1) {
+        input.sort((a, b) => a.length - b.length);
+    }
+    let text = input[0].trim();
+    if (text.length > 50) {
+        return `${text.slice(0, 48).trimEnd()}...`;
+    }
+    return text;
+}
+function blurContent(body, state) {
+    body.classList.add(`pp_blured_content_animator`);
+    body.classList.add(`pp_blured_content`);
+    const clickArea = prependElement(body, `div`, `pp_blured_content_area`);
+    const showButtonContainer = prependElement(body.parentElement, `div`, `pp_blured_button_container`);
+    const showButton = appendElement(showButtonContainer, `div`, `pp_blured_button`);
+    showButton.style.backgroundColor = state.blur.color + `55`;
+    if (state.isPost) {
+        showButton.style.top = `20px`;
+    }
+    const showButtonContent = appendElement(showButton, `div`, `pp_blured_button_content`);
+    const icon = appendSvg(showButtonContent, (hiddenIco_default()), 16, 16, { strokeColor: CURRENT_COLOR, fillColor: NONE_COLOR });
+    const showContent = appendElement(showButtonContent, `span`);
+    showContent.textContent = state.blur.text;
+    clickArea.addEventListener(`click`, () => {
+        body.classList.toggle(`pp_blured_content`, false);
+        showButtonContainer.remove();
+        clickArea.remove();
+    }, { once: true });
+}
+function highlightContent(matches, data, p) {
+    let inner = p.innerHTML;
+    const uniqueMathces = new Set(matches);
+    for (const match of uniqueMathces) {
+        const split = inner.split(match);
+        if (split.length > 1) {
+            inner = split[0];
+            let i = 1;
+            while (i < split.length) {
+                inner += `<span style="border-radius: 6px; background-color: ${data.color}88;">${match}</span>`;
+                inner += split[i];
+                i++;
+            }
+        }
+    }
+    p.innerHTML = inner;
+}
+
 ;// CONCATENATED MODULE: ./src/modules/posts/posts.ts
 
 
@@ -3317,6 +4249,38 @@ var postUnwrapButton_default = /*#__PURE__*/__webpack_require__.n(postUnwrapButt
 
 
 
+
+
+
+
+
+class PostData {
+}
+const posts_posts = new Database(`POSTS`, { isCleanupable: true, validator: postDataValidator, loader: postDataLoader });
+function postDataValidator(subData) {
+    return subData.flair == undefined;
+}
+async function postDataLoader(post) {
+    let postData = { flair: null };
+    const postId = post.split(`:`);
+    const { status, result } = await requestAPI(`/r/${postId[0]}/comments/${postId[1]}.json`);
+    if (result != null && result.message == null) {
+        for (const item of result) {
+            for (const child of item.data.children) {
+                if (child.kind == `t3`) {
+                    postData.flair = {
+                        text: child.data.link_flair_text,
+                        color: child.data.link_flair_text_color,
+                        background: child.data.link_flair_background_color,
+                        richtext: child.data.link_flair_richtext
+                    };
+                    return postData;
+                }
+            }
+        }
+    }
+    return postData;
+}
 css.addStyle(posts/* default */.A);
 if (settings.BACKPLATES.isEnabled()) {
     css.addStyle(postsBackplates/* default */.A);
@@ -3324,7 +4288,8 @@ if (settings.BACKPLATES.isEnabled()) {
 async function renderPost(post) {
     if (checkIsRendered(post))
         return;
-    checkVisability(post);
+    renderPostFlair(post);
+    filterPost(post);
     applyShadowRoot(post);
     renderHeader(post);
     renderContent(post);
@@ -3341,21 +4306,34 @@ async function renderPost(post) {
     }
     
 }
-async function checkVisability(post) {
-    if (window.location.href.includes(`/comments/`)) {
-        return;
-    }
-    const sub = post.getAttribute(`subreddit-prefixed-name`).replace(`r/`, ``);
-    const flairData = flairs.get(sub);
-    const postFlair = await dynamicElement(() => post.querySelector(`shreddit-post-flair`)?.querySelector(`a`), MAX_LOAD_LAG);
-    if (postFlair != null) {
-        const postFlairText = decodeURIComponent(postFlair.href.split(`%22`)[1]);
-        if (flairData.banned != undefined && flairData.banned.includes(postFlairText)) {
-            const next = await dynamicElement(() => post.parentElement.nextElementSibling, MAX_LOAD_LAG);
-            post.remove();
-            next?.remove();
+function getSub(post) {
+    return post.getAttribute(`subreddit-prefixed-name`).replace(`r/`, ``);
+}
+async function renderPostFlair(post) {
+    const sub = getSub(post);
+    const postFlairContainer = await dynamicElement(() => post.querySelector(`shreddit-post-flair`), MAX_LOAD_LAG);
+    const postFlair = (await dynamicElement(() => postFlairContainer?.querySelector(`a`), MIN_LOAD_LAG));
+    let flairText = ``;
+    if (postFlair == null) {
+        if (settings.FLAIR_SHOW_ALWAYS.isEnabled()) {
+            const permalink = post.getAttribute(`permalink`)?.split(`/`);
+            if (permalink == null || permalink.length < 5) {
+                pp_log(`Unable to parse post permalink: ${post.getAttribute(`permalink`)}`);
+                return;
+            }
+            const postId = permalink[2] + `:` + permalink[4];
+            const postData = await posts_posts.getWithLoader(postId);
+            if (postData.flair != null && postData.flair.text != null) {
+                renderFlair(postFlairContainer, sub, postData.flair, true);
+            }
+            flairText = postData.flair.text;
         }
     }
+    else {
+        const split = postFlair.href?.split(`%22`);
+        flairText = split != null && split.length > 1 ? decodeURIComponent(split[1]) : ``;
+    }
+    post.setAttribute(`pp_flair`, flairText);
 }
 async function applyShadowRoot(post) {
     const shadowRootLock = await dynamicElement(() => post.shadowRoot);
@@ -3376,44 +4354,37 @@ async function renderHeader(post) {
         userNameLink.classList.add(`flex`, `items-center`, `text-neutral-content`, `visited:text-neutral-content-weak`, `a`, `cursor-pointer`, `no-visited`, `no-underline`, `hover:no-underline`);
         userNameLink.setAttribute(`href`, `/user/${author}/`);
         anchor.before(userNameLink);
-        const userName = appendNew(userNameLink, `div`, [`text-neutral-content-weak`, `text-12`]);
+        const userName = appendElement(userNameLink, `div`, [`text-neutral-content-weak`, `text-12`]);
         userName.textContent = author;
         const point = document.createElement(`span`);
         point.classList.add(`inline-block`, `my-0`, `created-separator`, `text-neutral-content-weak`);
         point.textContent = `•`;
         userNameLink.before(point);
-        // userInfo
         renderUserInfo(author, userName, anchor, anchor, IS_POST);
     }
     else {
-        // userInfo
-        const creditBar = await dynamicElement(() => post.querySelector(`[slot="credit-bar"]`), MAX_LOAD_LAG); // usually it's span, but sometimes div                
+        const creditBar = await dynamicElement(() => post.querySelector(`[slot="credit-bar"]`), MAX_LOAD_LAG);
         const userName = await dynamicElement(() => creditBar.querySelector(`span[slot="authorName"]`)?.querySelector(`a`)?.querySelector(`.whitespace-nowrap`), MAX_LOAD_LAG);
         const anchor = creditBar.querySelector(`.created-separator`);
         if (anchor == null)
-            return; // post view
+            return;
         renderUserInfo(author, userName, anchor, anchor, IS_POST);
     }
 }
 async function renderContent(post) {
-    // comments view
     if (window.location.href.includes(`/comments/`)) {
         registerImages(post, false);
         return;
     }
-    // feed view
     const postContent = await dynamicElement(() => post.querySelector(`.feed-card-text-preview`), MAX_LOAD_LAG);
     if (postContent == null)
         return;
     if (settings.SELECTABLE_POSTS.isEnabled()) {
         postContent.parentElement.parentElement.removeAttribute(`href`);
     }
-    // fix bad formated text
     postContent.classList.remove(`feed-card-text-preview`);
-    // fix click events
     const postAnchor = post.querySelector(`a[slot="text-body"]`);
     postAnchor.classList.toggle(`pointer-events-none`, false);
-    // forced load preview images
     for (const content of postContent.childNodes) {
         if (content instanceof Element && content.matches(`object`)) {
             const previewHref = content.querySelector(`a`)?.href;
@@ -3438,7 +4409,6 @@ async function registerImages(post, isFeed) {
         if (anyImage != null) {
             post.querySelectorAll(`faceplate-img`).forEach(imageContainer => {
                 const href = imageContainer.getAttribute(`src`);
-                console.log('post img => ' + href);
                 let image = imageContainer.shadowRoot?.querySelector(`img`);
                 if (image != null) {
                     image.classList.add(`pp_imageViewable`);
@@ -3466,16 +4436,15 @@ async function registerImages(post, isFeed) {
     }
 }
 async function renderUnwrapPostButton(post, postContent) {
-    // hack to await when post loaded properly
     const postShadowRoot = await dynamicElement(() => post.shadowRoot, MAX_LOAD_LAG);
     const renderedHeight = postContent.getBoundingClientRect().height;
     postContent.classList.add(`pp_post_noWrap`);
     const actualHeight = postContent.getBoundingClientRect().height;
     postContent.classList.remove(`pp_post_noWrap`);
     if (actualHeight > renderedHeight + 5) {
-        const unwrapContainer = appendNew(post, `div`, `pp_post_unwrapContainer`);
+        const unwrapContainer = appendElement(post, `div`, `pp_post_unwrapContainer`);
         post.shadowRoot.append(unwrapContainer);
-        const unwrapButton = appendNew(unwrapContainer, `div`, `pp_post_unwrapButton`);
+        const unwrapButton = appendElement(unwrapContainer, `div`, `pp_post_unwrapButton`);
         const unwrapIcon = buildSvg((postUnwrapButton_default()), 25, 25);
         unwrapButton.append(unwrapIcon);
         unwrapButton.addEventListener(`click`, () => {
@@ -3541,10 +4510,11 @@ function CheckFeedRedirect(location, sort) {
         }
     }
     const defaultFeedProperty = GetDefaultFeedProperty(location);
-    return (!defaultFeedProperty.isDefault() && defaultFeedProperty.get() == sort);
+    return !defaultFeedProperty.isDefault() && defaultFeedProperty.get() == sort;
 }
 
 ;// CONCATENATED MODULE: ./src/modules/feed/feedButtons.ts
+
 
 
 
@@ -3586,11 +4556,9 @@ async function renderFeedButtons(main, feedDropdown) {
         return;
     if (checkIsRendered(main))
         return;
-    // get current feed
     const currentFeed = feedDropdown?.querySelector(`div[slot="selected-item"]`)?.textContent;
     feedDropdown?.remove();
     const location = GetFeedLocation();
-    // get container
     let buttonsContainer = null;
     let hrefGenerator = null;
     if (location != FeedLocation.Sub) {
@@ -3606,7 +4574,7 @@ async function renderFeedButtons(main, feedDropdown) {
         }
         else {
             hrefGenerator = feed => {
-                return `/r/${(location == FeedLocation.Popular) ? `popular` : `all`}/${feed.toLowerCase()}/`;
+                return `/r/${location == FeedLocation.Popular ? `popular` : `all`}/${feed.toLowerCase()}/`;
             };
         }
     }
@@ -3620,7 +4588,6 @@ async function renderFeedButtons(main, feedDropdown) {
         hrefGenerator = feed => {
             return `/r/${subName}/${feed.toLowerCase()}/`;
         };
-        // render default feed dropdown
         const feedpanel = buttonsContainer.parentElement;
         feedpanel.classList.toggle(`justify-between`, false);
         feedpanel.classList.toggle(`flex-wrap`, false);
@@ -3629,14 +4596,14 @@ async function renderFeedButtons(main, feedDropdown) {
         space.classList.add(`pp_feedPanel_space`);
         buttonsContainer.after(space);
         let currentSubSettings = subSettings.get(subName);
-        const isDefault = (currentSubSettings.defaultFeed == undefined) ? (currentFeed == settings.DEFAULT_FEED_SUB.get()) : (currentFeed == currentSubSettings.defaultFeed);
+        const isDefault = currentSubSettings.defaultFeed == undefined ? currentFeed == settings.DEFAULT_FEED_SUB.get() : currentFeed == currentSubSettings.defaultFeed;
         const defaultFeedMark = document.createElement(`div`);
         defaultFeedMark.classList.add(`pp_defaultFeed_mark`);
         let svg = buildSvg(isDefault ? (feedButtonBest_default()) : (feedButtonBest_empty_default()), 16, 16);
         defaultFeedMark.append(svg);
         space.after(defaultFeedMark);
-        const defaultFeedMarkHint = appendNew(defaultFeedMark, `div`, `pp_defaultFeed_mark_hint`);
-        const defaultFeedMarkHintSpan = appendNew(defaultFeedMarkHint, `span`);
+        const defaultFeedMarkHint = appendElement(defaultFeedMark, `div`, `pp_defaultFeed_mark_hint`);
+        const defaultFeedMarkHintSpan = appendElement(defaultFeedMarkHint, `span`);
         defaultFeedMarkHintSpan.textContent = isDefault ? `${currentFeed} is default feed for r/${subName}` : `Set ${currentFeed} as default feed for r/${subName}`;
         if (!isDefault) {
             defaultFeedMark.addEventListener(`click`, () => {
@@ -3648,22 +4615,21 @@ async function renderFeedButtons(main, feedDropdown) {
             }, { once: true });
         }
     }
-    // render buttons
     const feeds = GetFeeds(location);
     const isUnseted = IsUnsetedFeed();
     for (const feed of feeds) {
-        const button = appendNew(buttonsContainer, `a`, BUTTON_CLASSES);
+        const button = appendElement(buttonsContainer, `a`, BUTTON_CLASSES);
         button.href = hrefGenerator(feed);
         const isCurrent = feed == currentFeed;
         button.classList.toggle(`bg-secondary-background-selected`, isCurrent);
         button.classList.toggle(`!text-neutral-content-strong`, isCurrent);
-        const spanContainer = appendNew(button, `span`, [`inline-flex`, `flex-row`, `items-center`, `gap-xs`, `py-[var(--rem10)]`, `leading-5`, `font-14`, `pp_feedButton`]);
+        const spanContainer = appendElement(button, `span`, [`inline-flex`, `flex-row`, `items-center`, `gap-xs`, `py-[var(--rem10)]`, `leading-5`, `font-14`, `pp_feedButton`]);
         let graphic = BUTTONS_SVG[feed];
         if (graphic != null) {
             let svg = buildSvg(graphic, 16, 16);
             spanContainer.append(svg);
         }
-        const spanText = appendNew(spanContainer, `span`);
+        const spanText = appendElement(spanContainer, `span`);
         spanText.textContent = feed;
         if (isUnseted && CheckFeedRedirect(location, feed)) {
             button.click();
@@ -3680,7 +4646,6 @@ async function renderFeedButtons(main, feedDropdown) {
 let postObserver = null;
 async function renderFeed(container) {
     const main = await dynamicElement(() => container.querySelector(`#subgrid-container`));
-    // render embedded posts
     main.querySelectorAll(`shreddit-post`).forEach(post => {
         renderPost(post);
     });
@@ -3697,11 +4662,9 @@ async function renderFeed(container) {
     setTimeout(() => {
         initialPostsObserver.disconnect();
     }, MAX_LOAD_LAG);
-    // render loaded posts
     initializePostObserver(main);
     renderSub(main);
     const feedDropdown = await dynamicElement(() => main.querySelector(`shreddit-sort-dropdown`), MAX_LOAD_LAG);
-    // skip non feed page
     const isInvalidDropdown = (feedDropdown == null || feedDropdown.getAttribute(`trigger-id`) == `comment-sort-button`) && !window.location.href.includes(`/about/`);
     if (isInvalidDropdown)
         return;
@@ -3720,7 +4683,6 @@ function initializePostObserver(target) {
                             renderPost(post);
                         });
                     }
-                    // load r/all posts
                     if (node.matches(`article`)) {
                         renderPost(node.querySelector(`shreddit-post`));
                     }
@@ -3846,7 +4808,6 @@ UserTag.FOLLOWED = `Followed`;
 UserTag.LIKED = `Liked`;
 UserTag.WARNING = `Warning`;
 UserTag.BLOCKED = `Blocked`;
-//
 class UserTagConfig {
 }
 const USERTAG_CONFIGS = new Map([
@@ -3871,7 +4832,6 @@ async function renderUserTags(comment) {
         pp_log(`Unable to render userTags`);
         return;
     }
-    // clear old tags
     tagsContainer.parentNode.querySelectorAll(`svg[userTag="true"]`).forEach(tag => {
         tag.remove();
     });
@@ -3911,7 +4871,7 @@ function renderUserTagsPanel(contextMenu, userId) {
     const tagHintContainer = document.createElement(`div`);
     tagHintContainer.classList.add(`pp_tagHintContainer`);
     tagHintOffset.prepend(tagHintContainer);
-    const tagHint = appendNew(tagHintContainer, `div`, `pp_tagHint`);
+    const tagHint = appendElement(tagHintContainer, `div`, `pp_tagHint`);
     tagHint.style.display = `none`;
     const tagsPanel = document.createElement(`div`);
     tagsPanel.classList.add(`pp_tagsPanel`);
@@ -3920,7 +4880,7 @@ function renderUserTagsPanel(contextMenu, userId) {
         renderTagButton(config, userTag);
     });
     function renderTagButton(config, userTag) {
-        const tagButton = appendNew(tagsPanel, `span`, `pp_tagButton`);
+        const tagButton = appendElement(tagsPanel, `span`, `pp_tagButton`);
         tagButton.setAttribute(`userTag`, userTag);
         const subscribeIcon = buildSvg(config.button, 20, 20);
         tagButton.appendChild(subscribeIcon);
@@ -3981,7 +4941,6 @@ function userTagButtonClick(context) {
     else {
         tagsData.tags.push(context.userTag);
         isAdded = true;
-        // auto clear follow state
         if (context.userTag == UserTag.BLOCKED) {
             tagsData.tags = tagsData.tags.filter(t => t != UserTag.FOLLOWED);
         }
@@ -3990,14 +4949,12 @@ function userTagButtonClick(context) {
         tagsData.tags.sort((firstItem, secondItem) => USERTAG_CONFIGS.get(firstItem).priority - USERTAG_CONFIGS.get(secondItem).priority);
     }
     tags.set(context.userId, tagsData);
-    // refresh comments tags
     document.body.querySelectorAll(`shreddit-comment[author="${context.userId}"]`).forEach(comment => {
         renderUserTags(comment);
         if (isAdded && context.userTag == UserTag.BLOCKED) {
             comment.setAttribute(`collapsed`, ``);
         }
     });
-    // execute specific operations
     if (context.userTag == UserTag.FOLLOWED) {
         FOLLOW_OPERATION.run(isAdded, context.userId);
     }
@@ -4008,7 +4965,6 @@ function userTagButtonClick(context) {
         }
         BLOCK_OPERATION.run(isAdded, context.userId);
     }
-    // refresh context menu
     refreshUserTagsPanel(context.button.parentElement, context.userId);
 }
 function userTagButtonEnter(context) {
@@ -4043,7 +4999,6 @@ var shareButton_default = /*#__PURE__*/__webpack_require__.n(shareButton);
 
 
 function contextMenu_renderContextMenu(comment) {
-    // hack to close other context menu
     document.body.click();
     let contextMenuButton = comment.querySelector(`shreddit-overflow-menu`).shadowRoot;
     css.registry(contextMenuButton);
@@ -4053,12 +5008,6 @@ function contextMenu_renderContextMenu(comment) {
         let linkButton = originButton.cloneNode(true);
         linkButton.querySelector(`span .text-14`).textContent = `Copy link`;
         originButton.before(linkButton);
-        /*
-        let linkPath = linkButton.querySelector(`path`);
-        linkPath.setAttribute(`d`, linkGraphics[0].d);
-        let linkPathB = linkPath.cloneNode(true) as Element;
-        linkPathB.setAttribute(`d`, linkGraphics[1].d);
-        linkPath.after(linkPathB);*/
         const originIcon = linkButton.querySelector(`svg`);
         const shareIcon = buildSvg((shareButton_default()), 20, 20);
         originIcon.replaceWith(shareIcon);
@@ -4068,12 +5017,10 @@ function contextMenu_renderContextMenu(comment) {
             notify(`Link copied`);
         });
     }
-    // close context menu
     let openButton = contextMenuButton.querySelector(`button`);
     openButton.addEventListener(`click`, () => {
         document.body.click();
     });
-    // userTags
     renderUserTagsPanel(contextMenu, comment.getAttribute(`author`));
 }
 
@@ -4103,6 +5050,7 @@ var qa_default = /*#__PURE__*/__webpack_require__.n(qa);
 
 
 
+
 class CommentSort {
 }
 CommentSort.BEST = `Best`;
@@ -4115,7 +5063,6 @@ class CommentSortConfig {
 }
 const SORT_SEPARATOR = `sort=`;
 function isCurrentSort(href, sort) {
-    // if there is no sort query param, then it is the default sort (confidence)
     if (sort === 'confidence' && !href.includes('?')) {
         return true;
     }
@@ -4226,16 +5173,16 @@ async function renderCommentsSortButtons(container) {
         renderButton(sort, config);
     });
     function renderButton(sort, config) {
-        const button = appendNew(sortContainer, `div`, `pp_sortButton`);
+        const button = appendElement(sortContainer, `div`, `pp_sortButton`);
         button.classList.toggle(`pp_sortButton_active`, sort == currentSort);
         button.setAttribute(`commentSort`, sort);
         button.addEventListener(`click`, () => {
             switchSort(sort);
         });
-        const iconSpan = appendNew(button, `span`);
+        const iconSpan = appendElement(button, `span`);
         const iconSvg = buildSvg(config.icon, 16, 16);
         iconSpan.append(iconSvg);
-        const labelSpan = appendNew(button, `span`);
+        const labelSpan = appendElement(button, `span`);
         labelSpan.textContent = config.overrideName != undefined ? config.overrideName : sort;
     }
     sortButtonsRendered = true;
@@ -4267,7 +5214,6 @@ async function switchSort(sort) {
     const awaitRefreshId = setInterval(() => {
         if (config.isCurrent(window.location.href)) {
             clearInterval(awaitRefreshId);
-            // refresh buttons
             COMMENTS_SORT_CONFIGS.forEach((refreshConfig, refreshSort) => {
                 const button = sortContainer.querySelector(`div[commentSort="${refreshSort}"]`);
                 button.classList.toggle(`pp_sortButton_active`, refreshSort == sort);
@@ -4288,7 +5234,6 @@ function renderMoreReplies(comment) {
         return;
     for (const moreReplies of comment.childNodes) {
         if (moreReplies instanceof HTMLElement) {
-            // loadable replies
             if (moreReplies.matches(`faceplate-partial`) && moreReplies.getAttribute(`src`)?.includes(`/more-comments/`) && !checkIsRendered(moreReplies)) {
                 
                 moreReplies.click();
@@ -4309,7 +5254,6 @@ function renderMoreReplies(comment) {
                     }
                 }, 100);
             }
-            // redirectable replies
             if (moreReplies.matches(`a`) && moreReplies.getAttribute(`slot`) == `more-comments-permalink`) {
                 moreReplies.querySelector(`.text-secondary-weak`).textContent = `More replies in single thread`;
             }
@@ -4333,6 +5277,7 @@ function renderMoreReplies(comment) {
 
 
 
+
 let rootIntersector = null;
 let commentsIntersector = null;
 let commentsMutations = null;
@@ -4341,7 +5286,6 @@ async function renderComments(container) {
     if (settings.HIDE_SHARE.isEnabled()) {
         css.addStyle(hideShare/* default */.A, `hideShare`);
     }
-    // intersections
     if (rootIntersector != null) {
         rootIntersector.disconnect();
         
@@ -4351,7 +5295,6 @@ async function renderComments(container) {
             for (const entry of entries) {
                 if (entry.isIntersecting) {
                     renderComment(entry.target.parentElement);
-                    // registry childs when root becomes visible
                     registryAllComments(entry.target.parentElement);
                     
                     rootIntersector.unobserve(entry.target);
@@ -4374,7 +5317,6 @@ async function renderComments(container) {
             }
         }, { threshold: 0.05 });
     }
-    // mutations
     if (commentsMutations != null) {
         commentsMutations.disconnect();
     }
@@ -4383,14 +5325,11 @@ async function renderComments(container) {
             for (const mutation of mutations) {
                 for (const node of mutation.addedNodes) {
                     if (node instanceof HTMLElement) {
-                        // static comments
                         const commentTree = node.parentElement?.querySelector(`shreddit-comment-tree`);
                         if (commentTree != null) {
                             registryAllRoots(commentTree);
-                            // singal to commentsSort buttons that comments refreshed
                             OnCommentsTreeLoaded();
                         }
-                        // dynamic comments
                         if (node.matches(`shreddit-comment`)) {
                             if (node.getAttribute(`depth`) == `0`) {
                                 registryRoot(node);
@@ -4412,7 +5351,6 @@ async function renderComments(container) {
         });
     }
     commentsMutations.observe(container, { childList: true, subtree: true });
-    // sort buttons
     renderCommentsSortButtons(container);
 }
 function registryAllRoots(container) {
@@ -4440,7 +5378,7 @@ function registryComment(comment) {
 async function renderComment(comment) {
     const commentBody = comment.querySelector(`div[slot="comment"]`);
     
-    // collapse automoderator and pinned mods
+    filterComment(comment, commentBody);
     if (settings.COLLAPSE_AUTOMODERATOR.isEnabled()) {
         const author = comment.getAttribute(`author`);
         if (author != null && author == `AutoModerator`) {
@@ -4454,13 +5392,10 @@ async function renderComment(comment) {
             return;
         }
     }
-    // unwrap moreComments
     setTimeout(() => {
         renderMoreReplies(comment);
     }, 150);
-    // add anchors
     const nickname = comment.querySelector(`div[slot="commentMeta"]`).querySelector(`faceplate-hovercard[data-id="user-hover-card"]`);
-    // skip [deleted]
     if (nickname == null)
         return;
     const tagsAnchor = document.createElement(`div`);
@@ -4476,13 +5411,11 @@ async function renderComment(comment) {
     const infoAnchor = document.createElement(`div`);
     infoAnchor.setAttribute(`pp-anchor`, `info`);
     time?.before(infoAnchor);
-    // make ghosted when karma below zero
     if (settings.GHOSTED_COMMENTS.isEnabled() && parseInt(comment.getAttribute(`score`)) < 0) {
         comment.querySelector(`div[slot="commentAvatar"]`).classList.add(`pp_muted_avatar`);
         comment.querySelector(`faceplate-tracker[noun="comment_author"]`).querySelector(`a`).style.color = `#a5a5a5`;
         commentBody.classList.add(`pp_muted_content`);
     }
-    // registry image
     const imageContainer = commentBody.querySelector(`figure[class="rte-media"]`);
     if (imageContainer != null && settings.IMAGE_VIEWER.isEnabled()) {
         const imageAnchor = imageContainer.querySelector(`a`);
@@ -4521,20 +5454,36 @@ var scrollButton_default = /*#__PURE__*/__webpack_require__.n(scrollButton);
 
 
 
+
 const START_Y = 1000;
 let scrollToTop_scrollToTop = null;
 let scrollToTop_scrollButton = null;
 let prevScrollHeight = 0;
 let isWide = false;
 let isBottom = false;
-let contentBlock = null;
+let scrollToTop_contentBlock = null;
+let scrollToTop_sidebarBlock = null;
 function renderScrollToTop() {
     if (settings.SCROLL_TO_TOP.isDisabled())
         return;
     css.addStyle(scrollToTop/* default */.A, `scrollToTop`);
-    const main = document.body.querySelector(`.main-container`).parentElement;
-    contentBlock = document.body.querySelector(`.main-container`);
-    scrollToTop_scrollToTop = appendNew(main.parentElement, `div`, `pp_scrollToTop`);
+    scrollToTop_contentBlock = document.body.querySelector(`.main-container`);
+    const main = scrollToTop_contentBlock.parentElement;
+    const sidebar = document.body.querySelector(`#left-sidebar-container`);
+    const sidebarObserver = new MutationObserver(mutations => {
+        animate(() => {
+            scrollToTop_checkScreenWidth();
+        }, 0.5);
+    });
+    sidebarObserver.observe(sidebar, { childList: false, subtree: false, attributes: true });
+    scrollToTop_sidebarBlock = sidebar.querySelector(`#flex-left-nav-contents`);
+    const sidebarButton = sidebar.querySelector(`#flex-nav-buttons`);
+    sidebarButton.addEventListener(`click`, event => {
+        animate(() => {
+            scrollToTop_checkScreenWidth();
+        }, 0.5);
+    });
+    scrollToTop_scrollToTop = appendElement(main.parentElement, `div`, `pp_scrollToTop`);
     scrollToTop_scrollButton = buildSvg((scrollButton_default()), 40, 40);
     scrollToTop_scrollToTop.append(scrollToTop_scrollButton);
     scrollToTop_scrollToTop.addEventListener(`click`, () => {
@@ -4548,29 +5497,26 @@ function renderScrollToTop() {
             prevScrollHeight = 0;
             isBottom = true;
         }
-        refreshScrollToTop();
+        scrollToTop_checkScreenWidth();
     });
     window.addEventListener('resize', event => {
-        checkScreenWidth();
+        scrollToTop_checkScreenWidth();
     });
     let prevIsBottom = false;
-    setInterval(() => {
+    window.addEventListener(`scroll`, event => {
         isBottom = window.scrollY > START_Y;
         if (isBottom != prevIsBottom) {
             prevIsBottom = isBottom;
-            refreshScrollToTop();
+            scrollToTop_checkScreenWidth();
         }
-    }, 330);
-    checkScreenWidth();
+    });
+    scrollToTop_checkScreenWidth();
 }
-function checkScreenWidth() {
-    isWide = window.innerWidth > 1490;
-    const rect = contentBlock.getBoundingClientRect();
-    scrollToTop_scrollToTop.style.left = `${(300 + rect.left) / 2 - 50}px`;
-    refreshScrollToTop();
-}
-function refreshScrollToTop() {
-    const hidden = !(isWide && (isBottom || prevScrollHeight > 0));
+function scrollToTop_checkScreenWidth() {
+    const left = scrollToTop_sidebarBlock.getBoundingClientRect().right;
+    const right = scrollToTop_contentBlock.getBoundingClientRect().left;
+    scrollToTop_scrollToTop.style.left = `${(left + right) / 2 - 50}px`;
+    const hidden = !(right - left > 116 && (isBottom || prevScrollHeight > 0));
     const inverted = !isBottom && prevScrollHeight > 0;
     scrollToTop_scrollToTop.classList.toggle(`pp_scrollToTop_hidden`, hidden);
     scrollToTop_scrollButton.classList.toggle(`pp_scrollToTop_inverted`, inverted);
@@ -4582,15 +5528,15 @@ function refreshScrollToTop() {
 
 async function renderUserPage(container) {
     const feed = await dynamicElement(() => container.querySelector(`#subgrid-container`)?.querySelector(`shreddit-feed`));
-    // render embedded posts
     feed.querySelectorAll(`shreddit-post`).forEach(post => {
         renderPost(post);
     });
-    // render loaded posts
     initializePostObserver(feed);
 }
 
 ;// CONCATENATED MODULE: ./src/modules/app.ts
+
+
 
 
 
@@ -4606,6 +5552,8 @@ async function renderApp() {
     const app = await dynamicElement(() => document.body.querySelector(`shreddit-app`)?.querySelector(`.grid-container`));
     if (checkIsRendered(app))
         return;
+    clearHiddenContentButton();
+    closeAllWindows();
     if (window.location.href.includes(`/user/`)) {
         renderUserPage(document.body);
     }
@@ -4647,7 +5595,7 @@ function renderNotifications(container) {
             author.textContent = author.textContent.split(`replied`)[0];
             const subTittle = document.createElement(`div`);
             tittle.after(subTittle);
-            const subTittleContent = appendNew(subTittle, `span`, [`text-secondary-weak`, `font-normal`]);
+            const subTittleContent = appendElement(subTittle, `span`, [`text-secondary-weak`, `font-normal`]);
             let sub = item.parentElement.getAttribute(`href`);
             sub = sub.replace(`https://reddit.com/r/`, ``);
             sub = sub.split(`/`)[0];
@@ -4662,12 +5610,241 @@ function renderNotifications(container) {
     });
 }
 
+// EXTERNAL MODULE: ./resources/dragAnchor.svg
+var dragAnchor = __webpack_require__("./resources/dragAnchor.svg");
+var dragAnchor_default = /*#__PURE__*/__webpack_require__.n(dragAnchor);
+// EXTERNAL MODULE: ./resources/deleteButton.svg
+var resources_deleteButton = __webpack_require__("./resources/deleteButton.svg");
+var deleteButton_default = /*#__PURE__*/__webpack_require__.n(resources_deleteButton);
+// EXTERNAL MODULE: ./resources/contentFilter.svg
+var contentFilter = __webpack_require__("./resources/contentFilter.svg");
+var contentFilter_default = /*#__PURE__*/__webpack_require__.n(contentFilter);
+// EXTERNAL MODULE: ./src/modules/filters/filtersWindow.less
+var filtersWindow = __webpack_require__("./src/modules/filters/filtersWindow.less");
+;// CONCATENATED MODULE: ./src/modules/filters/filtersWindow.ts
+
+
+
+
+
+
+
+
+
+
+
+
+
+const filtersWindow_filtersWindow = new Window('Content filters', filtersWindow_renderFiltersWindow, onClose);
+css.addStyle(filtersWindow/* default */.A);
+function filtersWindow_renderFiltersWindow(win, context) {
+    win.container.style.zIndex = `11`;
+    cleanupBlankFilters();
+    const scroll = appendElement(win.content, `div`, [`pp_window_scrollContent`, `styled-scrollbars`]);
+    const elements = appendElement(scroll, `ul`, `pp_filter_list`);
+    let filters = prefs.get(PrefsKey.CONTENT_FILTERS);
+    if (!(filters instanceof Array)) {
+        filters = [];
+    }
+    for (const filter of filters) {
+        addFilter(filter);
+    }
+    addAddButton();
+    let draggedFilter = null;
+    elements.addEventListener(`dragstart`, e => {
+        draggedFilter = e.target;
+        draggedFilter.classList.toggle(`pp_filter_dragged`, true);
+        e.dataTransfer.effectAllowed = `move`;
+    });
+    let dropTargetFilter = null;
+    elements.addEventListener(`dragenter`, e => {
+        const targetFilter = getFilterRoot(e.target);
+        if (targetFilter != null && targetFilter != draggedFilter) {
+            e.preventDefault();
+            dropTargetFilter = targetFilter;
+        }
+    });
+    elements.addEventListener(`dragend`, e => {
+        draggedFilter.classList.toggle(`pp_filter_dragged`, false);
+        draggedFilter = null;
+    });
+    elements.addEventListener(`dragover`, e => {
+        const targetFilter = getFilterRoot(e.target);
+        if (targetFilter != null && targetFilter != draggedFilter) {
+            e.preventDefault();
+        }
+    });
+    elements.addEventListener(`drop`, e => {
+        e.preventDefault();
+        const targetFilter = getFilterRoot(e.target);
+        if (targetFilter == null)
+            return;
+        const fromIndex = parseInt(draggedFilter.getAttribute(`index`));
+        const toIndex = parseInt(targetFilter.getAttribute(`index`));
+        const movedFilter = filters[fromIndex];
+        filters.splice(fromIndex, 1);
+        filters.splice(toIndex, 0, movedFilter);
+        save();
+        if (fromIndex > toIndex) {
+            targetFilter.before(draggedFilter);
+        }
+        else {
+            targetFilter.after(draggedFilter);
+        }
+        let currentFilter = elements.firstElementChild;
+        let currentIndex = 0;
+        while (currentFilter.hasAttribute(`filter`)) {
+            currentFilter.setAttribute(`index`, currentIndex.toString());
+            currentIndex++;
+            currentFilter = currentFilter.nextElementSibling;
+        }
+    });
+    function getFilterRoot(element) {
+        let current = element;
+        while (!current.hasAttribute(`filter`) && current.parentElement != null) {
+            current = current.parentElement;
+        }
+        return current.hasAttribute(`filter`) ? current : null;
+    }
+    function addFilter(filter, addButton = null) {
+        const filterArea = appendElement(elements, `li`, `pp_filter_element`);
+        filterArea.style.borderColor = borderColor(filter.color);
+        filterArea.toggleAttribute(`filter`, true);
+        filterArea.setAttribute(`index`, filters.findIndex(f => f == filter).toString());
+        if (addButton != null) {
+            addButton.before(filterArea);
+        }
+        const filterPanel = appendElement(filterArea, `div`);
+        const dragButton = appendElement(filterPanel, `div`, `pp_filter_element_dragAnchor`);
+        const dragButtonSvg = buildSvg((dragAnchor_default()), 16, 16, { strokeColor: NONE_COLOR, fillColor: CURRENT_COLOR });
+        dragButton.append(dragButtonSvg);
+        dragButton.addEventListener(`mousedown`, () => {
+            filterArea.setAttribute(`draggable`, `true`);
+        });
+        dragButton.addEventListener(`mouseenter`, () => {
+            filterArea.setAttribute(`draggable`, `true`);
+        });
+        dragButton.addEventListener(`mouseleave`, () => {
+            filterArea.setAttribute(`draggable`, `false`);
+        });
+        const inputContainer = renderUIInput(filterPanel, `Regular expression`, filter.expression, value => {
+            filter.expression = value;
+            save();
+        }, { icon: (contentFilter_default()) });
+        const colorPickerContainer = appendElement(filterPanel, `div`, `pp_filter_element_colorPicker`);
+        const colorPicker = appendElement(colorPickerContainer, `input`);
+        colorPicker.setAttribute(`type`, `color`);
+        colorPicker.setAttribute(`value`, filter.color);
+        colorPicker.addEventListener(`input`, onColorChange);
+        colorPicker.addEventListener(`change`, onColorChange);
+        function onColorChange(event) {
+            filter.color = event.target.value;
+            filterArea.style.borderColor = borderColor(filter.color);
+            save();
+        }
+        function borderColor(input) {
+            return filter.posts || filter.comments ? input : `${input}4f`;
+        }
+        const togglesContainer = appendElement(filterPanel, `div`, `pp_filter_element_toggles`);
+        const postsContainer = appendElement(togglesContainer, `div`);
+        const postsTittle = appendElement(postsContainer, `span`, [`text-secondary`, `font-normal`]);
+        postsTittle.textContent = `Posts:`;
+        renderUIToggle(postsContainer, filter.posts, state => {
+            filter.posts = state;
+            filterArea.style.borderColor = borderColor(filter.color);
+            save();
+        });
+        const commentsContainer = appendElement(togglesContainer, `div`);
+        const commentsTittle = appendElement(commentsContainer, `span`, [`text-secondary`, `font-normal`]);
+        commentsTittle.textContent = `Comments:`;
+        renderUIToggle(commentsContainer, filter.comments, state => {
+            filter.comments = state;
+            filterArea.style.borderColor = borderColor(filter.color);
+            save();
+        });
+        const actionOptions = renderUIOptions(filterPanel, filter.action, filterActions, index => {
+            filter.action = index;
+            let color = null;
+            switch (filter.action) {
+                case FilterAction.Hide:
+                    color = `#6A51D9`;
+                    break;
+                case FilterAction.Blur:
+                    color = `#5BB3D9`;
+                    break;
+                case FilterAction.Hightlight:
+                    color = `#74CB39`;
+                    break;
+            }
+            if (color != null && (filter.color == `#6A51D9` || filter.color == `#5BB3D9` || filter.color == `#74CB39`)) {
+                filter.color = color;
+                filterArea.style.borderColor = borderColor(color);
+                colorPicker.setAttribute(`value`, color);
+            }
+            save();
+        });
+        const inputButton = inputContainer.querySelector(`.pp_ui_input_button`);
+        inputButton.addEventListener(`focus`, () => {
+            colorPickerContainer.classList.toggle(`pp_hidden`, true);
+            togglesContainer.classList.toggle(`pp_hidden`, true);
+            actionOptions.classList.toggle(`pp_hidden`, true);
+        });
+        inputButton.addEventListener(`focusout`, () => {
+            colorPickerContainer.classList.toggle(`pp_hidden`, false);
+            togglesContainer.classList.toggle(`pp_hidden`, false);
+            actionOptions.classList.toggle(`pp_hidden`, false);
+        });
+        const deleteSpan = appendElement(filterPanel, `span`);
+        const deleteButton = appendElement(deleteSpan, `div`, [`pp_ui_options_arrow`, `button`, `button-plain`, `button-medium`, `px-[var(--rem8)]`]);
+        const deleteButtonSvg = buildSvg((deleteButton_default()), 24, 24, { strokeColor: NONE_COLOR, fillColor: CURRENT_COLOR });
+        deleteButton.append(deleteButtonSvg);
+        deleteButton.addEventListener(`click`, () => {
+            filters.splice(filters.findIndex(f => f == filter), 1);
+            save();
+            filterArea.remove();
+        });
+    }
+    function addAddButton() {
+        const buttonArea = appendElement(elements, `div`, [`pp_filter_addButton`, `button`, `button-primary`, `inline-flex`, `items-center`, `justify-center`]);
+        const buttonSpan = appendElement(buttonArea, `span`, [`flex`, `items-center`, `justify-center`]);
+        const buttonText = appendElement(buttonSpan, `span`, [`flex`, `items-center`, `gap-xs`]);
+        buttonText.textContent = `Add a filter`;
+        buttonArea.addEventListener(`click`, () => {
+            const newFilter = new FilterData();
+            newFilter.expression = ``;
+            newFilter.color = `#6A51D9`;
+            newFilter.posts = true;
+            newFilter.comments = true;
+            newFilter.action = FilterAction.Hide;
+            filters.push(newFilter);
+            addFilter(newFilter, buttonArea);
+            save();
+            scroll.scrollBy(0, 200);
+        });
+    }
+    function save() {
+        prefs.set(PrefsKey.CONTENT_FILTERS, filters);
+    }
+}
+function onClose() {
+    cleanupBlankFilters();
+}
+function cleanupBlankFilters() {
+    let filters = prefs.get(PrefsKey.CONTENT_FILTERS);
+    if (!(filters instanceof Array)) {
+        filters = [];
+    }
+    filters = filters.filter(f => f != null && f.expression != null && f.expression.length > 0);
+    prefs.set(PrefsKey.CONTENT_FILTERS, filters);
+}
+
 // EXTERNAL MODULE: ./src/modules/settings/settingsWindow.less
 var settingsWindow = __webpack_require__("./src/modules/settings/settingsWindow.less");
-// EXTERNAL MODULE: ./resources/settingsArrow.svg
-var settingsArrow = __webpack_require__("./resources/settingsArrow.svg");
-var settingsArrow_default = /*#__PURE__*/__webpack_require__.n(settingsArrow);
 ;// CONCATENATED MODULE: ./src/modules/settings/settingsWindow.ts
+
+
+
+
 
 
 
@@ -4677,42 +5854,59 @@ var settingsArrow_default = /*#__PURE__*/__webpack_require__.n(settingsArrow);
 
 css.addStyle(settingsWindow/* default */.A);
 const settingsWindow_settingsWindow = new Window('Reddit++ Settings', renderSettingsWindow, closeSettingsWindow);
+class SettingBadge {
+}
+SettingBadge.APIRequests = { text: `API requests`, color: `var(--shreddit-color-wordmark)`, link: `https://github.com/lnm95/redditPlusPlus/blob/main/redditAPI.md` };
+SettingBadge.New = { text: `New`, color: `#2C96C4`, link: `https://greasyfork.org/en/scripts/490046-reddit/versions` };
 let changes = 0;
 function renderSettingsWindow(win, context) {
-    // hack to close user menu
     document.body.click();
     changes = 0;
-    const changesBannerContainer = appendNew(win.content, `div`, `pp_settings_changesBannerContainer`);
-    const changesBanner = appendNew(changesBannerContainer, `div`, `pp_settings_changesBanner`);
+    const changesBannerContainer = appendElement(win.content, `div`, `pp_settings_changesBannerContainer`);
+    const changesBanner = appendElement(changesBannerContainer, `div`, `pp_settings_changesBanner`);
     changesBanner.textContent = `Page will be reloaded to apply new settings`;
-    const scroll = appendNew(win.content, `div`, [`pp_window_scrollContent`, `styled-scrollbars`]);
-    const elements = appendNew(scroll, `div`, `pp_window_elementsContainer`);
-    addSettingToggle(`Wide mode`, `Make focus on the content by replacing right sidebar to screen border`, settings.WIDE_MODE);
-    addSettingDropdown(`Content width`, null, settings.CONTENT_WIDTH);
-    addSettingDropdown(`Content offset`, null, settings.CONTENT_OFFSET);
+    const scroll = appendElement(win.content, `div`, [`pp_window_scrollContent`, `styled-scrollbars`]);
+    const elements = appendElement(scroll, `div`, `pp_window_elementsContainer`);
+    addSettingString(`App name`, `Without authorization API requests will be limited by 100 per 10 minutes`, `Unauthorized`, settings.API_APP, [SettingBadge.APIRequests]);
+    addSettingToggle(`Show the requests limit warnings`, null, settings.API_WARNINGS, [SettingBadge.APIRequests]);
+    addSubtittle(`Common`);
+    addSettingToggle(`Wide mode`, `Make focus on the content by replacing the right sidebar to screen border`, settings.WIDE_MODE);
+    addSettingString(`Content width`, `Width of the feed and comments in pixels`, settings.CONTENT_WIDTH.defaultValue, settings.CONTENT_WIDTH);
+    addSettingString(`Content offset`, `Offset of the feed and comments in pixels`, settings.CONTENT_OFFSET.defaultValue, settings.CONTENT_OFFSET);
     addSettingToggle(`Bigger fonts`, `Make fonts bigger for better reading`, settings.BIGGER_FONTS);
-    addSettingToggle(`Better notify popup`, `Make notify popup a bit larger and remove useless button`, settings.NOTIFY_POPUP);
-    addSettingToggle(`Redirect suggestion`, `Show suggestion to redirect from old.reddit and new.reddit to compatible pages`, settings.REDIRECT_SUGGESTION);
-    addSettingToggle(`Redirect forced`, `Automatically redirect to compatible pages`, settings.REDIRECT_FORCED);
+    addSettingToggle(`Scroll to top button`, null, settings.SCROLL_TO_TOP);
+    addSettingToggle(`Image viewer`, `Open (zoom) images instead default redirect behaviour`, settings.IMAGE_VIEWER);
+    addSettingToggle(`Redirect suggestion`, `Show the suggestion to redirect from old.reddit to modern pages`, settings.REDIRECT_SUGGESTION);
+    addSettingToggle(`Redirect forced`, `Automatically redirect from old.reddit to modern pages`, settings.REDIRECT_FORCED);
+    addSettingToggle(`Collapse Awards`, `Automatic collapse the award's button for none upvoted posts and comments`, settings.COLLAPSE_AWARDS);
+    addSettingToggle(`Remove Awards`, `Remove the award's buttons completely`, settings.COLLAPSE_AWARDS_COMPLETELY);
+    addSubtittle(`Content`);
+    addGotoButton(`Filters`, `Hide posts and comments by regular expressions`, filtersWindow_filtersWindow, [SettingBadge.New]);
+    addSettingToggle(`Hidden posts history`, `Allows to show latest hidden posts`, settings.SHOW_FILTERED_CONTENT, [SettingBadge.New]);
+    addSettingString(`Hidden posts history limit`, `Max count of posts in history window`, settings.FILTERED_CONTENT_MAX_COUNT.defaultValue, settings.FILTERED_CONTENT_MAX_COUNT, [SettingBadge.New]);
     addSubtittle(`Left sidebar`);
     addSettingToggle(`Sub filter`, `Tool for find subs on sidebar by name`, settings.SUB_FILTER);
     addSettingToggle(`Show Custom feeds`, null, settings.SIDEBAR_CUSTOMS);
     addSettingToggle(`Show Recent`, null, settings.SIDEBAR_RECENT);
     addSettingToggle(`Show Communities`, null, settings.SIDEBAR_SUBS);
     addSettingToggle(`Show Resources`, null, settings.SIDEBAR_RESOURCES);
-    addSubtittle(`Common`);
-    addSettingToggle(`Scroll to top button`, null, settings.SCROLL_TO_TOP);
-    addSettingToggle(`Collapse Awards`, `Automatic collapse the award's button for none upvoted posts and comments`, settings.COLLAPSE_AWARDS);
-    addSettingToggle(`Remove Awards`, `Remove the award's buttons completely`, settings.COLLAPSE_AWARDS_COMPLETELY);
-    addSettingToggle(`Image viewer`, `Open (zoom) images instead default redirect behaviour`, settings.IMAGE_VIEWER);
     addSubtittle(`Default feeds`);
-    addSettingDropdown(`Home`, null, settings.DEFAULT_FEED_HOME);
-    addSettingDropdown(`Popular`, null, settings.DEFAULT_FEED_POPULAR);
-    addSettingDropdown(`All`, null, settings.DEFAULT_FEED_ALL);
-    addSettingDropdown(`Subreddit's`, null, settings.DEFAULT_FEED_SUB);
+    addSettingOptions(`Home`, null, settings.DEFAULT_FEED_HOME);
+    addSettingOptions(`Popular`, null, settings.DEFAULT_FEED_POPULAR);
+    addSettingOptions(`All`, null, settings.DEFAULT_FEED_ALL);
+    addSettingOptions(`Subreddit's`, null, settings.DEFAULT_FEED_SUB);
+    addSubtittle(`Users`);
+    addSettingToggle(`User info`, `Show user's karma and "new user" mark`, settings.USER_INFO, [SettingBadge.APIRequests]);
+    addSettingToggle(`Show nicknames`, `Use user's nicknames instead profile names`, settings.SHOW_NAMES, [SettingBadge.APIRequests]);
+    addSettingString(`Nickname max symbols`, `Make nicknames with too many symbols shorter`, settings.USERNAME_MAX_SIMBOLS.defaultValue, settings.USERNAME_MAX_SIMBOLS, [SettingBadge.New]);
+    addSettingToggle(`User tags`, `Enable custom tags (sets via comment's context menu)`, settings.USER_TAGS);
     addSubtittle(`Feed`);
     addSettingToggle(`Feed buttons`, `Unwrap feed sorting buttons`, settings.FEED_BUTTONS);
     addSettingToggle(`Flairs bar`, `Display available flairs to faster navigation. Specific flairs may be hidden via subreddit's flairs settings`, settings.FLAIR_BAR);
+    addSettingToggle(`Show flairs always`, `Show flairs for posts in specific feeds (Home, Popular and All) and filter posts by flairs.`, settings.FLAIR_SHOW_ALWAYS, [
+        SettingBadge.APIRequests,
+        SettingBadge.New
+    ]);
     addSettingToggle(`Collapse community highlights`, null, settings.COLLAPSE_HIGHLIGHTS);
     addSettingToggle(`Selectable text`, `Make a text selectable when posts viewed in feed`, settings.SELECTABLE_POSTS);
     addSettingToggle(`Unwrap button`, `Show the unwrap button for long-text posts in feed`, settings.UNWRAP_POST);
@@ -4724,9 +5918,6 @@ function renderSettingsWindow(win, context) {
     addSettingToggle(`Sort buttons`, `Unwrap the comment's sort buttons`, settings.COMMENTS_SORT_BUTTONS);
     addSettingToggle(`Remember sort`, `Remember latest used comment's sort`, settings.COMMENTS_REMEMBER_SORT);
     addSettingToggle(`Unwrap "more replies"`, `Automatically unwrap more replies when it becomes visible`, settings.UNWRAP_MORE_REPLIES);
-    addSettingToggle(`User info`, `Show user's karma and "new user" mark`, settings.USER_INFO);
-    addSettingToggle(`User tags`, `Enable custom tags (sets via comment's context menu)`, settings.USER_TAGS);
-    addSettingToggle(`Show nicknames`, `Use user's nicknames instead profile names`, settings.SHOW_NAMES);
     addSettingToggle(`Hide share button`, `Replace the share button to comment's context menu`, settings.HIDE_SHARE);
     addSettingToggle(`Ghosted comments`, `Make comments ghosted when comment's rating below zero`, settings.GHOSTED_COMMENTS);
     addSettingToggle(`Collapse unwanted`, `Automatic collapse all automoderator and mod's pinned comments`, settings.COLLAPSE_AUTOMODERATOR);
@@ -4734,81 +5925,94 @@ function renderSettingsWindow(win, context) {
     addSettingToggle(`Show bookmark always`, `Show the bookmark button for all comments`, settings.SAVED_BOOKMARK_COMMENTS_SHOW_ALWAYAS);
     addSettingToggle(`Hide related posts`, null, settings.HIDE_RELATED_POSTS);
     function addSubtittle(text) {
-        const subtittle = appendNew(elements, `h3`, `pp_settings_subtittle`);
+        const subtittle = appendElement(elements, `h3`, `pp_settings_subtittle`);
         subtittle.textContent = text;
     }
-    function addSettingToggle(tittleText, descriptionText, setting) {
-        const propertyArea = appendNew(elements, `div`, `pp_window_element`);
-        const header = appendNew(propertyArea, `div`, `pp_settings_propertyHeader`);
-        const tittle = appendNew(header, `div`, `pp_settings_propertyHeader_tittle`);
+    function renderBaseProperty(tittleText, descriptionText, badges = []) {
+        const propertyArea = appendElement(elements, `div`, `pp_window_element`);
+        const header = appendElement(propertyArea, `div`, `pp_settings_propertyHeader`);
+        const tittle = appendElement(header, `div`, `pp_settings_propertyHeader_tittle`);
         tittle.textContent = tittleText;
         if (descriptionText != null) {
-            const description = appendNew(header, `div`, `pp_settings_propertyHeader_description`);
+            const description = appendElement(header, `div`, `pp_settings_propertyHeader_description`);
             description.textContent = descriptionText;
         }
         else {
             propertyArea.classList.add(`pp_settings_property_oneLine`);
         }
-        const buttonContainer = appendNew(propertyArea, `div`, `pp_settings_propertyButtonContainer`);
-        const toggleArea = appendNew(buttonContainer, `div`, `pp_checkBox_panelArea`);
-        const toggleContainer = appendNew(toggleArea, `div`, `pp_checkBox_container`);
-        const toggleBack = appendNew(toggleContainer, `button`, `pp_checkBox_button`);
-        toggleBack.classList.toggle(`pp_checkBox_buttonActive`, setting.isEnabled());
-        const knob = appendNew(toggleBack, `div`, `pp_checkBox_knob`);
-        let changed = false;
-        toggleBack.addEventListener(`click`, e => {
-            const state = setting.isEnabled();
-            toggleBack.classList.toggle(`pp_checkBox_buttonActive`, !state);
-            setting.switch();
-            changes += changed ? -1 : 1;
-            changed = !changed;
-            changesBannerContainer.classList.toggle(`pp_settings_changesBanner_active`, changes > 0);
+        for (const badge of badges) {
+            const badgeLink = appendElement(tittle, `a`, `pp_no_decoration`);
+            if (badge.link != null && badge.link.length > 0) {
+                badgeLink.setAttribute(`href`, badge.link);
+            }
+            const badgeContent = appendElement(badgeLink, `div`, [`pp_settings_propertyHeader_badge`, `pp_no_decoration`]);
+            badgeContent.textContent = badge.text;
+            badgeContent.style.color = badge.color;
+            badgeContent.style.borderColor = badge.color;
+        }
+        const buttonContainer = appendElement(propertyArea, `div`, `pp_settings_propertyButtonContainer`);
+        return buttonContainer;
+    }
+    function addGotoButton(tittleText, descriptionText, window, badges = []) {
+        const buttonContainer = renderBaseProperty(tittleText, descriptionText, badges);
+        const controlArea = appendElement(buttonContainer, `div`, `pp_window_controlArea`);
+        const gotoButton = appendElement(controlArea, `div`, [`pp_ui_options_arrow`, `button`, `button-plain`, `button-medium`, `px-[var(--rem8)]`]);
+        const gotoButtonSvg = buildSvg((settingsArrow_default()), 20, 20);
+        gotoButton.append(gotoButtonSvg);
+        buttonContainer.parentElement.style.cursor = `pointer`;
+        buttonContainer.parentElement.addEventListener(`click`, () => {
+            window.open();
         });
     }
-    function addSettingDropdown(tittleText, descriptionText, setting) {
-        const propertyArea = appendNew(elements, `div`, `pp_window_element`);
-        const header = appendNew(propertyArea, `div`, `pp_settings_propertyHeader`);
-        const tittle = appendNew(header, `div`, `pp_settings_propertyHeader_tittle`);
-        tittle.textContent = tittleText;
-        if (descriptionText != null) {
-            const description = appendNew(header, `div`, `pp_settings_propertyHeader_description`);
-            description.textContent = descriptionText;
-        }
-        else {
-            propertyArea.classList.add(`pp_settings_property_oneLine`);
-        }
-        const buttonContainer = appendNew(propertyArea, `div`, `pp_settings_propertyButtonContainer`);
-        const toggleArea = appendNew(buttonContainer, `div`, `pp_settings_arrowArea`);
-        const leftButton = appendNew(toggleArea, `div`, [`pp_settings_arrow`, `pp_settings_arrowLeft`, `button`, `button-plain`, `button-medium`, `px-[var(--rem8)]`]);
-        const leftButtonSvg = buildSvg((settingsArrow_default()), 20, 20);
-        leftButton.append(leftButtonSvg);
-        const dropdownCurrent = appendNew(toggleArea, `div`, [`text-secondary`, `font-normal`]);
-        dropdownCurrent.textContent = setting.get();
-        const rightButton = appendNew(toggleArea, `div`, [`pp_settings_arrow`, `button`, `button-plain`, `button-medium`, `px-[var(--rem8)]`]);
-        const rightButtonSvg = buildSvg((settingsArrow_default()), 20, 20);
-        rightButton.append(rightButtonSvg);
-        const originValue = setting.get();
+    function addSettingToggle(tittleText, descriptionText, setting, badges = []) {
+        const buttonContainer = renderBaseProperty(tittleText, descriptionText, badges);
+        const controlArea = appendElement(buttonContainer, `div`, `pp_window_controlArea`);
         let changed = false;
-        leftButton.addEventListener(`click`, e => {
-            switchList(-1);
+        renderUIToggle(controlArea, setting.isEnabled(), (state) => {
+            setting.switch(state);
+            changes += changed ? -1 : 1;
+            changed = !changed;
+            refreshChangesBanner();
         });
-        rightButton.addEventListener(`click`, e => {
-            switchList(1);
-        });
-        function switchList(shift) {
-            setting.switch(shift);
-            const currentValue = setting.get();
-            dropdownCurrent.textContent = currentValue;
-            if (currentValue != originValue && !changed) {
+    }
+    function addSettingOptions(tittleText, descriptionText, setting, badges = []) {
+        const buttonContainer = renderBaseProperty(tittleText, descriptionText, badges);
+        const controlArea = appendElement(buttonContainer, `div`, `pp_window_controlArea`);
+        const originIndex = setting.getIndex();
+        let changed = false;
+        renderUIOptions(controlArea, setting.getIndex(), setting.values, index => {
+            setting.set(index);
+            if (index != originIndex && !changed) {
                 changed = true;
                 changes++;
             }
-            if (currentValue == originValue && changed) {
+            if (index == originIndex && changed) {
                 changed = false;
                 changes--;
             }
-            changesBannerContainer.classList.toggle(`pp_settings_changesBanner_active`, changes > 0);
-        }
+            refreshChangesBanner();
+        });
+    }
+    function addSettingString(tittleText, descriptionText, placeholderText, setting, badges = []) {
+        const inputContainer = renderBaseProperty(tittleText, descriptionText, badges);
+        const inputArea = appendElement(inputContainer, `div`, `pp_window_controlArea`);
+        const originValue = setting.get();
+        let changed = false;
+        renderUIInput(inputArea, placeholderText, setting.get(), value => {
+            setting.set(value);
+            if (value != originValue && !changed) {
+                changed = true;
+                changes++;
+            }
+            if (value == originValue && changed) {
+                changed = false;
+                changes--;
+            }
+            refreshChangesBanner();
+        }, { alignCenter: true, filter: setting.filter });
+    }
+    function refreshChangesBanner() {
+        changesBannerContainer.classList.toggle(`pp_settings_changesBanner_active`, changes > 0);
     }
 }
 function closeSettingsWindow() {
@@ -4822,6 +6026,7 @@ function closeSettingsWindow() {
 var settingsButton = __webpack_require__("./resources/settingsButton.svg");
 var settingsButton_default = /*#__PURE__*/__webpack_require__.n(settingsButton);
 ;// CONCATENATED MODULE: ./src/modules/header.ts
+
 
 
 
@@ -4851,7 +6056,7 @@ async function header_renderHeader(container) {
         });
     }
     const logo = container.querySelector(`#reddit-logo`);
-    const logoPP = appendNew(logo, `div`, `pp_logo`);
+    const logoPP = appendElement(logo, `div`, `pp_logo`);
     logoPP.textContent = `++`;
     
 }
@@ -4908,8 +6113,8 @@ function checkRedirect() {
 function renderSuggestion(redirect) {
     css.addStyle(modules_redirect/* default */.A);
     let secondsToRedirect = 19;
-    const container = appendNew(document.body, `div`, `pp_redirectContainer`);
-    const box = appendNew(container, `div`, `pp_redirectBox`);
+    const container = appendElement(document.body, `div`, `pp_redirectContainer`);
+    const box = appendElement(container, `div`, `pp_redirectBox`);
     box.textContent = `Click here to redirect on compatible page (${secondsToRedirect})`;
     box.addEventListener(`click`, () => {
         window.location.assign(redirect);
@@ -4934,23 +6139,18 @@ function renderSuggestion(redirect) {
 
 
 
-// ***********************************************************************************************************************
-// ********************************************** ENTRY POINT ************************************************************
-// ***********************************************************************************************************************
 startRedditPlusPlus();
 async function startRedditPlusPlus() {
     const documentBody = await dynamicElement(() => (document.head != null && document.body != null ? document.body : null));
-    // check dublicates
     let pp_meta = document.head.querySelector(`meta[name="reddit-plus-plus"]`);
     if (pp_meta != null) {
-        notify(`Reddit++ runned more that one times. Check out userscript manager to disable dublicates.`, { time: 10000 });
+        notify(`Reddit++ runned more that one times. Check out userscript manager to disable dublicates.`, { seconds: 10 });
         return;
     }
     pp_meta = document.createElement(`meta`);
     pp_meta.setAttribute(`name`, `reddit-plus-plus`);
-    pp_meta.setAttribute(`version`, "1.0.26");
+    pp_meta.setAttribute(`version`, "1.1.0");
     document.head.append(pp_meta);
-    // call latest migration
     migration_1_0_0.check();
     if (checkRedirect()) {
         return;
@@ -4963,11 +6163,9 @@ async function startRedditPlusPlus() {
     header_renderHeader(documentBody);
     renderApp();
     observeFor(documentBody, element => {
-        // header
         if (element.matches(`reddit-header-large`) == true) {
             header_renderHeader(element.parentElement);
         }
-        // content
         const isSubPage = element.matches(`shreddit-app`) == true;
         const isMainPage = element.classList.contains(`grid-container`) && element.parentElement.matches(`shreddit-app`) == true;
         if (isSubPage || isMainPage) {

@@ -1,6 +1,6 @@
 import { DAY_SECONDS, HOUR_SECONDS } from '../../defines';
 import { buildSvg } from '../../utils/svg';
-import { appendNew } from '../../utils/tools';
+import { appendElement } from '../../utils/element';
 import { css } from '../customCSS';
 import { settings } from '../settings/settings';
 import { notify } from '../toaster';

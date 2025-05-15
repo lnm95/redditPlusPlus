@@ -23,10 +23,32 @@
 }
 
 .pp_settings_propertyHeader_tittle {
+    display: flex;
     font-size: 16px;
     font-weight: 500;
     line-height: 20px;
     margin-bottom: 4px;
+}
+
+.pp_no_decoration {
+    text-decoration: none;
+}
+.pp_no_decoration:visited {
+    text-decoration: none;
+}
+.pp_no_decoration:hover {
+    text-decoration: none;
+}
+.pp_no_decoration:active {
+    text-decoration: none;
+}
+
+.pp_settings_propertyHeader_badge {
+    font-size: 12px;
+    margin: 0px 0px 0px 8px;
+    padding: 0px 4px;
+    border: 1px solid;
+    border-radius: 4px;
 }
 
 .pp_settings_propertyHeader_description {
@@ -66,23 +88,4 @@
 
 .pp_settings_changesBanner_active {
     opacity: 1 !important;
-}
-
-.pp_settings_arrowArea{
-    width: 200px;
-    min-width: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.pp_settings_arrow{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.pp_settings_arrowLeft{
-    transform: scale(-1, 1);
 }

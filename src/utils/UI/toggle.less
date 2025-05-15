@@ -1,16 +1,17 @@
-.pp_checkBox_container {
+.pp_ui_toggle {
     float: right;
     position: relative;
 }
 
-.pp_checkBox_buttonActive {
+.pp_ui_toggle_active {
     justify-content: flex-end !important;
     background-color: #0079d3 !important;
 }
 
-.pp_checkBox_button {
+.pp_ui_toggle_button {
     position: relative;
     cursor: pointer;
+    user-select: none;
     overflow: visible;
     display: flex;
     justify-content: start;
@@ -24,7 +25,7 @@
     transition: background-color 0.2s linear;
 }
 
-.pp_checkBox_knob {
+.pp_ui_toggle_knob {
     height: 19.5px;
     width: 19.5px;
     background-color: #fff;
@@ -35,17 +36,9 @@
     border-radius: 57%;
 }
 
-.pp_checkBox_panelArea {
-    width: 200px;
-    min-width: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-:root.theme-light {
-    --checkBox-background: #1a1a1b1a !important;
-}
 :root {
-    --checkBox-background: #81818152;
+    --checkBox-background: #1a1a1b1a;
+}
+:root.theme-dark {
+    --checkBox-background: #81818152 !important;
 }

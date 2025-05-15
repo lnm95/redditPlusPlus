@@ -5,7 +5,6 @@ export enum FeedLocation {
     All
 }
 
-
 export function GetFeedLocation(): FeedLocation {
     if (window.location.href.includes(`?feed=home`) || window.location.href == `https://www.reddit.com/`) return FeedLocation.Home;
 

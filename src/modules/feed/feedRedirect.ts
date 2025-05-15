@@ -1,7 +1,6 @@
-import { SettingDropdownProperty, settings } from "../settings/settings";
-import { getCurrentSub, subSettings } from "../subs/subs";
-import { FeedLocation, GetFeedLocation } from "./feedLocation";
-
+import { SettingDropdownProperty, settings } from '../settings/settings';
+import { getCurrentSub, subSettings } from '../subs/subs';
+import { FeedLocation, GetFeedLocation } from './feedLocation';
 
 function GetDefaultFeedProperty(location: FeedLocation): SettingDropdownProperty {
     switch (location) {
@@ -16,12 +15,10 @@ function GetDefaultFeedProperty(location: FeedLocation): SettingDropdownProperty
     }
 }
 
-
 export function IsUnsetedFeed() {
+    if (window.location.href == `https://www.reddit.com/`) return true;
 
-    if(window.location.href == `https://www.reddit.com/`) return true;
-
-    if(window.location.href.includes(`/?f=flair_name`)) return false;
+    if (window.location.href.includes(`/?f=flair_name`)) return false;
 
     if (window.location.href.includes(`?feed=home`)) {
         return window.location.href.includes(`reddit.com/?feed=home`);
@@ -31,16 +28,15 @@ export function IsUnsetedFeed() {
 }
 
 export function CheckFeedRedirect(location: FeedLocation, sort: String): boolean {
-
-    if (location == FeedLocation.Sub) {        
+    if (location == FeedLocation.Sub) {
         const currentSubSettings = subSettings.get(getCurrentSub());
 
-        if(currentSubSettings.defaultFeed != undefined) {
+        if (currentSubSettings.defaultFeed != undefined) {
             return currentSubSettings.defaultFeed == sort;
         }
     }
 
     const defaultFeedProperty = GetDefaultFeedProperty(location);
 
-    return (!defaultFeedProperty.isDefault() && defaultFeedProperty.get() == sort);
+    return !defaultFeedProperty.isDefault() && defaultFeedProperty.get() == sort;
 }

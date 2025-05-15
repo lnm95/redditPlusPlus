@@ -5,8 +5,7 @@ const { UserScriptMetaDataPlugin } = require('userscript-metadata-webpack-plugin
 const metadata = require('./metadata.cjs');
 const webpackConfig = require('./webpack.config.base.cjs');
 
-
-if(!process.env.npm_config_release){
+if (!process.env.npm_config_release) {
     metadata.name = {
         $: 'Reddit++ Preview',
         ru: 'Reddit++ Preview'
