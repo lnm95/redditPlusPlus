@@ -53,7 +53,7 @@ export function renderFlair(conatiner: Element, sub: string, flair: FlairData, m
         `font-normal`,
         `box-border`,
         `px-[6px]`,
-        `rounded-[20px]`,
+        `rounded-5`,
         `leading-4`,
         `max-w-full`,
         `py-xs`,
@@ -64,7 +64,7 @@ export function renderFlair(conatiner: Element, sub: string, flair: FlairData, m
     ]);
 
     if (minified) {
-        span.className = `bg-tone-4 inline-block truncate max-w-full text-12 font-normal align-text-bottom box-border px-[6px] rounded-[20px] leading-4  relative top-[-0.25rem] xs:top-[-2px] my-2xs xs:mb-sm py-0 `;
+        span.className = `bg-tone-4 inline-block truncate max-w-full text-12 font-normal align-text-bottom box-border px-[6px] rounded-5 leading-4  relative top-[-0.25rem] xs:top-[-2px] my-2xs xs:mb-sm py-0 `;
     }
 
     span.classList.add(flair.color == `light` ? `text-global-white` : `text-global-black`);
