@@ -1,6 +1,6 @@
 import { IS_COMMENT, MAX_LOAD_LAG } from '../../defines';
 import { imageViewer } from '../../utils/imageViewer';
-import { checkIsRendered, dynamicElement } from '../../utils/tools';
+import { checkIsRendered, observeOnce } from '../../utils/tools';
 import { css } from '../customCSS';
 import { settings } from '../settings/settings';
 import hideShareStyle from './hideShare.less';
@@ -176,7 +176,7 @@ function registryComment(comment: Element) {
     }
 }
 
-export async function renderComment(comment: Element) {
+export function renderComment(comment: Element) {
     const commentBody = comment.querySelector(`div[slot="comment"]`);
 
     if (DEBUG && SHOW_RENDERED_COMMENTS) {
@@ -225,11 +225,20 @@ export async function renderComment(comment: Element) {
         nickname.after(tagsAnchor);
     }
 
-    const time = await dynamicElement(() => nickname.parentElement.querySelector(`time`)?.parentElement?.parentElement, MAX_LOAD_LAG);
-
     const infoAnchor = document.createElement(`div`);
     infoAnchor.setAttribute(`pp-anchor`, `info`);
-    time?.before(infoAnchor);
+    nickname.after(infoAnchor); // present in DOM right away for downstream consumers
+
+    const findTimeWrapper = () => (nickname as HTMLElement).parentElement?.querySelector(`time`)?.parentElement?.parentElement as Element | null;
+
+    const timeNow = findTimeWrapper();
+    if (timeNow) {
+        timeNow.before(infoAnchor);
+    } else {
+        observeOnce((nickname as HTMLElement).parentElement!, findTimeWrapper, timeEl => {
+            timeEl.before(infoAnchor);
+        });
+    }
 
     // make ghosted when karma below zero
     if (settings.GHOSTED_COMMENTS.isEnabled() && parseInt(comment.getAttribute(`score`)) < 0) {
@@ -264,15 +273,36 @@ export async function renderComment(comment: Element) {
     const userName = comment.querySelector(`faceplate-tracker[noun="comment_author"]`).querySelector(`a`);
     renderUserInfo(userId, userName, tagsAnchor, infoAnchor, IS_COMMENT);
 
-    const contextMenuButton = await dynamicElement(() => comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`rpl-dropdown`));
+    const attachContextMenu = (btn: Element) => {
+        btn.addEventListener(
+            `click`,
+            () => {
+                renderContextMenu(comment);
+            },
+            { once: true }
+        );
+    };
+
+    let contextMenuButton: Element | null = comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`faceplate-tracker`) ?? null;
+
+    if (contextMenuButton) {
+        attachContextMenu(contextMenuButton);
+    } else {
+        const overflow = comment.querySelector(`shreddit-overflow-menu`) as HTMLElement | null;
+
+        if (overflow) {
+            observeOnce(overflow, () => overflow.shadowRoot?.querySelector(`faceplate-tracker`) as Element | null, attachContextMenu);
+        } else {
+            observeOnce(
+                comment,
+                () => {
+                    const m = comment.querySelector(`shreddit-overflow-menu`) as HTMLElement | null;
+                    return m?.shadowRoot?.querySelector(`faceplate-tracker`) as Element | null;
+                },
+                attachContextMenu
+            );
+        }
+    }
 
     renderCommentBookmark(comment);
-
-    contextMenuButton.addEventListener(
-        `click`,
-        () => {
-            renderContextMenu(comment);
-        },
-        { once: true }
-    );
 }

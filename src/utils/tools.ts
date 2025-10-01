@@ -36,6 +36,43 @@ export async function dynamicElement(elementRequest: Function, maxLifetime: numb
     });
 }
 
+function safeCheck<T>(fn: () => T): T | null {
+    try {
+        return fn();
+    } catch {
+        return null as any;
+    }
+}
+
+export function observeOnce(root: Element | Document, check: () => Element | null, onFound?: (el: Element) => void): Promise<Element> | void {
+    const first = safeCheck(check);
+    if (first) {
+        if (onFound) {
+            onFound(first);
+            return;
+        }
+        return Promise.resolve(first);
+    }
+
+    const executor = (resolve?: (el: Element) => void) => {
+        const mo = new MutationObserver(() => {
+            const hit = safeCheck(check);
+            if (hit) {
+                mo.disconnect();
+                onFound?.(hit);
+                resolve?.(hit);
+            }
+        });
+        mo.observe(root instanceof Document ? root : root, { childList: true, subtree: true });
+    };
+
+    if (onFound) {
+        executor();
+        return;
+    }
+    return new Promise<Element>(executor);
+}
+
 interface ObserveAction {
     (elment: HTMLElement): void | boolean;
 }
