@@ -21,6 +21,12 @@ let commentsIntersector: IntersectionObserver = null;
 
 let commentsMutations: MutationObserver = null;
 
+const COMMENT_META_SELECTOR = 'div[slot="commentMeta"]';
+
+function getCommentMeta(comment: Element): Element | null {
+    return comment.querySelector(COMMENT_META_SELECTOR);
+}
+
 export async function renderComments(container: Element) {
     css.addStyle(style, `comments`);
 
@@ -97,7 +103,7 @@ export async function renderComments(container: Element) {
                         if (commentTree != null) {
                             registryAllRoots(commentTree);
 
-                            // singal to commentsSort buttons that comments refreshed
+                            // signal to commentsSort buttons that comments refreshed
                             OnCommentsTreeLoaded();
                         }
 
@@ -141,7 +147,10 @@ function registryAllRoots(container: Element) {
 function registryRoot(comment: Element) {
     if (checkIsRendered(comment)) return;
 
-    rootIntersector.observe(comment.querySelector(`div[slot="commentMeta"]`));
+    const commentMeta = getCommentMeta(comment);
+    if (commentMeta) {
+        rootIntersector.observe(commentMeta);
+    }
 
     if (DEBUG && PROFILE_USER_DATA) {
         profiler_comments.observedRoots++;
@@ -157,7 +166,10 @@ function registryAllComments(container: Element) {
 function registryComment(comment: Element) {
     if (checkIsRendered(comment)) return;
 
-    commentsIntersector.observe(comment.querySelector(`div[slot="commentMeta"]`));
+    const commentMeta = getCommentMeta(comment);
+    if (commentMeta) {
+        commentsIntersector.observe(commentMeta);
+    }
 
     if (DEBUG && PROFILE_USER_DATA) {
         profiler_comments.observedChilds++;
@@ -182,7 +194,7 @@ export async function renderComment(comment: Element) {
             return;
         }
 
-        const isMod = comment.querySelector(`div[slot="commentMeta"]`)?.querySelector(`shreddit-comment-author-modifier-icon[distinguished-as="MODERATOR"]`) != null;
+        const isMod = getCommentMeta(comment)?.querySelector(`shreddit-comment-author-modifier-icon[distinguished-as="MODERATOR"]`) != null;
         const isPinned = comment.querySelector(`shreddit-comment-badges`)?.shadowRoot?.querySelector(`svg[icon-name="pin-fill"]`) != null;
 
         if (isMod && isPinned) {
@@ -196,8 +208,10 @@ export async function renderComment(comment: Element) {
         renderMoreReplies(comment);
     }, 150);
 
+    const commentMeta = getCommentMeta(comment);
+
     // add anchors
-    const nickname = comment.querySelector(`div[slot="commentMeta"]`).querySelector(`faceplate-hovercard[data-id="user-hover-card"]`);
+    const nickname = commentMeta?.querySelector(`faceplate-tracker[noun="comment_author"]`) as Element | null;
 
     // skip [deleted]
     if (nickname == null) return;
@@ -250,7 +264,7 @@ export async function renderComment(comment: Element) {
     const userName = comment.querySelector(`faceplate-tracker[noun="comment_author"]`).querySelector(`a`);
     renderUserInfo(userId, userName, tagsAnchor, infoAnchor, IS_COMMENT);
 
-    const contextMenuButton = await dynamicElement(() => comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`faceplate-dropdown-menu`));
+    const contextMenuButton = await dynamicElement(() => comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`rpl-dropdown`));
 
     renderCommentBookmark(comment);
 

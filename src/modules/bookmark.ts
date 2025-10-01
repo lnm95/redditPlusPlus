@@ -14,7 +14,7 @@ css.addStyle(style);
 export function renderCommentBookmark(comment: Element, forced: boolean = false) {
     if (settings.SAVED_BOOKMARK_COMMENTS.isDisabled()) return;
 
-    const contextMenuButton = comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`faceplate-dropdown-menu`);
+    const contextMenuButton = comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`faceplate-menu`);
 
     const saveButton = contextMenuButton.querySelector(`.save-comment-menu-button`);
     const saveButtonContent = saveButton.querySelector(`.text-14`);
