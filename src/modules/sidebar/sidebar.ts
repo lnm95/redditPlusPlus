@@ -8,61 +8,38 @@ import { renderSubFilter } from './subFilter';
 
 css.addStyle(style);
 
-let resourcesInitialized = false;
-
 export function renderSidebar(sidebar: Element) {
     sidebar.classList.add(`pp_defaultText`);
 
     observeFor(sidebar, (element: HTMLElement) => {
-        const customFeedsSection = element.matches(`faceplate-expandable-section-helper`) ? element : sidebar.querySelector(`faceplate-expandable-section-helper`);
+        const customFeeds = sidebar.querySelector(`summary[aria-controls="multireddits_section"]`);
 
-        if (customFeedsSection == null) return;
+        if (customFeeds != null) {
+            const customFeedsContainer = customFeeds.parentElement;
+            const customFeedsSection:SidebarSection = {
+                container: customFeedsContainer,
+                button: customFeeds,
+                hr: customFeedsContainer.nextElementSibling?.matches(`hr`) ? customFeedsContainer.nextElementSibling : null
+            };
 
-        const customFeedsButton = sidebar.querySelector(`summary[aria-controls="multireddits_section"]`);
-
-        if (customFeedsButton != null) {
-            renderSidebarSection(customFeedsSection, settings.SIDEBAR_CUSTOMS, async () => {
-                const openState = await dynamicElement(() => customFeedsSection.getAttribute(`open`));
-                if (openState) {
-                }
-
-                return {
-                    container: customFeedsSection,
-                    button: customFeedsButton,
-                    hr: customFeedsSection.nextElementSibling
-                } as SidebarSection;
-            });
+            renderSidebarSection(customFeedsContainer, settings.SIDEBAR_CUSTOMS, () => customFeedsSection);
             return true;
         }
     });
 
     observeFor(sidebar, (element: HTMLElement) => {
-        const subsSection = element.matches(`faceplate-expandable-section-helper`) ? element : sidebar.querySelector(`faceplate-expandable-section-helper`);
+        const subs = sidebar.querySelector(`summary[aria-controls="communities_section"]`);
 
-        if (subsSection == null) return;
+        if (subs != null) {
+            const subsContainer = subs.parentElement;
+            const subsSection: SidebarSection = {
+                container: subsContainer,
+                button: subs,
+                hr: subsContainer.nextElementSibling?.matches(`hr`) ? subsContainer.nextElementSibling : null
+            };
 
-        const customFeedsButton = sidebar.querySelector(`summary[aria-controls="communities_section"]`);
-
-        if (customFeedsButton != null) {
-            renderSubFilter(subsSection);
-
-            renderSidebarSection(subsSection, settings.SIDEBAR_SUBS, async () => {
-                const openState = await dynamicElement(() => subsSection.getAttribute(`open`));
-                if (openState) {
-                }
-
-                let hrElement = subsSection.nextElementSibling;
-
-                while (hrElement != null && !hrElement.matches(`hr`)) {
-                    hrElement = hrElement.nextElementSibling;
-                }
-
-                return {
-                    container: subsSection,
-                    button: customFeedsButton,
-                    hr: hrElement
-                } as SidebarSection;
-            });
+            renderSubFilter(subsContainer);
+            renderSidebarSection(subsContainer, settings.SIDEBAR_SUBS, () => subsSection);
             return true;
         }
     });
@@ -96,24 +73,21 @@ export function renderSidebar(sidebar: Element) {
         }
     });
 
-    if (!resourcesInitialized) {
-        resourcesInitialized = true;
-        observeFor(sidebar, (element: HTMLElement) => {
-            const resources = sidebar.querySelector(`summary[aria-controls="RESOURCES"]`);
+    observeFor(sidebar, (element: HTMLElement) => {
+        const resources = sidebar.querySelector(`summary[aria-controls="RESOURCES"]`);
 
-            if (resources != null) {
-                const resourcesContainer = resources.parentElement.parentElement;
-                const resourceSection: SidebarSection = {
-                    container: resourcesContainer,
-                    button: resources,
-                    hr: null
-                };
+        if (resources != null) {
+            const resourcesContainer = resources.parentElement;
+            const resourceSection: SidebarSection = {
+                container: resourcesContainer,
+                button: resources,
+                hr: null
+            };
 
-                renderSidebarSection(resourcesContainer, settings.SIDEBAR_RESOURCES, () => resourceSection);
-                return true;
-            }
-        });
-    }
+            renderSidebarSection(resourcesContainer, settings.SIDEBAR_RESOURCES, () => resourceSection);
+            return true;
+        }
+    });
 }
 
 class SidebarSection {
@@ -138,7 +112,9 @@ async function renderSidebarSection(preloadContainer: Element, setting: SettingB
 
         if (settingCollapsed.isEnabled()) {
             section.container.toggleAttribute(`open`, false);
-            details.classList.add(`pp_sidebar_collapsedSection`);
+            if (details) {
+                details.classList.add(`pp_sidebar_collapsedSection`);
+            }
         }
 
         section.button.addEventListener(`click`, (e: MouseEvent) => {
@@ -150,7 +126,9 @@ async function renderSidebarSection(preloadContainer: Element, setting: SettingB
                 settingCollapsed.switch(isCollapsed);
             }, 10);
 
-            details.classList.toggle(`pp_sidebar_collapsedSection`, false);
+            if (details) {
+                details.classList.toggle(`pp_sidebar_collapsedSection`, false);
+            }
         });
     } else {
         section.container.remove();
