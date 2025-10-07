@@ -12,11 +12,46 @@
     cursor: pointer;
     color: var(--scrollLineTransparentColor);
     opacity: 1;
-
+    clip-path: inset(0 0 0 8px);
+    
     transition:
-        padding-bottom 0.2s ease-in,
-        color 0.2s ease-in,
-        opacity 1s ease;
+    padding-bottom 0.2s ease-in,
+    color 0.2s ease-in,
+    opacity 1s ease,
+    width 0.3s ease;
+    
+    svg {
+        padding-left: 8px;
+    }
+}
+
+// Compact mode - when space is limited
+.pp_scrollToTop_compact {
+    background: linear-gradient(0deg, var(--scrollLineColor) 2%, var(--scrollLineTransparentColor) 40%);
+    padding-bottom: 15px;
+    
+    &:hover {
+        padding-bottom: 35px !important;
+    }
+}
+
+// Minimal mode - very limited space
+.pp_scrollToTop_minimal {
+    background: linear-gradient(0deg, var(--scrollLineColor) 3%, var(--scrollLineTransparentColor) 50%);
+    padding-bottom: 12px;
+    
+    svg {
+        width: 32px !important;
+        height: 32px !important;
+    }
+    
+    &:hover {
+        padding-bottom: 25px !important;
+    }
+    
+    &::before {
+        background: linear-gradient(0deg, var(--scrollLineColor) 8%, var(--scrollLineTransparentColor) 60%);
+    }
 }
 
 .pp_scrollToTop_inverted {
@@ -25,6 +60,8 @@
 
 .pp_scrollToTop_hidden {
     opacity: 0 !important;
+    cursor: default !important;
+    pointer-events: none !important;
 }
 
 .pp_scrollToTop_hidden::before {
@@ -59,13 +96,61 @@
     transition: opacity 0.2s ease-out;
 }
 
+// FAB (Floating Action Button) for very limited space
+.pp_scrollToTop_fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--scrollButtonColor);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    opacity: 1;
+    
+    transition: 
+        opacity 0.3s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    
+    &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        background: var(--scrollButtonColorHover);
+    }
+    
+    &:active {
+        transform: scale(0.95);
+    }
+    
+    svg {
+        color: var(--scrollButtonIconColor);
+        transition: color 0.2s ease;
+    }
+}
+
+.pp_scrollToTop_fab_hidden {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: scale(0.8);
+}
+
 :root {
     --scrollLineColor: #e5ebee6e;
     --scrollLineTransparentColor: #e5ebee00;
     --scrollButtonColor: #c9d1d4c2;
+    --scrollButtonColorHover: #d4dce0;
+    --scrollButtonIconColor: #ffffff;
 }
 :root.theme-dark {
     --scrollLineColor: #3f484d33 !important;
     --scrollLineTransparentColor: #30343600 !important;
     --scrollButtonColor: #969a9c !important;
+    --scrollButtonColorHover: #a5aaad !important;
+    --scrollButtonIconColor: #ffffff !important;
 }
