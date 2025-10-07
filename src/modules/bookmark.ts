@@ -53,7 +53,7 @@ export function renderCommentBookmark(comment: Element, forced: boolean = false)
 export async function renderBookmarkPost(post: Element, forced: boolean = false, forcedValue: boolean | void = undefined) {
     if (settings.SAVED_BOOKMARK_POSTS.isDisabled()) return;
 
-    const contextMenu = await dynamicElement(() => post.querySelector(`shreddit-post-overflow-menu`)?.shadowRoot?.querySelector(`faceplate-dropdown-menu`)?.querySelector(`faceplate-menu`), 3000);
+    const contextMenu = await dynamicElement(() => post.querySelector(`shreddit-post-overflow-menu`)?.shadowRoot?.querySelector(`faceplate-menu`), 3000);
 
     if (contextMenu == undefined) {
         return;
