@@ -34,15 +34,8 @@ export async function renderFeed(container: Element) {
     initializePostObserver(main);
 
     renderSub(main);
-
-    const feedDropdown = await dynamicElement(() => main.querySelector(`shreddit-sort-dropdown`), MAX_LOAD_LAG);
-
-    // skip non feed page
-    const isInvalidDropdown = (feedDropdown == null || feedDropdown.getAttribute(`trigger-id`) == `comment-sort-button`) && !window.location.href.includes(`/about/`);
-
-    if (isInvalidDropdown) return;
-
-    renderFeedButtons(main, feedDropdown);
+    
+    renderFeedButtons(main);
 }
 
 export function initializePostObserver(target: Element) {

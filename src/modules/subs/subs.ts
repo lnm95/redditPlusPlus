@@ -9,6 +9,7 @@ import { flairsWindow } from './flairWindow';
 import { MAX_LOAD_LAG } from '../../defines';
 import { settings } from '../settings/settings';
 import { requestAPI } from '../../utils/redditAPI';
+import { FeedSort } from '../feed/feedSort';
 
 css.addStyle(style);
 
@@ -18,7 +19,8 @@ export const FLAIR_BLURED: string = `blured`;
 export const FLAIR_BANNED: string = `banned`;
 
 class SubSettings {
-    defaultFeed: string;
+    defaultSort: string;
+    sorts:Array<FeedSort>;
 }
 
 class SubFlairsData {

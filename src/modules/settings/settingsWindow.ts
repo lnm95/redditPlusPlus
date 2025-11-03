@@ -58,11 +58,13 @@ function renderSettingsWindow(win: Window, context: any) {
     addSettingToggle(`Hidden posts history`, `Allows to show latest hidden posts`, settings.SHOW_FILTERED_CONTENT);
     addSettingString(`Hidden posts history limit`, `Max count of posts in history window`, settings.FILTERED_CONTENT_MAX_COUNT.defaultValue, settings.FILTERED_CONTENT_MAX_COUNT);
 
+    /* replaced to feedSettingsWindow
     addSubtittle(`Default feeds`);
     addSettingOptions(`Home`, null, settings.DEFAULT_FEED_HOME);
     addSettingOptions(`Popular`, null, settings.DEFAULT_FEED_POPULAR);
     addSettingOptions(`All`, null, settings.DEFAULT_FEED_ALL);
     addSettingOptions(`Subreddit's`, null, settings.DEFAULT_FEED_SUB);
+    */
 
     addSubtittle(`Users`);
     addSettingToggle(`User info`, `Show user's karma and "new user" mark`, settings.USER_INFO, [SettingBadge.APIRequests]);

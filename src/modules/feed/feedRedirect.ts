@@ -31,8 +31,8 @@ export function CheckFeedRedirect(location: FeedLocation, sort: String): boolean
     if (location == FeedLocation.Sub) {
         const currentSubSettings = subSettings.get(getCurrentSub());
 
-        if (currentSubSettings.defaultFeed != undefined) {
-            return currentSubSettings.defaultFeed == sort;
+        if (currentSubSettings.defaultSort != undefined) {
+            return currentSubSettings.defaultSort == sort;
         }
     }
 
