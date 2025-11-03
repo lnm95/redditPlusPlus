@@ -53,7 +53,7 @@ export function renderFlair(conatiner: Element, sub: string, flair: FlairData, m
         `font-normal`,
         `box-border`,
         `px-[6px]`,
-        `rounded-[20px]`,
+        `pp_flair`,
         `leading-4`,
         `max-w-full`,
         `py-xs`,
