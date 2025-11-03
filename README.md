@@ -29,6 +29,8 @@ Add generated script-wrapper `redditPlusPlus.dev.user.js` from `/dist` to usersc
 
 Allow local files for userscript manager (extesions > details > allow access to file URLs).
 
+The latest version of Chrome browser requires allowing Eval (Tampermonkey Dashboard > Settings > Modify existing content security policy (CSP) headers > remove entirely)
+
 While debug process is running the script automatically refresh in browser
 
 To stop debug process kill active terminal

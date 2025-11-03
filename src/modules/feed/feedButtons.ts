@@ -30,15 +30,16 @@ const BUTTONS_SVG: { [key: string]: string } = {
 const BUTTON_CLASSES = [
     `inline-flex`,
     `flex-col`,
-    `text-neutral-content-weak`,
+    `text-secondary-plain-weak`,
     `font-semibold`,
     `rounded-full`,
     `hover:no-underline`,
+    `hover:text-secondary-plain`,
     `hover:bg-secondary-background-hover`,
     `hover:text-secondary-content`,
     `active:bg-secondary-background`,
-    `pl-[var(--rem16)]`,
-    `pr-[var(--rem16)]`
+    `ps-[var(--rem16)]`,
+    `pe-[var(--rem16)]`
 ];
 
 interface HrefGenerator {
