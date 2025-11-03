@@ -20,6 +20,11 @@ function userDataValidator(userData: UserData) {
 async function userDataLoader(userId: string): Promise<UserData> {
     let userData = {} as UserData;
 
+    if(userId == `[deleted]`) {
+        userData.banned = true;
+        return userData;
+    }
+
     const { status, result } = await requestAPI(`/user/${userId}/about.json`);
 
     if (status != 404 && result == null) {

@@ -92,4 +92,12 @@ function checkScreenWidth() {
     const inverted = !isBottom && prevScrollHeight > 0;
     scrollToTop.classList.toggle(`pp_scrollToTop_hidden`, hidden);
     scrollButton.classList.toggle(`pp_scrollToTop_inverted`, inverted);
+
+    if(hidden) {
+        setTimeout(() => {
+            scrollToTop.classList.toggle(`pp_hidden`, true);
+        }, 500);
+    } else {
+        scrollToTop.classList.toggle(`pp_hidden`, false);
+    }
 }

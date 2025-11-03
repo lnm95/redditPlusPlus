@@ -209,7 +209,9 @@ async function renderContent(post: Element) {
 
     // fix click events
     const postAnchor = post.querySelector(`a[slot="text-body"]`);
-    postAnchor.classList.toggle(`pointer-events-none`, false);
+    if(postAnchor != null) {
+        postAnchor.classList.toggle(`pointer-events-none`, false);
+    }    
 
     // forced load preview images
     for (const content of postContent.childNodes) {
