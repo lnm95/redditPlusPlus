@@ -26,7 +26,7 @@ export async function renderSubFilter(container: Element) {
         filter = new Map<string, HTMLElement>();
     }
 
-    const subsContainer = container.querySelector(`left-nav-communities-controller`).shadowRoot;
+    const subsContainer = await dynamicElement(() => container.querySelector(`left-nav-communities-controller`)?.shadowRoot?.querySelector(`.items-container`));
 
     subsContainer.querySelectorAll(`left-nav-community-item`).forEach(sub => {
         filter.set(sub.getAttribute(`prefixedname`).replace(`r/`, ``).toLowerCase(), sub as HTMLElement);

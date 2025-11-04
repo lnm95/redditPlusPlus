@@ -18,7 +18,7 @@ export async function renderHeader(container: Element) {
 
     if (checkIsRendered(nav)) return;
 
-    const userPanel = await dynamicElement(() => nav.childNodes.item(4));
+    const userPanel = await dynamicElement(() => nav.querySelector(`span[data-part="inbox"]`)?.parentElement?.parentElement);
 
     userPanel.classList.add(`pp_userPanel`);
     userPanel.addEventListener(

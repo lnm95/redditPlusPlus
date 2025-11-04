@@ -54,9 +54,9 @@ function renderSettingsWindow(win: Window, context: any) {
     //addSettingToggle(`Better notify popup`, `Make notify popup a bit larger and remove useless button`, settings.NOTIFY_POPUP); //deprecated
 
     addSubtittle(`Content`);
-    addGotoButton(`Filters`, `Hide posts and comments by regular expressions`, filtersWindow, [SettingBadge.New]);
-    addSettingToggle(`Hidden posts history`, `Allows to show latest hidden posts`, settings.SHOW_FILTERED_CONTENT, [SettingBadge.New]);
-    addSettingString(`Hidden posts history limit`, `Max count of posts in history window`, settings.FILTERED_CONTENT_MAX_COUNT.defaultValue, settings.FILTERED_CONTENT_MAX_COUNT, [SettingBadge.New]);
+    addGotoButton(`Filters`, `Hide posts and comments by regular expressions`, filtersWindow);
+    addSettingToggle(`Hidden posts history`, `Allows to show latest hidden posts`, settings.SHOW_FILTERED_CONTENT);
+    addSettingString(`Hidden posts history limit`, `Max count of posts in history window`, settings.FILTERED_CONTENT_MAX_COUNT.defaultValue, settings.FILTERED_CONTENT_MAX_COUNT);
 
     addSubtittle(`Default feeds`);
     addSettingOptions(`Home`, null, settings.DEFAULT_FEED_HOME);
@@ -67,7 +67,7 @@ function renderSettingsWindow(win: Window, context: any) {
     addSubtittle(`Users`);
     addSettingToggle(`User info`, `Show user's karma and "new user" mark`, settings.USER_INFO, [SettingBadge.APIRequests]);
     addSettingToggle(`Show nicknames`, `Use user's nicknames instead profile names`, settings.SHOW_NAMES, [SettingBadge.APIRequests]);
-    addSettingString(`Nickname max symbols`, `Make nicknames with too many symbols shorter`, settings.USERNAME_MAX_SIMBOLS.defaultValue, settings.USERNAME_MAX_SIMBOLS, [SettingBadge.New]);
+    addSettingString(`Nickname max symbols`, `Make nicknames with too many symbols shorter`, settings.USERNAME_MAX_SIMBOLS.defaultValue, settings.USERNAME_MAX_SIMBOLS);
     addSettingToggle(`User tags`, `Enable custom tags (sets via comment's context menu)`, settings.USER_TAGS);
 
     addSubtittle(`Feed`);

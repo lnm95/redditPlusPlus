@@ -11,9 +11,7 @@ import { renderUserTagsPanel } from './userTagsPanel';
 import shareButtonSvg from '@resources/comments/shareButton.svg';
 
 export function renderContextMenu(comment: Element) {
-    // hack to close other context menu
-    document.body.click();
-
+    
     let contextMenuButton = comment.querySelector(`shreddit-overflow-menu`).shadowRoot;
 
     css.registry(contextMenuButton);
@@ -26,13 +24,6 @@ export function renderContextMenu(comment: Element) {
         linkButton.querySelector(`span .text-14`).textContent = `Copy link`;
         originButton.before(linkButton);
 
-        /*
-        let linkPath = linkButton.querySelector(`path`);
-        linkPath.setAttribute(`d`, linkGraphics[0].d);
-        let linkPathB = linkPath.cloneNode(true) as Element;
-        linkPathB.setAttribute(`d`, linkGraphics[1].d);
-        linkPath.after(linkPathB);*/
-
         const originIcon = linkButton.querySelector(`svg`);
         const shareIcon = buildSvg(shareButtonSvg, 20, 20);
         originIcon.replaceWith(shareIcon);
@@ -43,12 +34,6 @@ export function renderContextMenu(comment: Element) {
             notify(`Link copied`);
         });
     }
-
-    // close context menu
-    let openButton = contextMenuButton.querySelector(`button`);
-    openButton.addEventListener(`click`, () => {
-        document.body.click();
-    });
 
     // userTags
     renderUserTagsPanel(contextMenu, comment.getAttribute(`author`));

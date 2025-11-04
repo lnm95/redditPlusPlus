@@ -91,7 +91,7 @@ export class Window {
         currentWindows.push(this);
 
         document.body.appendChild(this.container);
-        document.body.style.overflow = 'hidden';
+        document.body.parentElement.style.overflow = 'hidden';
 
         this.render(this, context);
     }
@@ -105,7 +105,7 @@ export class Window {
         );
 
         if (currentWindows.length <= 0) {
-            document.body.style.overflow = 'visible';
+            document.body.parentElement.style.overflow = 'visible';
         }
 
         // cleanup content

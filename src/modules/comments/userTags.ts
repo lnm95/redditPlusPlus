@@ -57,11 +57,10 @@ export async function renderUserTags(comment: Element) {
     if (userId == null) return;
 
     const tagsData = tags.get(userId);
-
     const tagsContainer = await dynamicElement(() => comment.querySelector(`div[pp-anchor="tags"]`), MAX_LOAD_LAG);
 
+    // comment not rendered
     if (tagsContainer == null) {
-        pp_log(`Unable to render userTags`);
         return;
     }
 

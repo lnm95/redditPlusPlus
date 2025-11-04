@@ -40,11 +40,13 @@ export function renderScrollToTop() {
     sidebarBlock = sidebar.querySelector(`#flex-left-nav-contents`);
 
     const sidebarButton = sidebar.querySelector(`#flex-nav-buttons`);
-    sidebarButton.addEventListener(`click`, event => {
-        animate(() => {
-            checkScreenWidth();
-        }, 0.5);
-    });
+    if (sidebarButton != null) {
+        sidebarButton.addEventListener(`click`, event => {
+            animate(() => {
+                checkScreenWidth();
+            }, 0.5);
+        });
+    }
 
     scrollToTop = appendElement(main.parentElement, `div`, `pp_scrollToTop`);
 
@@ -83,7 +85,7 @@ export function renderScrollToTop() {
 }
 
 function checkScreenWidth() {
-    const left = sidebarBlock.getBoundingClientRect().right;
+    const left = sidebarBlock?.getBoundingClientRect()?.right ?? 0;
     const right = contentBlock.getBoundingClientRect().left;
 
     scrollToTop.style.left = `${(left + right) / 2 - 50}px`;
@@ -93,7 +95,7 @@ function checkScreenWidth() {
     scrollToTop.classList.toggle(`pp_scrollToTop_hidden`, hidden);
     scrollButton.classList.toggle(`pp_scrollToTop_inverted`, inverted);
 
-    if(hidden) {
+    if (hidden) {
         setTimeout(() => {
             scrollToTop.classList.toggle(`pp_hidden`, true);
         }, 500);

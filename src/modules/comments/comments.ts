@@ -13,7 +13,6 @@ import { OnCommentsTreeLoaded, renderCommentsSortButtons } from './sortButtons';
 import { SHOW_RENDERED_COMMENTS, PROFILE_USER_DATA, profiler_comments } from '../../_debug/debug';
 import { renderMoreReplies } from './moreReplies';
 import { renderUserInfo } from '../users/userInfo';
-import { notify } from '../toaster';
 import { filterComment } from '../filters/filters';
 
 let rootIntersector: IntersectionObserver = null;
@@ -197,7 +196,7 @@ export async function renderComment(comment: Element) {
     }, 150);
 
     // add anchors
-    const nickname = comment.querySelector(`div[slot="commentMeta"]`).querySelector(`faceplate-hovercard[data-id="user-hover-card"]`);
+    const nickname = comment.querySelector(`div[slot="commentMeta"]`).querySelector(`faceplate-tracker[noun="comment_author"]`)?.parentElement?.parentElement;
 
     // skip [deleted]
     if (nickname == null) return;
@@ -211,7 +210,7 @@ export async function renderComment(comment: Element) {
         nickname.after(tagsAnchor);
     }
 
-    const time = await dynamicElement(() => nickname.parentElement.querySelector(`time`)?.parentElement?.parentElement, MAX_LOAD_LAG);
+    const time = await dynamicElement(() => nickname.parentElement.querySelector(`time`)?.parentElement, MAX_LOAD_LAG);
 
     const infoAnchor = document.createElement(`div`);
     infoAnchor.setAttribute(`pp-anchor`, `info`);
@@ -250,10 +249,10 @@ export async function renderComment(comment: Element) {
     const userName = comment.querySelector(`faceplate-tracker[noun="comment_author"]`).querySelector(`a`);
     renderUserInfo(userId, userName, tagsAnchor, infoAnchor, IS_COMMENT);
 
-    const contextMenuButton = await dynamicElement(() => comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`faceplate-dropdown-menu`));
+    const contextMenuButton = await dynamicElement(() => comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`rpl-dropdown`));
 
     renderCommentBookmark(comment);
-
+    
     contextMenuButton.addEventListener(
         `click`,
         () => {

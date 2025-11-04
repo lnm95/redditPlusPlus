@@ -130,6 +130,7 @@ function userTagButtonClick(context: UserTagButtonContext) {
     // refresh comments tags
     document.body.querySelectorAll(`shreddit-comment[author="${context.userId}"]`).forEach(comment => {
         renderUserTags(comment);
+        console.log(`refresh comment ${context.userId}`);
 
         if (isAdded && context.userTag == UserTag.BLOCKED) {
             comment.setAttribute(`collapsed`, ``);
