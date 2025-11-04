@@ -133,10 +133,13 @@ class SettingsManager {
 
     // left sidebar
     public SUB_FILTER = new SettingBoolProperty(`sidebarSubFilter`);
+    public SIDEBAR_GAMES = new SettingBoolProperty(`sidebarGames`);
     public SIDEBAR_CUSTOMS = new SettingBoolProperty(`sidebarCustoms`);
     public SIDEBAR_RECENT = new SettingBoolProperty(`sidebarRecent`);
     public SIDEBAR_SUBS = new SettingBoolProperty(`sidebarSubs`);
     public SIDEBAR_RESOURCES = new SettingBoolProperty(`sidebarResources`);
+
+    public SIDEBAR_NAV_BUTTON = new SettingBoolProperty(`sidebarNavigation`);
 
     // feed sorts
     public DEFAULT_FEED_HOME = new SettingDropdownProperty(`defaultFeedHome`, GetFeeds(FeedLocation.Home), 0);

@@ -9,6 +9,7 @@ import { css } from '../customCSS';
 import { filtersWindow } from '../filters/filtersWindow';
 import { SettingBoolProperty, SettingDropdownProperty, settings, SettingStringProperty } from './settings';
 import style from './settingsWindow.less';
+import { ChangesObserver } from '../../utils/changesObserver';
 
 css.addStyle(style);
 
@@ -23,17 +24,14 @@ class SettingBadge {
     static New: SettingBadge = { text: `New`, color: `#2C96C4`, link: `https://greasyfork.org/en/scripts/490046-reddit/versions` } as SettingBadge;
 }
 
-let changes: number = 0;
+let changes: ChangesObserver = new ChangesObserver();
 
 function renderSettingsWindow(win: Window, context: any) {
     // hack to close user menu
     document.body.click();
 
-    changes = 0;
-
-    const changesBannerContainer = appendElement(win.content, `div`, `pp_settings_changesBannerContainer`);
-    const changesBanner = appendElement(changesBannerContainer, `div`, `pp_settings_changesBanner`);
-    changesBanner.textContent = `Page will be reloaded to apply new settings`;
+    changes.Reset();
+    changes.RenderBanner(win.content);    
 
     const scroll = appendElement(win.content, `div`, [`pp_window_scrollContent`, `styled-scrollbars`]);
 
@@ -59,13 +57,6 @@ function renderSettingsWindow(win: Window, context: any) {
     addGotoButton(`Filters`, `Hide posts and comments by regular expressions`, filtersWindow, [SettingBadge.New]);
     addSettingToggle(`Hidden posts history`, `Allows to show latest hidden posts`, settings.SHOW_FILTERED_CONTENT, [SettingBadge.New]);
     addSettingString(`Hidden posts history limit`, `Max count of posts in history window`, settings.FILTERED_CONTENT_MAX_COUNT.defaultValue, settings.FILTERED_CONTENT_MAX_COUNT, [SettingBadge.New]);
-
-    addSubtittle(`Left sidebar`);
-    addSettingToggle(`Sub filter`, `Tool for find subs on sidebar by name`, settings.SUB_FILTER);
-    addSettingToggle(`Show Custom feeds`, null, settings.SIDEBAR_CUSTOMS);
-    addSettingToggle(`Show Recent`, null, settings.SIDEBAR_RECENT);
-    addSettingToggle(`Show Communities`, null, settings.SIDEBAR_SUBS);
-    addSettingToggle(`Show Resources`, null, settings.SIDEBAR_RESOURCES);
 
     addSubtittle(`Default feeds`);
     addSettingOptions(`Home`, null, settings.DEFAULT_FEED_HOME);
@@ -161,15 +152,11 @@ function renderSettingsWindow(win: Window, context: any) {
 
         const controlArea = appendElement(buttonContainer, `div`, `pp_window_controlArea`);
 
-        let changed: boolean = false;
+        const changesSource = changes.CreateSource(setting.isEnabled());
 
         renderUIToggle(controlArea, setting.isEnabled(), (state: boolean) => {
             setting.switch(state);
-
-            changes += changed ? -1 : 1;
-            changed = !changed;
-
-            refreshChangesBanner();
+            changesSource.Capture(setting.isEnabled());
         });
     }
 
@@ -178,22 +165,11 @@ function renderSettingsWindow(win: Window, context: any) {
 
         const controlArea = appendElement(buttonContainer, `div`, `pp_window_controlArea`);
 
-        const originIndex = setting.getIndex();
-        let changed = false;
+        const changesSource = changes.CreateSource(setting.getIndex());
 
         renderUIOptions(controlArea, setting.getIndex(), setting.values, index => {
             setting.set(index);
-
-            if (index != originIndex && !changed) {
-                changed = true;
-                changes++;
-            }
-            if (index == originIndex && changed) {
-                changed = false;
-                changes--;
-            }
-
-            refreshChangesBanner();
+            changesSource.Capture(setting.getIndex());
         });
     }
 
@@ -202,8 +178,7 @@ function renderSettingsWindow(win: Window, context: any) {
 
         const inputArea = appendElement(inputContainer, `div`, `pp_window_controlArea`);
 
-        const originValue = setting.get();
-        let changed = false;
+        const changesSource = changes.CreateSource(setting.get());
 
         renderUIInput(
             inputArea,
@@ -211,29 +186,15 @@ function renderSettingsWindow(win: Window, context: any) {
             setting.get(),
             value => {
                 setting.set(value);
-
-                if (value != originValue && !changed) {
-                    changed = true;
-                    changes++;
-                }
-                if (value == originValue && changed) {
-                    changed = false;
-                    changes--;
-                }
-
-                refreshChangesBanner();
+                changesSource.Capture(setting.get());
             },
             { alignCenter: true, filter: setting.filter } as InputParams
         );
     }
-
-    function refreshChangesBanner() {
-        changesBannerContainer.classList.toggle(`pp_settings_changesBanner_active`, changes > 0);
-    }
 }
 
 function closeSettingsWindow() {
-    if (changes > 0) {
+    if (changes.HasChanges()) {
         settings.nextRevision();
 
         window.location.reload();

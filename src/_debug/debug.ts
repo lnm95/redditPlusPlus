@@ -19,6 +19,8 @@ class DebugProfiler {
     }
 
     async render() {
+        if(!SHOW_PROFILER) return;
+
         const documentBody = await dynamicElement(() => document.body);
 
         const container = appendElement(documentBody, `div`, `pp_debug_profilerContainer`);
@@ -71,6 +73,7 @@ export const SHOW_RENDERED_POSTS: boolean = false;
 export const SHOW_RENDERED_COMMENTS: boolean = false;
 
 export const SHOW_LOGS: boolean = true;
+export const SHOW_PROFILER: boolean = true;
 
 export const PROFILE_DYNAMIC_ELEMENTS: boolean = true;
 export const PROFILE_USER_DATA: boolean = true;

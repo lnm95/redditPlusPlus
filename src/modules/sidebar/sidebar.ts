@@ -1,159 +1,65 @@
+import { appendElement, prependElement } from '../../utils/element';
+import { appendSvg } from '../../utils/svg';
 import { observeFor } from '../../utils/tools';
-import { checkIsRendered, dynamicElement } from '../../utils/tools';
 import { css } from '../customCSS';
-import { SettingBoolProperty, settings } from '../settings/settings';
-import { pp_log } from '../toaster';
+import settingGearSvg from '@resources/settingsGear.svg';
 import style from './sidebar.less';
-import { renderSubFilter } from './subFilter';
+import { sidebarSettingsWindow } from './sidebarSettingsWindow';
+import { sections, SidebarSection, SidebarSectionConfig } from './sidebarSection';
+import { RenderSidebarNavigations } from './sidebarNavigation';
 
 css.addStyle(style);
 
-let resourcesInitialized = false;
 
 export function renderSidebar(sidebar: Element) {
     sidebar.classList.add(`pp_defaultText`);
 
-    observeFor(sidebar, (element: HTMLElement) => {
-        const customFeedsSection = element.matches(`faceplate-expandable-section-helper`) ? element : sidebar.querySelector(`faceplate-expandable-section-helper`);
+    RenderSidebarNavigations(sidebar);
 
-        if (customFeedsSection == null) return;
+    // settings button
+    const flexSidebar = sidebar.querySelector(`#flex-left-nav-container`);
 
-        const customFeedsButton = sidebar.querySelector(`summary[aria-controls="multireddits_section"]`);
+    const settingsButtonContainer = prependElement(flexSidebar, `div`);
+    settingsButtonContainer.setAttribute(`id`, `pp-settings`);
 
-        if (customFeedsButton != null) {
-            renderSidebarSection(customFeedsSection, settings.SIDEBAR_CUSTOMS, async () => {
-                const openState = await dynamicElement(() => customFeedsSection.getAttribute(`open`));
-                if (openState) {
-                }
+    const settingsButtonTooltip = appendElement(settingsButtonContainer, `rpl-tooltip`);
+    settingsButtonTooltip.setAttribute(`placement`, `right`);
+    settingsButtonTooltip.setAttribute(`content`, `Reddit++ sidebar settings`);
+    settingsButtonTooltip.setAttribute(`appearance`, `inverted`);
+    settingsButtonTooltip.style.cssText = `--show-delay: 750ms; --hide-delay: 50ms`;
 
-                return {
-                    container: customFeedsSection,
-                    button: customFeedsButton,
-                    hr: customFeedsSection.nextElementSibling
-                } as SidebarSection;
-            });
-            return true;
-        }
-    });
+    const settingsButton = appendElement(settingsButtonTooltip, `button`);
+    settingsButton.className = `bg-neutral-background shadow-xs
+button-small px-[var(--rem6)]
+button-bordered
+icon
+items-center justify-center
+button inline-flex `;
 
-    observeFor(sidebar, (element: HTMLElement) => {
-        const subsSection = element.matches(`faceplate-expandable-section-helper`) ? element : sidebar.querySelector(`faceplate-expandable-section-helper`);
+    settingsButton.addEventListener(`click`, () => sidebarSettingsWindow.open());
 
-        if (subsSection == null) return;
+    const settingsButtonSpan = appendElement(settingsButton, `span`, [`flex`, `items-center`, `justify-center`]);
+    const settingsButtonSpanSpan = appendElement(settingsButtonSpan, `span`, `flex`);
+    const settingsButtonSvg = appendSvg(settingsButtonSpanSpan, settingGearSvg, 16, 16);
 
-        const customFeedsButton = sidebar.querySelector(`summary[aria-controls="communities_section"]`);
 
-        if (customFeedsButton != null) {
-            renderSubFilter(subsSection);
-
-            renderSidebarSection(subsSection, settings.SIDEBAR_SUBS, async () => {
-                const openState = await dynamicElement(() => subsSection.getAttribute(`open`));
-                if (openState) {
-                }
-
-                let hrElement = subsSection.nextElementSibling;
-
-                while (hrElement != null && !hrElement.matches(`hr`)) {
-                    hrElement = hrElement.nextElementSibling;
-                }
-
-                return {
-                    container: subsSection,
-                    button: customFeedsButton,
-                    hr: hrElement
-                } as SidebarSection;
-            });
-            return true;
-        }
-    });
+    // render sections
+    const renderedSections = new Map<SidebarSection, SidebarSectionConfig>(sections);
 
     observeFor(sidebar, (element: HTMLElement) => {
-        let recentSection = sidebar.querySelector(`reddit-recent-pages`);
+        renderedSections.forEach((config, section, map) => {
+            const sectionContainer = config.renderer.FindContainer(sidebar as HTMLElement, element);
 
-        if (recentSection == null && element.matches(`reddit-recent-pages`)) {
-            recentSection = element;
-        }
+            if (sectionContainer != null) {
+                config.renderer.Render(sectionContainer, config.autocollapse, config.setting);
 
-        if (recentSection != null) {
-            renderSidebarSection(recentSection, settings.SIDEBAR_RECENT, async () => {
-                const helper = await dynamicElement(() => {
-                    const _helper = recentSection.shadowRoot?.querySelector(`faceplate-expandable-section-helper`);
-                    return _helper?.getAttribute(`open`) != null ? _helper : null;
-                });
-
-                const button = await dynamicElement(() => helper?.querySelector(`summary`));
-
-                css.registry(recentSection.shadowRoot);
-                helper.classList.add(`pp_defaultText`);
-
-                return {
-                    container: helper,
-                    button: button,
-                    hr: recentSection.querySelector(`hr`)
-                } as SidebarSection;
-            });
-            return true;
-        }
-    });
-
-    if (!resourcesInitialized) {
-        resourcesInitialized = true;
-        observeFor(sidebar, (element: HTMLElement) => {
-            const resources = sidebar.querySelector(`summary[aria-controls="RESOURCES"]`);
-
-            if (resources != null) {
-                const resourcesContainer = resources.parentElement.parentElement;
-                const resourceSection: SidebarSection = {
-                    container: resourcesContainer,
-                    button: resources,
-                    hr: null
-                };
-
-                renderSidebarSection(resourcesContainer, settings.SIDEBAR_RESOURCES, () => resourceSection);
-                return true;
+                map.delete(section);
             }
         });
-    }
-}
 
-class SidebarSection {
-    public container: Element;
-    public button: Element;
-    public hr: Element;
-}
-
-async function renderSidebarSection(preloadContainer: Element, setting: SettingBoolProperty, sectionLoader: Function) {
-    if (checkIsRendered(preloadContainer)) return;
-
-    preloadContainer.classList.add(`pp_sidebar_loadingSection`);
-
-    const section: SidebarSection = await sectionLoader();
-
-    preloadContainer.classList.remove(`pp_sidebar_loadingSection`);
-
-    if (setting.isEnabled()) {
-        const settingCollapsed = setting.getChild(`Collapsed`, false);
-
-        const details = section.container.querySelector(`details`);
-
-        if (settingCollapsed.isEnabled()) {
-            section.container.toggleAttribute(`open`, false);
-            details.classList.add(`pp_sidebar_collapsedSection`);
+        if (renderedSections.size == 0) {
+            return true;
         }
-
-        section.button.addEventListener(`click`, (e: MouseEvent) => {
-            const button = e.currentTarget as Element;
-            // hack because event may be called before aria-expanded was changed
-            setTimeout(() => {
-                const isCollapsed = button.getAttribute(`aria-expanded`) === 'false';
-
-                settingCollapsed.switch(isCollapsed);
-            }, 10);
-
-            details.classList.toggle(`pp_sidebar_collapsedSection`, false);
-        });
-    } else {
-        section.container.remove();
-        section.hr?.remove();
-    }
+    });   
 }
+
