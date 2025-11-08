@@ -8,13 +8,12 @@ export enum FeedSort {
     Rising = `Rising`
 }
 
-
-export function GetFeedSorts(location: FeedLocation): Array<FeedSort> {
-    const sorts = new Array<FeedSort>();
-
-    if (location != FeedLocation.All) sorts.push(FeedSort.Best);
-
-    sorts.push(FeedSort.Hot, FeedSort.New, FeedSort.Top, FeedSort.Rising);
-
-    return sorts;
+export function getFeedSorts(location: FeedLocation): Array<FeedSort> {
+    switch (location) {
+        case FeedLocation.All:
+        case FeedLocation.Custom:
+            return Object.values(FeedSort).filter((sort) => sort != FeedSort.Best);
+        default:
+            return Object.values(FeedSort);
+    }
 }

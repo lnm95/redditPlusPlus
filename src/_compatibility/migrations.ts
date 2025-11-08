@@ -1,3 +1,4 @@
+import { FORCE_MIGRATIONS } from '../_debug/debug';
 import { notify } from '../modules/toaster';
 import { isLowerVersion } from '../utils/tools';
 
@@ -17,7 +18,19 @@ export class Migration {
     check() {
         const currentVersion = GM_getValue(DATABASE_VERSION, null);
 
-        if (currentVersion == null || isLowerVersion(currentVersion, this.version)) {
+        if(DEBUG && FORCE_MIGRATIONS) {
+            this.previous?.check();
+            this.action();
+            notify(`Reddit++ was upgraded to ${this.version} (DEBUG)`);
+            return;
+        }
+
+        if(currentVersion == null) {
+            GM_setValue(DATABASE_VERSION, this.version);
+            return;
+        }
+
+        if (isLowerVersion(currentVersion, this.version)) {
             this.previous?.check();
 
             this.action();

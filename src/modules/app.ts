@@ -24,7 +24,7 @@ export async function renderApp() {
 
     closeAllWindows();
 
-    if (window.location.href.includes(`/user/`)) {
+    if (window.location.href.includes(`/user/`) && !window.location.href.includes(`/m/`)) {
         renderUserPage(document.body);
     } else {
         renderFeed(document.body);

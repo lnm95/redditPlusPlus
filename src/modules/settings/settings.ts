@@ -1,6 +1,6 @@
 import { Database } from '../../utils/database';
 import { FeedLocation } from '../feed/feedLocation';
-import { GetFeedSorts } from "../feed/feedSort";
+import { getFeedSorts } from "../feed/feedSort";
 
 
 export class SettingBoolProperty {
@@ -142,11 +142,6 @@ class SettingsManager {
 
     public SIDEBAR_NAV_BUTTON = new SettingBoolProperty(`sidebarNavigation`);
 
-    // feed sorts
-    public DEFAULT_FEED_HOME = new SettingDropdownProperty(`defaultFeedHome`, GetFeedSorts(FeedLocation.Home), 0);
-    public DEFAULT_FEED_POPULAR = new SettingDropdownProperty(`defaultFeedPopular`, GetFeedSorts(FeedLocation.Popular), 1);
-    public DEFAULT_FEED_ALL = new SettingDropdownProperty(`defaultFeedAll`, GetFeedSorts(FeedLocation.All), 0);
-    public DEFAULT_FEED_SUB = new SettingDropdownProperty(`defaultFeedSub`, GetFeedSorts(FeedLocation.Sub), 0);
     // feed
     public FEED_BUTTONS = new SettingBoolProperty(`feedButtons`);
     public FLAIR_BAR = new SettingBoolProperty(`flairbar`);

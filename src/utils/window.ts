@@ -20,15 +20,16 @@ export function closeAllWindows() {
 }
 
 export class Window {
-    tittle: string;
+    tittleContent: string;
     render: WindowRenderer;
     onClose: Function;
     container: Element;
+    tittle:Element;
     content: Element;
     closeButton: Element;
 
     constructor(tittle: string, render: WindowRenderer, onClose: Function = null) {
-        this.tittle = tittle;
+        this.tittleContent = tittle;
         this.render = render;
         this.onClose = onClose;
         this.container = null;
@@ -54,14 +55,13 @@ export class Window {
         const win = appendElement(this.container, `div`, `pp_window`);
 
         const tittleContainer = appendElement(win, `div`, `pp_window_tittleContainer`);
-
-        let tittle = appendElement(tittleContainer, `div`, [`pp_window_tittle`, `flex`, `flex-row`]);
-        tittle = appendElement(tittle, `span`, [`text-24`, `font-semibold`]);
-        tittle.textContent = this.tittle;
+        const tittleDiv = appendElement(tittleContainer, `div`, [`pp_window_tittle`, `flex`, `flex-row`]);
+        this.tittle = appendElement(tittleDiv, `span`, [`text-24`, `font-semibold`]);
+        this.tittle.textContent = this.tittleContent;
 
         this.closeButton = appendElement(tittleContainer, `div`, [`pp_window_closeButton`, `flex`, `items-center`]);
         this.closeButton = appendElement(this.closeButton, `button`, [`button`, `icon`, `inline-flex`, `items-center`, `justify-center`, `button-small`, `button-secondary`, `px-[var(--rem6)]`]);
-        this.closeButton.setAttribute(`tittle`, `Close ${this.tittle}`);
+        this.closeButton.setAttribute(`tittle`, `Close ${this.tittleContent}`);
         this.closeButton.addEventListener('click', e => {
             this.close();
         });

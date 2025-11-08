@@ -17,6 +17,6 @@ module.exports = {
     source: repository.url,
     license: 'MIT',
     match: ['*://*.reddit.com/*'],
-    grant: ['unsafeWindow', 'GM_getValue', 'GM_setValue'],
+    grant: ['unsafeWindow', 'GM_getValue', 'GM_setValue', 'GM_deleteValue'],
     'run-at': 'document-start'
 };

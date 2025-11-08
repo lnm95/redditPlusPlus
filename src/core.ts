@@ -1,4 +1,4 @@
-import { migration_1_0_0 } from './_compatibility/migration_1_0_0';
+import { latestMigration } from './_compatibility/latestMigration';
 import { observeFor } from './utils/tools';
 import { renderApp } from './modules/app';
 import { renderHeader } from './modules/header';
@@ -7,6 +7,9 @@ import { notify, pp_log } from './modules/toaster';
 import { MAX_LOAD_LAG } from './defines';
 import { dynamicElement } from './utils/tools';
 import { checkSortCommentsRedirect } from './modules/comments/sortButtons';
+import { initializeFeedRedirect } from './modules/feed/feedRedirect';
+
+
 
 // ***********************************************************************************************************************
 // ********************************************** ENTRY POINT ************************************************************
@@ -29,12 +32,13 @@ async function startRedditPlusPlus() {
     pp_meta.setAttribute(`version`, VERSION);
     document.head.append(pp_meta);
 
-    // call latest migration
-    migration_1_0_0.check();
+    latestMigration.check();
 
     if (checkRedirect()) {
         return;
     }
+
+    initializeFeedRedirect();
 
     const pp_app = await dynamicElement(() => documentBody.querySelector(`shreddit-app`), MAX_LOAD_LAG);
     if (pp_app == null || pp_app.getAttribute(`devicetype`) != `desktop`) {

@@ -1,0 +1,29 @@
+
+.pp_feedSettings_overrideSub {
+    z-index: 20;
+    position: relative;
+}
+
+.pp_feedSettings_overrideSub::before {
+    border-radius: 16px;
+    border: 2px solid #ffc800;
+
+    position: absolute;
+    content: '';
+    top: -8px;
+    right: -8px;
+    bottom: -8px;
+    left: -8px;
+    z-index: 15;
+    pointer-events: none;
+}
+
+.pp_feedSettings_overrideTittle {
+    color: #e1b30d !important;
+}
+
+.pp_ui_disabled {
+    opacity: 0.5;
+    filter: grayscale(1);
+    pointer-events: none;
+}

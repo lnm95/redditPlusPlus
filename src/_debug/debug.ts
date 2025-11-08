@@ -78,6 +78,8 @@ export const SHOW_PROFILER: boolean = true;
 export const PROFILE_DYNAMIC_ELEMENTS: boolean = true;
 export const PROFILE_USER_DATA: boolean = true;
 
+export const FORCE_MIGRATIONS: boolean = false;
+
 export const profiler = new DebugProfiler();
 
 export const profiler_dynamicElements = new DynamicElementStat();
