@@ -3,6 +3,7 @@ import { AwardsMode } from '../modules/collapseAwardsMode';
 import { FeedData, subsFeedData } from '../modules/feed/feed';
 import { FeedSort } from '../modules/feed/feedSort';
 import { RedirectMode } from '../modules/redirectMode';
+import { UsernameMode } from '../modules/users/usernameMode';
 import { Database } from '../utils/database';
 import { migration_1_0_0 } from './migration_1_0_0';
 import { Migration } from './migrations';
@@ -39,6 +40,13 @@ export const migration_1_2_0 = new Migration(`1.2.0`, () => {
         }
 
         delete settingsDatabase.collapseAwardsCompletely;
+
+        // username
+        if(settingsDatabase.showNames != undefined && typeof settingsDatabase.showNames !== `string`) {
+            settingsDatabase.usernameMode = settingsDatabase.showNames == true ? UsernameMode.Nickname : UsernameMode.ProfileName;
+
+            delete settingsDatabase.showNames;
+        }
 
         GM_setValue(`SETTINGS_DATABASE`, settingsDatabase);
         GM_setValue(`SETTINGS_REFRESHED`, Date.now());

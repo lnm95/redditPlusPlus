@@ -1,4 +1,4 @@
-import { IS_COMMENT, MAX_LOAD_LAG } from '../../defines';
+import { ContentType, MAX_LOAD_LAG } from '../../defines';
 import { imageViewer } from '../../utils/imageViewer';
 import { checkIsRendered, dynamicElement } from '../../utils/tools';
 import { css } from '../customCSS';
@@ -241,13 +241,13 @@ export async function renderComment(comment: Element) {
         });
     }
 
-    renderCollapseAward(comment, IS_COMMENT);
+    renderCollapseAward(comment, ContentType.Comment);
 
     renderUserTags(comment);
 
     const userId = comment.getAttribute(`author`);
     const userName = comment.querySelector(`faceplate-tracker[noun="comment_author"]`).querySelector(`a`);
-    renderUserInfo(userId, userName, tagsAnchor, infoAnchor, IS_COMMENT);
+    renderUserInfo(userId, userName, tagsAnchor, infoAnchor, ContentType.Comment);
 
     const contextMenuButton = await dynamicElement(() => comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`rpl-dropdown`));
 

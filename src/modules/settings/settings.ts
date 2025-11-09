@@ -4,6 +4,7 @@ import { AwardsMode } from '../collapseAwardsMode';
 import { FeedLocation } from '../feed/feedLocation';
 import { getFeedSorts } from "../feed/feedSort";
 import { RedirectMode } from '../redirectMode';
+import { UsernameMode } from '../users/usernameMode';
 
 
 export class SettingBoolProperty {
@@ -158,7 +159,7 @@ class SettingsManager {
     public COMMENTS_REMEMBER_SORT = new SettingBoolProperty(`commentRememberSort`);
     public UNWRAP_MORE_REPLIES = new SettingBoolProperty(`unwrapMoreReplies`, false);
     public USER_INFO = new SettingBoolProperty(`userInfo`, false);
-    public SHOW_NAMES = new SettingBoolProperty(`showNames`, false);
+    public USERNAME_MODE = new SettingDropdownProperty(`usernameMode`, Object.values(UsernameMode), 0);
     public USERNAME_MAX_SIMBOLS = new SettingStringProperty(`usernameMaxSimbols`, `50`, defaultPositiveFilter(50));
     public USER_TAGS = new SettingBoolProperty(`userTags`);
     public HIDE_SHARE = new SettingBoolProperty(`hideShare`);

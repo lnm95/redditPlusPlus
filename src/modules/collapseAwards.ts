@@ -1,4 +1,4 @@
-import { MAX_LOAD_LAG, ModuleTaget } from '../defines';
+import { ContentType, MAX_LOAD_LAG } from '../defines';
 import { dynamicElement } from '../utils/tools';
 import style from './collapseAwards.less';
 import { AwardsMode } from './collapseAwardsMode';
@@ -7,14 +7,14 @@ import { settings } from './settings/settings';
 
 css.addStyle(style);
 
-export async function renderCollapseAward(target: Element, targetType: ModuleTaget) {
+export async function renderCollapseAward(target: Element, contentType: ContentType) {
     const mode = settings.COLLAPSE_AWARDS.get() as AwardsMode;
     
     if (mode == AwardsMode.Default) return;
 
     css.addStyle(style, `collapseAwards`);
 
-    const awardButton = targetType.isComment ? target.querySelector(`award-button`) : target.shadowRoot.querySelector(`award-button`);
+    const awardButton = contentType == ContentType.Comment ? target.querySelector(`award-button`) : target.shadowRoot.querySelector(`award-button`);
 
     if (awardButton == null) return;
 
@@ -24,11 +24,11 @@ export async function renderCollapseAward(target: Element, targetType: ModuleTag
     }
 
     if (awardButton.getAttribute(`count`) == `0`) {
-        if (!targetType.isComment) {
+        if (contentType == ContentType.Post) {
             css.registry(target.shadowRoot);
         }
 
-        const targetContainer = targetType.isComment ? target.querySelector(`shreddit-comment-action-row`)?.shadowRoot : target?.shadowRoot;
+        const targetContainer = contentType == ContentType.Comment ? target.querySelector(`shreddit-comment-action-row`)?.shadowRoot : target?.shadowRoot;
         const upVoteButton = await dynamicElement(() => targetContainer?.querySelector(`button[upvote]`), MAX_LOAD_LAG);
 
         if (upVoteButton == null) return;

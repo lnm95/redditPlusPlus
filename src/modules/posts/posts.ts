@@ -1,5 +1,5 @@
 import { SHOW_RENDERED_POSTS } from '../../_debug/debug';
-import { IS_POST, MAX_LOAD_LAG, MIN_LOAD_LAG } from '../../defines';
+import { ContentType, MAX_LOAD_LAG, MIN_LOAD_LAG } from '../../defines';
 import { Database, DatabaseConfig, ICleanupableData } from '../../utils/database';
 import { imageViewer } from '../../utils/imageViewer';
 import { requestAPI } from '../../utils/redditAPI';
@@ -83,7 +83,7 @@ export async function renderPost(post: Element) {
 
     const award = await dynamicElement(() => post.shadowRoot?.querySelector(`award-button`), MAX_LOAD_LAG);
     if (award != null) {
-        renderCollapseAward(post, IS_POST);
+        renderCollapseAward(post, ContentType.Post);
     }
 
     if (settings.SELECTABLE_POSTS.isEnabled()) {
@@ -174,7 +174,7 @@ async function renderHeader(post: Element) {
         userNameLink.before(point);
 
         // userInfo
-        renderUserInfo(author, userName, anchor, anchor, IS_POST);
+        renderUserInfo(author, userName, anchor, anchor, ContentType.Post);
     } else {
         // userInfo
         const creditBar = await dynamicElement(() => post.querySelector(`[slot="credit-bar"]`), MAX_LOAD_LAG); // usually it's span, but sometimes div
@@ -183,7 +183,7 @@ async function renderHeader(post: Element) {
         const anchor = creditBar.querySelector(`.created-separator`);
         if (anchor == null) return; // post view
 
-        renderUserInfo(author, userName, anchor, anchor, IS_POST);
+        renderUserInfo(author, userName, anchor, anchor, ContentType.Post);
     }
 }
 
