@@ -4,24 +4,23 @@ import { settings } from './settings/settings';
 import style from './redirect.less';
 import { css } from './customCSS';
 import { checkSortCommentsRedirect } from './comments/sortButtons';
+import { RedirectMode } from './redirectMode';
 
 export function checkRedirect(): boolean {
+    const mode = settings.REDIRECT_MODE.get() as RedirectMode;
+
     const isOld = window.location.href.includes(`old.reddit.com`);
-    const isPrev = window.location.href.includes(`new.reddit.com`);
 
     let redirect: string = null;
     if (isOld) {
         redirect = window.location.href.replace(`old.reddit.com`, `reddit.com`);
     }
-    if (isPrev) {
-        redirect = window.location.href.replace(`new.reddit.com`, `reddit.com`);
-    }
 
-    if (settings.REDIRECT_FORCED.isEnabled() && redirect != null) {
+    if (mode == RedirectMode.Forced && redirect != null) {
         window.location.assign(redirect);
     }
 
-    if (settings.REDIRECT_SUGGESTION.isEnabled() && redirect != null) {
+    if (mode == RedirectMode.Suggestion && redirect != null) {
         renderSuggestion(redirect);
     }
 

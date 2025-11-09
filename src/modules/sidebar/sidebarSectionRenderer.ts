@@ -1,6 +1,5 @@
 import { checkIsRendered } from "../../utils/tools";
 import { SettingBoolProperty } from "../settings/settings";
-import { pp_log } from "../toaster";
 
 export class SidebarSectionElements {
     public container: Element;
@@ -45,7 +44,6 @@ export abstract class SidebarSectionRenderer {
                         const isCollapsed = button.getAttribute(`aria-expanded`) === 'false';
 
                         settingCollapsed.switch(isCollapsed);
-                        pp_log(`${settingCollapsed.name} set to ${isCollapsed}`);
                     }, 10);
 
                     details.classList.toggle(`pp_sidebar_collapsedSection`, false);

@@ -5,16 +5,19 @@ import style from './bookmark.less';
 
 import bookmarkSavedSvg from '@resources/bookmarkSaved.svg';
 import bookmarkUnsavedSvg from '@resources/bookmarkUnsaved.svg';
-import { ModuleTaget } from '../defines';
 import { dynamicElement } from '../utils/tools';
-import { notify } from './toaster';
+import { BookmarkMode } from './bookmarkMode';
+
 
 css.addStyle(style);
 
-export function renderCommentBookmark(comment: Element, forced: boolean = false) {
-    if (settings.SAVED_BOOKMARK_COMMENTS.isDisabled()) return;
 
-    const contextMenuButton = comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`faceplate-dropdown-menu`);
+export function renderCommentBookmark(comment: Element, forced: boolean = false) {
+    const mode = settings.SAVED_BOOKMARK_COMMENTS.get() as BookmarkMode;
+
+    if (mode == BookmarkMode.Disabled) return;
+
+    const contextMenuButton = comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`rpl-dropdown`);
 
     const saveButton = contextMenuButton.querySelector(`.save-comment-menu-button`);
     const saveButtonContent = saveButton.querySelector(`.text-14`);
@@ -29,7 +32,7 @@ export function renderCommentBookmark(comment: Element, forced: boolean = false)
         isSaved = true;
     }
 
-    if (isSaved || forced || settings.SAVED_BOOKMARK_COMMENTS_SHOW_ALWAYAS.isEnabled()) {
+    if (isSaved || forced || mode == BookmarkMode.Always) {
         const downVoteButton = comment.querySelector(`shreddit-comment-action-row`)?.shadowRoot?.querySelector(`button[downvote]`);
         css.registry(comment.querySelector(`shreddit-comment-action-row`)?.shadowRoot);
 
@@ -51,9 +54,11 @@ export function renderCommentBookmark(comment: Element, forced: boolean = false)
 }
 
 export async function renderBookmarkPost(post: Element, forced: boolean = false, forcedValue: boolean | void = undefined) {
-    if (settings.SAVED_BOOKMARK_POSTS.isDisabled()) return;
+    const mode = settings.SAVED_BOOKMARK_POSTS.get() as BookmarkMode;
+    
+    if (mode == BookmarkMode.Disabled) return;
 
-    const contextMenu = await dynamicElement(() => post.querySelector(`shreddit-post-overflow-menu`)?.shadowRoot?.querySelector(`faceplate-dropdown-menu`)?.querySelector(`faceplate-menu`), 3000);
+    const contextMenu = await dynamicElement(() => post.querySelector(`shreddit-post-overflow-menu`)?.shadowRoot?.querySelector(`rpl-dropdown`)?.querySelector(`faceplate-menu`), 3000);
 
     if (contextMenu == undefined) {
         return;
@@ -94,7 +99,7 @@ export async function renderBookmarkPost(post: Element, forced: boolean = false,
         isSaved = forcedValue as boolean;
     }
 
-    if (isSaved || forced || settings.SAVED_BOOKMARK_POSTS_SHOW_ALWAYAS.isEnabled()) {
+    if (isSaved || forced || mode == BookmarkMode.Always) {
         const downVoteButton = post.shadowRoot?.querySelector(`button[downvote]`);
 
         const bookmarkButton = downVoteButton.cloneNode(true) as Element;

@@ -47,24 +47,14 @@ function renderSettingsWindow(win: Window, context: any) {
     addSettingToggle(`Bigger fonts`, `Make fonts bigger for better reading`, settings.BIGGER_FONTS);
     addSettingToggle(`Scroll to top button`, null, settings.SCROLL_TO_TOP);
     addSettingToggle(`Image viewer`, `Open (zoom) images instead default redirect behaviour`, settings.IMAGE_VIEWER);
-    addSettingToggle(`Redirect suggestion`, `Show the suggestion to redirect from old.reddit to modern pages`, settings.REDIRECT_SUGGESTION);
-    addSettingToggle(`Redirect forced`, `Automatically redirect from old.reddit to modern pages`, settings.REDIRECT_FORCED);
-    addSettingToggle(`Collapse Awards`, `Automatic collapse the award's button for none upvoted posts and comments`, settings.COLLAPSE_AWARDS);
-    addSettingToggle(`Remove Awards`, `Remove the award's buttons completely`, settings.COLLAPSE_AWARDS_COMPLETELY);
+    addSettingOptions(`Redirect`, `Special behaviour when you visit old.reddit pages`, settings.REDIRECT_MODE);
+    addSettingOptions(`Awards`, `Collapse the award's button for none upvoted posts and comments or remove completely`, settings.COLLAPSE_AWARDS);
     //addSettingToggle(`Better notify popup`, `Make notify popup a bit larger and remove useless button`, settings.NOTIFY_POPUP); //deprecated
 
     addSubtittle(`Content`);
     addGotoButton(`Filters`, `Hide posts and comments by regular expressions`, filtersWindow);
     addSettingToggle(`Hidden posts history`, `Allows to show latest hidden posts`, settings.SHOW_FILTERED_CONTENT);
     addSettingString(`Hidden posts history limit`, `Max count of posts in history window`, settings.FILTERED_CONTENT_MAX_COUNT.defaultValue, settings.FILTERED_CONTENT_MAX_COUNT);
-
-    /* replaced to feedSettingsWindow
-    addSubtittle(`Default feeds`);
-    addSettingOptions(`Home`, null, settings.DEFAULT_FEED_HOME);
-    addSettingOptions(`Popular`, null, settings.DEFAULT_FEED_POPULAR);
-    addSettingOptions(`All`, null, settings.DEFAULT_FEED_ALL);
-    addSettingOptions(`Subreddit's`, null, settings.DEFAULT_FEED_SUB);
-    */
 
     addSubtittle(`Users`);
     addSettingToggle(`User info`, `Show user's karma and "new user" mark`, settings.USER_INFO, [SettingBadge.APIRequests]);
@@ -75,17 +65,13 @@ function renderSettingsWindow(win: Window, context: any) {
     addSubtittle(`Feed`);
     addSettingToggle(`Feed buttons`, `Unwrap feed sorting buttons`, settings.FEED_BUTTONS);
     addSettingToggle(`Flairs bar`, `Display available flairs to faster navigation. Specific flairs may be hidden via subreddit's flairs settings`, settings.FLAIR_BAR);
-    addSettingToggle(`Show flairs always`, `Show flairs for posts in specific feeds (Home, Popular and All) and filter posts by flairs.`, settings.FLAIR_SHOW_ALWAYS, [
-        SettingBadge.APIRequests,
-        SettingBadge.New
-    ]);
+    addSettingToggle(`Show flairs always`, `Show flairs for posts in specific feeds (Home, Popular and All) and filter posts by flairs.`, settings.FLAIR_SHOW_ALWAYS, [SettingBadge.APIRequests]);
     addSettingToggle(`Collapse community highlights`, null, settings.COLLAPSE_HIGHLIGHTS);
     addSettingToggle(`Selectable text`, `Make a text selectable when posts viewed in feed`, settings.SELECTABLE_POSTS);
     addSettingToggle(`Unwrap button`, `Show the unwrap button for long-text posts in feed`, settings.UNWRAP_POST);
     addSettingToggle(`Soft background`, `Make the background of posts with soft gradient color`, settings.BACKPLATES);
     addSettingToggle(`Show post's author`, `Relates to Home, Popular and All feeds`, settings.SHOW_POST_AUTHOR);
-    addSettingToggle(`Show bookmark`, `Show the bookmark button for saved and upvoted posts`, settings.SAVED_BOOKMARK_POSTS);
-    addSettingToggle(`Show bookmark always`, `Show the bookmark button for all posts`, settings.SAVED_BOOKMARK_POSTS_SHOW_ALWAYAS);
+    addSettingOptions(`Save-post bookmarks`, `Show the save bookmark next to the vote buttons`, settings.SAVED_BOOKMARK_POSTS);
 
     addSubtittle(`Comments`);
     addSettingToggle(`Sort buttons`, `Unwrap the comment's sort buttons`, settings.COMMENTS_SORT_BUTTONS);
@@ -94,8 +80,7 @@ function renderSettingsWindow(win: Window, context: any) {
     addSettingToggle(`Hide share button`, `Replace the share button to comment's context menu`, settings.HIDE_SHARE);
     addSettingToggle(`Ghosted comments`, `Make comments ghosted when comment's rating below zero`, settings.GHOSTED_COMMENTS);
     addSettingToggle(`Collapse unwanted`, `Automatic collapse all automoderator and mod's pinned comments`, settings.COLLAPSE_AUTOMODERATOR);
-    addSettingToggle(`Show bookmark`, `Show the bookmark button for saved comments`, settings.SAVED_BOOKMARK_COMMENTS);
-    addSettingToggle(`Show bookmark always`, `Show the bookmark button for all comments`, settings.SAVED_BOOKMARK_COMMENTS_SHOW_ALWAYAS);
+    addSettingOptions(`Save-comment bookmarks`, `Show the save bookmark next to the vote buttons`, settings.SAVED_BOOKMARK_COMMENTS);
     addSettingToggle(`Hide related posts`, null, settings.HIDE_RELATED_POSTS);
 
     function addSubtittle(text: string) {

@@ -1,14 +1,16 @@
 import { MAX_LOAD_LAG, ModuleTaget } from '../defines';
 import { dynamicElement } from '../utils/tools';
 import style from './collapseAwards.less';
+import { AwardsMode } from './collapseAwardsMode';
 import { css } from './customCSS';
 import { settings } from './settings/settings';
-import { notify } from './toaster';
 
 css.addStyle(style);
 
 export async function renderCollapseAward(target: Element, targetType: ModuleTaget) {
-    if (settings.COLLAPSE_AWARDS.isDisabled()) return;
+    const mode = settings.COLLAPSE_AWARDS.get() as AwardsMode;
+    
+    if (mode == AwardsMode.Default) return;
 
     css.addStyle(style, `collapseAwards`);
 
@@ -16,7 +18,7 @@ export async function renderCollapseAward(target: Element, targetType: ModuleTag
 
     if (awardButton == null) return;
 
-    if (settings.COLLAPSE_AWARDS_COMPLETELY.isEnabled()) {
+    if (mode == AwardsMode.RemoveCompletely) {
         awardButton.remove();
         return;
     }

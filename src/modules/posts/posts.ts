@@ -153,8 +153,9 @@ async function renderShareButtonPost(post: Element) {
 
 async function renderHeader(post: Element) {
     const author = post.getAttribute(`author`);
+    const viewContext = post.getAttribute(`view-context`);
 
-    if (post.getAttribute(`view-context`) == `AggregateFeed`) {
+    if (viewContext == `AggregateFeed` || viewContext == `CustomFeed`) {
         if (settings.SHOW_POST_AUTHOR.isDisabled()) return;
 
         const anchor = await dynamicElement(() => post.querySelector(`span[slot="credit-bar"]`)?.querySelector(`.created-separator`), MAX_LOAD_LAG);

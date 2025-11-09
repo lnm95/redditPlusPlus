@@ -1,6 +1,9 @@
 import { Database } from '../../utils/database';
+import { BookmarkMode } from '../bookmarkMode';
+import { AwardsMode } from '../collapseAwardsMode';
 import { FeedLocation } from '../feed/feedLocation';
 import { getFeedSorts } from "../feed/feedSort";
+import { RedirectMode } from '../redirectMode';
 
 
 export class SettingBoolProperty {
@@ -121,10 +124,8 @@ class SettingsManager {
     public BIGGER_FONTS = new SettingBoolProperty(`biggerFonts`);
     public SCROLL_TO_TOP = new SettingBoolProperty(`scrollToTop`);
     public IMAGE_VIEWER = new SettingBoolProperty(`imageViewer`);
-    public COLLAPSE_AWARDS = new SettingBoolProperty(`collapseAwards`);
-    public COLLAPSE_AWARDS_COMPLETELY = new SettingBoolProperty(`collapseAwardsCompletely`, false);
-    public REDIRECT_SUGGESTION = new SettingBoolProperty(`redirectSuggestion`);
-    public REDIRECT_FORCED = new SettingBoolProperty(`redirectForced`, false);
+    public COLLAPSE_AWARDS = new SettingDropdownProperty(`collapseAwards`, Object.values(AwardsMode), 1);
+    public REDIRECT_MODE = new SettingDropdownProperty(`redirectMode`, Object.values(RedirectMode), 1);
 
     public NOTIFY_POPUP = new SettingBoolProperty(`notifyPopup`); // legacy
 
@@ -139,7 +140,6 @@ class SettingsManager {
     public SIDEBAR_RECENT = new SettingBoolProperty(`sidebarRecent`);
     public SIDEBAR_SUBS = new SettingBoolProperty(`sidebarSubs`);
     public SIDEBAR_RESOURCES = new SettingBoolProperty(`sidebarResources`);
-
     public SIDEBAR_NAV_BUTTON = new SettingBoolProperty(`sidebarNavigation`);
 
     // feed
@@ -151,8 +151,8 @@ class SettingsManager {
     public SELECTABLE_POSTS = new SettingBoolProperty(`selectablePosts`);
     public UNWRAP_POST = new SettingBoolProperty(`unwrapPost`);
     public SHOW_POST_AUTHOR = new SettingBoolProperty(`showPostAuthor`);
-    public SAVED_BOOKMARK_POSTS = new SettingBoolProperty(`savedBookmarkPosts`);
-    public SAVED_BOOKMARK_POSTS_SHOW_ALWAYAS = new SettingBoolProperty(`savedBookmarkPostsShowAlways`, false);
+    public SAVED_BOOKMARK_POSTS = new SettingDropdownProperty(`savedBookmarkPosts`, Object.values(BookmarkMode), 1);
+
     // comments
     public COMMENTS_SORT_BUTTONS = new SettingBoolProperty(`commentSortButtons`);
     public COMMENTS_REMEMBER_SORT = new SettingBoolProperty(`commentRememberSort`);
@@ -164,8 +164,7 @@ class SettingsManager {
     public HIDE_SHARE = new SettingBoolProperty(`hideShare`);
     public GHOSTED_COMMENTS = new SettingBoolProperty(`ghostedComments`);
     public COLLAPSE_AUTOMODERATOR = new SettingBoolProperty(`collapseAutomoderator`);
-    public SAVED_BOOKMARK_COMMENTS = new SettingBoolProperty(`savedBookmarkComments`);
-    public SAVED_BOOKMARK_COMMENTS_SHOW_ALWAYAS = new SettingBoolProperty(`savedBookmarkCommentsShowAlways`, false);
+    public SAVED_BOOKMARK_COMMENTS = new SettingDropdownProperty(`savedBookmarkComments`, Object.values(BookmarkMode), 1);
     public HIDE_RELATED_POSTS = new SettingBoolProperty(`hideRelatedPosts`, false);
 
     constructor() {
