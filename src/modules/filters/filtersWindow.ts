@@ -41,20 +41,20 @@ function renderFiltersWindow(win: Window, context: any) {
     let draggedFilter: HTMLElement = null;
 
     elements.addEventListener(`dragstart`, e => {
-        draggedFilter = e.target as HTMLElement;
-        draggedFilter.classList.toggle(`pp_filter_dragged`, true);
+        const target = e.target as HTMLElement;
+        if (target.matches(`li`)) {
+            draggedFilter = target;
+            draggedFilter.classList.toggle(`pp_filter_dragged`, true);
 
-        e.dataTransfer.effectAllowed = `move`;
+            e.dataTransfer.effectAllowed = `move`;
+        }
     });
 
-    let dropTargetFilter: HTMLElement = null;
     elements.addEventListener(`dragenter`, e => {
         const targetFilter = getFilterRoot(e.target as HTMLElement);
 
         if (targetFilter != null && targetFilter != draggedFilter) {
             e.preventDefault();
-
-            dropTargetFilter = targetFilter;
         }
     });
 

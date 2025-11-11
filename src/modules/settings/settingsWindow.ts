@@ -10,6 +10,7 @@ import { filtersWindow } from '../filters/filtersWindow';
 import { SettingBoolProperty, SettingDropdownProperty, settings, SettingStringProperty } from './settings';
 import style from './settingsWindow.less';
 import { ChangesObserver } from '../../utils/changesObserver';
+import { profileMenuWindow } from '../profileMenu/profileMenuWindow';
 
 css.addStyle(style);
 
@@ -45,6 +46,7 @@ function renderSettingsWindow(win: Window, context: any) {
     addSettingString(`Content width`, `Width of the feed and comments in pixels`, settings.CONTENT_WIDTH.defaultValue, settings.CONTENT_WIDTH);
     addSettingString(`Content offset`, `Offset of the feed and comments in pixels`, settings.CONTENT_OFFSET.defaultValue, settings.CONTENT_OFFSET);
     addSettingToggle(`Bigger fonts`, `Make fonts bigger for better reading`, settings.BIGGER_FONTS);
+    addGotoButton(`Profile menu`, `Hide and replace profile menu elements`, profileMenuWindow, [SettingBadge.New]);
     addSettingToggle(`Scroll to top button`, null, settings.SCROLL_TO_TOP);
     addSettingToggle(`Image viewer`, `Open (zoom) images instead default redirect behaviour`, settings.IMAGE_VIEWER);
     addSettingOptions(`Redirect`, `Special behaviour when you visit old.reddit pages`, settings.REDIRECT_MODE);
@@ -58,7 +60,7 @@ function renderSettingsWindow(win: Window, context: any) {
 
     addSubtittle(`Users`);
     addSettingToggle(`User info`, `Show user's karma and "new user" mark`, settings.USER_INFO, [SettingBadge.APIRequests]);
-    addSettingOptions(`Nickname mode`, `Allows showing a nickname instead of the profile name`, settings.USERNAME_MODE, [SettingBadge.APIRequests]);
+    addSettingOptions(`Nickname mode`, `Allows showing a nickname instead of the profile name`, settings.USERNAME_MODE, [SettingBadge.APIRequests, SettingBadge.New]);
     addSettingString(`Nickname max symbols`, `Make nicknames with too many symbols shorter`, settings.USERNAME_MAX_SIMBOLS.defaultValue, settings.USERNAME_MAX_SIMBOLS);
     addSettingToggle(`User tags`, `Enable custom tags (sets via comment's context menu)`, settings.USER_TAGS);
 

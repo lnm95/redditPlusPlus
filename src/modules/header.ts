@@ -1,13 +1,11 @@
 import { observeFor } from '../utils/tools';
-import { NONE_COLOR, buildSvg } from '../utils/svg';
 import { checkIsRendered, dynamicElement } from '../utils/tools';
 import { appendElement } from '../utils/element';
 import { css } from './customCSS';
 import style from './header.less';
 import { renderNotifications } from './notifications';
 import { settings } from './settings/settings';
-import { settingsWindow } from './settings/settingsWindow';
-import settingsButtonSvg from '@resources/settingsButton.svg';
+import { renderProfileMenu } from './profileMenu/profileMenu';
 
 css.addStyle(style);
 
@@ -24,7 +22,7 @@ export async function renderHeader(container: Element) {
     userPanel.addEventListener(
         `click`,
         () => {
-            renderSettingsButton();
+            renderProfileMenu();
         },
         { once: true }
     );
@@ -46,34 +44,3 @@ export async function renderHeader(container: Element) {
     }
 }
 
-function renderSettingsButton() {
-    let userMenu = document.getElementById(`user-drawer-content`);
-
-    if (userMenu.querySelector(`faceplate-tracker[noun="pp-settings"]`) != null) {
-        return;
-    }
-
-    let originSettingsButton = userMenu.querySelector(`faceplate-tracker[noun="settings"]`);
-
-    if (originSettingsButton == null) {
-        originSettingsButton = userMenu.querySelector(`faceplate-tracker[noun="login"]`);
-    }
-
-    let ppSettingsButton = originSettingsButton.cloneNode(true) as Element;
-    ppSettingsButton.setAttribute(`noun`, `pp-settings`);
-
-    originSettingsButton.parentNode.appendChild(ppSettingsButton);
-
-    ppSettingsButton.querySelector(`a`).removeAttribute(`href`);
-
-    const originSvg = ppSettingsButton.querySelector(`svg`);
-    const svg = buildSvg(settingsButtonSvg, 20, 20, { strokeColor: NONE_COLOR });
-    originSvg.replaceWith(svg);
-
-    let text = ppSettingsButton.querySelector(`.text-14`);
-    text.textContent = `Reddit++`;
-
-    ppSettingsButton.addEventListener(`click`, () => {
-        settingsWindow.open();
-    });
-}
