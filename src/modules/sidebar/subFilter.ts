@@ -13,7 +13,7 @@ let filter: Map<string, HTMLElement> = null;
 export async function renderSubFilter(container: Element) {
     if (checkIsRendered(container, `pp-sub-filter`)) return;
 
-    const createSubButton = (await dynamicElement(() => container.querySelector(`.left-nav-create-community-button`))) as HTMLElement;
+    const manageSubsButton = (await dynamicElement(() => container.querySelector(`.left-nav-manage-communities-link`))) as HTMLElement;
 
     // filter database
     if (filter != null) {
@@ -49,20 +49,20 @@ export async function renderSubFilter(container: Element) {
         }
     );
 
-    // minify the create sub button
+    // minify the manage subs button
 
-    createSubButton.style.width = `65px`;
-    const createSubText = await dynamicElement(() => createSubButton.querySelector(`.text-14`));
+    manageSubsButton.style.width = `65px`;
+    const createSubText = await dynamicElement(() => manageSubsButton.querySelector(`.text-14`));
     createSubText.remove();
-    createSubButton.replaceWith(input);
-    input.prepend(createSubButton);
+    manageSubsButton.replaceWith(input);
+    input.prepend(manageSubsButton);
 
     const inputButton = input.querySelector(`.pp_ui_input_button`);
     inputButton.addEventListener(`focus`, () => {
-        createSubButton.style.display = `none`;
+        manageSubsButton.style.display = `none`;
     });
     inputButton.addEventListener(`focusout`, () => {
-        createSubButton.style.display = `block`;
+        manageSubsButton.style.display = `block`;
     });
 
     // init
