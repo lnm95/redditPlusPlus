@@ -4,7 +4,7 @@
 // @description      A lot of enhancements for new design of reddit.com like unwrapped feed buttons, bigger fonts, view images without redirect, filtering content by keywords and many more...
 // @description:ru   Множество улучшений для нового интерфейса reddit.com, таких как развернутые кнопки лент, увеличенный шрифт, увеличение изображений без редиректа, фильтрация контента по ключевым словам и много другое...
 // @namespace        RedditPlusPlus
-// @version          1.1.0
+// @version          1.1.2
 // @author           lnm95
 // @icon             data:image/png;base64,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
 // @source           https://github.com/lnm95/redditPlusPlus
@@ -419,8 +419,17 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_feedPanel {
   gap: 0.25rem !important;
 }
 .pp_feedContainer {
-  gap: 0.25rem;
+  gap: 0.5rem;
   height: 40px;
+}
+.pp_feedContainer a {
+  padding-left: 0.625rem !important;
+  padding-right: 0.625rem !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 `, ""]);
 // Exports
@@ -717,6 +726,10 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 ___CSS_LOADER_EXPORT___.push([module.id, `#reddit-logo {
   text-decoration: none;
 }
+#user-drawer-content {
+  max-height: 90vh;
+  overflow: auto;
+}
 .pp_logo {
   width: max-content;
   color: var(--shreddit-color-wordmark);
@@ -983,13 +996,40 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_scrollToTop {
   cursor: pointer;
   color: var(--scrollLineTransparentColor);
   opacity: 1;
-  transition: padding-bottom 0.2s ease-in, color 0.2s ease-in, opacity 1s ease;
+  clip-path: inset(0 0 0 8px);
+  transition: padding-bottom 0.2s ease-in, color 0.2s ease-in, opacity 1s ease, width 0.3s ease;
+}
+.pp_scrollToTop svg {
+  padding-left: 8px;
+}
+.pp_scrollToTop_compact {
+  background: linear-gradient(0deg, var(--scrollLineColor) 2%, var(--scrollLineTransparentColor) 40%);
+  padding-bottom: 15px;
+}
+.pp_scrollToTop_compact:hover {
+  padding-bottom: 35px !important;
+}
+.pp_scrollToTop_minimal {
+  background: linear-gradient(0deg, var(--scrollLineColor) 3%, var(--scrollLineTransparentColor) 50%);
+  padding-bottom: 12px;
+}
+.pp_scrollToTop_minimal svg {
+  width: 32px !important;
+  height: 32px !important;
+}
+.pp_scrollToTop_minimal:hover {
+  padding-bottom: 25px !important;
+}
+.pp_scrollToTop_minimal::before {
+  background: linear-gradient(0deg, var(--scrollLineColor) 8%, var(--scrollLineTransparentColor) 60%);
 }
 .pp_scrollToTop_inverted {
   transform: scale(1, -1);
 }
 .pp_scrollToTop_hidden {
   opacity: 0 !important;
+  cursor: default !important;
+  pointer-events: none !important;
 }
 .pp_scrollToTop_hidden::before {
   opacity: 0 !important;
@@ -1015,15 +1055,53 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_scrollToTop {
   opacity: 1;
   transition: opacity 0.2s ease-out;
 }
+.pp_scrollToTop_fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--scrollButtonColor);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.pp_scrollToTop_fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  background: var(--scrollButtonColorHover);
+}
+.pp_scrollToTop_fab:active {
+  transform: scale(0.95);
+}
+.pp_scrollToTop_fab svg {
+  color: var(--scrollButtonIconColor);
+  transition: color 0.2s ease;
+}
+.pp_scrollToTop_fab_hidden {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: scale(0.8);
+}
 :root {
   --scrollLineColor: #e5ebee6e;
   --scrollLineTransparentColor: #e5ebee00;
   --scrollButtonColor: #c9d1d4c2;
+  --scrollButtonColorHover: #d4dce0;
+  --scrollButtonIconColor: #ffffff;
 }
 :root.theme-dark {
   --scrollLineColor: #3f484d33 !important;
   --scrollLineTransparentColor: #30343600 !important;
   --scrollButtonColor: #969a9c !important;
+  --scrollButtonColorHover: #a5aaad !important;
+  --scrollButtonIconColor: #ffffff !important;
 }
 `, ""]);
 // Exports
@@ -2174,6 +2252,40 @@ async function dynamicElement(elementRequest, maxLifetime = 0) {
         }, DYNAMIC_ELEMENT_FREQUENCY);
     });
 }
+function safeCheck(fn) {
+    try {
+        return fn();
+    }
+    catch {
+        return null;
+    }
+}
+function observeOnce(root, check, onFound) {
+    const first = safeCheck(check);
+    if (first) {
+        if (onFound) {
+            onFound(first);
+            return;
+        }
+        return Promise.resolve(first);
+    }
+    const executor = (resolve) => {
+        const mo = new MutationObserver(() => {
+            const hit = safeCheck(check);
+            if (hit) {
+                mo.disconnect();
+                onFound?.(hit);
+                resolve?.(hit);
+            }
+        });
+        mo.observe(root instanceof Document ? root : root, { childList: true, subtree: true });
+    };
+    if (onFound) {
+        executor();
+        return;
+    }
+    return new Promise(executor);
+}
 function observeFor(root, action, includeChilds = true) {
     const result = action(root);
     if (result != undefined && result == true) {
@@ -2803,7 +2915,7 @@ let filter = null;
 async function renderSubFilter(container) {
     if (checkIsRendered(container, `pp-sub-filter`))
         return;
-    const createSubButton = (await dynamicElement(() => container.querySelector(`.left-nav-create-community-button`)));
+    const manageSubsButton = (await dynamicElement(() => container.querySelector(`.left-nav-manage-communities-link`)));
     if (filter != null) {
         filter.clear();
     }
@@ -2826,17 +2938,17 @@ async function renderSubFilter(container) {
         cleanButton: true,
         filter: (input) => input.trim()
     });
-    createSubButton.style.width = `65px`;
-    const createSubText = await dynamicElement(() => createSubButton.querySelector(`.text-14`));
+    manageSubsButton.style.width = `65px`;
+    const createSubText = await dynamicElement(() => manageSubsButton.querySelector(`.text-14`));
     createSubText.remove();
-    createSubButton.replaceWith(input);
-    input.prepend(createSubButton);
+    manageSubsButton.replaceWith(input);
+    input.prepend(manageSubsButton);
     const inputButton = input.querySelector(`.pp_ui_input_button`);
     inputButton.addEventListener(`focus`, () => {
-        createSubButton.style.display = `none`;
+        manageSubsButton.style.display = `none`;
     });
     inputButton.addEventListener(`focusout`, () => {
-        createSubButton.style.display = `block`;
+        manageSubsButton.style.display = `block`;
     });
     onChangeFilter(initValue);
 }
@@ -2860,49 +2972,32 @@ function onChangeFilter(value) {
 
 
 css.addStyle(sidebar/* default */.A);
-let resourcesInitialized = false;
 function renderSidebar(sidebar) {
     sidebar.classList.add(`pp_defaultText`);
     observeFor(sidebar, (element) => {
-        const customFeedsSection = element.matches(`faceplate-expandable-section-helper`) ? element : sidebar.querySelector(`faceplate-expandable-section-helper`);
-        if (customFeedsSection == null)
-            return;
-        const customFeedsButton = sidebar.querySelector(`summary[aria-controls="multireddits_section"]`);
-        if (customFeedsButton != null) {
-            renderSidebarSection(customFeedsSection, settings.SIDEBAR_CUSTOMS, async () => {
-                const openState = await dynamicElement(() => customFeedsSection.getAttribute(`open`));
-                if (openState) {
-                }
-                return {
-                    container: customFeedsSection,
-                    button: customFeedsButton,
-                    hr: customFeedsSection.nextElementSibling
-                };
-            });
+        const customFeeds = sidebar.querySelector(`summary[aria-controls="multireddits_section"]`);
+        if (customFeeds != null) {
+            const customFeedsContainer = customFeeds.parentElement;
+            const customFeedsSection = {
+                container: customFeedsContainer,
+                button: customFeeds,
+                hr: customFeedsContainer.nextElementSibling?.matches(`hr`) ? customFeedsContainer.nextElementSibling : null
+            };
+            renderSidebarSection(customFeedsContainer, settings.SIDEBAR_CUSTOMS, () => customFeedsSection);
             return true;
         }
     });
     observeFor(sidebar, (element) => {
-        const subsSection = element.matches(`faceplate-expandable-section-helper`) ? element : sidebar.querySelector(`faceplate-expandable-section-helper`);
-        if (subsSection == null)
-            return;
-        const customFeedsButton = sidebar.querySelector(`summary[aria-controls="communities_section"]`);
-        if (customFeedsButton != null) {
-            renderSubFilter(subsSection);
-            renderSidebarSection(subsSection, settings.SIDEBAR_SUBS, async () => {
-                const openState = await dynamicElement(() => subsSection.getAttribute(`open`));
-                if (openState) {
-                }
-                let hrElement = subsSection.nextElementSibling;
-                while (hrElement != null && !hrElement.matches(`hr`)) {
-                    hrElement = hrElement.nextElementSibling;
-                }
-                return {
-                    container: subsSection,
-                    button: customFeedsButton,
-                    hr: hrElement
-                };
-            });
+        const subs = sidebar.querySelector(`summary[aria-controls="communities_section"]`);
+        if (subs != null) {
+            const subsContainer = subs.parentElement;
+            const subsSection = {
+                container: subsContainer,
+                button: subs,
+                hr: subsContainer.nextElementSibling?.matches(`hr`) ? subsContainer.nextElementSibling : null
+            };
+            renderSubFilter(subsContainer);
+            renderSidebarSection(subsContainer, settings.SIDEBAR_SUBS, () => subsSection);
             return true;
         }
     });
@@ -2929,22 +3024,19 @@ function renderSidebar(sidebar) {
             return true;
         }
     });
-    if (!resourcesInitialized) {
-        resourcesInitialized = true;
-        observeFor(sidebar, (element) => {
-            const resources = sidebar.querySelector(`summary[aria-controls="RESOURCES"]`);
-            if (resources != null) {
-                const resourcesContainer = resources.parentElement.parentElement;
-                const resourceSection = {
-                    container: resourcesContainer,
-                    button: resources,
-                    hr: null
-                };
-                renderSidebarSection(resourcesContainer, settings.SIDEBAR_RESOURCES, () => resourceSection);
-                return true;
-            }
-        });
-    }
+    observeFor(sidebar, (element) => {
+        const resources = sidebar.querySelector(`summary[aria-controls="RESOURCES"]`);
+        if (resources != null) {
+            const resourcesContainer = resources.parentElement;
+            const resourceSection = {
+                container: resourcesContainer,
+                button: resources,
+                hr: null
+            };
+            renderSidebarSection(resourcesContainer, settings.SIDEBAR_RESOURCES, () => resourceSection);
+            return true;
+        }
+    });
 }
 class SidebarSection {
 }
@@ -2959,7 +3051,9 @@ async function renderSidebarSection(preloadContainer, setting, sectionLoader) {
         const details = section.container.querySelector(`details`);
         if (settingCollapsed.isEnabled()) {
             section.container.toggleAttribute(`open`, false);
-            details.classList.add(`pp_sidebar_collapsedSection`);
+            if (details) {
+                details.classList.add(`pp_sidebar_collapsedSection`);
+            }
         }
         section.button.addEventListener(`click`, (e) => {
             const button = e.currentTarget;
@@ -2967,7 +3061,9 @@ async function renderSidebarSection(preloadContainer, setting, sectionLoader) {
                 const isCollapsed = button.getAttribute(`aria-expanded`) === 'false';
                 settingCollapsed.switch(isCollapsed);
             }, 10);
-            details.classList.toggle(`pp_sidebar_collapsedSection`, false);
+            if (details) {
+                details.classList.toggle(`pp_sidebar_collapsedSection`, false);
+            }
         });
     }
     else {
@@ -3203,7 +3299,7 @@ css.addStyle(bookmark/* default */.A);
 function renderCommentBookmark(comment, forced = false) {
     if (settings.SAVED_BOOKMARK_COMMENTS.isDisabled())
         return;
-    const contextMenuButton = comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`faceplate-dropdown-menu`);
+    const contextMenuButton = comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`faceplate-menu`);
     const saveButton = contextMenuButton.querySelector(`.save-comment-menu-button`);
     const saveButtonContent = saveButton.querySelector(`.text-14`);
     saveButton.addEventListener(`click`, () => {
@@ -3231,7 +3327,7 @@ function renderCommentBookmark(comment, forced = false) {
 async function renderBookmarkPost(post, forced = false, forcedValue = undefined) {
     if (settings.SAVED_BOOKMARK_POSTS.isDisabled())
         return;
-    const contextMenu = await dynamicElement(() => post.querySelector(`shreddit-post-overflow-menu`)?.shadowRoot?.querySelector(`faceplate-dropdown-menu`)?.querySelector(`faceplate-menu`), 3000);
+    const contextMenu = await dynamicElement(() => post.querySelector(`shreddit-post-overflow-menu`)?.shadowRoot?.querySelector(`faceplate-menu`), 3000);
     if (contextMenu == undefined) {
         return;
     }
@@ -3780,7 +3876,7 @@ function renderFlair(conatiner, sub, flair, minified = false) {
         `font-normal`,
         `box-border`,
         `px-[6px]`,
-        `rounded-[20px]`,
+        `rounded-5`,
         `leading-4`,
         `max-w-full`,
         `py-xs`,
@@ -3790,7 +3886,7 @@ function renderFlair(conatiner, sub, flair, minified = false) {
         `inline-flex`
     ]);
     if (minified) {
-        span.className = `bg-tone-4 inline-block truncate max-w-full text-12 font-normal align-text-bottom box-border px-[6px] rounded-[20px] leading-4  relative top-[-0.25rem] xs:top-[-2px] my-2xs xs:mb-sm py-0 `;
+        span.className = `bg-tone-4 inline-block truncate max-w-full text-12 font-normal align-text-bottom box-border px-[6px] rounded-5 leading-4  relative top-[-0.25rem] xs:top-[-2px] my-2xs xs:mb-sm py-0 `;
     }
     span.classList.add(flair.color == `light` ? `text-global-white` : `text-global-black`);
     span.style.backgroundColor = flair.background;
@@ -5281,6 +5377,10 @@ function renderMoreReplies(comment) {
 let rootIntersector = null;
 let commentsIntersector = null;
 let commentsMutations = null;
+const COMMENT_META_SELECTOR = 'div[slot="commentMeta"]';
+function getCommentMeta(comment) {
+    return comment.querySelector(COMMENT_META_SELECTOR);
+}
 async function renderComments(container) {
     css.addStyle(comments/* default */.A, `comments`);
     if (settings.HIDE_SHARE.isEnabled()) {
@@ -5361,7 +5461,10 @@ function registryAllRoots(container) {
 function registryRoot(comment) {
     if (checkIsRendered(comment))
         return;
-    rootIntersector.observe(comment.querySelector(`div[slot="commentMeta"]`));
+    const commentMeta = getCommentMeta(comment);
+    if (commentMeta) {
+        rootIntersector.observe(commentMeta);
+    }
     
 }
 function registryAllComments(container) {
@@ -5372,10 +5475,13 @@ function registryAllComments(container) {
 function registryComment(comment) {
     if (checkIsRendered(comment))
         return;
-    commentsIntersector.observe(comment.querySelector(`div[slot="commentMeta"]`));
+    const commentMeta = getCommentMeta(comment);
+    if (commentMeta) {
+        commentsIntersector.observe(commentMeta);
+    }
     
 }
-async function renderComment(comment) {
+function renderComment(comment) {
     const commentBody = comment.querySelector(`div[slot="comment"]`);
     
     filterComment(comment, commentBody);
@@ -5385,7 +5491,7 @@ async function renderComment(comment) {
             comment.setAttribute(`collapsed`, ``);
             return;
         }
-        const isMod = comment.querySelector(`div[slot="commentMeta"]`)?.querySelector(`shreddit-comment-author-modifier-icon[distinguished-as="MODERATOR"]`) != null;
+        const isMod = getCommentMeta(comment)?.querySelector(`shreddit-comment-author-modifier-icon[distinguished-as="MODERATOR"]`) != null;
         const isPinned = comment.querySelector(`shreddit-comment-badges`)?.shadowRoot?.querySelector(`svg[icon-name="pin-fill"]`) != null;
         if (isMod && isPinned) {
             comment.setAttribute(`collapsed`, ``);
@@ -5395,7 +5501,8 @@ async function renderComment(comment) {
     setTimeout(() => {
         renderMoreReplies(comment);
     }, 150);
-    const nickname = comment.querySelector(`div[slot="commentMeta"]`).querySelector(`faceplate-hovercard[data-id="user-hover-card"]`);
+    const commentMeta = getCommentMeta(comment);
+    const nickname = commentMeta?.querySelector(`faceplate-tracker[noun="comment_author"]`);
     if (nickname == null)
         return;
     const tagsAnchor = document.createElement(`div`);
@@ -5407,10 +5514,19 @@ async function renderComment(comment) {
     else {
         nickname.after(tagsAnchor);
     }
-    const time = await dynamicElement(() => nickname.parentElement.querySelector(`time`)?.parentElement?.parentElement, MAX_LOAD_LAG);
     const infoAnchor = document.createElement(`div`);
     infoAnchor.setAttribute(`pp-anchor`, `info`);
-    time?.before(infoAnchor);
+    nickname.after(infoAnchor);
+    const findTimeWrapper = () => nickname.parentElement?.querySelector(`time`)?.parentElement?.parentElement;
+    const timeNow = findTimeWrapper();
+    if (timeNow) {
+        timeNow.before(infoAnchor);
+    }
+    else {
+        observeOnce(nickname.parentElement, findTimeWrapper, timeEl => {
+            timeEl.before(infoAnchor);
+        });
+    }
     if (settings.GHOSTED_COMMENTS.isEnabled() && parseInt(comment.getAttribute(`score`)) < 0) {
         comment.querySelector(`div[slot="commentAvatar"]`).classList.add(`pp_muted_avatar`);
         comment.querySelector(`faceplate-tracker[noun="comment_author"]`).querySelector(`a`).style.color = `#a5a5a5`;
@@ -5435,11 +5551,28 @@ async function renderComment(comment) {
     const userId = comment.getAttribute(`author`);
     const userName = comment.querySelector(`faceplate-tracker[noun="comment_author"]`).querySelector(`a`);
     renderUserInfo(userId, userName, tagsAnchor, infoAnchor, IS_COMMENT);
-    const contextMenuButton = await dynamicElement(() => comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`faceplate-dropdown-menu`));
+    const attachContextMenu = (btn) => {
+        btn.addEventListener(`click`, () => {
+            contextMenu_renderContextMenu(comment);
+        }, { once: true });
+    };
+    let contextMenuButton = comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`faceplate-tracker`) ?? null;
+    if (contextMenuButton) {
+        attachContextMenu(contextMenuButton);
+    }
+    else {
+        const overflow = comment.querySelector(`shreddit-overflow-menu`);
+        if (overflow) {
+            observeOnce(overflow, () => overflow.shadowRoot?.querySelector(`faceplate-tracker`), attachContextMenu);
+        }
+        else {
+            observeOnce(comment, () => {
+                const m = comment.querySelector(`shreddit-overflow-menu`);
+                return m?.shadowRoot?.querySelector(`faceplate-tracker`);
+            }, attachContextMenu);
+        }
+    }
     renderCommentBookmark(comment);
-    contextMenuButton.addEventListener(`click`, () => {
-        contextMenu_renderContextMenu(comment);
-    }, { once: true });
 }
 
 // EXTERNAL MODULE: ./src/modules/scrollToTop.less
@@ -5458,11 +5591,14 @@ var scrollButton_default = /*#__PURE__*/__webpack_require__.n(scrollButton);
 const START_Y = 1000;
 let scrollToTop_scrollToTop = null;
 let scrollToTop_scrollButton = null;
+let scrollFAB = null;
+let fabButton = null;
 let prevScrollHeight = 0;
 let isWide = false;
 let isBottom = false;
 let scrollToTop_contentBlock = null;
 let scrollToTop_sidebarBlock = null;
+let resizeTimer = null;
 function renderScrollToTop() {
     if (settings.SCROLL_TO_TOP.isDisabled())
         return;
@@ -5476,7 +5612,7 @@ function renderScrollToTop() {
         }, 0.5);
     });
     sidebarObserver.observe(sidebar, { childList: false, subtree: false, attributes: true });
-    scrollToTop_sidebarBlock = sidebar.querySelector(`#flex-left-nav-contents`);
+    scrollToTop_sidebarBlock = sidebar.querySelector(`#flex-left-nav-container`);
     const sidebarButton = sidebar.querySelector(`#flex-nav-buttons`);
     sidebarButton.addEventListener(`click`, event => {
         animate(() => {
@@ -5486,7 +5622,10 @@ function renderScrollToTop() {
     scrollToTop_scrollToTop = appendElement(main.parentElement, `div`, `pp_scrollToTop`);
     scrollToTop_scrollButton = buildSvg((scrollButton_default()), 40, 40);
     scrollToTop_scrollToTop.append(scrollToTop_scrollButton);
-    scrollToTop_scrollToTop.addEventListener(`click`, () => {
+    scrollFAB = appendElement(document.body, `div`, `pp_scrollToTop_fab`);
+    fabButton = buildSvg((scrollButton_default()), 24, 24);
+    scrollFAB.append(fabButton);
+    const handleScrollClick = () => {
         if (isBottom) {
             prevScrollHeight = window.scrollY;
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -5498,9 +5637,17 @@ function renderScrollToTop() {
             isBottom = true;
         }
         scrollToTop_checkScreenWidth();
-    });
+    };
+    scrollToTop_scrollToTop.addEventListener(`click`, handleScrollClick);
+    scrollFAB.addEventListener(`click`, handleScrollClick);
     window.addEventListener('resize', event => {
-        scrollToTop_checkScreenWidth();
+        if (resizeTimer) {
+            clearTimeout(resizeTimer);
+        }
+        resizeTimer = setTimeout(() => {
+            scrollToTop_checkScreenWidth();
+            resizeTimer = null;
+        }, 150);
     });
     let prevIsBottom = false;
     window.addEventListener(`scroll`, event => {
@@ -5515,11 +5662,46 @@ function renderScrollToTop() {
 function scrollToTop_checkScreenWidth() {
     const left = scrollToTop_sidebarBlock.getBoundingClientRect().right;
     const right = scrollToTop_contentBlock.getBoundingClientRect().left;
-    scrollToTop_scrollToTop.style.left = `${(left + right) / 2 - 50}px`;
-    const hidden = !(right - left > 116 && (isBottom || prevScrollHeight > 0));
+    const availableSpace = right - left;
+    const minButtonSpace = 60;
+    const optimalWidth = 100;
+    const minGap = 80;
+    let buttonWidth = optimalWidth;
+    let leftPosition = (left + right) / 2 - buttonWidth / 2;
+    if (availableSpace >= minGap + 40) {
+        buttonWidth = Math.min(optimalWidth, availableSpace - 20);
+        leftPosition = (left + right) / 2 - buttonWidth / 2;
+    }
+    else if (availableSpace >= minButtonSpace) {
+        buttonWidth = Math.max(minButtonSpace, availableSpace - 10);
+        leftPosition = (left + right) / 2 - buttonWidth / 2;
+    }
+    else {
+        if (availableSpace >= 40 && availableSpace < minButtonSpace) {
+            buttonWidth = Math.max(40, availableSpace - 5);
+            leftPosition = left + (availableSpace - buttonWidth) / 2;
+        }
+        else {
+            buttonWidth = 60;
+            leftPosition = left - 30;
+            scrollToTop_scrollToTop.style.opacity = '0.7';
+        }
+    }
+    scrollToTop_scrollToTop.style.width = `${buttonWidth}px`;
+    scrollToTop_scrollToTop.style.left = `${leftPosition}px`;
+    if (availableSpace >= 40) {
+        scrollToTop_scrollToTop.style.opacity = '';
+    }
+    const isPageScrollable = document.documentElement.scrollHeight > window.innerHeight;
+    const shouldShowRegular = isPageScrollable && (isBottom || prevScrollHeight > 0) && availableSpace >= 30;
+    const shouldShowFAB = isPageScrollable && (isBottom || prevScrollHeight > 0) && availableSpace < 30;
     const inverted = !isBottom && prevScrollHeight > 0;
-    scrollToTop_scrollToTop.classList.toggle(`pp_scrollToTop_hidden`, hidden);
+    scrollToTop_scrollToTop.classList.toggle(`pp_scrollToTop_hidden`, !shouldShowRegular);
     scrollToTop_scrollButton.classList.toggle(`pp_scrollToTop_inverted`, inverted);
+    scrollFAB.classList.toggle(`pp_scrollToTop_fab_hidden`, !shouldShowFAB);
+    fabButton.classList.toggle(`pp_scrollToTop_inverted`, inverted);
+    scrollToTop_scrollToTop.classList.toggle(`pp_scrollToTop_compact`, availableSpace < minGap);
+    scrollToTop_scrollToTop.classList.toggle(`pp_scrollToTop_minimal`, availableSpace < minButtonSpace);
 }
 
 ;// CONCATENATED MODULE: ./src/modules/users/userPage.ts
@@ -6042,7 +6224,7 @@ async function header_renderHeader(container) {
     const nav = await dynamicElement(() => container.querySelector(`reddit-header-large`)?.querySelector(`nav`));
     if (checkIsRendered(nav))
         return;
-    const userPanel = await dynamicElement(() => nav.childNodes.item(4));
+    const userPanel = await dynamicElement(() => nav.childNodes.item(nav.childNodes.length - 1));
     userPanel.classList.add(`pp_userPanel`);
     userPanel.addEventListener(`click`, () => {
         renderSettingsButton();
@@ -6149,7 +6331,7 @@ async function startRedditPlusPlus() {
     }
     pp_meta = document.createElement(`meta`);
     pp_meta.setAttribute(`name`, `reddit-plus-plus`);
-    pp_meta.setAttribute(`version`, "1.1.0");
+    pp_meta.setAttribute(`version`, "1.1.1");
     document.head.append(pp_meta);
     migration_1_0_0.check();
     if (checkRedirect()) {
