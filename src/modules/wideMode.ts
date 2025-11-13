@@ -33,8 +33,8 @@ export function renderWideMode(pageContainer: Element, rightSidebar: Element) {
     mainContainer.className = `main-container gap-lg w-full`;
 
     // fix for context lookup
-    observeFor(pageContainer, renderContextPopup, false);
-    observeFor(originContainer, renderContextPopup, false);
+    observeFor(`WIDEMODE_PAGE`, pageContainer, renderContextPopup, false);
+    observeFor(`WIDEMODE_CONTEXT`, originContainer, renderContextPopup, false);
 
     function renderContextPopup(element: HTMLElement): boolean {
         if (element.classList.contains(`rounded-[16px]`)) {

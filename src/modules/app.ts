@@ -49,6 +49,4 @@ export async function renderApp() {
     renderWideMode(pageContainer, rightSidebar);
 
     renderBiggerFonts();
-
-    renderScrollToTop();
 }

@@ -29,7 +29,7 @@ export async function renderHeader(container: Element) {
 
     if (settings.NOTIFY_POPUP.isEnabled() && !notificationsInitialized) {
         notificationsInitialized = true;
-        observeFor(document.body, (element: HTMLElement) => {
+        observeFor(`HEADER`, document.body, (element: HTMLElement) => {
             if (element.getAttribute(`data-id`) == `notification-container-element` && !checkIsRendered(element)) {
                 renderNotifications(element);
             }

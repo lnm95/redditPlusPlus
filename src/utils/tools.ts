@@ -40,7 +40,18 @@ interface ObserveAction {
     (elment: HTMLElement): void | boolean;
 }
 
-export function observeFor(root: Element, action: ObserveAction, includeChilds: boolean = true) {
+const observeForInstances = new Map<string, MutationObserver>();
+
+export function observeFor(name: string, root: Element, action: ObserveAction, includeChilds: boolean = true) {
+    if (name && observeForInstances.has(name)) {
+        observeForInstances.get(name).disconnect();
+        observeForInstances.delete(name);
+
+        if (DEBUG && PROFILE_DYNAMIC_ELEMENTS) {
+            profiler_dynamicElements.observeFor--;
+        }
+    }
+
     const result = action(root as HTMLElement);
 
     if (result != undefined && result == true) {
@@ -71,6 +82,10 @@ export function observeFor(root: Element, action: ObserveAction, includeChilds: 
     });
 
     observer.observe(root, { childList: true, subtree: includeChilds });
+
+    if (name) {
+        observeForInstances.set(name, observer);
+    }
 }
 
 export function checkIsRendered(node: Element, key: string = `pp-rendered`) {
@@ -120,6 +135,6 @@ export function PascalCase(input: string): string {
     if (!input) {
         return input;
     }
-    
+
     return input.charAt(0).toUpperCase() + input.slice(1);
 }

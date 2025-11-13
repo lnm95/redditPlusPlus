@@ -22,7 +22,7 @@ export async function renderSidebar(sidebar: Element) {
     // render sections
     const renderedSections = new Map<SidebarSection, SidebarSectionConfig>(sections);
 
-    observeFor(sidebar, (element: HTMLElement) => {
+    observeFor(`SIDEBAR`, sidebar, (element: HTMLElement) => {
         renderedSections.forEach((config, section, map) => {
             const sectionContainer = config.renderer.FindContainer(sidebar as HTMLElement, element);
 

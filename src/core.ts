@@ -8,6 +8,7 @@ import { MAX_LOAD_LAG } from './defines';
 import { dynamicElement } from './utils/tools';
 import { checkSortCommentsRedirect } from './modules/comments/sortButtons';
 import { initializeFeedRedirect } from './modules/feed/feedRedirect';
+import { renderScrollToTop } from './modules/scrollToTop';
 
 
 
@@ -49,8 +50,9 @@ async function startRedditPlusPlus() {
     renderHeader(documentBody);
 
     renderApp();
+    renderScrollToTop();
 
-    observeFor(documentBody, element => {
+    observeFor(`CORE`, documentBody, element => {
         // header
         if (element.matches(`reddit-header-large`) == true) {
             renderHeader(element.parentElement);
@@ -62,7 +64,7 @@ async function startRedditPlusPlus() {
 
         if (isSubPage || isMainPage) {
             renderApp();
-
+            renderScrollToTop();
             checkSortCommentsRedirect();
         }
     });

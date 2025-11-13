@@ -4,8 +4,7 @@ import { css } from './customCSS';
 import style from './scrollToTop.less';
 import scrollButtonSvg from '@resources/scrollButton.svg';
 import { settings } from './settings/settings';
-import { notify } from './toaster';
-import { animate, observeFor } from '../utils/tools';
+import { animate, dynamicElement } from '../utils/tools';
 
 const START_Y: number = 1000;
 
@@ -13,27 +12,51 @@ let scrollToTop: HTMLElement = null;
 let scrollButton: SVGSVGElement = null;
 
 let prevScrollHeight: number = 0;
-let isWide = false;
 let isBottom = false;
 
 let contentBlock: HTMLElement = null;
 let sidebarBlock: HTMLElement = null;
 
-export function renderScrollToTop() {
+const sidebarObserver = new MutationObserver(() => {
+    animate(() => {
+        checkScreenWidth();
+    }, 0.5);
+});
+
+
+export async function renderScrollToTop() {
     if (settings.SCROLL_TO_TOP.isDisabled()) return;
 
     css.addStyle(style, `scrollToTop`);
 
-    contentBlock = document.body.querySelector(`.main-container`);
+    contentBlock = await dynamicElement(() => document.body.querySelector(`.main-container`)) as HTMLElement;
     const main = contentBlock.parentElement;
 
-    const sidebar = document.body.querySelector(`#left-sidebar-container`);
+    const sidebar = await dynamicElement(() => document.body.querySelector(`#left-sidebar-container`));
 
-    const sidebarObserver = new MutationObserver(mutations => {
-        animate(() => {
+    if (scrollToTop == null) {
+        // initialize
+        window.addEventListener('resize', () => {
             checkScreenWidth();
-        }, 0.5);
-    });
+        });
+
+        let prevIsBottom = false;
+        window.addEventListener(`scroll`, () => {
+            isBottom = window.scrollY > START_Y;
+
+            if (isBottom != prevIsBottom) {
+                prevIsBottom = isBottom;
+                checkScreenWidth();
+            }
+        });
+    } else {
+        // cleaning
+        scrollToTop.remove();
+        sidebarObserver.disconnect();
+        prevScrollHeight = 0;
+        isBottom = false;
+    }
+
 
     sidebarObserver.observe(sidebar, { childList: false, subtree: false, attributes: true });
 
@@ -67,37 +90,26 @@ export function renderScrollToTop() {
         checkScreenWidth();
     });
 
-    window.addEventListener('resize', event => {
-        checkScreenWidth();
-    });
-
-    let prevIsBottom = false;
-    window.addEventListener(`scroll`, event => {
-        isBottom = window.scrollY > START_Y;
-
-        if (isBottom != prevIsBottom) {
-            prevIsBottom = isBottom;
-            checkScreenWidth();
-        }
-    });
-
     checkScreenWidth();
 }
 
+let isHidden: boolean = true;
 function checkScreenWidth() {
     const left = sidebarBlock?.getBoundingClientRect()?.right ?? 0;
     const right = contentBlock.getBoundingClientRect().left;
 
     scrollToTop.style.left = `${(left + right) / 2 - 50}px`;
 
-    const hidden = !(right - left > 116 && (isBottom || prevScrollHeight > 0));
+    isHidden = !(right - left > 116 && (isBottom || prevScrollHeight > 0));
     const inverted = !isBottom && prevScrollHeight > 0;
-    scrollToTop.classList.toggle(`pp_scrollToTop_hidden`, hidden);
+    scrollToTop.classList.toggle(`pp_scrollToTop_hidden`, isHidden);
     scrollButton.classList.toggle(`pp_scrollToTop_inverted`, inverted);
 
-    if (hidden) {
+    if (isHidden) {
         setTimeout(() => {
-            scrollToTop.classList.toggle(`pp_hidden`, true);
+            if (isHidden) {
+                scrollToTop.classList.toggle(`pp_hidden`, true);
+            }
         }, 500);
     } else {
         scrollToTop.classList.toggle(`pp_hidden`, false);

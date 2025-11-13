@@ -1,4 +1,4 @@
-import { ChangesObserver } from "../../../utils/changesObserver";
+import { ChangesObserver, ChangesSource } from "../../../utils/changesObserver";
 import { Database } from "../../../utils/database";
 import { appendElement } from "../../../utils/element";
 import { renderUIOptions } from "../../../utils/UI/options";
@@ -10,7 +10,7 @@ import { getCurrentSub } from "../../subs/subs";
 import { customFeedData, defaultFeedData, defaultSorts, FeedData, subsFeedData } from "../feed";
 import { FeedLocation } from "../feedLocation";
 import { redirectConfigs } from "../feedRedirect";
-import { getFeedSorts } from "../feedSort";
+import { FeedSort, getFeedSorts } from "../feedSort";
 
 import style from "./feedSettingsWindow.less";
 
@@ -24,6 +24,7 @@ export interface FeedSettingsContext {
 }
 
 const changes = new ChangesObserver();
+const sortChanges = new Map<FeedSort, ChangesSource>();
 
 
 function renderFeedSettingsWindow(win: Window, context: any) {
@@ -71,7 +72,6 @@ function renderFeedSettingsWindow(win: Window, context: any) {
         const controlArea = appendElement(buttonContainer, `div`, `pp_window_controlArea`);
 
         isOverrided = overrideData != null;
-        const changesSource = changes.CreateSource(isOverrided);
 
         renderUIToggle(controlArea, isOverrided, (state: boolean) => {
             if (state) {
@@ -87,10 +87,8 @@ function renderFeedSettingsWindow(win: Window, context: any) {
             }
 
             isOverrided = state;
-            changesSource.Capture(state);
             overrideArea.classList.toggle(`pp_feedSettings_overrideSub`, isOverrided);
-
-            changes.Reset();
+            
             renderWindowTittle();
             renderOverrideArea();
         });
@@ -187,7 +185,15 @@ function renderFeedSettingsWindow(win: Window, context: any) {
             const controlArea = appendElement(buttonContainer, `div`, `pp_window_controlArea`);
 
             const defaultValue = !currentData.hiddenSort.includes(sort);
-            const changesSource = changes.CreateSource(defaultValue);
+            let changesSource:ChangesSource = null; 
+            if(sortChanges.has(sort)) {
+                changesSource = sortChanges.get(sort);
+                changesSource.Capture(defaultValue);
+            } else {
+                changesSource = changes.CreateSource(defaultValue);
+                sortChanges.set(sort, changesSource);
+            }
+
             renderUIToggle(controlArea, defaultValue, (state: boolean) => {
                 if (state) {
                     currentData.hiddenSort = currentData.hiddenSort.filter((hiddenSort) => hiddenSort != sort);
