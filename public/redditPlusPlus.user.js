@@ -4,7 +4,7 @@
 // @description      A lot of enhancements for new design of reddit.com like unwrapped feed buttons, bigger fonts, view images without redirect, filtering content by keywords and many more...
 // @description:ru   Множество улучшений для нового интерфейса reddit.com, таких как развернутые кнопки лент, увеличенный шрифт, увеличение изображений без редиректа, фильтрация контента по ключевым словам и много другое...
 // @namespace        RedditPlusPlus
-// @version          1.1.0
+// @version          1.2.0
 // @author           lnm95
 // @icon             data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAQRklEQVR4nN2bCZAc1XnHf6+75569L0lI6DJCAmIQESBBEnFIwhyKwmHsshMnBRhSwQZifCSOKxw+iEPABldMUmCb4KtiCDKXicRhCZAAQSQkJJCwVtrVXtpzdmfnnu5+qdczOzuzO7M7e2BC/lVTuz3b773v+7/vescKpgi5fooNBB9HcgNwMbAE0Eq8B2nABurnw6KPQUUlhIbg6P4hQv0/wc0PEByhhNTi+alqA8bUm0yCrQguYS02m5Bcg2ReWe0sRY0LTloOl16PPHM9VDZAfwe89Isq8dwjX6C3x4ebuxB0zpa4s0dAgGqi3MwGrgcWTKmtADsG6flNcPkNuDZ+YXSSq+qhaRHS5TXEQ9+6AezTgFuB3Vl7mRGKm+NU4KYGwTeJ0grcOWXltQwBvzPh5wMeftGSpDs0iJQyR4L0V2KfeSGyqV6Q5jxsdiB4CDHFsUoMn4MadLJPDuehIfkyKY4g+QZQOeXRdehI6dzWVsXGnhP48hGNn728m6PNR5DWyORKTCFIBWqwfX71iEO75Foku4BbcvKvn6IO03YBm2Xs5FEE50yrvVCCQldS5+bOWvaKOv44GGb1Qh91G9ZQdfIKYrbElUiS9nqIKkE7WvGEex3S8oLgHOD7CP4ajUuwaGGDgK1ywuHzMXUXEPwNgv9BTkN5kf1oEEbnxwMVbLcbuKrO5JtN/dwY7OFq2UJgqIeuJLTZHjpjEN+zC9eWR9DC0cyUjc0CkuVYHEBws/O8ofzkVvDmWPMowJ1CYwf3AF+astI2GdO1GDFh9iXg8rY5nN/o4V+qO2gUJiQgVemn/9xPMnzmxViVDRih49TsfIyat55Gt6Uy/lwfJcb7J7by9YmUEULkvV4OAecKH0F+DlxR9O8y7yPy7Epmlc/FagNcbmzNxbNhnU+1VfPTZXE2eeMYZgrSKUiZzvtWdQArWI0R6UMbTmb6dOVJPfEkbybCZ9kp45MRMHkMyCj/G+D8ksqbI7MrQJMZQUX2+7QAL1DbCE0LYeFyrIaF+PvSXLDrGEsvWI4RMKHrCLT/Do63QH8Pen8UXZm8K6u4IjEpQMhMHCjmCqO4wpH5XHFpKRJyZBToMs4ChGAD/1Vy5hNZxZuqkQtOAa8f0d0CrYdhWH3vRa66BM68AJafA/UngMuL1A1StiScMKnxuTEUaaYJ6QT0dcDBN2DPdsSup6E7BRU4laGcuwSiw4i2d6F7KEOEf0KX2Mx5XM3tsqBeKN8FLhZ3I/m7ol3HgOpKWPcZ5NqroaYRNB0SUdizDXraYcUqWLEaaprAX5gl8wceJ38sDIM9cOBVeG83NC2AleeDL5gharAb8dtfwYu/hMGIKsImwn1slbdNnYAN4hYnxRRDCvBWwhXXIa+4BRoXFr6kSIgOQV15VXBJKHkGuiBQBd4xWnYfRTxxP/z6R5CMZIJjKQhuYov8YfkEXCIWYXMA6RhYIZQxhYGNn0TeeM945fMw4SxPKG+Z7RQJ/3YbbNmcsYLSMSGCziqek4cYQ0DxOsDiuaLKk/X5gIG95nLsMpQfyYDlZmaRlzyYpJ1sWoy1eiPSq0+2Kghi8aiTysdgPAEZ019esisb7Npq0v5qh4ucMKrMzFfCtokPhRk4dIhweztmMjEpCU7iSCUZ7uwkdPAQiaGw00+xdiI7F2ZFLbIqWI6Jnc2r42uYQgIuFmpx8bXJpJS2RTptkhzJgLaNrdwnL4YMtLbxznfv4sh1Gzl682fofWU7ZsosSYKjfNqk9+VtHL3pUxz9/Cb23/sdBtrac+84liEltm07WwcqCaWTKbBkeSYm+AcuFzWlCYCvAHMn7EQHbSBM4vgxwilJTGYEl7bMreAi0SR9W57B/9SPWWE287F5En33VpIqPRYx65HnRPNB7McfZOHh11i+WKeydRf9r7zIcH8oY1VKeSkxLctZH4QTFqmuFrRwpFwfqyZZaAU5AuQGZ2n5V5N2oYOwLTw7niC69zW6bEhIkRUu80q0sx1z306akiEqmiRBsx3/20+jtR/KFY35GPlO62omePhlqmstgr4Q9R17sN7aTux4d0bGrJXFpcZxCfG9O3DvfBJMu/xVjeBm+WdUjyMA4ezeVJTViRcCB16jcvN9iD2vk7Sk44/KFRTslImbKEGV+v0S2lrwDrbikokJXdWNScCTyBQ+4S58/YO44v1ImZlex9WU2ZsW2ls7qdh8H/79b4CnTOUzqCTKF8cTYHNT2V2oitc2aXjlCeY99T30vg5SQiMtbdK2xD1nLr6VZ2EuqEd63OD3Y/zhRRgLThrZ/yj60RcsxTj7IqgIIF0urAX1+FaejWfunIzp25K00ND725n71L3U73gSzTKns6j//EjUUMWk2khYC/ztlLpQsSAORjKKtew0UotOBdPCtixclQH0+nmYbjcuXzXi5LMQm26Fk1Y51fVIxhh1B6G+RtTMgXlLsawkdtWJxM+6FM+6P8c9b54TdE0JaUPHtfclgs89it43mNmGmUqRkUEVS9h25xFaMtxJPlt2os6HxwnDyK6jpNO2s4sjpYUel7jmL4HP3U4qFkVXawS3QSKRJB6JkE6lMJW7ZLOGYRi4XW58wQCeZefA4lXY8SiegB8pNMxEEsuysDRdcYzR1YpMJUdXh9OBxiZgm5GdgLXT6sQFeqwH14GXSa67DsvrxZa2s27XbInhcmMEK4nGE9x793d48/XXnZkcSWUyGzV1w0DXBYams+qcc/jq1/4eT7ASy7IxzRS2aWVyvrSxYiEqD2xDj3ZPvjcwESRXKqs35CUsxWTZNFmEtIX74B70Xc8wvPoqPJqGx0qg64bjDpbLjcdtEBse5pVtvyWZSIDbB5qGUK7gbJjYkErg9rhZceoK3G6DVCrtKK9SniIg5faSMgXB15/GdWA3pKypBr+xOFFlPv2OJVwEXDPtblRAjMfQBzoYPPF0YlXznGgtkwlMKbFsC03XaWxqIhwe4v3mZuxEHKSW3SWywEzi8vq48qqruO6GG6mtrycej5NMp0klU8SEm6h0oTfvpeFX38Lb9j5Cl7Oxp71bEfCXzh7vDAhQM+np7oDEMJG6E4lWzSVlK72SpNNpkqk0CxcvYeGixbh9AdISjGAF3qoqauobWLRkKZuuzCj/8ZVn0jcwQFzFi5TtKB+XBq7mPTQ++32q39qSUV6fsfJqApqF3OAsfD4xw46yuz/QvfYajq+7lvj8P0AIDYGFZtvomqC2tppELMq+vXt55713icbj+D0+Tj11OStPPwNfoILQ4KDj+xY6ttCcvB9o3cecFx6i8ZXHM4Fv9o5zHlcEvIlk1ax0l84QET3pdHrW30DojE9guoOOidu26bzichn4vT48Hje6pjnukkymiSfipNKZd9TGitDd6MkwNe88T9PzDxM8tCcT9GbxMM+UvCtS6+hxCRpmrVeV3Uwdq7KW2ClrGF51GfFla0hWNWIZXqTQnUwhle+rNCgEQjdAEwjLQk8ncA/34Du4g6pdTxE4uAs9MogwrNnw+UIIjisLSCIn3E8pD0vWwvzsKlq5xN4XkeF2rMp6rMZ5pBecgqk+DYuxKuqQhgep6wiVAdIxtEgIV08LxrH9GO3vYXR3YoR7Eenk6Cbrn9w4Kkq4H95+fKZSJ4RcP+1MOoozroZ/fqzgq95D79Jw46mZ2KACls+LDNQj/dVIvx+8rsweorQgnoZYDC02hIj2QjyRIdHFaLC760VYfWGu/1QqRfJH91Cx+RszEn12PKqyruBxcHCQ5sFhGjxk/FZFsngCMdSOsNpHzw5Gqs+RAxM9W126i6yZ6+cUPLa2HsObSJS5eisNI7uv4J1hPwXo6+t3Pjnb0rIjjIwixxxs55NRhj0ODAzQ199HfTQ6U1FT6oR3cKa95EPV7Cr3KxMtQOHqJ6O0NuYUqUxnVOW0GsO2ZnY9wJQMaSkIzaiXDxUzC1+GoFVz6+yfbRXUtrOmzXbOGj+GGL/JO8VO6NOcM/VZhBJMLW/9/uK76rMBXdfwer24vb6Z9SbZp2rVfbMpnJr5QCDAnDlNs9ltATweDzXVNQSra6bQqghs3jQQbC/Lla79IQRKJJ2GwiOwioogbrcL+6b/KO0Ke1+Fl/999FkVUpddX3r8usbcr4qAhoZ6PGsugLk/Ld3mZ3dAqLn0393scZKPXO9ccDqx5IvX3A3XFz8jLQaVCSaLA11dx2n64mq0cGvmi5+0wAmlT5ryIbMbKrpeekmYTCYZ+s1jND74F6VeeV88z8kZCQVPTDhi0/yyBBuBUjz//G0s+vv7aT3WSuSE00f/Uqby+WOUgpqAY8fa6ExYpTtQlp+rBG2eRDh37yZFKBTCNM3cDLtcLsck1U+R3fBUOTqRSDi1wNgjd7XTc7z7OB0dnSxLJsYNF4lEnLbOIUs2oKr+3W53bsaVgk4pnMzsFeaPYat7B+Ewbe3t6AP9pdWRzo2XLAEvsJ0NtCFL3LvrbicWizmsDg4N5ghQSldVVjn+WFVV5QioTDMajdLd3UNocJSsEagiRpE4NDSEL3RsdIyOVtql4ZCjFFNKKYJVNqmvq6eurhafz+d8r5QfGAg51aAaS405Mob6PRaLO9Xi4lB3qdlvEVvzLEBk3Orh7EXH8Xj+YVK6B/9AP3o8njmwVLPjdhOorMJ38mnoF27MECslw8MROjo7mfvSYwhNQ9ONnIBS2jSZJoHhPnyhg6PEPPiPGHOXUTscxkqnMwToOl6/n8raejyXfxp8PqcfRVBvXy/xt3ZQ0/oumqaj6VrubFlViAsskwXHdhcnwOZfR34dXQyleQAXtxW98BhqpvqXXxo9TxoLtUzNEqCgTFiZ4UW7HizVYhxcux5lzkQvnLculwmUFamZr205wClTGMOBYBjBf4485iKJ2MYgkgem1ltxKL+07Rlf4y0JZR1OpplOtWnziNhK28hjYQ8e7lOr2ZkIN2LqE2WB2YAThCdIgyXQhebcdcyhkIBnZAjJtz9QyT9cfJctsi1fgvE29EeOFbzx/1D5g2yV94/9cjwB6k6d7pwVRKYziqoB0mb6A40BKrWappU7WisDMQSXFnuteBRRt6nEJFdlikAFp97ePifPq5OdDwJqu03l/+HhYWzLLHeEryM5Wj4BCupeneR7ZXUf7neKk8OHm2k+coTOzi5kJDy76sci9PT0Ov2rgkyR7ErGJm+nLk/D/aWu0E98U1TtOKzn8ZJXZfOQXn4ZPUtXEQuHYXiAE1pewz/4fpnaTQ5ZvYTwyj9lQPeSjEao7D3KvMPPTtxOsJmtXDVWsandFs9cln4bpnmC/OFhGxGKXpae/KJkPir46kdQ+c2O8kEmDUQTE3CxuB3JHbMp2e8B9zk3xNXMl/GvM6UPRj56ykeczJV3KbocFK1X5QY+WsoLdqHxOfHfHJpq03Eu8BFTXi3gvsK5rJmO8gqFWWAdtyLKzP0fLsIIfoCLe8WzMzvYKYwBGp+ehbPiDxJqIfMwAR4Qv56dI71CAgTd/wcJOOZs2qp9yxfYLmZ6HjYGYwm4Bcki51/ef79Ql4gHEY4570fS4hzYpNkmtjF6X362AfwvvG5Pojz6v/sAAAAASUVORK5CYII=
 // @source           https://github.com/lnm95/redditPlusPlus
@@ -13,6 +13,7 @@
 // @grant            unsafeWindow
 // @grant            GM_getValue
 // @grant            GM_setValue
+// @grant            GM_deleteValue
 // @run-at           document-start
 // ==/UserScript==
 
@@ -39,7 +40,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `faceplate-banner {
   max-width: 1000px !important;
 }
 .pp_hidden {
-  display: none;
+  display: none !important;
 }
 `, ""]);
 // Exports
@@ -64,7 +65,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `faceplate-banner {
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `:is(.text-14):not(.pp_defaultText .text-14) {
+___CSS_LOADER_EXPORT___.push([module.id, `:is(.text-14-scalable):not(.pp_defaultText .text-14-scalable) {
   font-size: 1rem !important;
   line-height: 1.4rem !important;
 }
@@ -334,7 +335,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_tagsPanel {
 .pp_tagHintContainer {
   display: flex;
   justify-content: center;
-  position: fixed;
 }
 .pp_tagHint {
   display: flex;
@@ -347,6 +347,33 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_tagsPanel {
   font: var(--font-small);
   background-color: var(--color-neutral-content-strong);
   border-radius: 5px;
+}
+`, ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./src/modules/customFeed/customFeed.less":
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/css-loader/dist/runtime/noSourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `.pp_customFeed_masthead_ico {
+  width: 50px !important;
+  height: 50px !important;
 }
 `, ""]);
 // Exports
@@ -372,55 +399,83 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_tagsPanel {
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.pp_feedPanel {
-  flex-direction: row;
-}
-.pp_feedPanel_space {
   width: 100%;
 }
-.pp_defaultFeed_mark {
+.pp_feedPanel > div {
+  justify-content: flex-end;
+}
+.pp_feedPanel_buttons {
+  display: flex;
+  gap: 4px;
+  width: 100%;
+  height: 40px;
+}
+.pp_feedPanel_settings_container {
+  display: flex;
+  align-items: center;
+}
+.pp_feedPanel_settings {
   color: var(--color-neutral-content-weak);
   border-radius: 18px;
   display: flex;
   align-items: center;
-  margin: 0px 5px 9px 5px;
+  height: 32px;
   padding: 0px 8px;
   position: relative;
   cursor: pointer;
 }
-.pp_defaultFeed_mark:hover {
+.pp_feedPanel_settings:hover {
   background-color: var(--button-color-background-hover);
 }
-.pp_defaultFeed_mark:active {
+.pp_feedPanel_settings:active {
   background-color: var(--button-color-background-activated);
 }
-.pp_defaultFeed_mark_hint {
-  display: none;
-  position: absolute;
-  top: -32px;
-  left: 16px;
-}
-.pp_defaultFeed_mark:hover > .pp_defaultFeed_mark_hint {
-  display: block !important;
-}
-.pp_defaultFeed_mark_hint > span {
-  color: #c7c7c7;
-  background-color: rgba(0, 0, 0, 0.712);
-  text-wrap-mode: nowrap;
-  border-radius: 18px;
-  padding: 4px 8px;
+`, ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./src/modules/feed/feedSettings/feedSettingsWindow.less":
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/css-loader/dist/runtime/noSourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `.pp_feedSettings_overrideSub {
+  z-index: 20;
   position: relative;
-  left: -50%;
 }
-.pp_feedButtonsContainer {
-  justify-content: space-between;
-  height: 40px !important;
+.pp_feedSettings_overrideSub::before {
+  border-radius: 16px;
+  border: 2px solid #ffc800;
+  position: absolute;
+  content: '';
+  top: -8px;
+  right: -8px;
+  bottom: -8px;
+  left: -8px;
+  z-index: 15;
+  pointer-events: none;
 }
-.pp_feedButton {
-  gap: 0.25rem !important;
+.pp_feedSettings_overrideTittle {
+  color: #e1b30d !important;
 }
-.pp_feedContainer {
-  gap: 0.25rem;
-  height: 40px;
+.pp_ui_disabled {
+  opacity: 0.5;
+  filter: grayscale(1);
+  pointer-events: none;
 }
 `, ""]);
 // Exports
@@ -910,6 +965,55 @@ shreddit-post[gold-count]:not(shreddit-post[gold-count=''])::before {
 
 /***/ }),
 
+/***/ "./src/modules/profileMenu/profileMenu.less":
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/css-loader/dist/runtime/noSourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ``, ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./src/modules/profileMenu/profileMenuWindow.less":
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/css-loader/dist/runtime/noSourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `.pp_profileMenuElement_tittleContainer {
+  width: 100%;
+}
+`, ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./src/modules/redirect.less":
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -983,7 +1087,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_scrollToTop {
   cursor: pointer;
   color: var(--scrollLineTransparentColor);
   opacity: 1;
-  transition: padding-bottom 0.2s ease-in, color 0.2s ease-in, opacity 1s ease;
+  transition: padding-bottom 0.2s ease-in, color 0.2s ease-in, opacity 0.5s ease;
 }
 .pp_scrollToTop_inverted {
   transform: scale(1, -1);
@@ -997,7 +1101,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_scrollToTop {
 .pp_scrollToTop:hover {
   padding-bottom: 50px !important;
   color: var(--scrollButtonColor);
-  transition: padding-bottom 0.2s ease-out, color 0.2s ease-out, opacity 1s ease;
+  transition: padding-bottom 0.2s ease-out, color 0.2s ease-out, opacity 0.5s ease;
 }
 .pp_scrollToTop::before {
   position: absolute;
@@ -1107,28 +1211,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_settings_subtittle {
   justify-content: flex-end;
   flex-grow: 1;
 }
-.pp_settings_changesBannerContainer {
-  position: absolute;
-  top: 0px;
-  width: 900px;
-  overflow-y: hidden;
-  opacity: 0;
-  transition: opacity 0.15s ease-in-out;
-}
-.pp_settings_changesBanner {
-  display: flex;
-  justify-content: center;
-  margin: 2rem 15%;
-  padding: 1rem;
-  border-radius: 15px;
-  background-color: #ffd40017;
-  border: solid 1px #ffd400;
-  color: #d7b300;
-  font-weight: 500;
-}
-.pp_settings_changesBanner_active {
-  opacity: 1 !important;
-}
 `, ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
@@ -1152,7 +1234,13 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_settings_subtittle {
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `.pp_sidebar_loadingSection {
+___CSS_LOADER_EXPORT___.push([module.id, `flex-left-nav-container #pp-settings {
+  position: absolute;
+  top: 60px;
+  z-index: calc(var(--flex-nav-z-index) + 1);
+  inset-inline-end: -16px;
+}
+.pp_sidebar_loadingSection {
   max-height: 0px !important;
   visibility: hidden !important;
 }
@@ -1162,6 +1250,43 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_sidebar_loadingSection {
 .pp_sidebar_collapsedSection {
   max-height: 43px !important;
   overflow-y: hidden !important;
+}
+`, ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./src/modules/sidebar/sidebarSettingsWindow.less":
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/css-loader/dist/runtime/noSourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `.pp_sidebarSettings_sectionTittle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.pp_sidebarSettings_section {
+  padding: 0rem 3rem;
+  gap: 8px;
+  align-items: center;
+}
+.pp_sidebarSettings_section > span {
+  text-wrap-mode: nowrap;
+  margin-left: 3rem;
 }
 `, ""]);
 // Exports
@@ -1186,7 +1311,10 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_sidebar_loadingSection {
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `.pp_flairBar {
+___CSS_LOADER_EXPORT___.push([module.id, `.pp_flair {
+  border-radius: 20px;
+}
+.pp_flairBar {
   display: flex;
   flex-direction: row;
   overflow: hidden;
@@ -1562,6 +1690,51 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.pp_ui_toggle {
 }
 :root.theme-dark {
   --checkBox-background: #81818152 !important;
+}
+`, ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./src/utils/changesObserver.less":
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/css-loader/dist/runtime/noSourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `.pp_changesBannerContainer {
+  position: absolute;
+  top: 0px;
+  width: 900px;
+  overflow-y: hidden;
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+}
+.pp_changesBanner {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 15%;
+  padding: 1rem;
+  border-radius: 15px;
+  background-color: #ffd40017;
+  border: solid 1px #ffd400;
+  color: #d7b300;
+  font-weight: 500;
+}
+.pp_changesBanner_active {
+  opacity: 1 !important;
 }
 `, ""]);
 // Exports
@@ -1987,13 +2160,6 @@ module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\
 
 /***/ }),
 
-/***/ "./resources/feedButtons/feedButtonBest_empty.svg":
-/***/ ((module) => {
-
-module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 16 16\"><path d=\"M8.82,1.51l1.43,3.4a.86.86,0,0,0,.66.47l3.62.28A.91.91,0,0,1,15,7.22L12.3,9.62a.84.84,0,0,0-.25.76l.81,3.55a.92.92,0,0,1-1.33,1L8.41,13a.91.91,0,0,0-.82,0L4.47,14.89a.92.92,0,0,1-1.33-1L4,10.38a.84.84,0,0,0-.25-.76L1,7.22a.91.91,0,0,1,.5-1.56l3.62-.28a.86.86,0,0,0,.66-.47l1.43-3.4A.91.91,0,0,1,8.82,1.51Z\" style=\"fill:none; stroke:currentColor\"></path></svg>"
-
-/***/ }),
-
 /***/ "./resources/feedButtons/feedButtonHot.svg":
 /***/ ((module) => {
 
@@ -2068,6 +2234,27 @@ module.exports = "<svg fill=\"currentColor\" viewBox=\"0 0 20 20\" xmlns=\"http:
 /***/ ((module) => {
 
 module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\"><path d=\"M15.07,2.25a.33.33,0,0,1,.33.33V6.72h1.25a2.11,2.11,0,0,1,0,4.21H15.4v4.14a.33.33,0,0,1-.33.33H10.93v1.25a2.11,2.11,0,0,1-4.21,0V15.4H2.58a.33.33,0,0,1-.33-.33v-3A3.51,3.51,0,0,0,4.49,8.82,3.48,3.48,0,0,0,2.25,5.57v-3a.33.33,0,0,1,.33-.33H5.34a3.49,3.49,0,0,0,7,0h2.76m0-1.25H10.75A2.24,2.24,0,1,1,6.9,1H2.58A1.58,1.58,0,0,0,1,2.58v4a2.24,2.24,0,1,1,0,4.47v4a1.58,1.58,0,0,0,1.58,1.58H5.47a3.36,3.36,0,0,0,6.71,0h2.89a1.58,1.58,0,0,0,1.58-1.58V12.18a3.36,3.36,0,0,0,0-6.71V2.58A1.58,1.58,0,0,0,15.07,1Z\"></path></svg>"
+
+/***/ }),
+
+/***/ "./resources/settingsGear.svg":
+/***/ ((module) => {
+
+module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 48 48\"><path d=\"M 24 4 C 22.423103 4 20.902664 4.1994284 19.451172 4.5371094 A 1.50015 1.50015 0 0 0 18.300781 5.8359375 L 17.982422 8.7382812 C 17.878304 9.6893592 17.328913 10.530853 16.5 11.009766 C 15.672739 11.487724 14.66862 11.540667 13.792969 11.15625 L 13.791016 11.15625 L 11.125 9.9824219 A 1.50015 1.50015 0 0 0 9.4257812 10.330078 C 7.3532865 12.539588 5.7626807 15.215064 4.859375 18.201172 A 1.50015 1.50015 0 0 0 5.4082031 19.845703 L 7.7734375 21.580078 C 8.5457929 22.147918 9 23.042801 9 24 C 9 24.95771 8.5458041 25.853342 7.7734375 26.419922 L 5.4082031 28.152344 A 1.50015 1.50015 0 0 0 4.859375 29.796875 C 5.7625845 32.782665 7.3519262 35.460112 9.4257812 37.669922 A 1.50015 1.50015 0 0 0 11.125 38.015625 L 13.791016 36.841797 C 14.667094 36.456509 15.672169 36.511947 16.5 36.990234 C 17.328913 37.469147 17.878304 38.310641 17.982422 39.261719 L 18.300781 42.164062 A 1.50015 1.50015 0 0 0 19.449219 43.460938 C 20.901371 43.799844 22.423103 44 24 44 C 25.576897 44 27.097336 43.800572 28.548828 43.462891 A 1.50015 1.50015 0 0 0 29.699219 42.164062 L 30.017578 39.261719 C 30.121696 38.310641 30.671087 37.469147 31.5 36.990234 C 32.327261 36.512276 33.33138 36.45738 34.207031 36.841797 L 36.875 38.015625 A 1.50015 1.50015 0 0 0 38.574219 37.669922 C 40.646713 35.460412 42.237319 32.782983 43.140625 29.796875 A 1.50015 1.50015 0 0 0 42.591797 28.152344 L 40.226562 26.419922 C 39.454197 25.853342 39 24.95771 39 24 C 39 23.04229 39.454197 22.146658 40.226562 21.580078 L 42.591797 19.847656 A 1.50015 1.50015 0 0 0 43.140625 18.203125 C 42.237319 15.217017 40.646713 12.539588 38.574219 10.330078 A 1.50015 1.50015 0 0 0 36.875 9.984375 L 34.207031 11.158203 C 33.33138 11.54262 32.327261 11.487724 31.5 11.009766 C 30.671087 10.530853 30.121696 9.6893592 30.017578 8.7382812 L 29.699219 5.8359375 A 1.50015 1.50015 0 0 0 28.550781 4.5390625 C 27.098629 4.2001555 25.576897 4 24 4 z M 24 7 C 24.974302 7 25.90992 7.1748796 26.847656 7.3398438 L 27.035156 9.0644531 C 27.243038 10.963375 28.346913 12.652335 30 13.607422 C 31.654169 14.563134 33.668094 14.673009 35.416016 13.904297 L 37.001953 13.207031 C 38.219788 14.669402 39.183985 16.321182 39.857422 18.130859 L 38.451172 19.162109 C 36.911538 20.291529 36 22.08971 36 24 C 36 25.91029 36.911538 27.708471 38.451172 28.837891 L 39.857422 29.869141 C 39.183985 31.678818 38.219788 33.330598 37.001953 34.792969 L 35.416016 34.095703 C 33.668094 33.326991 31.654169 33.436866 30 34.392578 C 28.346913 35.347665 27.243038 37.036625 27.035156 38.935547 L 26.847656 40.660156 C 25.910002 40.82466 24.973817 41 24 41 C 23.025698 41 22.09008 40.82512 21.152344 40.660156 L 20.964844 38.935547 C 20.756962 37.036625 19.653087 35.347665 18 34.392578 C 16.345831 33.436866 14.331906 33.326991 12.583984 34.095703 L 10.998047 34.792969 C 9.7799772 33.330806 8.8159425 31.678964 8.1425781 29.869141 L 9.5488281 28.837891 C 11.088462 27.708471 12 25.91029 12 24 C 12 22.08971 11.087719 20.290363 9.5488281 19.160156 L 8.1425781 18.128906 C 8.8163325 16.318532 9.7814501 14.667839 11 13.205078 L 12.583984 13.902344 C 14.331906 14.671056 16.345831 14.563134 18 13.607422 C 19.653087 12.652335 20.756962 10.963375 20.964844 9.0644531 L 21.152344 7.3398438 C 22.089998 7.1753403 23.026183 7 24 7 z M 24 16 C 19.599487 16 16 19.59949 16 24 C 16 28.40051 19.599487 32 24 32 C 28.400513 32 32 28.40051 32 24 C 32 19.59949 28.400513 16 24 16 z M 24 19 C 26.779194 19 29 21.220808 29 24 C 29 26.779192 26.779194 29 24 29 C 21.220806 29 19 26.779192 19 24 C 19 21.220808 21.220806 19 24 19 z\"></path></svg>"
+
+/***/ }),
+
+/***/ "./resources/showIco.svg":
+/***/ ((module) => {
+
+module.exports = "<svg viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\"><defs><style>.cls-1{fill:#231f20;}</style></defs><g id=\"show\"><path class=\"cls-1\" d=\"M4,17a1,1,0,0,1-.87-1.5C3.31,15.2,7.52,8,16,8s12.69,7.2,12.87,7.5a1,1,0,1,1-1.74,1C27.1,16.43,23.3,10,16,10S4.91,16.43,4.87,16.5A1,1,0,0,1,4,17Z\"></path><path class=\"cls-1\" d=\"M16,24C7.52,24,3.31,16.8,3.13,16.5a1,1,0,0,1,1.74-1C4.9,15.57,8.7,22,16,22s11.09-6.43,11.13-6.5a1,1,0,0,1,1.74,1C28.69,16.8,24.48,24,16,24Z\"></path><path class=\"cls-1\" d=\"M16,18a2,2,0,1,1,2-2A2,2,0,0,1,16,18Zm0-2h0Zm0,0h0Zm0,0h0Zm0,0h0Zm0,0h0Zm0,0h0Zm0,0h0Zm0,0h0Z\"></path></g></svg>"
+
+/***/ }),
+
+/***/ "./resources/sidebarSubsManager.svg":
+/***/ ((module) => {
+
+module.exports = "<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M8 6.00067L21 6.00139M8 12.0007L21 12.0015M8 18.0007L21 18.0015M3.5 6H3.51M3.5 12H3.51M3.5 18H3.51M4 6C4 6.27614 3.77614 6.5 3.5 6.5C3.22386 6.5 3 6.27614 3 6C3 5.72386 3.22386 5.5 3.5 5.5C3.77614 5.5 4 5.72386 4 6ZM4 12C4 12.2761 3.77614 12.5 3.5 12.5C3.22386 12.5 3 12.2761 3 12C3 11.7239 3.22386 11.5 3.5 11.5C3.77614 11.5 4 11.7239 4 12ZM4 18C4 18.2761 3.77614 18.5 3.5 18.5C3.22386 18.5 3 18.2761 3 18C3 17.7239 3.22386 17.5 3.5 17.5C3.77614 17.5 4 17.7239 4 18Z\" stroke=\"#000000\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>"
 
 /***/ }),
 
@@ -2147,6 +2334,120 @@ var __webpack_exports__ = {};
 (() => {
 "use strict";
 
+;// CONCATENATED MODULE: ./src/modules/bookmarkMode.ts
+var BookmarkMode;
+(function (BookmarkMode) {
+    BookmarkMode["Disabled"] = "Disabled";
+    BookmarkMode["WhenUpvoted"] = "When upvoted";
+    BookmarkMode["Always"] = "Always";
+})(BookmarkMode || (BookmarkMode = {}));
+
+;// CONCATENATED MODULE: ./src/modules/collapseAwardsMode.ts
+var AwardsMode;
+(function (AwardsMode) {
+    AwardsMode["Default"] = "Default behaviour";
+    AwardsMode["WhenUpvoted"] = "Show when upvoted";
+    AwardsMode["RemoveCompletely"] = "Remove completely";
+})(AwardsMode || (AwardsMode = {}));
+
+;// CONCATENATED MODULE: ./src/defines.ts
+var ContentType;
+(function (ContentType) {
+    ContentType[ContentType["Comment"] = 0] = "Comment";
+    ContentType[ContentType["Post"] = 1] = "Post";
+})(ContentType || (ContentType = {}));
+const MAX_LOAD_LAG = 2000;
+const MIN_LOAD_LAG = 15;
+const HOUR_SECONDS = 60 * 60;
+const DAY_SECONDS = HOUR_SECONDS * 24;
+function secondsToTime(seconds) {
+    return seconds * 1000;
+}
+
+;// CONCATENATED MODULE: ./src/utils/database.ts
+
+
+class DatabaseConfig {
+}
+class DatabaseFactory {
+}
+DatabaseFactory.Null = function (id) {
+    return null;
+};
+DatabaseFactory.EmptyObject = function (id) {
+    return {};
+};
+class Database {
+    constructor(name, config = new DatabaseConfig()) {
+        this.databaseKey = name + `_DATABASE`;
+        this.refreshKey = name + `_REFRESHED`;
+        this.cleanupKey = name + `_CLEANUP`;
+        this.isCleanupable = config?.isCleanupable ?? false;
+        this.validator = config?.validator ?? null;
+        this.loader = config?.loader ?? null;
+        this.factory = config?.factory ?? DatabaseFactory.EmptyObject;
+        this.refresh();
+        if (this.isCleanupable && GM_getValue(this.cleanupKey, 0) < Date.now()) {
+            const items = Object.entries(this.data).length;
+            const timestampLimit = Date.now() - secondsToTime(DAY_SECONDS * (1000 / items));
+            this.data = Object.fromEntries(Object.entries(this.data).filter(([key, value]) => value.timestamp > timestampLimit));
+            this.refreshed = Date.now();
+            GM_setValue(this.databaseKey, this.data);
+            GM_setValue(this.refreshKey, this.refreshed);
+            GM_setValue(this.cleanupKey, Date.now() + 1000 * HOUR_SECONDS);
+        }
+    }
+    refresh() {
+        const lastRefreshed = GM_getValue(this.refreshKey, 0);
+        if (this.data == undefined || this.refreshed < lastRefreshed) {
+            this.refreshed = lastRefreshed;
+            this.data = GM_getValue(this.databaseKey, {});
+            
+        }
+    }
+    get(id) {
+        this.refresh();
+        const raw = this.data[id];
+        return (raw == undefined ? this.factory(id) : raw);
+    }
+    forEach(iterator) {
+        this.refresh();
+        Object.keys(this.data).forEach(key => {
+            iterator(key, this.data[key]);
+        });
+    }
+    async getWithLoader(id, onLoaded = null) {
+        this.refresh();
+        const raw = this.data[id];
+        let data = (raw == undefined ? this.factory(id) : raw);
+        let isLoaded = false;
+        if (this.validator(data)) {
+            data = await this.loader(id);
+            this.set(id, data);
+            isLoaded = true;
+        }
+        if (onLoaded != null) {
+            onLoaded(isLoaded);
+        }
+        return data;
+    }
+    set(id, value) {
+        this.refresh();
+        if (this.isCleanupable) {
+            value.timestamp = Date.now();
+        }
+        this.data[id] = value;
+        this.refreshed = Date.now();
+        GM_setValue(this.databaseKey, this.data);
+        GM_setValue(this.refreshKey, this.refreshed);
+    }
+    wipe() {
+        GM_deleteValue(this.databaseKey);
+        GM_deleteValue(this.refreshKey);
+        GM_deleteValue(this.cleanupKey);
+    }
+}
+
 ;// CONCATENATED MODULE: ./src/utils/tools.ts
 
 const DYNAMIC_ELEMENT_FREQUENCY = 10;
@@ -2174,7 +2475,13 @@ async function dynamicElement(elementRequest, maxLifetime = 0) {
         }, DYNAMIC_ELEMENT_FREQUENCY);
     });
 }
-function observeFor(root, action, includeChilds = true) {
+const observeForInstances = new Map();
+function observeFor(name, root, action, includeChilds = true) {
+    if (name && observeForInstances.has(name)) {
+        observeForInstances.get(name).disconnect();
+        observeForInstances.delete(name);
+        
+    }
     const result = action(root);
     if (result != undefined && result == true) {
         return;
@@ -2195,6 +2502,9 @@ function observeFor(root, action, includeChilds = true) {
         }
     });
     observer.observe(root, { childList: true, subtree: includeChilds });
+    if (name) {
+        observeForInstances.set(name, observer);
+    }
 }
 function checkIsRendered(node, key = `pp-rendered`) {
     if (node == null || node.getAttribute(key) != null) {
@@ -2234,72 +2544,13 @@ function animate(action, seconds, step = 10) {
         }
     }, step);
 }
-
-;// CONCATENATED MODULE: ./src/modules/toaster.ts
-
-async function notify(message, config) {
-    const { seconds, color } = { seconds: 3, color: null, ...config };
-    let toaster = await dynamicElement(() => document.body?.querySelector(`alert-controller`)?.shadowRoot?.querySelector(`toaster-lite`));
-    let toast = document.createElement(`faceplate-toast`);
-    toast.classList.add(`theme-rpl`);
-    if (color != null) {
-        toast.style.backgroundColor = color;
+function PascalCase(input) {
+    if (!input) {
+        return input;
     }
-    toast.textContent = message;
-    toaster.appendChild(toast);
-    setTimeout(() => {
-        toast.setAttribute(`_fading`, ``);
-    }, seconds * 1000);
-}
-function pp_log(message) {
-    
-    console.log(`Reddit++: ${message}`);
+    return input.charAt(0).toUpperCase() + input.slice(1);
 }
 
-;// CONCATENATED MODULE: ./src/_compatibility/migrations.ts
-
-
-const DATABASE_VERSION = `DATABASE_VERSION`;
-class Migration {
-    constructor(version, action, previous = null) {
-        this.version = version;
-        this.action = action;
-        this.previous = previous;
-    }
-    check() {
-        const currentVersion = GM_getValue(DATABASE_VERSION, null);
-        if (currentVersion == null || isLowerVersion(currentVersion, this.version)) {
-            this.previous?.check();
-            this.action();
-            GM_setValue(DATABASE_VERSION, this.version);
-            notify(`Reddit++ was upgraded to ${this.version}`);
-        }
-    }
-}
-
-;// CONCATENATED MODULE: ./src/_compatibility/migration_1_0_0.ts
-
-const migration_1_0_0 = new Migration(`1.0.0`, () => {
-    const settingsDatabase = GM_getValue(`SETTINGS_DATABASE`, null);
-    if (settingsDatabase == null)
-        return;
-    const bookmarks = settingsDatabase[`savedBookmark`];
-    if (bookmarks != undefined) {
-        settingsDatabase[`savedBookmarkPosts`] = bookmarks;
-        settingsDatabase[`savedBookmarkComments`] = bookmarks;
-        delete settingsDatabase[`savedBookmark`];
-    }
-    const hideUnsaved = settingsDatabase[`savedBookmarkHideUnsaved`];
-    if (hideUnsaved != undefined) {
-        settingsDatabase[`savedBookmarkPostsShowAlways`] = !hideUnsaved;
-        settingsDatabase[`savedBookmarkCommentsShowAlways`] = !hideUnsaved;
-        delete settingsDatabase[`savedBookmarkHideUnsaved`];
-    }
-    GM_setValue(`SETTINGS_DATABASE`, settingsDatabase);
-});
-
-// EXTERNAL MODULE: ./src/modules/wideMode.less
-var wideMode = __webpack_require__("./src/modules/wideMode.less");
 ;// CONCATENATED MODULE: ./src/modules/customCSS.ts
 class CustomCSS {
     constructor() {
@@ -2338,328 +2589,26 @@ class CustomCSS {
 }
 const css = new CustomCSS();
 
-;// CONCATENATED MODULE: ./src/defines.ts
-class ModuleTaget {
-}
-const IS_COMMENT = { isComment: true };
-const IS_POST = { isComment: false };
-const MAX_LOAD_LAG = 2000;
-const MIN_LOAD_LAG = 15;
-const HOUR_SECONDS = 60 * 60;
-const DAY_SECONDS = HOUR_SECONDS * 24;
-function secondsToTime(seconds) {
-    return seconds * 1000;
-}
-
-;// CONCATENATED MODULE: ./src/utils/database.ts
+// EXTERNAL MODULE: ./src/modules/customFeed/customFeed.less
+var customFeed = __webpack_require__("./src/modules/customFeed/customFeed.less");
+;// CONCATENATED MODULE: ./src/modules/customFeed/customFeed.ts
 
 
-class DatabaseConfig {
+
+css.addStyle(customFeed/* default */.A);
+let realCustomFeedTittle = null;
+function getCurrentCustomFeed() {
+    const raw = window.location.href.split(`/m/`);
+    return raw.length > 1 ? raw[1].split(`/`)[0] : null;
 }
-class Database {
-    constructor(name, config = new DatabaseConfig()) {
-        this.databaseKey = name + `_DATABASE`;
-        this.refreshKey = name + `_REFRESHED`;
-        this.cleanupKey = name + `_CLEANUP`;
-        this.isCleanupable = config?.isCleanupable ?? false;
-        this.validator = config?.validator ?? null;
-        this.loader = config?.loader ?? null;
-        this.refresh();
-        if (this.isCleanupable && GM_getValue(this.cleanupKey, 0) < Date.now()) {
-            const items = Object.entries(this.data).length;
-            const timestampLimit = Date.now() - secondsToTime(DAY_SECONDS * (1000 / items));
-            this.data = Object.fromEntries(Object.entries(this.data).filter(([key, value]) => value.timestamp > timestampLimit));
-            this.refreshed = Date.now();
-            GM_setValue(this.databaseKey, this.data);
-            GM_setValue(this.refreshKey, this.refreshed);
-            GM_setValue(this.cleanupKey, Date.now() + 1000 * HOUR_SECONDS);
-        }
-    }
-    refresh() {
-        const lastRefreshed = GM_getValue(this.refreshKey, 0);
-        if (this.data == undefined || this.refreshed < lastRefreshed) {
-            this.refreshed = lastRefreshed;
-            this.data = GM_getValue(this.databaseKey, {});
-            
-        }
-    }
-    get(id) {
-        this.refresh();
-        const raw = this.data[id];
-        return (raw == undefined ? {} : raw);
-    }
-    async getWithLoader(id, onLoaded = null) {
-        this.refresh();
-        const raw = this.data[id];
-        let data = (raw == undefined ? {} : raw);
-        let isLoaded = false;
-        if (this.validator(data)) {
-            data = await this.loader(id);
-            this.set(id, data);
-            isLoaded = true;
-        }
-        if (onLoaded != null) {
-            onLoaded(isLoaded);
-        }
-        return data;
-    }
-    set(id, value) {
-        this.refresh();
-        if (this.isCleanupable) {
-            value.timestamp = Date.now();
-        }
-        this.data[id] = value;
-        this.refreshed = Date.now();
-        GM_setValue(this.databaseKey, this.data);
-        GM_setValue(this.refreshKey, this.refreshed);
-    }
+async function renderCustomFeed(main) {
+    const header = await dynamicElement(() => main.querySelector(`custom-feed-header`));
+    const icoContainer = await dynamicElement(() => header.shadowRoot?.querySelector(`img`)?.parentElement);
+    css.registry(header.shadowRoot);
+    icoContainer.classList.add(`pp_customFeed_masthead_ico`);
+    realCustomFeedTittle = header.shadowRoot?.querySelector(`.text-18`)?.textContent;
 }
 
-;// CONCATENATED MODULE: ./src/modules/feed/feedLocation.ts
-var FeedLocation;
-(function (FeedLocation) {
-    FeedLocation[FeedLocation["Sub"] = 0] = "Sub";
-    FeedLocation[FeedLocation["Home"] = 1] = "Home";
-    FeedLocation[FeedLocation["Popular"] = 2] = "Popular";
-    FeedLocation[FeedLocation["All"] = 3] = "All";
-})(FeedLocation || (FeedLocation = {}));
-function GetFeedLocation() {
-    if (window.location.href.includes(`?feed=home`) || window.location.href == `https://www.reddit.com/`)
-        return FeedLocation.Home;
-    if (window.location.href.includes(`reddit.com/r/popular/`))
-        return FeedLocation.Popular;
-    if (window.location.href.includes(`reddit.com/r/all/`))
-        return FeedLocation.All;
-    return FeedLocation.Sub;
-}
-
-;// CONCATENATED MODULE: ./src/modules/feed/feedType.ts
-
-function GetFeeds(location) {
-    const defaultFeeds = [`Hot`, `New`, `Top`, `Rising`];
-    if (location == FeedLocation.Home || location == FeedLocation.Popular) {
-        return [`Best`].concat(defaultFeeds);
-    }
-    else {
-        return defaultFeeds;
-    }
-}
-
-;// CONCATENATED MODULE: ./src/modules/settings/settings.ts
-
-
-
-class SettingBoolProperty {
-    constructor(name, defailtValue = true) {
-        this.name = name;
-        this.defailtValue = defailtValue;
-    }
-    isEnabled() {
-        const rawValue = settingsDatabase.get(this.name);
-        const isDefault = rawValue instanceof Object;
-        return isDefault ? this.defailtValue : rawValue;
-    }
-    isDisabled() {
-        return !this.isEnabled();
-    }
-    switch(overridedValue = null) {
-        settingsDatabase.set(this.name, overridedValue == null ? this.isDisabled() : overridedValue);
-    }
-    getChild(postfix, defaultValue = true) {
-        return new SettingBoolProperty(this.name + postfix, defaultValue);
-    }
-}
-class SettingDropdownProperty {
-    constructor(name, values, defaultIndex = 0) {
-        this.name = name;
-        this.values = values;
-        this.defaultIndex = defaultIndex;
-    }
-    get() {
-        const rawValue = settingsDatabase.get(this.name);
-        const isDefault = rawValue instanceof Object;
-        return isDefault ? this.values[this.defaultIndex] : rawValue;
-    }
-    getIndex() {
-        return this.values.indexOf(this.get());
-    }
-    isDefault() {
-        return this.get() == this.values[this.defaultIndex];
-    }
-    set(index) {
-        settingsDatabase.set(this.name, this.values[index]);
-    }
-}
-class SettingStringProperty {
-    constructor(name, defaultValue, filter = null) {
-        this.name = name;
-        this.defaultValue = defaultValue;
-        this.filter = filter != null ? filter : (input) => input;
-    }
-    get() {
-        const rawValue = settingsDatabase.get(this.name);
-        const isDefault = rawValue instanceof Object;
-        return isDefault ? this.defaultValue : rawValue;
-    }
-    isDefault() {
-        return this.get() == this.defaultValue;
-    }
-    set(value) {
-        settingsDatabase.set(this.name, value);
-    }
-}
-function defaultFilter(defaultValue) {
-    return (input) => {
-        const parsed = parseInt(input).toString();
-        return parsed != `NaN` ? parsed : defaultValue.toString();
-    };
-}
-function defaultPositiveFilter(defaultValue) {
-    return (input) => {
-        const parsed = Math.abs(parseInt(input)).toString();
-        return parsed != `NaN` ? parsed : defaultValue.toString();
-    };
-}
-class SettingsManager {
-    constructor() {
-        this.revision = this.getRevision();
-        this.isDirted = false;
-        this.API_APP = new SettingStringProperty(`apiApp`, ``);
-        this.API_WARNINGS = new SettingBoolProperty(`apiWarnings`);
-        this.WIDE_MODE = new SettingBoolProperty(`wideMode`);
-        this.CONTENT_WIDTH = new SettingStringProperty(`contentWidth`, `700`, defaultPositiveFilter(700));
-        this.CONTENT_OFFSET = new SettingStringProperty(`contentOffset`, `0`, defaultFilter(0));
-        this.BIGGER_FONTS = new SettingBoolProperty(`biggerFonts`);
-        this.SCROLL_TO_TOP = new SettingBoolProperty(`scrollToTop`);
-        this.IMAGE_VIEWER = new SettingBoolProperty(`imageViewer`);
-        this.COLLAPSE_AWARDS = new SettingBoolProperty(`collapseAwards`);
-        this.COLLAPSE_AWARDS_COMPLETELY = new SettingBoolProperty(`collapseAwardsCompletely`, false);
-        this.REDIRECT_SUGGESTION = new SettingBoolProperty(`redirectSuggestion`);
-        this.REDIRECT_FORCED = new SettingBoolProperty(`redirectForced`, false);
-        this.NOTIFY_POPUP = new SettingBoolProperty(`notifyPopup`);
-        this.SHOW_FILTERED_CONTENT = new SettingBoolProperty(`showFilteredContent`);
-        this.FILTERED_CONTENT_MAX_COUNT = new SettingStringProperty(`filteredContentMaxCount`, `20`, defaultPositiveFilter(20));
-        this.SUB_FILTER = new SettingBoolProperty(`sidebarSubFilter`);
-        this.SIDEBAR_CUSTOMS = new SettingBoolProperty(`sidebarCustoms`);
-        this.SIDEBAR_RECENT = new SettingBoolProperty(`sidebarRecent`);
-        this.SIDEBAR_SUBS = new SettingBoolProperty(`sidebarSubs`);
-        this.SIDEBAR_RESOURCES = new SettingBoolProperty(`sidebarResources`);
-        this.DEFAULT_FEED_HOME = new SettingDropdownProperty(`defaultFeedHome`, GetFeeds(FeedLocation.Home), 0);
-        this.DEFAULT_FEED_POPULAR = new SettingDropdownProperty(`defaultFeedPopular`, GetFeeds(FeedLocation.Popular), 1);
-        this.DEFAULT_FEED_ALL = new SettingDropdownProperty(`defaultFeedAll`, GetFeeds(FeedLocation.All), 0);
-        this.DEFAULT_FEED_SUB = new SettingDropdownProperty(`defaultFeedSub`, GetFeeds(FeedLocation.Sub), 0);
-        this.FEED_BUTTONS = new SettingBoolProperty(`feedButtons`);
-        this.FLAIR_BAR = new SettingBoolProperty(`flairbar`);
-        this.FLAIR_SHOW_ALWAYS = new SettingBoolProperty(`flairShowAlways`, false);
-        this.COLLAPSE_HIGHLIGHTS = new SettingBoolProperty(`collapseHighlights`, false);
-        this.BACKPLATES = new SettingBoolProperty(`backplates`);
-        this.SELECTABLE_POSTS = new SettingBoolProperty(`selectablePosts`);
-        this.UNWRAP_POST = new SettingBoolProperty(`unwrapPost`);
-        this.SHOW_POST_AUTHOR = new SettingBoolProperty(`showPostAuthor`);
-        this.SAVED_BOOKMARK_POSTS = new SettingBoolProperty(`savedBookmarkPosts`);
-        this.SAVED_BOOKMARK_POSTS_SHOW_ALWAYAS = new SettingBoolProperty(`savedBookmarkPostsShowAlways`, false);
-        this.COMMENTS_SORT_BUTTONS = new SettingBoolProperty(`commentSortButtons`);
-        this.COMMENTS_REMEMBER_SORT = new SettingBoolProperty(`commentRememberSort`);
-        this.UNWRAP_MORE_REPLIES = new SettingBoolProperty(`unwrapMoreReplies`, false);
-        this.USER_INFO = new SettingBoolProperty(`userInfo`, false);
-        this.SHOW_NAMES = new SettingBoolProperty(`showNames`, false);
-        this.USERNAME_MAX_SIMBOLS = new SettingStringProperty(`usernameMaxSimbols`, `50`, defaultPositiveFilter(50));
-        this.USER_TAGS = new SettingBoolProperty(`userTags`);
-        this.HIDE_SHARE = new SettingBoolProperty(`hideShare`);
-        this.GHOSTED_COMMENTS = new SettingBoolProperty(`ghostedComments`);
-        this.COLLAPSE_AUTOMODERATOR = new SettingBoolProperty(`collapseAutomoderator`);
-        this.SAVED_BOOKMARK_COMMENTS = new SettingBoolProperty(`savedBookmarkComments`);
-        this.SAVED_BOOKMARK_COMMENTS_SHOW_ALWAYAS = new SettingBoolProperty(`savedBookmarkCommentsShowAlways`, false);
-        this.HIDE_RELATED_POSTS = new SettingBoolProperty(`hideRelatedPosts`, false);
-        window.addEventListener('storage', event => {
-            if (this.isDirt() && !this.isDirted) {
-                this.isDirted = true;
-                document.addEventListener('visibilitychange', () => {
-                    window.location.reload();
-                }, { once: true });
-            }
-        });
-    }
-    getRevision() {
-        return parseInt(localStorage.getItem(`pp_settings_s_revision`) ?? `0`);
-    }
-    nextRevision() {
-        this.revision++;
-        localStorage.setItem(`pp_settings_s_revision`, String(this.revision));
-    }
-    isDirt() {
-        const currentRevision = this.getRevision();
-        return currentRevision != this.revision;
-    }
-}
-const settingsDatabase = new Database(`SETTINGS`);
-const settings = new SettingsManager();
-
-;// CONCATENATED MODULE: ./src/modules/wideMode.ts
-
-
-
-
-function safePixels(value) {
-    return `${parseInt(value)}px`;
-}
-function renderWideMode(pageContainer, rightSidebar) {
-    if (settings.WIDE_MODE.isDisabled())
-        return;
-    css.addStyle(wideMode/* default */.A, `wideMode`);
-    css.addVar(`--pp-content-width`, safePixels(settings.CONTENT_WIDTH.get()));
-    css.addVar(`--pp-content-offset`, safePixels(settings.CONTENT_OFFSET.get()));
-    if (rightSidebar.parentNode == pageContainer) {
-        return;
-    }
-    rightSidebar.className = `right-sidebar min-w-0 w-[316px] max-w-[316px] hidden s:block styled-scrollbars xs:sticky xs:top-[56px] xs:max-h-[calc(100vh-var(--shreddit-header-height)-1px)] xs:overflow-y-auto xs:overflow-x-hidden pp_rightSidebar`;
-    const originContainer = rightSidebar.parentElement;
-    let isWideMode = !(window.innerWidth >= 1392);
-    const mainContainer = pageContainer.querySelector(`.main-container`);
-    mainContainer.className = `main-container gap-lg w-full`;
-    observeFor(pageContainer, renderContextPopup, false);
-    observeFor(originContainer, renderContextPopup, false);
-    function renderContextPopup(element) {
-        if (element.classList.contains(`rounded-[16px]`)) {
-            element.classList.add(`pp_rightSidebar_contextLookup`);
-            if (window.innerWidth < 1392 && element.parentNode != rightSidebar.parentNode) {
-                rightSidebar.after(element);
-            }
-        }
-        return false;
-    }
-    refreshAppRender();
-    window.addEventListener('resize', event => {
-        refreshAppRender();
-    });
-    function refreshAppRender() {
-        if (window.innerWidth >= 1392 && !isWideMode) {
-            pageContainer.prepend(rightSidebar);
-            isWideMode = true;
-        }
-        if (window.innerWidth < 1392 && isWideMode) {
-            originContainer.append(rightSidebar);
-            isWideMode = false;
-        }
-    }
-}
-
-// EXTERNAL MODULE: ./src/modules/app.less
-var modules_app = __webpack_require__("./src/modules/app.less");
-// EXTERNAL MODULE: ./src/modules/sidebar/sidebar.less
-var sidebar = __webpack_require__("./src/modules/sidebar/sidebar.less");
-;// CONCATENATED MODULE: ./src/modules/settings/prefs.ts
-
-class PrefsKey {
-}
-PrefsKey.COMMENTS_CURRENT_SORT = `COMMENTS_CURRENT_SORT`;
-PrefsKey.SUB_FILTER = `SUB_FILTER`;
-PrefsKey.CONTENT_FILTERS = `CONTENT_FILTERS`;
-const prefs = new Database(`PREFS`);
-
-// EXTERNAL MODULE: ./resources/subFilter.svg
-var subFilter = __webpack_require__("./resources/subFilter.svg");
-var subFilter_default = /*#__PURE__*/__webpack_require__.n(subFilter);
 ;// CONCATENATED MODULE: ./src/utils/svg.ts
 const NONE_COLOR = 'none';
 const CURRENT_COLOR = 'currentColor';
@@ -2715,277 +2664,6 @@ function buildElement(name, classes = null) {
     }
     return el;
 }
-
-// EXTERNAL MODULE: ./resources/inputClear.svg
-var inputClear = __webpack_require__("./resources/inputClear.svg");
-var inputClear_default = /*#__PURE__*/__webpack_require__.n(inputClear);
-// EXTERNAL MODULE: ./src/utils/UI/input.less
-var input = __webpack_require__("./src/utils/UI/input.less");
-;// CONCATENATED MODULE: ./src/utils/UI/input.ts
-
-
-
-
-
-css.addStyle(input/* default */.A);
-function renderUIInput(container, placeholder, value, onChange, params) {
-    const { icon, iconConfig, cleanButton, alignCenter, filter } = {
-        icon: null,
-        iconConfig: { strokeColor: CURRENT_COLOR, fillColor: NONE_COLOR },
-        cleanButton: false,
-        alignCenter: false,
-        filter: (input) => input,
-        ...params
-    };
-    const inputContainer = appendElement(container, `div`, `pp_ui_input_container`);
-    const inputButton = appendElement(inputContainer, `div`, [`pp_ui_input_button`, `button`, `button-bordered`]);
-    inputButton.setAttribute(`tabindex`, `0`);
-    const inputShadowRoot = inputButton.attachShadow({ mode: 'open' });
-    css.registry(inputShadowRoot);
-    const inputPanel = appendElement(inputButton, `span`, [`pp_ui_input_panel`, `flex`, `items-center`, `justify-center`]);
-    inputShadowRoot.appendChild(inputPanel);
-    if (icon != null) {
-        const inputIconSpan = appendElement(inputPanel, `span`, `pp_ui_input_icon`);
-        appendSvg(inputIconSpan, icon, 16, 16, iconConfig);
-    }
-    const inputSpan = appendElement(inputPanel, `span`, `pp_ui_input_span`);
-    if (cleanButton == true) {
-        inputSpan.style.marginRight = `22px`;
-    }
-    const input = appendElement(inputSpan, `input`, `pp_ui_input`);
-    input.type = `text`;
-    input.placeholder = placeholder;
-    if (alignCenter == true) {
-        input.style.textAlign = `center`;
-    }
-    if (value != null && value.length > 0) {
-        input.value = value;
-    }
-    let clearButton = null;
-    if (cleanButton == true) {
-        const clearContainer = appendElement(inputContainer, `div`, `pp_ui_input_clearContainer`);
-        clearButton = appendElement(clearContainer, `button`, [`pp_ui_input_clearButton`, `button-plain`]);
-        clearButton.classList.toggle(`pp_hidden`, (input.value?.length ?? 0) == 0);
-        const clearIcon = buildSvg((inputClear_default()), 16, 16);
-        clearButton.append(clearIcon);
-        clearButton.addEventListener(`click`, () => {
-            input.value = filter(``);
-            onChange(input.value);
-            clearButton.classList.toggle(`pp_hidden`, true);
-        });
-    }
-    input.addEventListener(`input`, () => {
-        const value = filter(input.value.trim());
-        onChange(value);
-        if (cleanButton == true) {
-            clearButton.classList.toggle(`pp_hidden`, value.length == 0);
-        }
-    });
-    input.addEventListener(`focusout`, () => {
-        const value = filter(input.value.trim());
-        if (value != input.value) {
-            input.value = value;
-        }
-        if (cleanButton == true) {
-            clearButton.classList.toggle(`pp_hidden`, value.length == 0);
-        }
-    });
-    return inputContainer;
-}
-
-;// CONCATENATED MODULE: ./src/modules/sidebar/subFilter.ts
-
-
-
-
-
-let filter = null;
-async function renderSubFilter(container) {
-    if (checkIsRendered(container, `pp-sub-filter`))
-        return;
-    const createSubButton = (await dynamicElement(() => container.querySelector(`.left-nav-create-community-button`)));
-    if (filter != null) {
-        filter.clear();
-    }
-    else {
-        filter = new Map();
-    }
-    const subsContainer = container.querySelector(`left-nav-communities-controller`).shadowRoot;
-    subsContainer.querySelectorAll(`left-nav-community-item`).forEach(sub => {
-        filter.set(sub.getAttribute(`prefixedname`).replace(`r/`, ``).toLowerCase(), sub);
-    });
-    let initValue = prefs.get(PrefsKey.SUB_FILTER);
-    if (initValue == null || initValue instanceof Object) {
-        initValue = ``;
-    }
-    const input = renderUIInput(container, `Filter`, initValue, value => {
-        onChangeFilter(value);
-    }, {
-        icon: (subFilter_default()),
-        iconConfig: { strokeColor: NONE_COLOR, fillColor: CURRENT_COLOR },
-        cleanButton: true,
-        filter: (input) => input.trim()
-    });
-    createSubButton.style.width = `65px`;
-    const createSubText = await dynamicElement(() => createSubButton.querySelector(`.text-14`));
-    createSubText.remove();
-    createSubButton.replaceWith(input);
-    input.prepend(createSubButton);
-    const inputButton = input.querySelector(`.pp_ui_input_button`);
-    inputButton.addEventListener(`focus`, () => {
-        createSubButton.style.display = `none`;
-    });
-    inputButton.addEventListener(`focusout`, () => {
-        createSubButton.style.display = `block`;
-    });
-    onChangeFilter(initValue);
-}
-function onChangeFilter(value) {
-    prefs.set(PrefsKey.SUB_FILTER, value);
-    filter.forEach((item, sub) => {
-        if (sub.includes(value.toLowerCase())) {
-            item.style.removeProperty(`display`);
-        }
-        else {
-            item.style.display = `none`;
-        }
-    });
-}
-
-;// CONCATENATED MODULE: ./src/modules/sidebar/sidebar.ts
-
-
-
-
-
-
-css.addStyle(sidebar/* default */.A);
-let resourcesInitialized = false;
-function renderSidebar(sidebar) {
-    sidebar.classList.add(`pp_defaultText`);
-    observeFor(sidebar, (element) => {
-        const customFeedsSection = element.matches(`faceplate-expandable-section-helper`) ? element : sidebar.querySelector(`faceplate-expandable-section-helper`);
-        if (customFeedsSection == null)
-            return;
-        const customFeedsButton = sidebar.querySelector(`summary[aria-controls="multireddits_section"]`);
-        if (customFeedsButton != null) {
-            renderSidebarSection(customFeedsSection, settings.SIDEBAR_CUSTOMS, async () => {
-                const openState = await dynamicElement(() => customFeedsSection.getAttribute(`open`));
-                if (openState) {
-                }
-                return {
-                    container: customFeedsSection,
-                    button: customFeedsButton,
-                    hr: customFeedsSection.nextElementSibling
-                };
-            });
-            return true;
-        }
-    });
-    observeFor(sidebar, (element) => {
-        const subsSection = element.matches(`faceplate-expandable-section-helper`) ? element : sidebar.querySelector(`faceplate-expandable-section-helper`);
-        if (subsSection == null)
-            return;
-        const customFeedsButton = sidebar.querySelector(`summary[aria-controls="communities_section"]`);
-        if (customFeedsButton != null) {
-            renderSubFilter(subsSection);
-            renderSidebarSection(subsSection, settings.SIDEBAR_SUBS, async () => {
-                const openState = await dynamicElement(() => subsSection.getAttribute(`open`));
-                if (openState) {
-                }
-                let hrElement = subsSection.nextElementSibling;
-                while (hrElement != null && !hrElement.matches(`hr`)) {
-                    hrElement = hrElement.nextElementSibling;
-                }
-                return {
-                    container: subsSection,
-                    button: customFeedsButton,
-                    hr: hrElement
-                };
-            });
-            return true;
-        }
-    });
-    observeFor(sidebar, (element) => {
-        let recentSection = sidebar.querySelector(`reddit-recent-pages`);
-        if (recentSection == null && element.matches(`reddit-recent-pages`)) {
-            recentSection = element;
-        }
-        if (recentSection != null) {
-            renderSidebarSection(recentSection, settings.SIDEBAR_RECENT, async () => {
-                const helper = await dynamicElement(() => {
-                    const _helper = recentSection.shadowRoot?.querySelector(`faceplate-expandable-section-helper`);
-                    return _helper?.getAttribute(`open`) != null ? _helper : null;
-                });
-                const button = await dynamicElement(() => helper?.querySelector(`summary`));
-                css.registry(recentSection.shadowRoot);
-                helper.classList.add(`pp_defaultText`);
-                return {
-                    container: helper,
-                    button: button,
-                    hr: recentSection.querySelector(`hr`)
-                };
-            });
-            return true;
-        }
-    });
-    if (!resourcesInitialized) {
-        resourcesInitialized = true;
-        observeFor(sidebar, (element) => {
-            const resources = sidebar.querySelector(`summary[aria-controls="RESOURCES"]`);
-            if (resources != null) {
-                const resourcesContainer = resources.parentElement.parentElement;
-                const resourceSection = {
-                    container: resourcesContainer,
-                    button: resources,
-                    hr: null
-                };
-                renderSidebarSection(resourcesContainer, settings.SIDEBAR_RESOURCES, () => resourceSection);
-                return true;
-            }
-        });
-    }
-}
-class SidebarSection {
-}
-async function renderSidebarSection(preloadContainer, setting, sectionLoader) {
-    if (checkIsRendered(preloadContainer))
-        return;
-    preloadContainer.classList.add(`pp_sidebar_loadingSection`);
-    const section = await sectionLoader();
-    preloadContainer.classList.remove(`pp_sidebar_loadingSection`);
-    if (setting.isEnabled()) {
-        const settingCollapsed = setting.getChild(`Collapsed`, false);
-        const details = section.container.querySelector(`details`);
-        if (settingCollapsed.isEnabled()) {
-            section.container.toggleAttribute(`open`, false);
-            details.classList.add(`pp_sidebar_collapsedSection`);
-        }
-        section.button.addEventListener(`click`, (e) => {
-            const button = e.currentTarget;
-            setTimeout(() => {
-                const isCollapsed = button.getAttribute(`aria-expanded`) === 'false';
-                settingCollapsed.switch(isCollapsed);
-            }, 10);
-            details.classList.toggle(`pp_sidebar_collapsedSection`, false);
-        });
-    }
-    else {
-        section.container.remove();
-        section.hr?.remove();
-    }
-}
-
-// EXTERNAL MODULE: ./src/modules/biggerFonts.less
-var biggerFonts = __webpack_require__("./src/modules/biggerFonts.less");
-;// CONCATENATED MODULE: ./src/modules/biggerFonts.ts
-
-
-
-if (settings.BIGGER_FONTS.isEnabled()) {
-    css.addStyle(biggerFonts/* default */.A);
-}
-function renderBiggerFonts() { }
 
 // EXTERNAL MODULE: ./resources/imageCloseButton.svg
 var imageCloseButton = __webpack_require__("./resources/imageCloseButton.svg");
@@ -3138,6 +2816,189 @@ class ImageViewer {
 }
 const imageViewer_imageViewer = new ImageViewer();
 
+;// CONCATENATED MODULE: ./src/modules/redirectMode.ts
+var RedirectMode;
+(function (RedirectMode) {
+    RedirectMode["Disabled"] = "Disabled";
+    RedirectMode["Suggestion"] = "Suggestion";
+    RedirectMode["Forced"] = "Forced";
+})(RedirectMode || (RedirectMode = {}));
+
+;// CONCATENATED MODULE: ./src/modules/users/usernameMode.ts
+var UsernameMode;
+(function (UsernameMode) {
+    UsernameMode["ProfileName"] = "Profile name";
+    UsernameMode["Nickname"] = "Nickname";
+    UsernameMode["Both"] = "Both";
+})(UsernameMode || (UsernameMode = {}));
+
+;// CONCATENATED MODULE: ./src/modules/settings/settings.ts
+
+
+
+
+
+class SettingBoolProperty {
+    constructor(name, defailtValue = true) {
+        this.name = name;
+        this.defailtValue = defailtValue;
+    }
+    isEnabled() {
+        const rawValue = settingsDatabase.get(this.name);
+        const isDefault = rawValue instanceof Object;
+        return isDefault ? this.defailtValue : rawValue;
+    }
+    isDisabled() {
+        return !this.isEnabled();
+    }
+    switch(overridedValue = null) {
+        settingsDatabase.set(this.name, overridedValue == null ? this.isDisabled() : overridedValue);
+    }
+    getChild(postfix, defaultValue = true) {
+        return new SettingBoolProperty(this.name + postfix, defaultValue);
+    }
+}
+class SettingDropdownProperty {
+    constructor(name, values, defaultIndex = 0) {
+        this.name = name;
+        this.values = values;
+        this.defaultIndex = defaultIndex;
+    }
+    get() {
+        const rawValue = settingsDatabase.get(this.name);
+        const isDefault = rawValue instanceof Object;
+        return isDefault ? this.values[this.defaultIndex] : rawValue;
+    }
+    getIndex() {
+        return this.values.indexOf(this.get());
+    }
+    isDefault() {
+        return this.get() == this.values[this.defaultIndex];
+    }
+    set(index) {
+        settingsDatabase.set(this.name, this.values[index]);
+    }
+}
+class SettingStringProperty {
+    constructor(name, defaultValue, filter = null) {
+        this.name = name;
+        this.defaultValue = defaultValue;
+        this.filter = filter != null ? filter : (input) => input;
+    }
+    get() {
+        const rawValue = settingsDatabase.get(this.name);
+        const isDefault = rawValue instanceof Object;
+        return isDefault ? this.defaultValue : rawValue;
+    }
+    isDefault() {
+        return this.get() == this.defaultValue;
+    }
+    set(value) {
+        settingsDatabase.set(this.name, value);
+    }
+}
+function defaultFilter(defaultValue) {
+    return (input) => {
+        const parsed = parseInt(input).toString();
+        return parsed != `NaN` ? parsed : defaultValue.toString();
+    };
+}
+function defaultPositiveFilter(defaultValue) {
+    return (input) => {
+        const parsed = Math.abs(parseInt(input)).toString();
+        return parsed != `NaN` ? parsed : defaultValue.toString();
+    };
+}
+class SettingsManager {
+    constructor() {
+        this.revision = this.getRevision();
+        this.isDirted = false;
+        this.API_APP = new SettingStringProperty(`apiApp`, ``);
+        this.API_WARNINGS = new SettingBoolProperty(`apiWarnings`);
+        this.WIDE_MODE = new SettingBoolProperty(`wideMode`);
+        this.CONTENT_WIDTH = new SettingStringProperty(`contentWidth`, `700`, defaultPositiveFilter(700));
+        this.CONTENT_OFFSET = new SettingStringProperty(`contentOffset`, `0`, defaultFilter(0));
+        this.BIGGER_FONTS = new SettingBoolProperty(`biggerFonts`);
+        this.SCROLL_TO_TOP = new SettingBoolProperty(`scrollToTop`);
+        this.IMAGE_VIEWER = new SettingBoolProperty(`imageViewer`);
+        this.COLLAPSE_AWARDS = new SettingDropdownProperty(`collapseAwards`, Object.values(AwardsMode), 1);
+        this.REDIRECT_MODE = new SettingDropdownProperty(`redirectMode`, Object.values(RedirectMode), 1);
+        this.NOTIFY_POPUP = new SettingBoolProperty(`notifyPopup`);
+        this.SHOW_FILTERED_CONTENT = new SettingBoolProperty(`showFilteredContent`);
+        this.FILTERED_CONTENT_MAX_COUNT = new SettingStringProperty(`filteredContentMaxCount`, `20`, defaultPositiveFilter(20));
+        this.SUB_FILTER = new SettingBoolProperty(`sidebarSubFilter`);
+        this.SIDEBAR_GAMES = new SettingBoolProperty(`sidebarGames`);
+        this.SIDEBAR_CUSTOMS = new SettingBoolProperty(`sidebarCustoms`);
+        this.SIDEBAR_RECENT = new SettingBoolProperty(`sidebarRecent`);
+        this.SIDEBAR_SUBS = new SettingBoolProperty(`sidebarSubs`);
+        this.SIDEBAR_RESOURCES = new SettingBoolProperty(`sidebarResources`);
+        this.SIDEBAR_NAV_BUTTON = new SettingBoolProperty(`sidebarNavigation`);
+        this.FEED_BUTTONS = new SettingBoolProperty(`feedButtons`);
+        this.FLAIR_BAR = new SettingBoolProperty(`flairbar`);
+        this.FLAIR_SHOW_ALWAYS = new SettingBoolProperty(`flairShowAlways`, false);
+        this.COLLAPSE_HIGHLIGHTS = new SettingBoolProperty(`collapseHighlights`, false);
+        this.BACKPLATES = new SettingBoolProperty(`backplates`);
+        this.SELECTABLE_POSTS = new SettingBoolProperty(`selectablePosts`);
+        this.UNWRAP_POST = new SettingBoolProperty(`unwrapPost`);
+        this.SHOW_POST_AUTHOR = new SettingBoolProperty(`showPostAuthor`);
+        this.SAVED_BOOKMARK_POSTS = new SettingDropdownProperty(`savedBookmarkPosts`, Object.values(BookmarkMode), 1);
+        this.COMMENTS_SORT_BUTTONS = new SettingBoolProperty(`commentSortButtons`);
+        this.COMMENTS_REMEMBER_SORT = new SettingBoolProperty(`commentRememberSort`);
+        this.UNWRAP_MORE_REPLIES = new SettingBoolProperty(`unwrapMoreReplies`, false);
+        this.USER_INFO = new SettingBoolProperty(`userInfo`, false);
+        this.USERNAME_MODE = new SettingDropdownProperty(`usernameMode`, Object.values(UsernameMode), 0);
+        this.USERNAME_MAX_SIMBOLS = new SettingStringProperty(`usernameMaxSimbols`, `50`, defaultPositiveFilter(50));
+        this.USER_TAGS = new SettingBoolProperty(`userTags`);
+        this.HIDE_SHARE = new SettingBoolProperty(`hideShare`);
+        this.GHOSTED_COMMENTS = new SettingBoolProperty(`ghostedComments`);
+        this.COLLAPSE_AUTOMODERATOR = new SettingBoolProperty(`collapseAutomoderator`);
+        this.SAVED_BOOKMARK_COMMENTS = new SettingDropdownProperty(`savedBookmarkComments`, Object.values(BookmarkMode), 1);
+        this.HIDE_RELATED_POSTS = new SettingBoolProperty(`hideRelatedPosts`, false);
+        window.addEventListener('storage', event => {
+            if (this.isDirt() && !this.isDirted) {
+                this.isDirted = true;
+                document.addEventListener('visibilitychange', () => {
+                    window.location.reload();
+                }, { once: true });
+            }
+        });
+    }
+    getRevision() {
+        return parseInt(localStorage.getItem(`pp_settings_s_revision`) ?? `0`);
+    }
+    nextRevision() {
+        this.revision++;
+        localStorage.setItem(`pp_settings_s_revision`, String(this.revision));
+    }
+    isDirt() {
+        const currentRevision = this.getRevision();
+        return currentRevision != this.revision;
+    }
+}
+const settingsDatabase = new Database(`SETTINGS`);
+const settings = new SettingsManager();
+
+;// CONCATENATED MODULE: ./src/modules/toaster.ts
+
+async function notify(message, config) {
+    const { seconds, color } = { seconds: 3, color: null, ...config };
+    let toaster = await dynamicElement(() => document.body?.querySelector(`alert-controller`)?.shadowRoot?.querySelector(`toaster-lite`));
+    let toast = document.createElement(`faceplate-toast`);
+    toast.classList.add(`theme-rpl`);
+    if (color != null) {
+        toast.style.backgroundColor = color;
+    }
+    toast.textContent = message;
+    toaster.appendChild(toast);
+    setTimeout(() => {
+        toast.setAttribute(`_fading`, ``);
+    }, seconds * 1000);
+}
+function pp_log(message) {
+    
+    console.log(`Reddit++: ${message}`);
+}
+
 ;// CONCATENATED MODULE: ./src/utils/redditAPI.ts
 
 
@@ -3199,11 +3060,13 @@ var bookmarkUnsaved_default = /*#__PURE__*/__webpack_require__.n(bookmarkUnsaved
 
 
 
+
 css.addStyle(bookmark/* default */.A);
 function renderCommentBookmark(comment, forced = false) {
-    if (settings.SAVED_BOOKMARK_COMMENTS.isDisabled())
+    const mode = settings.SAVED_BOOKMARK_COMMENTS.get();
+    if (mode == BookmarkMode.Disabled)
         return;
-    const contextMenuButton = comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`faceplate-dropdown-menu`);
+    const contextMenuButton = comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`rpl-dropdown`);
     const saveButton = contextMenuButton.querySelector(`.save-comment-menu-button`);
     const saveButtonContent = saveButton.querySelector(`.text-14`);
     saveButton.addEventListener(`click`, () => {
@@ -3213,7 +3076,7 @@ function renderCommentBookmark(comment, forced = false) {
     if (forced) {
         isSaved = true;
     }
-    if (isSaved || forced || settings.SAVED_BOOKMARK_COMMENTS_SHOW_ALWAYAS.isEnabled()) {
+    if (isSaved || forced || mode == BookmarkMode.Always) {
         const downVoteButton = comment.querySelector(`shreddit-comment-action-row`)?.shadowRoot?.querySelector(`button[downvote]`);
         css.registry(comment.querySelector(`shreddit-comment-action-row`)?.shadowRoot);
         const bookmarkButton = downVoteButton.cloneNode(true);
@@ -3229,9 +3092,10 @@ function renderCommentBookmark(comment, forced = false) {
     }
 }
 async function renderBookmarkPost(post, forced = false, forcedValue = undefined) {
-    if (settings.SAVED_BOOKMARK_POSTS.isDisabled())
+    const mode = settings.SAVED_BOOKMARK_POSTS.get();
+    if (mode == BookmarkMode.Disabled)
         return;
-    const contextMenu = await dynamicElement(() => post.querySelector(`shreddit-post-overflow-menu`)?.shadowRoot?.querySelector(`faceplate-dropdown-menu`)?.querySelector(`faceplate-menu`), 3000);
+    const contextMenu = await dynamicElement(() => post.querySelector(`shreddit-post-overflow-menu`)?.shadowRoot?.querySelector(`rpl-dropdown`)?.querySelector(`faceplate-menu`), 3000);
     if (contextMenu == undefined) {
         return;
     }
@@ -3263,7 +3127,7 @@ async function renderBookmarkPost(post, forced = false, forcedValue = undefined)
     if (forcedValue != undefined) {
         isSaved = forcedValue;
     }
-    if (isSaved || forced || settings.SAVED_BOOKMARK_POSTS_SHOW_ALWAYAS.isEnabled()) {
+    if (isSaved || forced || mode == BookmarkMode.Always) {
         const downVoteButton = post.shadowRoot?.querySelector(`button[downvote]`);
         const bookmarkButton = downVoteButton.cloneNode(true);
         bookmarkButton.classList.add(`pp_bookmark_post`);
@@ -3297,23 +3161,25 @@ var collapseAwards = __webpack_require__("./src/modules/collapseAwards.less");
 
 
 
+
 css.addStyle(collapseAwards/* default */.A);
-async function renderCollapseAward(target, targetType) {
-    if (settings.COLLAPSE_AWARDS.isDisabled())
+async function renderCollapseAward(target, contentType) {
+    const mode = settings.COLLAPSE_AWARDS.get();
+    if (mode == AwardsMode.Default)
         return;
     css.addStyle(collapseAwards/* default */.A, `collapseAwards`);
-    const awardButton = targetType.isComment ? target.querySelector(`award-button`) : target.shadowRoot.querySelector(`award-button`);
+    const awardButton = contentType == ContentType.Comment ? target.querySelector(`award-button`) : target.shadowRoot.querySelector(`award-button`);
     if (awardButton == null)
         return;
-    if (settings.COLLAPSE_AWARDS_COMPLETELY.isEnabled()) {
+    if (mode == AwardsMode.RemoveCompletely) {
         awardButton.remove();
         return;
     }
     if (awardButton.getAttribute(`count`) == `0`) {
-        if (!targetType.isComment) {
+        if (contentType == ContentType.Post) {
             css.registry(target.shadowRoot);
         }
-        const targetContainer = targetType.isComment ? target.querySelector(`shreddit-comment-action-row`)?.shadowRoot : target?.shadowRoot;
+        const targetContainer = contentType == ContentType.Comment ? target.querySelector(`shreddit-comment-action-row`)?.shadowRoot : target?.shadowRoot;
         const upVoteButton = await dynamicElement(() => targetContainer?.querySelector(`button[upvote]`), MAX_LOAD_LAG);
         if (upVoteButton == null)
             return;
@@ -3532,7 +3398,7 @@ function closeAllWindows() {
 }
 class Window {
     constructor(tittle, render, onClose = null) {
-        this.tittle = tittle;
+        this.tittleContent = tittle;
         this.render = render;
         this.onClose = onClose;
         this.container = null;
@@ -3553,12 +3419,12 @@ class Window {
         });
         const win = appendElement(this.container, `div`, `pp_window`);
         const tittleContainer = appendElement(win, `div`, `pp_window_tittleContainer`);
-        let tittle = appendElement(tittleContainer, `div`, [`pp_window_tittle`, `flex`, `flex-row`]);
-        tittle = appendElement(tittle, `span`, [`text-24`, `font-semibold`]);
-        tittle.textContent = this.tittle;
+        const tittleDiv = appendElement(tittleContainer, `div`, [`pp_window_tittle`, `flex`, `flex-row`]);
+        this.tittle = appendElement(tittleDiv, `span`, [`text-24`, `font-semibold`]);
+        this.tittle.textContent = this.tittleContent;
         this.closeButton = appendElement(tittleContainer, `div`, [`pp_window_closeButton`, `flex`, `items-center`]);
         this.closeButton = appendElement(this.closeButton, `button`, [`button`, `icon`, `inline-flex`, `items-center`, `justify-center`, `button-small`, `button-secondary`, `px-[var(--rem6)]`]);
-        this.closeButton.setAttribute(`tittle`, `Close ${this.tittle}`);
+        this.closeButton.setAttribute(`tittle`, `Close ${this.tittleContent}`);
         this.closeButton.addEventListener('click', e => {
             this.close();
         });
@@ -3579,14 +3445,14 @@ class Window {
         }
         currentWindows.push(this);
         document.body.appendChild(this.container);
-        document.body.style.overflow = 'hidden';
+        document.body.parentElement.style.overflow = 'hidden';
         this.render(this, context);
     }
     close() {
         this.container.remove();
         currentWindows.splice(currentWindows.findIndex(w => w == this), 1);
         if (currentWindows.length <= 0) {
-            document.body.style.overflow = 'visible';
+            document.body.parentElement.style.overflow = 'visible';
         }
         while (this.content.firstChild) {
             this.content.removeChild(this.content.lastChild);
@@ -3667,13 +3533,10 @@ css.addStyle(subs/* default */.A);
 const FLAIR_HIDDEN = `hidden`;
 const FLAIR_BLURED = `blured`;
 const FLAIR_BANNED = `banned`;
-class SubSettings {
-}
 class SubFlairsData {
 }
 class SubData {
 }
-const subSettings = new Database(`SUBS_SETTINGS`);
 const flairs = new Database(`FLAIRS`);
 const subs_subs = new Database(`SUBS`, { isCleanupable: true, validator: subDataValidator, loader: subDataLoader });
 function subDataValidator(subData) {
@@ -3780,7 +3643,7 @@ function renderFlair(conatiner, sub, flair, minified = false) {
         `font-normal`,
         `box-border`,
         `px-[6px]`,
-        `rounded-[20px]`,
+        `pp_flair`,
         `leading-4`,
         `max-w-full`,
         `py-xs`,
@@ -3828,6 +3691,10 @@ function userDataValidator(userData) {
 }
 async function userDataLoader(userId) {
     let userData = {};
+    if (userId == `[deleted]`) {
+        userData.banned = true;
+        return userData;
+    }
     const { status, result } = await requestAPI(`/user/${userId}/about.json`);
     if (status != 404 && result == null) {
         
@@ -3861,10 +3728,13 @@ var bannedUser_default = /*#__PURE__*/__webpack_require__.n(bannedUser);
 
 
 
+
+
 const NEWUSER_SECONDS_SHIFT = DAY_SECONDS * 64;
 let loadQueueLock = false;
-async function renderUserInfo(userId, nickName, tagsAnchor, infoAnchor, target) {
-    if (settings.USER_INFO.isDisabled() && settings.SHOW_NAMES.isDisabled())
+async function renderUserInfo(userId, nickName, tagsAnchor, infoAnchor, contentType) {
+    const usernameMode = settings.USERNAME_MODE.get();
+    if (settings.USER_INFO.isDisabled() && usernameMode == UsernameMode.ProfileName)
         return;
     
     await dynamicElement(() => (loadQueueLock ? null : true));
@@ -3880,9 +3750,33 @@ async function renderUserInfo(userId, nickName, tagsAnchor, infoAnchor, target) 
         }
     });
     
-    if (settings.SHOW_NAMES.isEnabled() && userData.nick != undefined && userData.nick) {
+    if (usernameMode != UsernameMode.ProfileName && userData.nick != undefined && userData.nick) {
         const maxSymbols = parseInt(settings.USERNAME_MAX_SIMBOLS.get());
         nickName.textContent = maxSymbols <= 0 || userData.nick.length < maxSymbols ? userData.nick : userData.nick.slice(0, maxSymbols - 2) + `...`;
+        if (usernameMode == UsernameMode.Both) {
+            if (userId == nickName.textContent) {
+                nickName.textContent = `u/${nickName.textContent}`;
+            }
+            else if (contentType == ContentType.Comment) {
+                const commentHeader = nickName.parentElement?.parentElement?.parentElement?.parentElement?.parentElement;
+                const flair = commentHeader.querySelector(`author-flair-event-handler`);
+                let profileContainer = null;
+                if (flair != null) {
+                    profileContainer = flair.parentElement;
+                }
+                else {
+                    profileContainer = appendElement(commentHeader, `div`, [`flex`, `flex-none`, `flex-row`, `items-center`, `flex-nowrap`, `gap-2xs`, `pt-[2px]`]);
+                }
+                const profileName = prependElement(profileContainer, `div`, [`font-bold`, `text-neutral-content-strong`, `text-12`]);
+                profileName.textContent = `u/${userId}`;
+                profileName.style.color = `#696969`;
+            }
+            else {
+                const profileName = prependElement(nickName.parentElement, `div`);
+                profileName.textContent = `| u/${userId}`;
+                nickName.after(profileName);
+            }
+        }
     }
     if (settings.USER_INFO.isEnabled()) {
         const rating = document.createElement(`div`);
@@ -3891,7 +3785,7 @@ async function renderUserInfo(userId, nickName, tagsAnchor, infoAnchor, target) 
             rating.textContent = userData.rating < 10000 ? `${Math.round(userData.rating / 100) / 10}K` : `${Math.round(userData.rating / 1000)}K`;
             infoAnchor.after(rating);
             const point = document.createElement(`span`);
-            if (target.isComment) {
+            if (contentType == ContentType.Comment) {
                 point.classList.add(`inline-block`, `my-0`, `mx-2xs`, `text-12`, `text-neutral-content-weak`);
             }
             else {
@@ -3920,6 +3814,16 @@ var postsBackplates = __webpack_require__("./src/modules/posts/postsBackplates.l
 // EXTERNAL MODULE: ./resources/postUnwrapButton.svg
 var postUnwrapButton = __webpack_require__("./resources/postUnwrapButton.svg");
 var postUnwrapButton_default = /*#__PURE__*/__webpack_require__.n(postUnwrapButton);
+;// CONCATENATED MODULE: ./src/modules/settings/prefs.ts
+
+class PrefsKey {
+}
+PrefsKey.COMMENTS_CURRENT_SORT = `COMMENTS_CURRENT_SORT`;
+PrefsKey.SUB_FILTER = `SUB_FILTER`;
+PrefsKey.CONTENT_FILTERS = `CONTENT_FILTERS`;
+PrefsKey.PROFILE_MENU_ELEMENTS = `PROFILE_MENU_ELEMENTS`;
+const prefs = new Database(`PREFS`);
+
 // EXTERNAL MODULE: ./src/modules/filters/filters.less
 var filters = __webpack_require__("./src/modules/filters/filters.less");
 // EXTERNAL MODULE: ./resources/hiddenIco.svg
@@ -4297,7 +4201,7 @@ async function renderPost(post) {
     renderBookmarkPost(post);
     const award = await dynamicElement(() => post.shadowRoot?.querySelector(`award-button`), MAX_LOAD_LAG);
     if (award != null) {
-        renderCollapseAward(post, IS_POST);
+        renderCollapseAward(post, ContentType.Post);
     }
     if (settings.SELECTABLE_POSTS.isEnabled()) {
         post.querySelector(`a[slot="full-post-link"]`)?.remove();
@@ -4346,7 +4250,8 @@ async function renderShareButtonPost(post) {
 }
 async function renderHeader(post) {
     const author = post.getAttribute(`author`);
-    if (post.getAttribute(`view-context`) == `AggregateFeed`) {
+    const viewContext = post.getAttribute(`view-context`);
+    if (viewContext == `AggregateFeed` || viewContext == `CustomFeed`) {
         if (settings.SHOW_POST_AUTHOR.isDisabled())
             return;
         const anchor = await dynamicElement(() => post.querySelector(`span[slot="credit-bar"]`)?.querySelector(`.created-separator`), MAX_LOAD_LAG);
@@ -4360,7 +4265,7 @@ async function renderHeader(post) {
         point.classList.add(`inline-block`, `my-0`, `created-separator`, `text-neutral-content-weak`);
         point.textContent = `•`;
         userNameLink.before(point);
-        renderUserInfo(author, userName, anchor, anchor, IS_POST);
+        renderUserInfo(author, userName, anchor, anchor, ContentType.Post);
     }
     else {
         const creditBar = await dynamicElement(() => post.querySelector(`[slot="credit-bar"]`), MAX_LOAD_LAG);
@@ -4368,7 +4273,7 @@ async function renderHeader(post) {
         const anchor = creditBar.querySelector(`.created-separator`);
         if (anchor == null)
             return;
-        renderUserInfo(author, userName, anchor, anchor, IS_POST);
+        renderUserInfo(author, userName, anchor, anchor, ContentType.Post);
     }
 }
 async function renderContent(post) {
@@ -4384,7 +4289,9 @@ async function renderContent(post) {
     }
     postContent.classList.remove(`feed-card-text-preview`);
     const postAnchor = post.querySelector(`a[slot="text-body"]`);
-    postAnchor.classList.toggle(`pointer-events-none`, false);
+    if (postAnchor != null) {
+        postAnchor.classList.toggle(`pointer-events-none`, false);
+    }
     for (const content of postContent.childNodes) {
         if (content instanceof Element && content.matches(`object`)) {
             const previewHref = content.querySelector(`a`)?.href;
@@ -4454,14 +4361,59 @@ async function renderUnwrapPostButton(post, postContent) {
     }
 }
 
+;// CONCATENATED MODULE: ./src/modules/feed/feedLocation.ts
+var FeedLocation;
+(function (FeedLocation) {
+    FeedLocation[FeedLocation["Sub"] = 0] = "Sub";
+    FeedLocation[FeedLocation["Home"] = 1] = "Home";
+    FeedLocation[FeedLocation["Popular"] = 2] = "Popular";
+    FeedLocation[FeedLocation["All"] = 3] = "All";
+    FeedLocation[FeedLocation["Custom"] = 4] = "Custom";
+})(FeedLocation || (FeedLocation = {}));
+const customRegex = new RegExp(`www.reddit.com/user/.*/m/`);
+function getFeedLocation() {
+    if (window.location.href.includes(`?feed=home`) || window.location.href == `https://www.reddit.com/`)
+        return FeedLocation.Home;
+    if (window.location.href.includes(`reddit.com/r/popular/`))
+        return FeedLocation.Popular;
+    if (window.location.href.includes(`reddit.com/r/all/`))
+        return FeedLocation.All;
+    if (customRegex.test(window.location.href))
+        return FeedLocation.Custom;
+    return FeedLocation.Sub;
+}
+function isOverridableLocation(location) {
+    return location == FeedLocation.Sub || location == FeedLocation.Custom;
+}
+
+;// CONCATENATED MODULE: ./src/modules/feed/feedSort.ts
+
+var FeedSort;
+(function (FeedSort) {
+    FeedSort["Best"] = "Best";
+    FeedSort["Hot"] = "Hot";
+    FeedSort["New"] = "New";
+    FeedSort["Top"] = "Top";
+    FeedSort["Rising"] = "Rising";
+})(FeedSort || (FeedSort = {}));
+function getFeedSorts(location) {
+    switch (location) {
+        case FeedLocation.All:
+        case FeedLocation.Custom:
+            return Object.values(FeedSort).filter(sort => sort != FeedSort.Best);
+        default:
+            return Object.values(FeedSort);
+    }
+}
+
 // EXTERNAL MODULE: ./src/modules/feed/feedButtons.less
 var feedButtons = __webpack_require__("./src/modules/feed/feedButtons.less");
-// EXTERNAL MODULE: ./resources/feedButtons/feedButtonBest_empty.svg
-var feedButtonBest_empty = __webpack_require__("./resources/feedButtons/feedButtonBest_empty.svg");
-var feedButtonBest_empty_default = /*#__PURE__*/__webpack_require__.n(feedButtonBest_empty);
 // EXTERNAL MODULE: ./resources/feedButtons/feedButtonBest.svg
 var feedButtonBest = __webpack_require__("./resources/feedButtons/feedButtonBest.svg");
 var feedButtonBest_default = /*#__PURE__*/__webpack_require__.n(feedButtonBest);
+// EXTERNAL MODULE: ./resources/settingsGear.svg
+var settingsGear = __webpack_require__("./resources/settingsGear.svg");
+var settingsGear_default = /*#__PURE__*/__webpack_require__.n(settingsGear);
 // EXTERNAL MODULE: ./resources/feedButtons/feedButtonHot.svg
 var feedButtonHot = __webpack_require__("./resources/feedButtons/feedButtonHot.svg");
 var feedButtonHot_default = /*#__PURE__*/__webpack_require__.n(feedButtonHot);
@@ -4474,23 +4426,81 @@ var feedButtonRising_default = /*#__PURE__*/__webpack_require__.n(feedButtonRisi
 // EXTERNAL MODULE: ./resources/feedButtons/feedButtonTop.svg
 var feedButtonTop = __webpack_require__("./resources/feedButtons/feedButtonTop.svg");
 var feedButtonTop_default = /*#__PURE__*/__webpack_require__.n(feedButtonTop);
+// EXTERNAL MODULE: ./src/utils/changesObserver.less
+var changesObserver = __webpack_require__("./src/utils/changesObserver.less");
+;// CONCATENATED MODULE: ./src/utils/changesObserver.ts
+
+
+
+css.addStyle(changesObserver/* default */.A);
+class ChangesObserver {
+    constructor() {
+        this.changes = 0;
+        this.bannerContainer = null;
+    }
+    CreateSource(defaultValue) {
+        return new PlainChangesSource(this, defaultValue);
+    }
+    Reset() {
+        this.changes = 0;
+    }
+    HasChanges() {
+        return this.changes != 0;
+    }
+    OnChange(value) {
+        this.changes += value;
+        if (this.bannerContainer != null) {
+            this.bannerContainer.classList.toggle(`pp_changesBanner_active`, this.HasChanges());
+        }
+    }
+    RenderBanner(container) {
+        if (this.bannerContainer == null) {
+            this.bannerContainer = appendElement(container, `div`, `pp_changesBannerContainer`);
+            const banner = appendElement(this.bannerContainer, `div`, `pp_changesBanner`);
+            banner.textContent = `Page will be reloaded to apply new settings`;
+        }
+        else {
+            container.append(this.bannerContainer);
+            this.bannerContainer.classList.toggle(`pp_changesBanner_active`, false);
+        }
+    }
+}
+class ChangesSource {
+    constructor(observer) {
+        this.observer = observer;
+    }
+}
+class PlainChangesSource extends ChangesSource {
+    constructor(observer, defaultValue) {
+        super(observer);
+        this.isChanged = false;
+        this.defaultValue = defaultValue;
+    }
+    Capture(value) {
+        if (this.defaultValue != value && !this.isChanged) {
+            this.isChanged = true;
+            this.observer.OnChange(1);
+        }
+        if (this.defaultValue == value && this.isChanged) {
+            this.isChanged = false;
+            this.observer.OnChange(-1);
+        }
+    }
+}
+
 ;// CONCATENATED MODULE: ./src/modules/feed/feedRedirect.ts
 
 
 
-function GetDefaultFeedProperty(location) {
-    switch (location) {
-        case FeedLocation.Home:
-            return settings.DEFAULT_FEED_HOME;
-        case FeedLocation.Popular:
-            return settings.DEFAULT_FEED_POPULAR;
-        case FeedLocation.All:
-            return settings.DEFAULT_FEED_ALL;
-        default:
-            return settings.DEFAULT_FEED_SUB;
-    }
-}
-function IsUnsetedFeed() {
+
+const redirectConfigs = new Map([
+    [FeedLocation.Sub, { tittle: `Subreddits`, descriptionLabel: `Subreddits`, isOverridable: true, isOptional: true }],
+    [FeedLocation.Home, { tittle: `Home`, descriptionLabel: `Home`, isOverridable: false, isOptional: false }],
+    [FeedLocation.Popular, { tittle: `Popular`, descriptionLabel: `r/Popular`, isOverridable: false, isOptional: false }],
+    [FeedLocation.All, { tittle: `All`, descriptionLabel: `r/All`, isOverridable: false, isOptional: false }],
+    [FeedLocation.Custom, { tittle: `Custom feeds`, descriptionLabel: `Custom`, isOverridable: true, isOptional: false }]
+]);
+function isRedirectable() {
     if (window.location.href == `https://www.reddit.com/`)
         return true;
     if (window.location.href.includes(`/?f=flair_name`))
@@ -4498,19 +4508,232 @@ function IsUnsetedFeed() {
     if (window.location.href.includes(`?feed=home`)) {
         return window.location.href.includes(`reddit.com/?feed=home`);
     }
-    else {
-        return window.location.href.split(`/r/`)[1].split(`/`).length < 3;
+    const subSplit = window.location.href.split(`/r/`);
+    if (subSplit.length == 2) {
+        return subSplit[1].split(`/`).length <= 2;
     }
+    const customSplit = window.location.href.split(`/m/`);
+    if (customSplit.length == 2) {
+        return customSplit[1].split(`/`).length <= 2;
+    }
+    return false;
 }
-function CheckFeedRedirect(location, sort) {
+function initializeFeedRedirect() {
+    checkFeedRedirect();
+    const observeUrlChange = () => {
+        let oldHref = document.location.href;
+        const body = document.querySelector('body');
+        const observer = new MutationObserver(mutations => {
+            if (oldHref !== document.location.href) {
+                oldHref = document.location.href;
+                checkFeedRedirect();
+            }
+        });
+        observer.observe(body, { childList: true, subtree: true });
+    };
+    window.onload = observeUrlChange;
+}
+function checkFeedRedirect() {
+    if (!isRedirectable())
+        return;
+    const location = getFeedLocation();
+    const data = defaultFeedData.get(FeedLocation[location]);
+    const defaultSort = defaultSorts.get(location);
     if (location == FeedLocation.Sub) {
-        const currentSubSettings = subSettings.get(getCurrentSub());
-        if (currentSubSettings.defaultFeed != undefined) {
-            return currentSubSettings.defaultFeed == sort;
+        const sub = getCurrentSub();
+        const latest = subsLatestSort.get(sub);
+        const subData = subsFeedData.get(sub);
+        if (subData != null) {
+            if (subData.defaultSort == latest || !subData.redirect)
+                return;
+            document.location.replace(`${document.location.href}${subData.defaultSort.toString().toLowerCase()}/`);
+            return;
+        }
+        if (!data.redirect)
+            return;
+        if (latest != null && data.defaultSort != latest) {
+            document.location.replace(`${document.location.href}${subData.defaultSort.toString().toLowerCase()}/`);
+            return;
         }
     }
-    const defaultFeedProperty = GetDefaultFeedProperty(location);
-    return !defaultFeedProperty.isDefault() && defaultFeedProperty.get() == sort;
+    if (location == FeedLocation.Custom) {
+        const custom = getCurrentCustomFeed();
+        const customData = customFeedData.get(custom);
+        if (customData != null) {
+            if (customData.defaultSort == defaultSort || !customData.redirect)
+                return;
+            document.location.replace(`${document.location.href}${customData.defaultSort.toString().toLowerCase()}/`);
+            return;
+        }
+    }
+    if (data.defaultSort == defaultSort)
+        return;
+    document.location.replace(`https://www.reddit.com${generateFeedHref(location, data.defaultSort)}`);
+}
+
+// EXTERNAL MODULE: ./src/modules/feed/feedSettings/feedSettingsWindow.less
+var feedSettingsWindow = __webpack_require__("./src/modules/feed/feedSettings/feedSettingsWindow.less");
+;// CONCATENATED MODULE: ./src/modules/feed/feedSettings/feedSettingsWindow.ts
+
+
+
+
+
+
+
+
+
+
+
+
+
+css.addStyle(feedSettingsWindow/* default */.A);
+const feedSettingsWindow_feedSettingsWindow = new Window('Feed sort settings', renderFeedSettingsWindow, feedSettingsWindow_onCloseWindow);
+const changes = new ChangesObserver();
+const sortChanges = new Map();
+function renderFeedSettingsWindow(win, context) {
+    changes.Reset();
+    changes.RenderBanner(win.content);
+    const location = context.location;
+    const redirectConfig = redirectConfigs.get(location);
+    const scroll = appendElement(win.content, `div`, [`pp_window_scrollContent`, `styled-scrollbars`]);
+    const commonArea = appendElement(scroll, `div`, `pp_window_elementsContainer`);
+    let defaultData = defaultFeedData.get(FeedLocation[location]);
+    let overrideDatabase = null;
+    let overrideKey = null;
+    let overrideData = null;
+    let isOverrided = false;
+    let overrideArea = null;
+    function getOverrideTittle() {
+        if (location == FeedLocation.Custom) {
+            return `${realCustomFeedTittle ?? overrideKey} custom feed`;
+        }
+        else {
+            return `r/${overrideKey}`;
+        }
+    }
+    if (redirectConfig.isOverridable) {
+        const isSub = location == FeedLocation.Sub;
+        overrideDatabase = isSub ? subsFeedData : customFeedData;
+        overrideKey = isSub ? getCurrentSub() : getCurrentCustomFeed();
+        overrideData = overrideDatabase.get(overrideKey);
+        const propertyArea = appendElement(commonArea, `div`, `pp_window_element`);
+        const header = appendElement(propertyArea, `div`, `pp_settings_propertyHeader`);
+        const tittle = appendElement(header, `div`, `pp_settings_propertyHeader_tittle`);
+        tittle.textContent = `Override ${getOverrideTittle()}`;
+        const description = appendElement(header, `div`, `pp_settings_propertyHeader_description`);
+        description.textContent = `Apply settings to this ${isSub ? `subreddit` : `custom feed`} only`;
+        const buttonContainer = appendElement(propertyArea, `div`, `pp_settings_propertyButtonContainer`);
+        const controlArea = appendElement(buttonContainer, `div`, `pp_window_controlArea`);
+        isOverrided = overrideData != null;
+        renderUIToggle(controlArea, isOverrided, (state) => {
+            if (state) {
+                overrideData = {
+                    redirect: defaultData.redirect,
+                    defaultSort: defaultData.defaultSort,
+                    hiddenSort: [...defaultData.hiddenSort]
+                };
+                overrideDatabase.set(overrideKey, overrideData);
+            }
+            else {
+                overrideDatabase.set(overrideKey, null);
+            }
+            isOverrided = state;
+            overrideArea.classList.toggle(`pp_feedSettings_overrideSub`, isOverrided);
+            renderWindowTittle();
+            renderOverrideArea();
+        });
+    }
+    renderWindowTittle();
+    function renderWindowTittle() {
+        win.tittle.innerHTML = isOverrided ? `Feed sort: <span class="pp_feedSettings_overrideTittle">${getOverrideTittle()}</span>` : `Feed sort: ${redirectConfig.tittle}`;
+    }
+    const sorts = getFeedSorts(location);
+    renderOverrideArea();
+    function renderOverrideArea() {
+        if (overrideArea != null) {
+            overrideArea.remove();
+            overrideArea = null;
+        }
+        overrideArea = appendElement(scroll, `div`, `pp_window_elementsContainer`);
+        overrideArea.classList.toggle(`pp_feedSettings_overrideSub`, isOverrided);
+        const currentData = isOverrided ? overrideData : defaultData;
+        function saveCurrentData() {
+            if (isOverrided) {
+                overrideDatabase.set(overrideKey, currentData);
+            }
+            else {
+                defaultFeedData.set(FeedLocation[location], currentData);
+            }
+        }
+        let defaultSortToogle = null;
+        if (redirectConfig.isOptional) {
+            const propertyArea = appendElement(overrideArea, `div`, `pp_window_element`);
+            const header = appendElement(propertyArea, `div`, `pp_settings_propertyHeader`);
+            const tittle = appendElement(header, `div`, `pp_settings_propertyHeader_tittle`);
+            tittle.textContent = `Redirect`;
+            const description = appendElement(header, `div`, `pp_settings_propertyHeader_description`);
+            description.innerHTML = `By default Reddit loads the latest used sort for subs. That option forces redirect to the <b>Default sort</b>`;
+            const buttonContainer = appendElement(propertyArea, `div`, `pp_settings_propertyButtonContainer`);
+            const controlArea = appendElement(buttonContainer, `div`, `pp_window_controlArea`);
+            renderUIToggle(controlArea, currentData.redirect, (state) => {
+                currentData.redirect = state;
+                saveCurrentData();
+                defaultSortToogle.classList.toggle(`pp_ui_disabled`, !currentData.redirect);
+            });
+        }
+        {
+            const propertyArea = appendElement(overrideArea, `div`, `pp_window_element`);
+            const header = appendElement(propertyArea, `div`, `pp_settings_propertyHeader`);
+            const tittle = appendElement(header, `div`, `pp_settings_propertyHeader_tittle`);
+            tittle.textContent = `Default sort`;
+            const description = appendElement(header, `div`, `pp_settings_propertyHeader_description`);
+            description.innerHTML = `By default Reddit uses <b>${defaultSorts.get(location)}</b> sort for <b>${redirectConfig.descriptionLabel}</b> feed`;
+            const buttonContainer = appendElement(propertyArea, `div`, `pp_settings_propertyButtonContainer`);
+            const controlArea = appendElement(buttonContainer, `div`, `pp_window_controlArea`);
+            defaultSortToogle = renderUIOptions(controlArea, sorts.indexOf(currentData.defaultSort), sorts, (index) => {
+                currentData.defaultSort = sorts[index];
+                saveCurrentData();
+            }).parentElement.parentElement.parentElement;
+            defaultSortToogle.classList.toggle(`pp_ui_disabled`, !currentData.redirect);
+        }
+        const subtittleSections = appendElement(overrideArea, `h3`, `pp_settings_subtittle`);
+        subtittleSections.textContent = `Visible buttons`;
+        sorts.forEach(sort => {
+            const propertyArea = appendElement(overrideArea, `div`, `pp_window_element`);
+            const header = appendElement(propertyArea, `div`, `pp_settings_propertyHeader`);
+            const tittle = appendElement(header, `div`, `pp_settings_propertyHeader_tittle`);
+            tittle.textContent = sort;
+            propertyArea.classList.add(`pp_settings_property_oneLine`);
+            const buttonContainer = appendElement(propertyArea, `div`, `pp_settings_propertyButtonContainer`);
+            const controlArea = appendElement(buttonContainer, `div`, `pp_window_controlArea`);
+            const defaultValue = !currentData.hiddenSort.includes(sort);
+            let changesSource = null;
+            if (sortChanges.has(sort)) {
+                changesSource = sortChanges.get(sort);
+                changesSource.Capture(defaultValue);
+            }
+            else {
+                changesSource = changes.CreateSource(defaultValue);
+                sortChanges.set(sort, changesSource);
+            }
+            renderUIToggle(controlArea, defaultValue, (state) => {
+                if (state) {
+                    currentData.hiddenSort = currentData.hiddenSort.filter(hiddenSort => hiddenSort != sort);
+                }
+                else {
+                    currentData.hiddenSort.push(sort);
+                }
+                changesSource.Capture(state);
+                saveCurrentData();
+            });
+        });
+    }
+}
+function feedSettingsWindow_onCloseWindow() {
+    if (changes.HasChanges()) {
+        window.location.reload();
+    }
 }
 
 ;// CONCATENATED MODULE: ./src/modules/feed/feedButtons.ts
@@ -4530,111 +4753,92 @@ function CheckFeedRedirect(location, sort) {
 
 
 
+
+
+
 css.addStyle(feedButtons/* default */.A);
-const BUTTONS_SVG = {
+const sortIcons = {
     Best: (feedButtonBest_default()),
     Hot: (feedButtonHot_default()),
     New: (feedButtonNew_default()),
     Top: (feedButtonTop_default()),
     Rising: (feedButtonRising_default())
 };
-const BUTTON_CLASSES = [
-    `inline-flex`,
-    `flex-col`,
-    `text-neutral-content-weak`,
-    `font-semibold`,
-    `rounded-full`,
-    `hover:no-underline`,
-    `hover:bg-secondary-background-hover`,
-    `hover:text-secondary-content`,
-    `active:bg-secondary-background`,
-    `pl-[var(--rem16)]`,
-    `pr-[var(--rem16)]`
-];
-async function renderFeedButtons(main, feedDropdown) {
-    if (settings.FEED_BUTTONS.isDisabled())
+async function renderFeedButtons(main) {
+    if (settings.FEED_BUTTONS.isDisabled() || window.location.href.includes(`/about/`))
         return;
     if (checkIsRendered(main))
         return;
-    const currentFeed = feedDropdown?.querySelector(`div[slot="selected-item"]`)?.textContent;
-    feedDropdown?.remove();
-    const location = GetFeedLocation();
-    let buttonsContainer = null;
-    let hrefGenerator = null;
-    if (location != FeedLocation.Sub) {
-        const originContainer = await dynamicElement(() => main.querySelector(`shreddit-layout-event-setter`)?.parentElement);
-        originContainer.classList.add(`pp_feedButtonsContainer`);
-        buttonsContainer = document.createElement(`div`);
-        buttonsContainer.classList.add(`flex`, `mx-md`, `shrink-0`, `pp_feedContainer`);
-        originContainer.prepend(buttonsContainer);
-        if (location == FeedLocation.Home) {
-            hrefGenerator = feed => {
-                return `/${feed.toLowerCase()}/?feed=home`;
-            };
+    const feedPanel = await dynamicElement(() => main.querySelector(`shreddit-async-loader[bundlename="shreddit_sort_dropdown"]`), MAX_LOAD_LAG);
+    const sortDropdown = await dynamicElement(() => feedPanel?.querySelector(`shreddit-sort-dropdown`), MAX_LOAD_LAG);
+    if (sortDropdown == null || sortDropdown.getAttribute(`trigger-id`) == `comment-sort-button`)
+        return;
+    feedPanel.classList.add(`pp_feedPanel`);
+    const feedPanelContent = sortDropdown.parentElement.parentElement;
+    const location = getFeedLocation();
+    if (location == FeedLocation.Custom && feedPanel.previousElementSibling.className == `s:invisible`) {
+        feedPanel.previousElementSibling.remove();
+    }
+    const currentSortText = sortDropdown.querySelector(`div[slot="selected-item"]`)?.textContent;
+    const currentSort = FeedSort[currentSortText];
+    sortDropdown.remove();
+    let data = defaultFeedData.get(FeedLocation[location]);
+    if (location == FeedLocation.Sub) {
+        const sub = getCurrentSub();
+        const subData = subsFeedData.get(sub);
+        if (subData) {
+            data = subData;
         }
-        else {
-            hrefGenerator = feed => {
-                return `/r/${location == FeedLocation.Popular ? `popular` : `all`}/${feed.toLowerCase()}/`;
-            };
+        subsLatestSort.set(sub, currentSort);
+    }
+    if (location == FeedLocation.Custom) {
+        const custom = getCurrentCustomFeed();
+        const customData = customFeedData.get(custom);
+        if (customData != null) {
+            data = customData;
         }
     }
-    else {
-        const aboutContainer = await dynamicElement(() => main.querySelector(`a[slot="page-3"]`)?.parentElement?.parentElement);
-        buttonsContainer = document.createElement(`div`);
-        buttonsContainer.classList.add(`flex`, `mx-md`, `shrink-0`, `pp_feedContainer`);
-        aboutContainer.before(buttonsContainer);
-        aboutContainer.remove();
-        const subName = getCurrentSub();
-        hrefGenerator = feed => {
-            return `/r/${subName}/${feed.toLowerCase()}/`;
-        };
-        const feedpanel = buttonsContainer.parentElement;
-        feedpanel.classList.toggle(`justify-between`, false);
-        feedpanel.classList.toggle(`flex-wrap`, false);
-        feedpanel.classList.toggle(`pp_feedPanel`, true);
-        const space = document.createElement(`div`);
-        space.classList.add(`pp_feedPanel_space`);
-        buttonsContainer.after(space);
-        let currentSubSettings = subSettings.get(subName);
-        const isDefault = currentSubSettings.defaultFeed == undefined ? currentFeed == settings.DEFAULT_FEED_SUB.get() : currentFeed == currentSubSettings.defaultFeed;
-        const defaultFeedMark = document.createElement(`div`);
-        defaultFeedMark.classList.add(`pp_defaultFeed_mark`);
-        let svg = buildSvg(isDefault ? (feedButtonBest_default()) : (feedButtonBest_empty_default()), 16, 16);
-        defaultFeedMark.append(svg);
-        space.after(defaultFeedMark);
-        const defaultFeedMarkHint = appendElement(defaultFeedMark, `div`, `pp_defaultFeed_mark_hint`);
-        const defaultFeedMarkHintSpan = appendElement(defaultFeedMarkHint, `span`);
-        defaultFeedMarkHintSpan.textContent = isDefault ? `${currentFeed} is default feed for r/${subName}` : `Set ${currentFeed} as default feed for r/${subName}`;
-        if (!isDefault) {
-            defaultFeedMark.addEventListener(`click`, () => {
-                const updatedSvg = buildSvg((feedButtonBest_default()), 16, 16);
-                svg.replaceWith(updatedSvg);
-                defaultFeedMarkHintSpan.textContent = `${currentFeed} is default feed for r/${subName}`;
-                currentSubSettings.defaultFeed = currentFeed;
-                subSettings.set(subName, currentSubSettings);
-            }, { once: true });
-        }
+    const sorts = getFeedSorts(location);
+    if (feedPanel.parentElement.className != `flex justify-between flex-wrap mb-xs mt-xs`) {
+        feedPanel.parentElement.style.marginBottom = `1rem`;
     }
-    const feeds = GetFeeds(location);
-    const isUnseted = IsUnsetedFeed();
-    for (const feed of feeds) {
-        const button = appendElement(buttonsContainer, `a`, BUTTON_CLASSES);
-        button.href = hrefGenerator(feed);
-        const isCurrent = feed == currentFeed;
+    const buttonsContainer = prependElement(feedPanelContent, `div`, `pp_feedPanel_buttons`);
+    for (const sort of sorts) {
+        if (data.hiddenSort.includes(sort) && sort != currentSort)
+            continue;
+        const button = appendElement(buttonsContainer, `a`, [
+            `inline-flex`,
+            `flex-col`,
+            `text-secondary-plain-weak`,
+            `font-semibold`,
+            `rounded-full`,
+            `hover:no-underline`,
+            `hover:text-secondary-plain`,
+            `hover:bg-secondary-background-hover`,
+            `hover:text-secondary-content`,
+            `active:bg-secondary-background`,
+            `ps-[var(--rem16)]`,
+            `pe-[var(--rem16)]`
+        ]);
+        button.href = generateFeedHref(location, sort);
+        const isCurrent = sort == currentSort;
         button.classList.toggle(`bg-secondary-background-selected`, isCurrent);
         button.classList.toggle(`!text-neutral-content-strong`, isCurrent);
-        const spanContainer = appendElement(button, `span`, [`inline-flex`, `flex-row`, `items-center`, `gap-xs`, `py-[var(--rem10)]`, `leading-5`, `font-14`, `pp_feedButton`]);
-        let graphic = BUTTONS_SVG[feed];
+        const spanContainer = appendElement(button, `span`, [`inline-flex`, `flex-row`, `items-center`, `gap-xs`, `py-[var(--rem10)]`, `leading-5`, `font-14`]);
+        let graphic = sortIcons[sort];
         if (graphic != null) {
             let svg = buildSvg(graphic, 16, 16);
             spanContainer.append(svg);
         }
         const spanText = appendElement(spanContainer, `span`);
-        spanText.textContent = feed;
-        if (isUnseted && CheckFeedRedirect(location, feed)) {
-            button.click();
-        }
+        spanText.textContent = sort;
     }
+    const settingsButtonContainer = appendElement(feedPanelContent, `div`, `pp_feedPanel_settings_container`);
+    const settingsButton = appendElement(settingsButtonContainer, `div`, `pp_feedPanel_settings`);
+    appendSvg(settingsButton, (settingsGear_default()), 18, 18);
+    settingsButton.addEventListener(`click`, event => {
+        feedSettingsWindow_feedSettingsWindow.open({ location: location });
+    });
 }
 
 ;// CONCATENATED MODULE: ./src/modules/feed/feed.ts
@@ -4643,6 +4847,30 @@ async function renderFeedButtons(main, feedDropdown) {
 
 
 
+
+
+
+
+
+class FeedData {
+}
+const defaultSorts = new Map([
+    [FeedLocation.Home, FeedSort.Best],
+    [FeedLocation.Popular, FeedSort.Best],
+    [FeedLocation.All, FeedSort.Hot],
+    [FeedLocation.Sub, FeedSort.Best],
+    [FeedLocation.Custom, FeedSort.Hot]
+]);
+const defaultFeedData = new Database(`DEFAULT_FEED_DATA`, {
+    factory: function (id) {
+        const location = FeedLocation[id];
+        const config = redirectConfigs.get(location);
+        return { redirect: !config.isOptional, defaultSort: defaultSorts.get(location), hiddenSort: [] };
+    }
+});
+const customFeedData = new Database(`CUSTOM_FEED_DATA`, { factory: DatabaseFactory.Null });
+const subsFeedData = new Database(`SUBS_FEED_DATA`, { factory: DatabaseFactory.Null });
+const subsLatestSort = new Database(`SUBS_LATEST_SORT`, { factory: DatabaseFactory.Null });
 let postObserver = null;
 async function renderFeed(container) {
     const main = await dynamicElement(() => container.querySelector(`#subgrid-container`));
@@ -4663,12 +4891,16 @@ async function renderFeed(container) {
         initialPostsObserver.disconnect();
     }, MAX_LOAD_LAG);
     initializePostObserver(main);
-    renderSub(main);
-    const feedDropdown = await dynamicElement(() => main.querySelector(`shreddit-sort-dropdown`), MAX_LOAD_LAG);
-    const isInvalidDropdown = (feedDropdown == null || feedDropdown.getAttribute(`trigger-id`) == `comment-sort-button`) && !window.location.href.includes(`/about/`);
-    if (isInvalidDropdown)
-        return;
-    renderFeedButtons(main, feedDropdown);
+    const location = getFeedLocation();
+    switch (location) {
+        case FeedLocation.Sub:
+            renderSub(main);
+            break;
+        case FeedLocation.Custom:
+            renderCustomFeed(main);
+            break;
+    }
+    renderFeedButtons(main);
 }
 function initializePostObserver(target) {
     if (postObserver != null) {
@@ -4692,6 +4924,679 @@ function initializePostObserver(target) {
     });
     postObserver.observe(target, { childList: true, subtree: true });
 }
+function generateFeedHref(location, sort) {
+    const lowerCaseSort = sort.toString().toLowerCase();
+    switch (location) {
+        case FeedLocation.Sub:
+            return `/r/${getCurrentSub()}/${lowerCaseSort}/`;
+        case FeedLocation.Home:
+            return `/${lowerCaseSort}/?feed=home`;
+        case FeedLocation.Popular:
+            return `/r/popular/${lowerCaseSort}/`;
+        case FeedLocation.All:
+            return `/r/all/${lowerCaseSort}/`;
+        case FeedLocation.Custom:
+            let split = window.location.href.split(`//www.reddit.com`);
+            return split.length >= 2 ? `${split[1]}${lowerCaseSort}/` : `/404/`;
+        default:
+            return `/404/`;
+    }
+}
+
+;// CONCATENATED MODULE: ./src/_compatibility/migrations.ts
+
+
+
+const DATABASE_VERSION = `DATABASE_VERSION`;
+class Migration {
+    constructor(version, action, previous = null) {
+        this.version = version;
+        this.action = action;
+        this.previous = previous;
+    }
+    check() {
+        const currentVersion = GM_getValue(DATABASE_VERSION, null);
+        
+        if (currentVersion == null) {
+            GM_setValue(DATABASE_VERSION, this.version);
+            return;
+        }
+        if (isLowerVersion(currentVersion, this.version)) {
+            this.previous?.check();
+            this.action();
+            GM_setValue(DATABASE_VERSION, this.version);
+            notify(`Reddit++ was upgraded to ${this.version}`);
+        }
+    }
+}
+
+;// CONCATENATED MODULE: ./src/_compatibility/migration_1_0_0.ts
+
+const migration_1_0_0 = new Migration(`1.0.0`, () => {
+    const settingsDatabase = GM_getValue(`SETTINGS_DATABASE`, null);
+    if (settingsDatabase == null)
+        return;
+    const bookmarks = settingsDatabase[`savedBookmark`];
+    if (bookmarks != undefined) {
+        settingsDatabase[`savedBookmarkPosts`] = bookmarks;
+        settingsDatabase[`savedBookmarkComments`] = bookmarks;
+        delete settingsDatabase[`savedBookmark`];
+    }
+    const hideUnsaved = settingsDatabase[`savedBookmarkHideUnsaved`];
+    if (hideUnsaved != undefined) {
+        settingsDatabase[`savedBookmarkPostsShowAlways`] = !hideUnsaved;
+        settingsDatabase[`savedBookmarkCommentsShowAlways`] = !hideUnsaved;
+        delete settingsDatabase[`savedBookmarkHideUnsaved`];
+    }
+    GM_setValue(`SETTINGS_DATABASE`, settingsDatabase);
+});
+
+;// CONCATENATED MODULE: ./src/_compatibility/migration_1_2_0.ts
+
+
+
+
+
+
+
+
+
+const migration_1_2_0 = new Migration(`1.2.0`, () => {
+    const settingsDatabase = GM_getValue(`SETTINGS_DATABASE`, null);
+    if (settingsDatabase != null) {
+        if (settingsDatabase.savedBookmarkPosts != undefined && typeof settingsDatabase.savedBookmarkPosts !== `string`) {
+            settingsDatabase.savedBookmarkPosts = (settingsDatabase.savedBookmarkPostsShowAlways == true ? BookmarkMode.Always : settingsDatabase.savedBookmarkPosts == true ? BookmarkMode.WhenUpvoted : BookmarkMode.Disabled).toString();
+        }
+        delete settingsDatabase.savedBookmarkPostsShowAlways;
+        if (settingsDatabase.savedBookmarkComments != undefined && typeof settingsDatabase.savedBookmarkComments !== `string`) {
+            settingsDatabase.savedBookmarkComments = (settingsDatabase.savedBookmarkCommentsShowAlways == true ? BookmarkMode.Always : settingsDatabase.savedBookmarkComments == true ? BookmarkMode.WhenUpvoted : BookmarkMode.Disabled).toString();
+        }
+        delete settingsDatabase.savedBookmarkCommentsShowAlways;
+        if (settingsDatabase.redirectSuggestion != undefined || settingsDatabase.redirectForced != undefined) {
+            settingsDatabase.redirectMode =
+                settingsDatabase.redirectForced == true ? RedirectMode.Forced : settingsDatabase.redirectSuggestion == true ? RedirectMode.Suggestion : RedirectMode.Disabled;
+        }
+        delete settingsDatabase.redirectSuggestion;
+        delete settingsDatabase.redirectForced;
+        if (settingsDatabase.collapseAwards != undefined && typeof settingsDatabase.collapseAwards !== `string`) {
+            settingsDatabase.collapseAwards = (settingsDatabase.collapseAwardsCompletely == true ? AwardsMode.RemoveCompletely : settingsDatabase.collapseAwards == true ? AwardsMode.WhenUpvoted : AwardsMode.Default).toString();
+        }
+        delete settingsDatabase.collapseAwardsCompletely;
+        if (settingsDatabase.showNames != undefined && typeof settingsDatabase.showNames !== `string`) {
+            settingsDatabase.usernameMode = settingsDatabase.showNames == true ? UsernameMode.Nickname : UsernameMode.ProfileName;
+            delete settingsDatabase.showNames;
+        }
+        GM_setValue(`SETTINGS_DATABASE`, settingsDatabase);
+        GM_setValue(`SETTINGS_REFRESHED`, Date.now());
+    }
+    const subSettings = new Database(`SUBS_SETTINGS`);
+    subSettings.forEach((key, value) => {
+        if (value.defaultFeed != undefined && value.defaultFeed in FeedSort) {
+            const currentFeedData = subsFeedData.get(key);
+            if (currentFeedData == null) {
+                subsFeedData.set(key, {
+                    redirect: true,
+                    defaultSort: value.defaultFeed,
+                    hiddenSort: []
+                });
+            }
+        }
+    });
+    subSettings.wipe();
+}, migration_1_0_0);
+
+;// CONCATENATED MODULE: ./src/_compatibility/latestMigration.ts
+
+const latestMigration = migration_1_2_0;
+
+// EXTERNAL MODULE: ./src/modules/wideMode.less
+var wideMode = __webpack_require__("./src/modules/wideMode.less");
+;// CONCATENATED MODULE: ./src/modules/wideMode.ts
+
+
+
+
+function safePixels(value) {
+    return `${parseInt(value)}px`;
+}
+function renderWideMode(pageContainer, rightSidebar) {
+    if (settings.WIDE_MODE.isDisabled())
+        return;
+    css.addStyle(wideMode/* default */.A, `wideMode`);
+    css.addVar(`--pp-content-width`, safePixels(settings.CONTENT_WIDTH.get()));
+    css.addVar(`--pp-content-offset`, safePixels(settings.CONTENT_OFFSET.get()));
+    if (rightSidebar.parentNode == pageContainer) {
+        return;
+    }
+    rightSidebar.className = `right-sidebar min-w-0 w-[316px] max-w-[316px] hidden s:block styled-scrollbars xs:sticky xs:top-[56px] xs:max-h-[calc(100vh-var(--shreddit-header-height)-1px)] xs:overflow-y-auto xs:overflow-x-hidden pp_rightSidebar`;
+    const originContainer = rightSidebar.parentElement;
+    let isWideMode = !(window.innerWidth >= 1392);
+    const mainContainer = pageContainer.querySelector(`.main-container`);
+    mainContainer.className = `main-container gap-lg w-full`;
+    observeFor(`WIDEMODE_PAGE`, pageContainer, renderContextPopup, false);
+    observeFor(`WIDEMODE_CONTEXT`, originContainer, renderContextPopup, false);
+    function renderContextPopup(element) {
+        if (element.classList.contains(`rounded-[16px]`)) {
+            element.classList.add(`pp_rightSidebar_contextLookup`);
+            if (window.innerWidth < 1392 && element.parentNode != rightSidebar.parentNode) {
+                rightSidebar.after(element);
+            }
+        }
+        return false;
+    }
+    refreshAppRender();
+    window.addEventListener('resize', event => {
+        refreshAppRender();
+    });
+    function refreshAppRender() {
+        if (window.innerWidth >= 1392 && !isWideMode) {
+            pageContainer.prepend(rightSidebar);
+            isWideMode = true;
+        }
+        if (window.innerWidth < 1392 && isWideMode) {
+            originContainer.append(rightSidebar);
+            isWideMode = false;
+        }
+    }
+}
+
+// EXTERNAL MODULE: ./src/modules/app.less
+var modules_app = __webpack_require__("./src/modules/app.less");
+// EXTERNAL MODULE: ./src/modules/sidebar/sidebar.less
+var sidebar = __webpack_require__("./src/modules/sidebar/sidebar.less");
+;// CONCATENATED MODULE: ./src/modules/sidebar/sidebarNavigation.ts
+
+
+var SidebarNavigation;
+(function (SidebarNavigation) {
+    SidebarNavigation["Home"] = "home";
+    SidebarNavigation["Popular"] = "popular";
+    SidebarNavigation["Guides"] = "guides";
+    SidebarNavigation["Explore"] = "explore";
+    SidebarNavigation["All"] = "all";
+})(SidebarNavigation || (SidebarNavigation = {}));
+let navigations = new Map([
+    [SidebarNavigation.Home, `Home`],
+    [SidebarNavigation.Popular, `Popular`],
+    [SidebarNavigation.Guides, `Answers`],
+    [SidebarNavigation.Explore, `Explore`],
+    [SidebarNavigation.All, `All`]
+]);
+async function RenderSidebarNavigations(sidebar) {
+    if (sidebar == null) {
+        sidebar = document.body.querySelector(`#left-sidebar-container`);
+    }
+    const section = await dynamicElement(() => sidebar.querySelector(`left-nav-top-section`));
+    Object.values(SidebarNavigation).forEach(name => {
+        const setting = settings.SIDEBAR_NAV_BUTTON.getChild(PascalCase(name), true);
+        section.toggleAttribute(name, setting.isEnabled());
+    });
+}
+
+;// CONCATENATED MODULE: ./src/modules/sidebar/sidebarSectionRenderer.ts
+
+class SidebarSectionElements {
+}
+class SidebarSectionRenderer {
+    async Render(container, autocollapse, setting) {
+        if (checkIsRendered(container))
+            return;
+        container.classList.add(`pp_sidebar_loadingSection`);
+        const section = await this.GetSectionElements(container);
+        container.classList.remove(`pp_sidebar_loadingSection`);
+        if (setting.isEnabled()) {
+            if (autocollapse) {
+                const settingCollapsed = setting.getChild(`Collapsed`, false);
+                const details = section.container.querySelector(`details`);
+                if (settingCollapsed.isEnabled()) {
+                    section.container.toggleAttribute(`open`, false);
+                    details.classList.add(`pp_sidebar_collapsedSection`);
+                }
+                section.button.addEventListener(`click`, (e) => {
+                    const button = e.currentTarget;
+                    setTimeout(() => {
+                        const isCollapsed = button.getAttribute(`aria-expanded`) === 'false';
+                        settingCollapsed.switch(isCollapsed);
+                    }, 10);
+                    details.classList.toggle(`pp_sidebar_collapsedSection`, false);
+                });
+            }
+        }
+        else {
+            section.container.remove();
+            section.bottomLine?.remove();
+        }
+    }
+    FindBottomLine(container) {
+        let bottomLine = container.nextElementSibling;
+        while (bottomLine != null && !bottomLine.matches(`hr`)) {
+            bottomLine = bottomLine.nextElementSibling;
+        }
+        return bottomLine;
+    }
+}
+
+;// CONCATENATED MODULE: ./src/modules/sidebar/sections/custom.ts
+
+
+class CustomRenderer extends SidebarSectionRenderer {
+    FindContainer(sidebar, element) {
+        let container = null;
+        sidebar.querySelectorAll(`faceplate-expandable-section-helper`).forEach(helper => {
+            const summary = helper.querySelector(`summary[aria-controls="multireddits_section"]`);
+            if (summary != null) {
+                container = helper;
+            }
+        });
+        return container;
+    }
+    async GetSectionElements(container) {
+        await dynamicElement(() => container.getAttribute(`open`));
+        return {
+            container: container,
+            button: container.querySelector(`summary[aria-controls="multireddits_section"]`),
+            bottomLine: this.FindBottomLine(container)
+        };
+    }
+}
+
+;// CONCATENATED MODULE: ./src/modules/sidebar/sections/games.ts
+
+
+class GamesRenderer extends SidebarSectionRenderer {
+    FindContainer(sidebar, element) {
+        return sidebar.querySelector(`faceplate-tracker[noun="games_drawer"]`);
+    }
+    async GetSectionElements(container) {
+        await dynamicElement(() => container.querySelector(`games-section-badge-wrapper`));
+        return {
+            container: container,
+            button: container.querySelector(`summary[aria-controls="games_section"]`),
+            bottomLine: this.FindBottomLine(container)
+        };
+    }
+}
+
+;// CONCATENATED MODULE: ./src/modules/sidebar/sections/recent.ts
+
+
+
+class RecentRenderer extends SidebarSectionRenderer {
+    FindContainer(sidebar, element) {
+        let container = sidebar.querySelector(`reddit-recent-pages`);
+        if (container == null && element.matches(`reddit-recent-pages`)) {
+            container = element;
+        }
+        return container;
+    }
+    async GetSectionElements(container) {
+        const helper = await dynamicElement(() => {
+            const _helper = container.shadowRoot?.querySelector(`faceplate-expandable-section-helper`);
+            return _helper?.getAttribute(`open`) != null ? _helper : null;
+        });
+        const button = await dynamicElement(() => helper?.querySelector(`summary`));
+        css.registry(container.shadowRoot);
+        helper.classList.add(`pp_defaultText`);
+        return {
+            container: helper,
+            button: button,
+            bottomLine: container.querySelector(`hr`)
+        };
+    }
+}
+
+;// CONCATENATED MODULE: ./src/modules/sidebar/sections/resources.ts
+
+class ResourcesRenderer extends SidebarSectionRenderer {
+    FindContainer(sidebar, element) {
+        return sidebar.querySelector(`summary[aria-controls="RESOURCES"]`);
+    }
+    async GetSectionElements(container) {
+        return {
+            container: container.parentElement.parentElement,
+            button: container,
+            bottomLine: null
+        };
+    }
+}
+
+// EXTERNAL MODULE: ./resources/subFilter.svg
+var subFilter = __webpack_require__("./resources/subFilter.svg");
+var subFilter_default = /*#__PURE__*/__webpack_require__.n(subFilter);
+// EXTERNAL MODULE: ./resources/sidebarSubsManager.svg
+var sidebarSubsManager = __webpack_require__("./resources/sidebarSubsManager.svg");
+var sidebarSubsManager_default = /*#__PURE__*/__webpack_require__.n(sidebarSubsManager);
+// EXTERNAL MODULE: ./resources/inputClear.svg
+var inputClear = __webpack_require__("./resources/inputClear.svg");
+var inputClear_default = /*#__PURE__*/__webpack_require__.n(inputClear);
+// EXTERNAL MODULE: ./src/utils/UI/input.less
+var input = __webpack_require__("./src/utils/UI/input.less");
+;// CONCATENATED MODULE: ./src/utils/UI/input.ts
+
+
+
+
+
+css.addStyle(input/* default */.A);
+function renderUIInput(container, placeholder, value, onChange, params) {
+    const { icon, iconConfig, cleanButton, alignCenter, filter } = {
+        icon: null,
+        iconConfig: { strokeColor: CURRENT_COLOR, fillColor: NONE_COLOR },
+        cleanButton: false,
+        alignCenter: false,
+        filter: (input) => input,
+        ...params
+    };
+    const inputContainer = appendElement(container, `div`, `pp_ui_input_container`);
+    const inputButton = appendElement(inputContainer, `div`, [`pp_ui_input_button`, `button`, `button-bordered`]);
+    inputButton.setAttribute(`tabindex`, `0`);
+    const inputShadowRoot = inputButton.attachShadow({ mode: 'open' });
+    css.registry(inputShadowRoot);
+    const inputPanel = appendElement(inputButton, `span`, [`pp_ui_input_panel`, `flex`, `items-center`, `justify-center`]);
+    inputShadowRoot.appendChild(inputPanel);
+    if (icon != null) {
+        const inputIconSpan = appendElement(inputPanel, `span`, `pp_ui_input_icon`);
+        appendSvg(inputIconSpan, icon, 16, 16, iconConfig);
+    }
+    const inputSpan = appendElement(inputPanel, `span`, `pp_ui_input_span`);
+    if (cleanButton == true) {
+        inputSpan.style.marginRight = `22px`;
+    }
+    const input = appendElement(inputSpan, `input`, `pp_ui_input`);
+    input.type = `text`;
+    input.placeholder = placeholder;
+    if (alignCenter == true) {
+        input.style.textAlign = `center`;
+    }
+    if (value != null && value.length > 0) {
+        input.value = value;
+    }
+    let clearButton = null;
+    if (cleanButton == true) {
+        const clearContainer = appendElement(inputContainer, `div`, `pp_ui_input_clearContainer`);
+        clearButton = appendElement(clearContainer, `button`, [`pp_ui_input_clearButton`, `button-plain`]);
+        clearButton.classList.toggle(`pp_hidden`, (input.value?.length ?? 0) == 0);
+        const clearIcon = buildSvg((inputClear_default()), 16, 16);
+        clearButton.append(clearIcon);
+        clearButton.addEventListener(`click`, () => {
+            input.value = filter(``);
+            onChange(input.value);
+            clearButton.classList.toggle(`pp_hidden`, true);
+        });
+    }
+    input.addEventListener(`input`, () => {
+        const value = filter(input.value.trim());
+        onChange(value);
+        if (cleanButton == true) {
+            clearButton.classList.toggle(`pp_hidden`, value.length == 0);
+        }
+    });
+    input.addEventListener(`focusout`, () => {
+        const value = filter(input.value.trim());
+        if (value != input.value) {
+            input.value = value;
+        }
+        if (cleanButton == true) {
+            clearButton.classList.toggle(`pp_hidden`, value.length == 0);
+        }
+    });
+    return inputContainer;
+}
+
+;// CONCATENATED MODULE: ./src/modules/sidebar/subFilter.ts
+
+
+
+
+
+
+
+let filter = null;
+async function renderSubFilter(container) {
+    if (checkIsRendered(container, `pp-sub-filter`))
+        return;
+    if (settings.SUB_FILTER.isDisabled())
+        return;
+    const manageSubsLink = (await dynamicElement(() => container.querySelector(`.left-nav-manage-communities-link`)));
+    if (filter != null) {
+        filter.clear();
+    }
+    else {
+        filter = new Map();
+    }
+    const subsContainer = await dynamicElement(() => container.querySelector(`left-nav-communities-controller`)?.shadowRoot?.querySelector(`.items-container`));
+    subsContainer.querySelectorAll(`left-nav-community-item`).forEach(sub => {
+        filter.set(sub.getAttribute(`prefixedname`).replace(`r/`, ``).toLowerCase(), sub);
+    });
+    let initValue = prefs.get(PrefsKey.SUB_FILTER);
+    if (initValue == null || initValue instanceof Object) {
+        initValue = ``;
+    }
+    const input = renderUIInput(container, `Filter`, initValue, value => {
+        onChangeFilter(value);
+    }, {
+        icon: (subFilter_default()),
+        iconConfig: { strokeColor: NONE_COLOR, fillColor: CURRENT_COLOR },
+        cleanButton: true,
+        filter: (input) => input.trim()
+    });
+    manageSubsLink.style.width = `65px`;
+    manageSubsLink.style.paddingRight = `10px`;
+    const createSubText = await dynamicElement(() => manageSubsLink.querySelector(`.text-14`));
+    createSubText.remove();
+    manageSubsLink.replaceWith(input);
+    input.prepend(manageSubsLink);
+    const manageSubsLinkIco = manageSubsLink.querySelector(`svg`);
+    const manageSubsLinkIcoContainer = manageSubsLink.querySelector(`svg`).parentElement;
+    manageSubsLinkIco.remove();
+    appendSvg(manageSubsLinkIcoContainer, (sidebarSubsManager_default()), 20, 20);
+    const inputButton = input.querySelector(`.pp_ui_input_button`);
+    inputButton.addEventListener(`focus`, () => {
+        manageSubsLink.style.display = `none`;
+    });
+    inputButton.addEventListener(`focusout`, () => {
+        manageSubsLink.style.display = `block`;
+    });
+    onChangeFilter(initValue);
+}
+function onChangeFilter(value) {
+    prefs.set(PrefsKey.SUB_FILTER, value);
+    filter.forEach((item, sub) => {
+        if (sub.includes(value.toLowerCase())) {
+            item.style.removeProperty(`display`);
+        }
+        else {
+            item.style.display = `none`;
+        }
+    });
+}
+
+;// CONCATENATED MODULE: ./src/modules/sidebar/sections/subs.ts
+
+
+
+class SubsRenderer extends SidebarSectionRenderer {
+    FindContainer(sidebar, element) {
+        let container = null;
+        sidebar.querySelectorAll(`faceplate-expandable-section-helper`).forEach(helper => {
+            const summary = helper.querySelector(`summary[aria-controls="communities_section"]`);
+            if (summary != null) {
+                container = helper;
+            }
+        });
+        return container;
+    }
+    async GetSectionElements(container) {
+        await dynamicElement(() => container.getAttribute(`open`));
+        renderSubFilter(container);
+        return {
+            container: container,
+            button: container.querySelector(`summary[aria-controls="communities_section"]`),
+            bottomLine: this.FindBottomLine(container)
+        };
+    }
+}
+
+;// CONCATENATED MODULE: ./src/modules/sidebar/sidebarSection.ts
+
+
+
+
+
+
+var SidebarSection;
+(function (SidebarSection) {
+    SidebarSection["Games"] = "Games";
+    SidebarSection["Custom"] = "Custom";
+    SidebarSection["Recent"] = "Recent";
+    SidebarSection["Subs"] = "Subs";
+    SidebarSection["Resources"] = "Resources";
+})(SidebarSection || (SidebarSection = {}));
+const sections = new Map([
+    [SidebarSection.Games, { tittle: `Games on reddit`, autocollapse: false, setting: settings.SIDEBAR_GAMES, renderer: new GamesRenderer() }],
+    [SidebarSection.Custom, { tittle: `Custom feeds`, autocollapse: true, setting: settings.SIDEBAR_CUSTOMS, renderer: new CustomRenderer() }],
+    [SidebarSection.Recent, { tittle: `Recent`, autocollapse: true, setting: settings.SIDEBAR_RECENT, renderer: new RecentRenderer() }],
+    [SidebarSection.Subs, { tittle: `Communities`, autocollapse: true, setting: settings.SIDEBAR_SUBS, renderer: new SubsRenderer() }],
+    [SidebarSection.Resources, { tittle: `Resources`, autocollapse: true, setting: settings.SIDEBAR_RESOURCES, renderer: new ResourcesRenderer() }]
+]);
+
+// EXTERNAL MODULE: ./src/modules/sidebar/sidebarSettingsWindow.less
+var sidebarSettingsWindow = __webpack_require__("./src/modules/sidebar/sidebarSettingsWindow.less");
+;// CONCATENATED MODULE: ./src/modules/sidebar/sidebarSettingsWindow.ts
+
+
+
+
+
+
+
+
+
+
+css.addStyle(sidebarSettingsWindow/* default */.A);
+const sidebarSettingsWindow_sidebarSettingsWindow = new Window('Sidebar settings', renderSettingsWindow, closeSettingsWindow);
+const sidebarSettingsWindow_changes = new ChangesObserver();
+function renderSettingsWindow(win, context) {
+    sidebarSettingsWindow_changes.Reset();
+    sidebarSettingsWindow_changes.RenderBanner(win.content);
+    const scroll = appendElement(win.content, `div`, [`pp_window_scrollContent`, `styled-scrollbars`]);
+    const elements = appendElement(scroll, `div`, `pp_window_elementsContainer`);
+    {
+        const propertyArea = appendElement(elements, `div`, `pp_window_element`);
+        const header = appendElement(propertyArea, `div`, `pp_settings_propertyHeader`);
+        const tittle = appendElement(header, `div`, `pp_settings_propertyHeader_tittle`);
+        tittle.textContent = `Communities filter`;
+        propertyArea.classList.add(`pp_settings_property_oneLine`);
+        const buttonContainer = appendElement(propertyArea, `div`, `pp_settings_propertyButtonContainer`);
+        const controlArea = appendElement(buttonContainer, `div`, `pp_window_controlArea`);
+        const changesSource = sidebarSettingsWindow_changes.CreateSource(settings.SUB_FILTER.isEnabled());
+        renderUIToggle(controlArea, settings.SUB_FILTER.isEnabled(), (state) => {
+            settings.SUB_FILTER.switch(state);
+            changesSource.Capture(settings.SUB_FILTER.isEnabled());
+        });
+    }
+    const subtittleSections = appendElement(elements, `h3`, `pp_settings_subtittle`);
+    subtittleSections.textContent = `Sections`;
+    sections.forEach((config, section) => {
+        const propertyArea = appendElement(elements, `div`, `pp_window_element`);
+        const header = appendElement(propertyArea, `div`, `pp_settings_propertyHeader`);
+        const tittle = appendElement(header, `div`, [`text-12`, `text-secondary-weak`, `tracking-widest`]);
+        tittle.textContent = config.tittle.toUpperCase();
+        propertyArea.classList.add(`pp_settings_property_oneLine`);
+        const buttonContainer = appendElement(propertyArea, `div`, `pp_settings_propertyButtonContainer`);
+        const controlArea = appendElement(buttonContainer, `div`, `pp_window_controlArea`);
+        const changesSource = sidebarSettingsWindow_changes.CreateSource(config.setting.isEnabled());
+        renderUIToggle(controlArea, config.setting.isEnabled(), (state) => {
+            config.setting.switch(state);
+            changesSource.Capture(config.setting.isEnabled());
+        });
+    });
+    const subtittleNavigations = appendElement(elements, `h3`, `pp_settings_subtittle`);
+    subtittleNavigations.textContent = `Navigation buttons`;
+    navigations.forEach((tittleText, navigaton) => {
+        const propertyArea = appendElement(elements, `div`, `pp_window_element`);
+        const header = appendElement(propertyArea, `div`, `pp_settings_propertyHeader`);
+        const tittle = appendElement(header, `div`, `pp_settings_propertyHeader_tittle`);
+        tittle.textContent = tittleText;
+        propertyArea.classList.add(`pp_settings_property_oneLine`);
+        const buttonContainer = appendElement(propertyArea, `div`, `pp_settings_propertyButtonContainer`);
+        const controlArea = appendElement(buttonContainer, `div`, `pp_window_controlArea`);
+        const navSetting = settings.SIDEBAR_NAV_BUTTON.getChild(PascalCase(navigaton), true);
+        const changesSource = sidebarSettingsWindow_changes.CreateSource(navSetting.isEnabled());
+        renderUIToggle(controlArea, navSetting.isEnabled(), (state) => {
+            navSetting.switch(state);
+            changesSource.Capture(navSetting.isEnabled());
+        });
+    });
+}
+function closeSettingsWindow() {
+    if (sidebarSettingsWindow_changes.HasChanges()) {
+        settings.nextRevision();
+        window.location.reload();
+    }
+}
+
+;// CONCATENATED MODULE: ./src/modules/sidebar/sidebar.ts
+
+
+
+
+
+
+
+
+
+css.addStyle(sidebar/* default */.A);
+async function renderSidebar(sidebar) {
+    sidebar.classList.add(`pp_defaultText`);
+    RenderSidebarNavigations(sidebar);
+    RenderSettingsButton(sidebar);
+    const renderedSections = new Map(sections);
+    observeFor(`SIDEBAR`, sidebar, (element) => {
+        renderedSections.forEach((config, section, map) => {
+            const sectionContainer = config.renderer.FindContainer(sidebar, element);
+            if (sectionContainer != null) {
+                config.renderer.Render(sectionContainer, config.autocollapse, config.setting);
+                map.delete(section);
+            }
+        });
+        if (renderedSections.size == 0) {
+            return true;
+        }
+    });
+}
+async function RenderSettingsButton(sidebar) {
+    const flexSidebar = await dynamicElement(() => sidebar.querySelector(`#flex-left-nav-container`));
+    const settingsButtonContainer = prependElement(flexSidebar, `div`);
+    settingsButtonContainer.setAttribute(`id`, `pp-settings`);
+    const settingsButtonTooltip = appendElement(settingsButtonContainer, `rpl-tooltip`);
+    settingsButtonTooltip.setAttribute(`placement`, `right`);
+    settingsButtonTooltip.setAttribute(`content`, `Reddit++ sidebar settings`);
+    settingsButtonTooltip.setAttribute(`appearance`, `inverted`);
+    settingsButtonTooltip.style.cssText = `--show-delay: 750ms; --hide-delay: 50ms`;
+    const settingsButton = appendElement(settingsButtonTooltip, `button`);
+    settingsButton.className = `bg-neutral-background shadow-xs
+button-small px-[var(--rem6)]
+button-bordered
+icon
+items-center justify-center
+button inline-flex `;
+    settingsButton.addEventListener(`click`, () => sidebarSettingsWindow_sidebarSettingsWindow.open());
+    const settingsButtonSpan = appendElement(settingsButton, `span`, [`flex`, `items-center`, `justify-center`]);
+    const settingsButtonSpanSpan = appendElement(settingsButtonSpan, `span`, `flex`);
+    const settingsButtonSvg = appendSvg(settingsButtonSpanSpan, (settingsGear_default()), 16, 16);
+}
+
+// EXTERNAL MODULE: ./src/modules/biggerFonts.less
+var biggerFonts = __webpack_require__("./src/modules/biggerFonts.less");
+;// CONCATENATED MODULE: ./src/modules/biggerFonts.ts
+
+
+
+if (settings.BIGGER_FONTS.isEnabled()) {
+    css.addStyle(biggerFonts/* default */.A);
+}
+function renderBiggerFonts() { }
 
 // EXTERNAL MODULE: ./src/modules/comments/hideShare.less
 var hideShare = __webpack_require__("./src/modules/comments/hideShare.less");
@@ -4801,7 +5706,6 @@ var userTags = __webpack_require__("./src/modules/comments/userTags.less");
 
 
 
-
 class UserTag {
 }
 UserTag.FOLLOWED = `Followed`;
@@ -4829,7 +5733,6 @@ async function renderUserTags(comment) {
     const tagsData = tags.get(userId);
     const tagsContainer = await dynamicElement(() => comment.querySelector(`div[pp-anchor="tags"]`), MAX_LOAD_LAG);
     if (tagsContainer == null) {
-        pp_log(`Unable to render userTags`);
         return;
     }
     tagsContainer.parentNode.querySelectorAll(`svg[userTag="true"]`).forEach(tag => {
@@ -4999,7 +5902,6 @@ var shareButton_default = /*#__PURE__*/__webpack_require__.n(shareButton);
 
 
 function contextMenu_renderContextMenu(comment) {
-    document.body.click();
     let contextMenuButton = comment.querySelector(`shreddit-overflow-menu`).shadowRoot;
     css.registry(contextMenuButton);
     const contextMenu = contextMenuButton.querySelector(`faceplate-menu`);
@@ -5017,10 +5919,6 @@ function contextMenu_renderContextMenu(comment) {
             notify(`Link copied`);
         });
     }
-    let openButton = contextMenuButton.querySelector(`button`);
-    openButton.addEventListener(`click`, () => {
-        document.body.click();
-    });
     renderUserTagsPanel(contextMenu, comment.getAttribute(`author`));
 }
 
@@ -5395,7 +6293,7 @@ async function renderComment(comment) {
     setTimeout(() => {
         renderMoreReplies(comment);
     }, 150);
-    const nickname = comment.querySelector(`div[slot="commentMeta"]`).querySelector(`faceplate-hovercard[data-id="user-hover-card"]`);
+    const nickname = comment.querySelector(`div[slot="commentMeta"]`).querySelector(`faceplate-tracker[noun="comment_author"]`)?.parentElement?.parentElement;
     if (nickname == null)
         return;
     const tagsAnchor = document.createElement(`div`);
@@ -5407,7 +6305,7 @@ async function renderComment(comment) {
     else {
         nickname.after(tagsAnchor);
     }
-    const time = await dynamicElement(() => nickname.parentElement.querySelector(`time`)?.parentElement?.parentElement, MAX_LOAD_LAG);
+    const time = await dynamicElement(() => nickname.parentElement.querySelector(`time`)?.parentElement, MAX_LOAD_LAG);
     const infoAnchor = document.createElement(`div`);
     infoAnchor.setAttribute(`pp-anchor`, `info`);
     time?.before(infoAnchor);
@@ -5430,96 +6328,16 @@ async function renderComment(comment) {
             imageViewer_imageViewer.open(href);
         });
     }
-    renderCollapseAward(comment, IS_COMMENT);
+    renderCollapseAward(comment, ContentType.Comment);
     renderUserTags(comment);
     const userId = comment.getAttribute(`author`);
     const userName = comment.querySelector(`faceplate-tracker[noun="comment_author"]`).querySelector(`a`);
-    renderUserInfo(userId, userName, tagsAnchor, infoAnchor, IS_COMMENT);
-    const contextMenuButton = await dynamicElement(() => comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`faceplate-dropdown-menu`));
+    renderUserInfo(userId, userName, tagsAnchor, infoAnchor, ContentType.Comment);
+    const contextMenuButton = await dynamicElement(() => comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`rpl-dropdown`));
     renderCommentBookmark(comment);
     contextMenuButton.addEventListener(`click`, () => {
         contextMenu_renderContextMenu(comment);
     }, { once: true });
-}
-
-// EXTERNAL MODULE: ./src/modules/scrollToTop.less
-var scrollToTop = __webpack_require__("./src/modules/scrollToTop.less");
-// EXTERNAL MODULE: ./resources/scrollButton.svg
-var scrollButton = __webpack_require__("./resources/scrollButton.svg");
-var scrollButton_default = /*#__PURE__*/__webpack_require__.n(scrollButton);
-;// CONCATENATED MODULE: ./src/modules/scrollToTop.ts
-
-
-
-
-
-
-
-const START_Y = 1000;
-let scrollToTop_scrollToTop = null;
-let scrollToTop_scrollButton = null;
-let prevScrollHeight = 0;
-let isWide = false;
-let isBottom = false;
-let scrollToTop_contentBlock = null;
-let scrollToTop_sidebarBlock = null;
-function renderScrollToTop() {
-    if (settings.SCROLL_TO_TOP.isDisabled())
-        return;
-    css.addStyle(scrollToTop/* default */.A, `scrollToTop`);
-    scrollToTop_contentBlock = document.body.querySelector(`.main-container`);
-    const main = scrollToTop_contentBlock.parentElement;
-    const sidebar = document.body.querySelector(`#left-sidebar-container`);
-    const sidebarObserver = new MutationObserver(mutations => {
-        animate(() => {
-            scrollToTop_checkScreenWidth();
-        }, 0.5);
-    });
-    sidebarObserver.observe(sidebar, { childList: false, subtree: false, attributes: true });
-    scrollToTop_sidebarBlock = sidebar.querySelector(`#flex-left-nav-contents`);
-    const sidebarButton = sidebar.querySelector(`#flex-nav-buttons`);
-    sidebarButton.addEventListener(`click`, event => {
-        animate(() => {
-            scrollToTop_checkScreenWidth();
-        }, 0.5);
-    });
-    scrollToTop_scrollToTop = appendElement(main.parentElement, `div`, `pp_scrollToTop`);
-    scrollToTop_scrollButton = buildSvg((scrollButton_default()), 40, 40);
-    scrollToTop_scrollToTop.append(scrollToTop_scrollButton);
-    scrollToTop_scrollToTop.addEventListener(`click`, () => {
-        if (isBottom) {
-            prevScrollHeight = window.scrollY;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            isBottom = false;
-        }
-        else if (prevScrollHeight > 0) {
-            window.scrollTo({ top: prevScrollHeight, behavior: 'smooth' });
-            prevScrollHeight = 0;
-            isBottom = true;
-        }
-        scrollToTop_checkScreenWidth();
-    });
-    window.addEventListener('resize', event => {
-        scrollToTop_checkScreenWidth();
-    });
-    let prevIsBottom = false;
-    window.addEventListener(`scroll`, event => {
-        isBottom = window.scrollY > START_Y;
-        if (isBottom != prevIsBottom) {
-            prevIsBottom = isBottom;
-            scrollToTop_checkScreenWidth();
-        }
-    });
-    scrollToTop_checkScreenWidth();
-}
-function scrollToTop_checkScreenWidth() {
-    const left = scrollToTop_sidebarBlock.getBoundingClientRect().right;
-    const right = scrollToTop_contentBlock.getBoundingClientRect().left;
-    scrollToTop_scrollToTop.style.left = `${(left + right) / 2 - 50}px`;
-    const hidden = !(right - left > 116 && (isBottom || prevScrollHeight > 0));
-    const inverted = !isBottom && prevScrollHeight > 0;
-    scrollToTop_scrollToTop.classList.toggle(`pp_scrollToTop_hidden`, hidden);
-    scrollToTop_scrollButton.classList.toggle(`pp_scrollToTop_inverted`, inverted);
 }
 
 ;// CONCATENATED MODULE: ./src/modules/users/userPage.ts
@@ -5546,7 +6364,6 @@ async function renderUserPage(container) {
 
 
 
-
 async function renderApp() {
     css.addStyle(modules_app/* default */.A, `app`);
     const app = await dynamicElement(() => document.body.querySelector(`shreddit-app`)?.querySelector(`.grid-container`));
@@ -5554,7 +6371,7 @@ async function renderApp() {
         return;
     clearHiddenContentButton();
     closeAllWindows();
-    if (window.location.href.includes(`/user/`)) {
+    if (window.location.href.includes(`/user/`) && !window.location.href.includes(`/m/`)) {
         renderUserPage(document.body);
     }
     else {
@@ -5572,7 +6389,6 @@ async function renderApp() {
     rightSidebar.classList.toggle(`styled-scrollbars`, true);
     renderWideMode(pageContainer, rightSidebar);
     renderBiggerFonts();
-    renderScrollToTop();
 }
 
 // EXTERNAL MODULE: ./src/modules/header.less
@@ -5610,6 +6426,9 @@ function renderNotifications(container) {
     });
 }
 
+// EXTERNAL MODULE: ./resources/settingsButton.svg
+var settingsButton = __webpack_require__("./resources/settingsButton.svg");
+var settingsButton_default = /*#__PURE__*/__webpack_require__.n(settingsButton);
 // EXTERNAL MODULE: ./resources/dragAnchor.svg
 var dragAnchor = __webpack_require__("./resources/dragAnchor.svg");
 var dragAnchor_default = /*#__PURE__*/__webpack_require__.n(dragAnchor);
@@ -5652,16 +6471,17 @@ function filtersWindow_renderFiltersWindow(win, context) {
     addAddButton();
     let draggedFilter = null;
     elements.addEventListener(`dragstart`, e => {
-        draggedFilter = e.target;
-        draggedFilter.classList.toggle(`pp_filter_dragged`, true);
-        e.dataTransfer.effectAllowed = `move`;
+        const target = e.target;
+        if (target.matches(`li`)) {
+            draggedFilter = target;
+            draggedFilter.classList.toggle(`pp_filter_dragged`, true);
+            e.dataTransfer.effectAllowed = `move`;
+        }
     });
-    let dropTargetFilter = null;
     elements.addEventListener(`dragenter`, e => {
         const targetFilter = getFilterRoot(e.target);
         if (targetFilter != null && targetFilter != draggedFilter) {
             e.preventDefault();
-            dropTargetFilter = targetFilter;
         }
     });
     elements.addEventListener(`dragend`, e => {
@@ -5840,6 +6660,201 @@ function cleanupBlankFilters() {
 
 // EXTERNAL MODULE: ./src/modules/settings/settingsWindow.less
 var settingsWindow = __webpack_require__("./src/modules/settings/settingsWindow.less");
+// EXTERNAL MODULE: ./resources/showIco.svg
+var showIco = __webpack_require__("./resources/showIco.svg");
+var showIco_default = /*#__PURE__*/__webpack_require__.n(showIco);
+// EXTERNAL MODULE: ./src/modules/profileMenu/profileMenuWindow.less
+var profileMenuWindow = __webpack_require__("./src/modules/profileMenu/profileMenuWindow.less");
+;// CONCATENATED MODULE: ./src/modules/profileMenu/profileMenuWindow.ts
+
+
+
+
+
+
+
+
+
+
+
+css.addStyle(profileMenuWindow/* default */.A);
+const profileMenuWindow_profileMenuWindow = new Window('Profile menu elements', renderProfileMenuWindow, profileMenuWindow_onClose);
+const DRAG_TAG = `profileMenuElement`;
+function renderProfileMenuWindow(win, context) {
+    win.container.style.zIndex = `11`;
+    cleanupElements();
+    const scroll = appendElement(win.content, `div`, [`pp_window_scrollContent`, `styled-scrollbars`]);
+    const elements = appendElement(scroll, `ul`, `pp_filter_list`);
+    let menuElements = prefs.get(PrefsKey.PROFILE_MENU_ELEMENTS);
+    if (!(menuElements instanceof Array)) {
+        menuElements = generateDefaultLayout();
+    }
+    for (const element of menuElements) {
+        addElement(element);
+    }
+    addSeparatorButton();
+    let draggedMenuElement = null;
+    elements.addEventListener(`dragstart`, e => {
+        const target = e.target;
+        if (target.matches(`li`)) {
+            draggedMenuElement = target;
+            draggedMenuElement.classList.toggle(`pp_filter_dragged`, true);
+            e.dataTransfer.effectAllowed = `move`;
+        }
+    });
+    elements.addEventListener(`dragenter`, e => {
+        const targetMenuElement = getMenuElementRoot(e.target);
+        if (targetMenuElement != null && targetMenuElement != draggedMenuElement) {
+            e.preventDefault();
+        }
+    });
+    elements.addEventListener(`dragend`, e => {
+        draggedMenuElement.classList.toggle(`pp_filter_dragged`, false);
+        draggedMenuElement = null;
+    });
+    elements.addEventListener(`dragover`, e => {
+        const targetFilter = getMenuElementRoot(e.target);
+        if (targetFilter != null && targetFilter != draggedMenuElement) {
+            e.preventDefault();
+        }
+    });
+    elements.addEventListener(`drop`, e => {
+        e.preventDefault();
+        const targetMenuElement = getMenuElementRoot(e.target);
+        if (targetMenuElement == null)
+            return;
+        const fromIndex = parseInt(draggedMenuElement.getAttribute(`index`));
+        const toIndex = parseInt(targetMenuElement.getAttribute(`index`));
+        const movedFilter = menuElements[fromIndex];
+        menuElements.splice(fromIndex, 1);
+        menuElements.splice(toIndex, 0, movedFilter);
+        save();
+        if (fromIndex > toIndex) {
+            targetMenuElement.before(draggedMenuElement);
+        }
+        else {
+            targetMenuElement.after(draggedMenuElement);
+        }
+        let currentMenuElement = elements.firstElementChild;
+        let currentIndex = 0;
+        while (currentMenuElement.hasAttribute(DRAG_TAG)) {
+            currentMenuElement.setAttribute(`index`, currentIndex.toString());
+            currentIndex++;
+            currentMenuElement = currentMenuElement.nextElementSibling;
+        }
+    });
+    function getMenuElementRoot(element) {
+        let current = element;
+        while (!current.hasAttribute(DRAG_TAG) && current.parentElement != null) {
+            current = current.parentElement;
+        }
+        return current.hasAttribute(DRAG_TAG) ? current : null;
+    }
+    function addElement(elementData, addButton = null) {
+        const elementArea = appendElement(elements, `li`, `pp_filter_element`);
+        elementArea.style.borderColor = borderColor();
+        elementArea.toggleAttribute(DRAG_TAG, true);
+        elementArea.setAttribute(`index`, menuElements.findIndex(f => f == elementData).toString());
+        if (addButton != null) {
+            addButton.before(elementArea);
+        }
+        const elementPanel = appendElement(elementArea, `div`);
+        const dragButton = appendElement(elementPanel, `div`, `pp_filter_element_dragAnchor`);
+        const dragButtonSvg = buildSvg((dragAnchor_default()), 16, 16, { strokeColor: NONE_COLOR, fillColor: CURRENT_COLOR });
+        dragButton.append(dragButtonSvg);
+        dragButton.addEventListener(`mousedown`, () => {
+            elementArea.setAttribute(`draggable`, `true`);
+        });
+        dragButton.addEventListener(`mouseenter`, () => {
+            elementArea.setAttribute(`draggable`, `true`);
+        });
+        dragButton.addEventListener(`mouseleave`, () => {
+            elementArea.setAttribute(`draggable`, `false`);
+        });
+        const tittleContainer = appendElement(elementPanel, `div`, `pp_profileMenuElement_tittleContainer`);
+        if (elementData.element == ProfileMenuElement.Separator) {
+            appendElement(tittleContainer, `hr`);
+        }
+        else {
+            const elementTittle = appendElement(tittleContainer, `span`);
+            elementTittle.textContent = profileMenuElementConfigs.get(elementData.element).tittle;
+        }
+        function borderColor() {
+            return elementData.hidden ? `#bdbdbd` : `#00adff`;
+        }
+        const isDeletable = elementData.element == ProfileMenuElement.Separator;
+        const isOptional = isDeletable || profileMenuElementConfigs.get(elementData.element).isOptional;
+        if (isOptional) {
+            const deleteSpan = appendElement(elementPanel, `span`);
+            const deleteButton = appendElement(deleteSpan, `div`, [`pp_ui_options_arrow`, `button`, `button-plain`, `button-medium`, `px-[var(--rem8)]`]);
+            let deleteButtonIcon = null;
+            if (isDeletable) {
+                deleteButtonIcon = appendSvg(deleteButton, (deleteButton_default()), 24, 24, { strokeColor: NONE_COLOR, fillColor: CURRENT_COLOR });
+            }
+            else {
+                deleteButtonIcon = appendSvg(deleteButton, elementData.hidden ? (hiddenIco_default()) : (showIco_default()), 18, 18, { strokeColor: CURRENT_COLOR, fillColor: NONE_COLOR });
+            }
+            deleteButton.addEventListener(`click`, () => {
+                if (isDeletable) {
+                    menuElements.splice(menuElements.findIndex(f => f == elementData), 1);
+                    elementArea.remove();
+                }
+                else {
+                    elementData.hidden = !elementData.hidden;
+                    elementArea.style.borderColor = borderColor();
+                    deleteButtonIcon.remove();
+                    deleteButtonIcon = appendSvg(deleteButton, elementData.hidden ? (hiddenIco_default()) : (showIco_default()), 18, 18, { strokeColor: CURRENT_COLOR, fillColor: NONE_COLOR });
+                }
+                save();
+            });
+        }
+    }
+    function addSeparatorButton() {
+        const buttonArea = appendElement(elements, `div`, [`pp_filter_addButton`, `button`, `button-primary`, `inline-flex`, `items-center`, `justify-center`]);
+        const buttonSpan = appendElement(buttonArea, `span`, [`flex`, `items-center`, `justify-center`]);
+        const buttonText = appendElement(buttonSpan, `span`, [`flex`, `items-center`, `gap-xs`]);
+        buttonText.textContent = `Add a separator`;
+        buttonArea.addEventListener(`click`, () => {
+            const newFilter = {};
+            newFilter.element = ProfileMenuElement.Separator;
+            newFilter.hidden = false;
+            menuElements.push(newFilter);
+            addElement(newFilter, buttonArea);
+            save();
+            scroll.scrollBy(0, 200);
+        });
+    }
+    function save() {
+        prefs.set(PrefsKey.PROFILE_MENU_ELEMENTS, menuElements);
+    }
+}
+function profileMenuWindow_onClose() {
+    cleanupElements();
+    renderProfileMenu();
+}
+function cleanupElements() {
+    let menuElements = prefs.get(PrefsKey.PROFILE_MENU_ELEMENTS);
+    if (!(menuElements instanceof Array)) {
+        menuElements = generateDefaultLayout();
+    }
+    let lastIndex = menuElements.length - 1;
+    while (lastIndex >= 0 && menuElements[lastIndex].element == ProfileMenuElement.Separator) {
+        menuElements.splice(lastIndex, 1);
+        lastIndex--;
+    }
+    while (menuElements[0].element == ProfileMenuElement.Separator) {
+        menuElements.splice(0, 1);
+    }
+    let index = 0;
+    while (index < menuElements.length - 1) {
+        while (menuElements[index].element == ProfileMenuElement.Separator && menuElements[index + 1].element == ProfileMenuElement.Separator) {
+            menuElements.splice(index + 1, 1);
+        }
+        index++;
+    }
+    prefs.set(PrefsKey.PROFILE_MENU_ELEMENTS, menuElements);
+}
+
 ;// CONCATENATED MODULE: ./src/modules/settings/settingsWindow.ts
 
 
@@ -5852,19 +6867,19 @@ var settingsWindow = __webpack_require__("./src/modules/settings/settingsWindow.
 
 
 
+
+
 css.addStyle(settingsWindow/* default */.A);
-const settingsWindow_settingsWindow = new Window('Reddit++ Settings', renderSettingsWindow, closeSettingsWindow);
+const settingsWindow_settingsWindow = new Window('Reddit++ Settings', settingsWindow_renderSettingsWindow, settingsWindow_closeSettingsWindow);
 class SettingBadge {
 }
 SettingBadge.APIRequests = { text: `API requests`, color: `var(--shreddit-color-wordmark)`, link: `https://github.com/lnm95/redditPlusPlus/blob/main/redditAPI.md` };
 SettingBadge.New = { text: `New`, color: `#2C96C4`, link: `https://greasyfork.org/en/scripts/490046-reddit/versions` };
-let changes = 0;
-function renderSettingsWindow(win, context) {
+let settingsWindow_changes = new ChangesObserver();
+function settingsWindow_renderSettingsWindow(win, context) {
     document.body.click();
-    changes = 0;
-    const changesBannerContainer = appendElement(win.content, `div`, `pp_settings_changesBannerContainer`);
-    const changesBanner = appendElement(changesBannerContainer, `div`, `pp_settings_changesBanner`);
-    changesBanner.textContent = `Page will be reloaded to apply new settings`;
+    settingsWindow_changes.Reset();
+    settingsWindow_changes.RenderBanner(win.content);
     const scroll = appendElement(win.content, `div`, [`pp_window_scrollContent`, `styled-scrollbars`]);
     const elements = appendElement(scroll, `div`, `pp_window_elementsContainer`);
     addSettingString(`App name`, `Without authorization API requests will be limited by 100 per 10 minutes`, `Unauthorized`, settings.API_APP, [SettingBadge.APIRequests]);
@@ -5874,46 +6889,30 @@ function renderSettingsWindow(win, context) {
     addSettingString(`Content width`, `Width of the feed and comments in pixels`, settings.CONTENT_WIDTH.defaultValue, settings.CONTENT_WIDTH);
     addSettingString(`Content offset`, `Offset of the feed and comments in pixels`, settings.CONTENT_OFFSET.defaultValue, settings.CONTENT_OFFSET);
     addSettingToggle(`Bigger fonts`, `Make fonts bigger for better reading`, settings.BIGGER_FONTS);
+    addGotoButton(`Profile menu`, `Hide and replace profile menu elements`, profileMenuWindow_profileMenuWindow, [SettingBadge.New]);
     addSettingToggle(`Scroll to top button`, null, settings.SCROLL_TO_TOP);
     addSettingToggle(`Image viewer`, `Open (zoom) images instead default redirect behaviour`, settings.IMAGE_VIEWER);
-    addSettingToggle(`Redirect suggestion`, `Show the suggestion to redirect from old.reddit to modern pages`, settings.REDIRECT_SUGGESTION);
-    addSettingToggle(`Redirect forced`, `Automatically redirect from old.reddit to modern pages`, settings.REDIRECT_FORCED);
-    addSettingToggle(`Collapse Awards`, `Automatic collapse the award's button for none upvoted posts and comments`, settings.COLLAPSE_AWARDS);
-    addSettingToggle(`Remove Awards`, `Remove the award's buttons completely`, settings.COLLAPSE_AWARDS_COMPLETELY);
+    addSettingOptions(`Redirect`, `Special behaviour when you visit old.reddit pages`, settings.REDIRECT_MODE);
+    addSettingOptions(`Awards`, `Collapse the award's button for none upvoted posts and comments or remove completely`, settings.COLLAPSE_AWARDS);
     addSubtittle(`Content`);
-    addGotoButton(`Filters`, `Hide posts and comments by regular expressions`, filtersWindow_filtersWindow, [SettingBadge.New]);
-    addSettingToggle(`Hidden posts history`, `Allows to show latest hidden posts`, settings.SHOW_FILTERED_CONTENT, [SettingBadge.New]);
-    addSettingString(`Hidden posts history limit`, `Max count of posts in history window`, settings.FILTERED_CONTENT_MAX_COUNT.defaultValue, settings.FILTERED_CONTENT_MAX_COUNT, [SettingBadge.New]);
-    addSubtittle(`Left sidebar`);
-    addSettingToggle(`Sub filter`, `Tool for find subs on sidebar by name`, settings.SUB_FILTER);
-    addSettingToggle(`Show Custom feeds`, null, settings.SIDEBAR_CUSTOMS);
-    addSettingToggle(`Show Recent`, null, settings.SIDEBAR_RECENT);
-    addSettingToggle(`Show Communities`, null, settings.SIDEBAR_SUBS);
-    addSettingToggle(`Show Resources`, null, settings.SIDEBAR_RESOURCES);
-    addSubtittle(`Default feeds`);
-    addSettingOptions(`Home`, null, settings.DEFAULT_FEED_HOME);
-    addSettingOptions(`Popular`, null, settings.DEFAULT_FEED_POPULAR);
-    addSettingOptions(`All`, null, settings.DEFAULT_FEED_ALL);
-    addSettingOptions(`Subreddit's`, null, settings.DEFAULT_FEED_SUB);
+    addGotoButton(`Filters`, `Hide posts and comments by regular expressions`, filtersWindow_filtersWindow);
+    addSettingToggle(`Hidden posts history`, `Allows to show latest hidden posts`, settings.SHOW_FILTERED_CONTENT);
+    addSettingString(`Hidden posts history limit`, `Max count of posts in history window`, settings.FILTERED_CONTENT_MAX_COUNT.defaultValue, settings.FILTERED_CONTENT_MAX_COUNT);
     addSubtittle(`Users`);
     addSettingToggle(`User info`, `Show user's karma and "new user" mark`, settings.USER_INFO, [SettingBadge.APIRequests]);
-    addSettingToggle(`Show nicknames`, `Use user's nicknames instead profile names`, settings.SHOW_NAMES, [SettingBadge.APIRequests]);
-    addSettingString(`Nickname max symbols`, `Make nicknames with too many symbols shorter`, settings.USERNAME_MAX_SIMBOLS.defaultValue, settings.USERNAME_MAX_SIMBOLS, [SettingBadge.New]);
+    addSettingOptions(`Nickname mode`, `Allows showing a nickname instead of the profile name`, settings.USERNAME_MODE, [SettingBadge.APIRequests, SettingBadge.New]);
+    addSettingString(`Nickname max symbols`, `Make nicknames with too many symbols shorter`, settings.USERNAME_MAX_SIMBOLS.defaultValue, settings.USERNAME_MAX_SIMBOLS);
     addSettingToggle(`User tags`, `Enable custom tags (sets via comment's context menu)`, settings.USER_TAGS);
     addSubtittle(`Feed`);
     addSettingToggle(`Feed buttons`, `Unwrap feed sorting buttons`, settings.FEED_BUTTONS);
     addSettingToggle(`Flairs bar`, `Display available flairs to faster navigation. Specific flairs may be hidden via subreddit's flairs settings`, settings.FLAIR_BAR);
-    addSettingToggle(`Show flairs always`, `Show flairs for posts in specific feeds (Home, Popular and All) and filter posts by flairs.`, settings.FLAIR_SHOW_ALWAYS, [
-        SettingBadge.APIRequests,
-        SettingBadge.New
-    ]);
+    addSettingToggle(`Show flairs always`, `Show flairs for posts in specific feeds (Home, Popular and All) and filter posts by flairs.`, settings.FLAIR_SHOW_ALWAYS, [SettingBadge.APIRequests]);
     addSettingToggle(`Collapse community highlights`, null, settings.COLLAPSE_HIGHLIGHTS);
     addSettingToggle(`Selectable text`, `Make a text selectable when posts viewed in feed`, settings.SELECTABLE_POSTS);
     addSettingToggle(`Unwrap button`, `Show the unwrap button for long-text posts in feed`, settings.UNWRAP_POST);
     addSettingToggle(`Soft background`, `Make the background of posts with soft gradient color`, settings.BACKPLATES);
     addSettingToggle(`Show post's author`, `Relates to Home, Popular and All feeds`, settings.SHOW_POST_AUTHOR);
-    addSettingToggle(`Show bookmark`, `Show the bookmark button for saved and upvoted posts`, settings.SAVED_BOOKMARK_POSTS);
-    addSettingToggle(`Show bookmark always`, `Show the bookmark button for all posts`, settings.SAVED_BOOKMARK_POSTS_SHOW_ALWAYAS);
+    addSettingOptions(`Save-post bookmarks`, `Show the save bookmark next to the vote buttons`, settings.SAVED_BOOKMARK_POSTS);
     addSubtittle(`Comments`);
     addSettingToggle(`Sort buttons`, `Unwrap the comment's sort buttons`, settings.COMMENTS_SORT_BUTTONS);
     addSettingToggle(`Remember sort`, `Remember latest used comment's sort`, settings.COMMENTS_REMEMBER_SORT);
@@ -5921,8 +6920,7 @@ function renderSettingsWindow(win, context) {
     addSettingToggle(`Hide share button`, `Replace the share button to comment's context menu`, settings.HIDE_SHARE);
     addSettingToggle(`Ghosted comments`, `Make comments ghosted when comment's rating below zero`, settings.GHOSTED_COMMENTS);
     addSettingToggle(`Collapse unwanted`, `Automatic collapse all automoderator and mod's pinned comments`, settings.COLLAPSE_AUTOMODERATOR);
-    addSettingToggle(`Show bookmark`, `Show the bookmark button for saved comments`, settings.SAVED_BOOKMARK_COMMENTS);
-    addSettingToggle(`Show bookmark always`, `Show the bookmark button for all comments`, settings.SAVED_BOOKMARK_COMMENTS_SHOW_ALWAYAS);
+    addSettingOptions(`Save-comment bookmarks`, `Show the save bookmark next to the vote buttons`, settings.SAVED_BOOKMARK_COMMENTS);
     addSettingToggle(`Hide related posts`, null, settings.HIDE_RELATED_POSTS);
     function addSubtittle(text) {
         const subtittle = appendElement(elements, `h3`, `pp_settings_subtittle`);
@@ -5967,65 +6965,41 @@ function renderSettingsWindow(win, context) {
     function addSettingToggle(tittleText, descriptionText, setting, badges = []) {
         const buttonContainer = renderBaseProperty(tittleText, descriptionText, badges);
         const controlArea = appendElement(buttonContainer, `div`, `pp_window_controlArea`);
-        let changed = false;
+        const changesSource = settingsWindow_changes.CreateSource(setting.isEnabled());
         renderUIToggle(controlArea, setting.isEnabled(), (state) => {
             setting.switch(state);
-            changes += changed ? -1 : 1;
-            changed = !changed;
-            refreshChangesBanner();
+            changesSource.Capture(setting.isEnabled());
         });
     }
     function addSettingOptions(tittleText, descriptionText, setting, badges = []) {
         const buttonContainer = renderBaseProperty(tittleText, descriptionText, badges);
         const controlArea = appendElement(buttonContainer, `div`, `pp_window_controlArea`);
-        const originIndex = setting.getIndex();
-        let changed = false;
+        const changesSource = settingsWindow_changes.CreateSource(setting.getIndex());
         renderUIOptions(controlArea, setting.getIndex(), setting.values, index => {
             setting.set(index);
-            if (index != originIndex && !changed) {
-                changed = true;
-                changes++;
-            }
-            if (index == originIndex && changed) {
-                changed = false;
-                changes--;
-            }
-            refreshChangesBanner();
+            changesSource.Capture(setting.getIndex());
         });
     }
     function addSettingString(tittleText, descriptionText, placeholderText, setting, badges = []) {
         const inputContainer = renderBaseProperty(tittleText, descriptionText, badges);
         const inputArea = appendElement(inputContainer, `div`, `pp_window_controlArea`);
-        const originValue = setting.get();
-        let changed = false;
+        const changesSource = settingsWindow_changes.CreateSource(setting.get());
         renderUIInput(inputArea, placeholderText, setting.get(), value => {
             setting.set(value);
-            if (value != originValue && !changed) {
-                changed = true;
-                changes++;
-            }
-            if (value == originValue && changed) {
-                changed = false;
-                changes--;
-            }
-            refreshChangesBanner();
+            changesSource.Capture(setting.get());
         }, { alignCenter: true, filter: setting.filter });
     }
-    function refreshChangesBanner() {
-        changesBannerContainer.classList.toggle(`pp_settings_changesBanner_active`, changes > 0);
-    }
 }
-function closeSettingsWindow() {
-    if (changes > 0) {
+function settingsWindow_closeSettingsWindow() {
+    if (settingsWindow_changes.HasChanges()) {
         settings.nextRevision();
         window.location.reload();
     }
 }
 
-// EXTERNAL MODULE: ./resources/settingsButton.svg
-var settingsButton = __webpack_require__("./resources/settingsButton.svg");
-var settingsButton_default = /*#__PURE__*/__webpack_require__.n(settingsButton);
-;// CONCATENATED MODULE: ./src/modules/header.ts
+// EXTERNAL MODULE: ./src/modules/profileMenu/profileMenu.less
+var profileMenu = __webpack_require__("./src/modules/profileMenu/profileMenu.less");
+;// CONCATENATED MODULE: ./src/modules/profileMenu/profileMenu.ts
 
 
 
@@ -6034,40 +7008,221 @@ var settingsButton_default = /*#__PURE__*/__webpack_require__.n(settingsButton);
 
 
 
-
-
-css.addStyle(header/* default */.A);
-let notificationsInitialized = false;
-async function header_renderHeader(container) {
-    const nav = await dynamicElement(() => container.querySelector(`reddit-header-large`)?.querySelector(`nav`));
-    if (checkIsRendered(nav))
-        return;
-    const userPanel = await dynamicElement(() => nav.childNodes.item(4));
-    userPanel.classList.add(`pp_userPanel`);
-    userPanel.addEventListener(`click`, () => {
-        renderSettingsButton();
-    }, { once: true });
-    if (settings.NOTIFY_POPUP.isEnabled() && !notificationsInitialized) {
-        notificationsInitialized = true;
-        observeFor(document.body, (element) => {
-            if (element.getAttribute(`data-id`) == `notification-container-element` && !checkIsRendered(element)) {
-                renderNotifications(element);
+css.addStyle(profileMenu/* default */.A);
+var ProfileMenuElement;
+(function (ProfileMenuElement) {
+    ProfileMenuElement[ProfileMenuElement["Separator"] = 0] = "Separator";
+    ProfileMenuElement[ProfileMenuElement["VeiwProfile"] = 1] = "VeiwProfile";
+    ProfileMenuElement[ProfileMenuElement["EditAvatar"] = 2] = "EditAvatar";
+    ProfileMenuElement[ProfileMenuElement["Drafts"] = 3] = "Drafts";
+    ProfileMenuElement[ProfileMenuElement["Achievements"] = 4] = "Achievements";
+    ProfileMenuElement[ProfileMenuElement["Earn"] = 5] = "Earn";
+    ProfileMenuElement[ProfileMenuElement["Premium"] = 6] = "Premium";
+    ProfileMenuElement[ProfileMenuElement["DarkMode"] = 7] = "DarkMode";
+    ProfileMenuElement[ProfileMenuElement["LogOut"] = 8] = "LogOut";
+    ProfileMenuElement[ProfileMenuElement["Advertise"] = 9] = "Advertise";
+    ProfileMenuElement[ProfileMenuElement["RedditPro"] = 10] = "RedditPro";
+    ProfileMenuElement[ProfileMenuElement["Settings"] = 11] = "Settings";
+    ProfileMenuElement[ProfileMenuElement["PlusPlus"] = 12] = "PlusPlus";
+})(ProfileMenuElement || (ProfileMenuElement = {}));
+const profileMenuElementConfigs = new Map([
+    [
+        ProfileMenuElement.VeiwProfile,
+        {
+            tittle: `View Profile`,
+            isOptional: false,
+            find: element => {
+                return element.querySelector(`faceplate-tracker[noun="profile"]`);
             }
-        });
+        }
+    ],
+    [
+        ProfileMenuElement.EditAvatar,
+        {
+            tittle: `Edit Avatar`,
+            isOptional: true,
+            find: element => {
+                return element.querySelector(`faceplate-tracker[noun="edit_avatar"]`);
+            }
+        }
+    ],
+    [
+        ProfileMenuElement.Drafts,
+        {
+            tittle: `Drafts`,
+            isOptional: true,
+            find: element => {
+                return element.querySelector(`#drafts-list-item`);
+            }
+        }
+    ],
+    [
+        ProfileMenuElement.Achievements,
+        {
+            tittle: `Achievements`,
+            isOptional: true,
+            find: element => {
+                return element.querySelector(`faceplate-tracker[source="achievements"]`);
+            }
+        }
+    ],
+    [
+        ProfileMenuElement.Earn,
+        {
+            tittle: `Earn`,
+            isOptional: true,
+            find: element => {
+                return element.querySelector(`faceplate-tracker[source="earn"]`);
+            }
+        }
+    ],
+    [
+        ProfileMenuElement.Premium,
+        {
+            tittle: `Premium`,
+            isOptional: true,
+            find: element => {
+                return element.querySelector(`faceplate-tracker[noun="premium_menu"]`);
+            }
+        }
+    ],
+    [
+        ProfileMenuElement.DarkMode,
+        {
+            tittle: `Dark Mode`,
+            isOptional: true,
+            find: element => {
+                return element.querySelector(`shreddit-darkmode-setter`);
+            }
+        }
+    ],
+    [
+        ProfileMenuElement.LogOut,
+        {
+            tittle: `Log Out`,
+            isOptional: false,
+            find: element => {
+                return element.querySelector(`user-drawer-logout`);
+            }
+        }
+    ],
+    [
+        ProfileMenuElement.Advertise,
+        {
+            tittle: `Advertise on Reddit`,
+            isOptional: true,
+            find: element => {
+                return element.querySelector(`faceplate-tracker[noun="advertise"]`);
+            }
+        }
+    ],
+    [
+        ProfileMenuElement.RedditPro,
+        {
+            tittle: `Try Reddit Pro`,
+            isOptional: true,
+            find: element => {
+                return element.querySelector(`faceplate-tracker[noun="try_reddit_pro"]`);
+            }
+        }
+    ],
+    [
+        ProfileMenuElement.Settings,
+        {
+            tittle: `Settings`,
+            isOptional: false,
+            find: element => {
+                return element.querySelector(`faceplate-tracker[noun="settings"]`);
+            }
+        }
+    ],
+    [
+        ProfileMenuElement.PlusPlus,
+        {
+            tittle: `Reddit++`,
+            isOptional: false,
+            find: element => {
+                return element.querySelector(`faceplate-tracker[noun="pp-settings"]`);
+            }
+        }
+    ]
+]);
+const defaultLayout = Array(ProfileMenuElement.VeiwProfile, ProfileMenuElement.EditAvatar, ProfileMenuElement.Drafts, ProfileMenuElement.Achievements, ProfileMenuElement.Earn, ProfileMenuElement.Premium, ProfileMenuElement.DarkMode, ProfileMenuElement.LogOut, ProfileMenuElement.Separator, ProfileMenuElement.Advertise, ProfileMenuElement.RedditPro, ProfileMenuElement.Separator, ProfileMenuElement.Settings, ProfileMenuElement.PlusPlus);
+function generateDefaultLayout() {
+    const elements = new Array();
+    for (const element of defaultLayout) {
+        elements.push({ element: element, hidden: false });
     }
-    const logo = container.querySelector(`#reddit-logo`);
-    const logoPP = appendElement(logo, `div`, `pp_logo`);
-    logoPP.textContent = `++`;
-    
+    return elements;
 }
-function renderSettingsButton() {
-    let userMenu = document.getElementById(`user-drawer-content`);
-    if (userMenu.querySelector(`faceplate-tracker[noun="pp-settings"]`) != null) {
-        return;
+let originElements = null;
+let undefinedElements = null;
+function renderProfileMenu() {
+    let profileMenu = document.getElementById(`user-drawer-content`);
+    if (originElements == null) {
+        renderPlusPlusButton(profileMenu);
+        const searchingElements = Object.values(ProfileMenuElement);
+        originElements = new Map();
+        undefinedElements = new Array();
+        profileMenu.querySelectorAll(`ul`).forEach(ul => {
+            for (const element of [...searchingElements]) {
+                const find = profileMenuElementConfigs.get(element)?.find;
+                const foundElement = find != null ? find(ul) : null;
+                if (foundElement) {
+                    originElements.set(element, foundElement);
+                    foundElement.remove();
+                    searchingElements.splice(searchingElements.indexOf(element), 1);
+                }
+            }
+            for (const child of ul.children) {
+                undefinedElements.push(child);
+            }
+            ul.remove();
+        });
+        profileMenu.querySelectorAll(`hr`).forEach(hr => hr.remove());
     }
-    let originSettingsButton = userMenu.querySelector(`faceplate-tracker[noun="settings"]`);
+    else {
+        profileMenu.querySelectorAll(`ul`).forEach(ul => ul.remove());
+        profileMenu.querySelectorAll(`hr`).forEach(hr => hr.remove());
+    }
+    let elementsData = prefs.get(PrefsKey.PROFILE_MENU_ELEMENTS);
+    if (!(elementsData instanceof Array)) {
+        elementsData = generateDefaultLayout();
+    }
+    if (undefinedElements.length > 0) {
+        pp_log(`Detected ${undefinedElements.length} undefined elements in the Profile menu`);
+        const undefinedUl = addUl();
+        for (const undefinedElement of undefinedElements) {
+            undefinedUl.append(undefinedElement);
+        }
+        addHr();
+    }
+    let currentSection = addUl();
+    for (const data of elementsData) {
+        if (data.hidden)
+            continue;
+        if (data.element == ProfileMenuElement.Separator) {
+            addHr();
+            currentSection = addUl();
+        }
+        else {
+            const origin = originElements.get(data.element);
+            if (origin) {
+                currentSection.append(origin);
+            }
+        }
+    }
+    function addUl() {
+        return appendElement(profileMenu, `ul`, [`w-100`, `p-0`, `m-0`, `list-none`, `my-xs`]);
+    }
+    function addHr() {
+        appendElement(profileMenu, `hr`, [`h-px`, `w-100`, `bg-neutral-border-weak`, `border-0`]);
+    }
+}
+function renderPlusPlusButton(profileMenu) {
+    let originSettingsButton = profileMenu.querySelector(`faceplate-tracker[noun="settings"]`);
     if (originSettingsButton == null) {
-        originSettingsButton = userMenu.querySelector(`faceplate-tracker[noun="login"]`);
+        originSettingsButton = profileMenu.querySelector(`faceplate-tracker[noun="login"]`);
     }
     let ppSettingsButton = originSettingsButton.cloneNode(true);
     ppSettingsButton.setAttribute(`noun`, `pp-settings`);
@@ -6083,6 +7238,40 @@ function renderSettingsButton() {
     });
 }
 
+;// CONCATENATED MODULE: ./src/modules/header.ts
+
+
+
+
+
+
+
+
+css.addStyle(header/* default */.A);
+let notificationsInitialized = false;
+async function header_renderHeader(container) {
+    const nav = await dynamicElement(() => container.querySelector(`reddit-header-large`)?.querySelector(`nav`));
+    if (checkIsRendered(nav))
+        return;
+    const userPanel = await dynamicElement(() => nav.querySelector(`span[data-part="inbox"]`)?.parentElement?.parentElement);
+    userPanel.classList.add(`pp_userPanel`);
+    userPanel.addEventListener(`click`, () => {
+        renderProfileMenu();
+    }, { once: true });
+    if (settings.NOTIFY_POPUP.isEnabled() && !notificationsInitialized) {
+        notificationsInitialized = true;
+        observeFor(`HEADER`, document.body, (element) => {
+            if (element.getAttribute(`data-id`) == `notification-container-element` && !checkIsRendered(element)) {
+                renderNotifications(element);
+            }
+        });
+    }
+    const logo = container.querySelector(`#reddit-logo`);
+    const logoPP = appendElement(logo, `div`, `pp_logo`);
+    logoPP.textContent = `++`;
+    
+}
+
 // EXTERNAL MODULE: ./src/modules/redirect.less
 var modules_redirect = __webpack_require__("./src/modules/redirect.less");
 ;// CONCATENATED MODULE: ./src/modules/redirect.ts
@@ -6091,20 +7280,18 @@ var modules_redirect = __webpack_require__("./src/modules/redirect.less");
 
 
 
+
 function checkRedirect() {
+    const mode = settings.REDIRECT_MODE.get();
     const isOld = window.location.href.includes(`old.reddit.com`);
-    const isPrev = window.location.href.includes(`new.reddit.com`);
     let redirect = null;
     if (isOld) {
         redirect = window.location.href.replace(`old.reddit.com`, `reddit.com`);
     }
-    if (isPrev) {
-        redirect = window.location.href.replace(`new.reddit.com`, `reddit.com`);
-    }
-    if (settings.REDIRECT_FORCED.isEnabled() && redirect != null) {
+    if (mode == RedirectMode.Forced && redirect != null) {
         window.location.assign(redirect);
     }
-    if (settings.REDIRECT_SUGGESTION.isEnabled() && redirect != null) {
+    if (mode == RedirectMode.Suggestion && redirect != null) {
         renderSuggestion(redirect);
     }
     const commentsSortRedirect = checkSortCommentsRedirect();
@@ -6129,7 +7316,109 @@ function renderSuggestion(redirect) {
     }, 750);
 }
 
+// EXTERNAL MODULE: ./src/modules/scrollToTop.less
+var scrollToTop = __webpack_require__("./src/modules/scrollToTop.less");
+// EXTERNAL MODULE: ./resources/scrollButton.svg
+var scrollButton = __webpack_require__("./resources/scrollButton.svg");
+var scrollButton_default = /*#__PURE__*/__webpack_require__.n(scrollButton);
+;// CONCATENATED MODULE: ./src/modules/scrollToTop.ts
+
+
+
+
+
+
+
+const START_Y = 1000;
+let scrollToTop_scrollToTop = null;
+let scrollToTop_scrollButton = null;
+let prevScrollHeight = 0;
+let isBottom = false;
+let scrollToTop_contentBlock = null;
+let scrollToTop_sidebarBlock = null;
+const sidebarObserver = new MutationObserver(() => {
+    animate(() => {
+        scrollToTop_checkScreenWidth();
+    }, 0.5);
+});
+async function renderScrollToTop() {
+    if (settings.SCROLL_TO_TOP.isDisabled())
+        return;
+    css.addStyle(scrollToTop/* default */.A, `scrollToTop`);
+    scrollToTop_contentBlock = (await dynamicElement(() => document.body.querySelector(`.main-container`)));
+    const main = scrollToTop_contentBlock.parentElement;
+    const sidebar = await dynamicElement(() => document.body.querySelector(`#left-sidebar-container`));
+    if (scrollToTop_scrollToTop == null) {
+        window.addEventListener('resize', () => {
+            scrollToTop_checkScreenWidth();
+        });
+        let prevIsBottom = false;
+        window.addEventListener(`scroll`, () => {
+            isBottom = window.scrollY > START_Y;
+            if (isBottom != prevIsBottom) {
+                prevIsBottom = isBottom;
+                scrollToTop_checkScreenWidth();
+            }
+        });
+    }
+    else {
+        scrollToTop_scrollToTop.remove();
+        sidebarObserver.disconnect();
+        prevScrollHeight = 0;
+        isBottom = false;
+    }
+    sidebarObserver.observe(sidebar, { childList: false, subtree: false, attributes: true });
+    scrollToTop_sidebarBlock = sidebar.querySelector(`#flex-left-nav-contents`);
+    const sidebarButton = sidebar.querySelector(`#flex-nav-buttons`);
+    if (sidebarButton != null) {
+        sidebarButton.addEventListener(`click`, event => {
+            animate(() => {
+                scrollToTop_checkScreenWidth();
+            }, 0.5);
+        });
+    }
+    scrollToTop_scrollToTop = appendElement(main.parentElement, `div`, `pp_scrollToTop`);
+    scrollToTop_scrollButton = buildSvg((scrollButton_default()), 40, 40);
+    scrollToTop_scrollToTop.append(scrollToTop_scrollButton);
+    scrollToTop_scrollToTop.addEventListener(`click`, () => {
+        if (isBottom) {
+            prevScrollHeight = window.scrollY;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            isBottom = false;
+        }
+        else if (prevScrollHeight > 0) {
+            window.scrollTo({ top: prevScrollHeight, behavior: 'smooth' });
+            prevScrollHeight = 0;
+            isBottom = true;
+        }
+        scrollToTop_checkScreenWidth();
+    });
+    scrollToTop_checkScreenWidth();
+}
+let isHidden = true;
+function scrollToTop_checkScreenWidth() {
+    const left = scrollToTop_sidebarBlock?.getBoundingClientRect()?.right ?? 0;
+    const right = scrollToTop_contentBlock.getBoundingClientRect().left;
+    scrollToTop_scrollToTop.style.left = `${(left + right) / 2 - 50}px`;
+    isHidden = !(right - left > 116 && (isBottom || prevScrollHeight > 0));
+    const inverted = !isBottom && prevScrollHeight > 0;
+    scrollToTop_scrollToTop.classList.toggle(`pp_scrollToTop_hidden`, isHidden);
+    scrollToTop_scrollButton.classList.toggle(`pp_scrollToTop_inverted`, inverted);
+    if (isHidden) {
+        setTimeout(() => {
+            if (isHidden) {
+                scrollToTop_scrollToTop.classList.toggle(`pp_hidden`, true);
+            }
+        }, 500);
+    }
+    else {
+        scrollToTop_scrollToTop.classList.toggle(`pp_hidden`, false);
+    }
+}
+
 ;// CONCATENATED MODULE: ./src/core.ts
+
+
 
 
 
@@ -6144,17 +7433,18 @@ async function startRedditPlusPlus() {
     const documentBody = await dynamicElement(() => (document.head != null && document.body != null ? document.body : null));
     let pp_meta = document.head.querySelector(`meta[name="reddit-plus-plus"]`);
     if (pp_meta != null) {
-        notify(`Reddit++ runned more that one times. Check out userscript manager to disable dublicates.`, { seconds: 10 });
+        notify(`Reddit++ ran more than once. Check out the userscript manager to disable dublicates.`, { seconds: 10 });
         return;
     }
     pp_meta = document.createElement(`meta`);
     pp_meta.setAttribute(`name`, `reddit-plus-plus`);
-    pp_meta.setAttribute(`version`, "1.1.0");
+    pp_meta.setAttribute(`version`, "1.2.0");
     document.head.append(pp_meta);
-    migration_1_0_0.check();
+    latestMigration.check();
     if (checkRedirect()) {
         return;
     }
+    initializeFeedRedirect();
     const pp_app = await dynamicElement(() => documentBody.querySelector(`shreddit-app`), MAX_LOAD_LAG);
     if (pp_app == null || pp_app.getAttribute(`devicetype`) != `desktop`) {
         pp_log(`Reddit++ was stopped for a non compatible page`);
@@ -6162,7 +7452,8 @@ async function startRedditPlusPlus() {
     }
     header_renderHeader(documentBody);
     renderApp();
-    observeFor(documentBody, element => {
+    renderScrollToTop();
+    observeFor(`CORE`, documentBody, element => {
         if (element.matches(`reddit-header-large`) == true) {
             header_renderHeader(element.parentElement);
         }
@@ -6170,6 +7461,7 @@ async function startRedditPlusPlus() {
         const isMainPage = element.classList.contains(`grid-container`) && element.parentElement.matches(`shreddit-app`) == true;
         if (isSubPage || isMainPage) {
             renderApp();
+            renderScrollToTop();
             checkSortCommentsRedirect();
         }
     });
