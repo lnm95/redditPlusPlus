@@ -13,8 +13,8 @@
         "format": "prettier -w ./",
         "debug": "webpack --config config/webpack.config.dev.cjs",
         "preview": "webpack --config config/webpack.config.prod.cjs ",
+        "prerelease": "npm version patch --no-git-tag-version",
         "release": "cross-env npm_config_release=true webpack --config config/webpack.config.prod.cjs ",
-        "postrelease": "npm version patch --no-git-tag-version",
         "prepare": "husky install",
         "lint-staged": "lint-staged"
     },
