@@ -252,7 +252,7 @@ export async function renderComment(comment: Element) {
     const contextMenuButton = await dynamicElement(() => comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`rpl-dropdown`));
 
     renderCommentBookmark(comment);
-    
+
     contextMenuButton.addEventListener(
         `click`,
         () => {

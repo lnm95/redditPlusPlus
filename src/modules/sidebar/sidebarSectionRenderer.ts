@@ -1,5 +1,5 @@
-import { checkIsRendered } from "../../utils/tools";
-import { SettingBoolProperty } from "../settings/settings";
+import { checkIsRendered } from '../../utils/tools';
+import { SettingBoolProperty } from '../settings/settings';
 
 export class SidebarSectionElements {
     public container: Element;
@@ -8,23 +8,18 @@ export class SidebarSectionElements {
 }
 
 export abstract class SidebarSectionRenderer {
-
     abstract FindContainer(sidebar: HTMLElement, element: HTMLElement): HTMLElement;
 
     abstract GetSectionElements(container: HTMLElement): Promise<SidebarSectionElements>;
 
-    
-
     async Render(container: HTMLElement, autocollapse: boolean, setting: SettingBoolProperty) {
         if (checkIsRendered(container)) return;
-
 
         container.classList.add(`pp_sidebar_loadingSection`);
 
         const section: SidebarSectionElements = await this.GetSectionElements(container);
 
         container.classList.remove(`pp_sidebar_loadingSection`);
-
 
         if (setting.isEnabled()) {
             if (autocollapse) {
@@ -64,5 +59,4 @@ export abstract class SidebarSectionRenderer {
 
         return bottomLine;
     }
-
 }

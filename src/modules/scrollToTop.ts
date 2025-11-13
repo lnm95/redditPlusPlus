@@ -23,13 +23,12 @@ const sidebarObserver = new MutationObserver(() => {
     }, 0.5);
 });
 
-
 export async function renderScrollToTop() {
     if (settings.SCROLL_TO_TOP.isDisabled()) return;
 
     css.addStyle(style, `scrollToTop`);
 
-    contentBlock = await dynamicElement(() => document.body.querySelector(`.main-container`)) as HTMLElement;
+    contentBlock = (await dynamicElement(() => document.body.querySelector(`.main-container`))) as HTMLElement;
     const main = contentBlock.parentElement;
 
     const sidebar = await dynamicElement(() => document.body.querySelector(`#left-sidebar-container`));
@@ -56,7 +55,6 @@ export async function renderScrollToTop() {
         prevScrollHeight = 0;
         isBottom = false;
     }
-
 
     sidebarObserver.observe(sidebar, { childList: false, subtree: false, attributes: true });
 

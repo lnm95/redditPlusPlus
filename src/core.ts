@@ -10,8 +10,6 @@ import { checkSortCommentsRedirect } from './modules/comments/sortButtons';
 import { initializeFeedRedirect } from './modules/feed/feedRedirect';
 import { renderScrollToTop } from './modules/scrollToTop';
 
-
-
 // ***********************************************************************************************************************
 // ********************************************** ENTRY POINT ************************************************************
 // ***********************************************************************************************************************

@@ -2,10 +2,9 @@ import { Database } from '../../utils/database';
 import { BookmarkMode } from '../bookmarkMode';
 import { AwardsMode } from '../collapseAwardsMode';
 import { FeedLocation } from '../feed/feedLocation';
-import { getFeedSorts } from "../feed/feedSort";
+import { getFeedSorts } from '../feed/feedSort';
 import { RedirectMode } from '../redirectMode';
 import { UsernameMode } from '../users/usernameMode';
-
 
 export class SettingBoolProperty {
     name: string;

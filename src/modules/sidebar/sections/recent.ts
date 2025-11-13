@@ -1,11 +1,9 @@
-import { dynamicElement } from "../../../utils/tools";
-import { css } from "../../customCSS";
-import { SidebarSectionElements, SidebarSectionRenderer } from "../sidebarSectionRenderer";
+import { dynamicElement } from '../../../utils/tools';
+import { css } from '../../customCSS';
+import { SidebarSectionElements, SidebarSectionRenderer } from '../sidebarSectionRenderer';
 
 export class RecentRenderer extends SidebarSectionRenderer {
-
     FindContainer(sidebar: HTMLElement, element: HTMLElement): HTMLElement {
-
         let container: HTMLElement = sidebar.querySelector(`reddit-recent-pages`);
 
         if (container == null && element.matches(`reddit-recent-pages`)) {
@@ -22,7 +20,7 @@ export class RecentRenderer extends SidebarSectionRenderer {
         });
 
         const button = await dynamicElement(() => helper?.querySelector(`summary`));
-        
+
         css.registry(container.shadowRoot);
         helper.classList.add(`pp_defaultText`);
 
@@ -32,7 +30,4 @@ export class RecentRenderer extends SidebarSectionRenderer {
             bottomLine: container.querySelector(`hr`)
         };
     }
-
-
-
 }

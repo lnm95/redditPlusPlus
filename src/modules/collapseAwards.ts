@@ -9,7 +9,7 @@ css.addStyle(style);
 
 export async function renderCollapseAward(target: Element, contentType: ContentType) {
     const mode = settings.COLLAPSE_AWARDS.get() as AwardsMode;
-    
+
     if (mode == AwardsMode.Default) return;
 
     css.addStyle(style, `collapseAwards`);

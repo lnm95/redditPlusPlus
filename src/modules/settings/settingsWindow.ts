@@ -32,7 +32,7 @@ function renderSettingsWindow(win: Window, context: any) {
     document.body.click();
 
     changes.Reset();
-    changes.RenderBanner(win.content);    
+    changes.RenderBanner(win.content);
 
     const scroll = appendElement(win.content, `div`, [`pp_window_scrollContent`, `styled-scrollbars`]);
 

@@ -18,7 +18,7 @@ export class DatabaseConfig<T> {
     isCleanupable?: boolean;
     validator?: DataValidator<T>;
     loader?: DataLoader<T>;
-    factory?:Function;
+    factory?: Function;
 }
 
 interface WithLoaderResult {
@@ -26,16 +26,16 @@ interface WithLoaderResult {
 }
 
 interface DatabaseIterator {
-    (key:string, value:any):void;
+    (key: string, value: any): void;
 }
 
 export class DatabaseFactory {
-    static Null:Function = function (id:string):any {
+    static Null: Function = function (id: string): any {
         return null;
-    }
-    static EmptyObject:Function = function (id:string):any {
+    };
+    static EmptyObject: Function = function (id: string): any {
         return {};
-    }
+    };
 }
 
 export class Database<T> {
@@ -43,7 +43,7 @@ export class Database<T> {
     refreshKey: string;
     cleanupKey: string;
     isCleanupable: boolean;
-    factory:Function;
+    factory: Function;
 
     validator: DataValidator<T>;
     loader: DataLoader<T>;
@@ -68,7 +68,7 @@ export class Database<T> {
 
             this.data = Object.fromEntries(Object.entries(this.data).filter(([key, value]) => (value as ICleanupableData).timestamp > timestampLimit));
             this.refreshed = Date.now();
-            
+
             GM_setValue(this.databaseKey, this.data);
             GM_setValue(this.refreshKey, this.refreshed);
             GM_setValue(this.cleanupKey, Date.now() + 1000 * HOUR_SECONDS);
@@ -95,10 +95,10 @@ export class Database<T> {
         return (raw == undefined ? this.factory(id) : raw) as T;
     }
 
-    forEach(iterator:DatabaseIterator):void {
+    forEach(iterator: DatabaseIterator): void {
         this.refresh();
 
-        Object.keys(this.data).forEach((key) => {
+        Object.keys(this.data).forEach(key => {
             iterator(key, this.data[key]);
         });
     }

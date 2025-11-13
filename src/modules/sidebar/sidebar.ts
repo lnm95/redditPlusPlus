@@ -10,14 +10,12 @@ import { RenderSidebarNavigations } from './sidebarNavigation';
 
 css.addStyle(style);
 
-
 export async function renderSidebar(sidebar: Element) {
     sidebar.classList.add(`pp_defaultText`);
 
     RenderSidebarNavigations(sidebar);
 
-    RenderSettingsButton(sidebar);  
-
+    RenderSettingsButton(sidebar);
 
     // render sections
     const renderedSections = new Map<SidebarSection, SidebarSectionConfig>(sections);
@@ -36,10 +34,10 @@ export async function renderSidebar(sidebar: Element) {
         if (renderedSections.size == 0) {
             return true;
         }
-    });   
+    });
 }
 
-async function RenderSettingsButton(sidebar:Element) {
+async function RenderSettingsButton(sidebar: Element) {
     const flexSidebar = await dynamicElement(() => sidebar.querySelector(`#flex-left-nav-container`));
 
     const settingsButtonContainer = prependElement(flexSidebar, `div`);

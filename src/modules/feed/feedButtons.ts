@@ -4,7 +4,7 @@ import { appendElement, prependElement } from '../../utils/element';
 import { css } from '../customCSS';
 import { settings } from '../settings/settings';
 import { FeedLocation, getFeedLocation } from './feedLocation';
-import { FeedSort, getFeedSorts } from "./feedSort";
+import { FeedSort, getFeedSorts } from './feedSort';
 import { getCurrentSub } from '../subs/subs';
 import style from './feedButtons.less';
 
@@ -16,7 +16,6 @@ import buttonHot from '@resources/feedButtons/feedButtonHot.svg';
 import buttonNew from '@resources/feedButtons/feedButtonNew.svg';
 import buttonRising from '@resources/feedButtons/feedButtonRising.svg';
 import buttonTop from '@resources/feedButtons/feedButtonTop.svg';
-
 
 import { MAX_LOAD_LAG } from '../../defines';
 import { FeedSettingsContext, feedSettingsWindow } from './feedSettings/feedSettingsWindow';
@@ -33,8 +32,6 @@ const sortIcons: { [key: string]: string } = {
     Rising: buttonRising
 };
 
-
-
 export async function renderFeedButtons(main: Element) {
     if (settings.FEED_BUTTONS.isDisabled() || window.location.href.includes(`/about/`)) return;
 
@@ -44,21 +41,17 @@ export async function renderFeedButtons(main: Element) {
 
     const sortDropdown = await dynamicElement(() => feedPanel?.querySelector(`shreddit-sort-dropdown`), MAX_LOAD_LAG);
 
-    // skip invalid dropdown    
+    // skip invalid dropdown
     if (sortDropdown == null || sortDropdown.getAttribute(`trigger-id`) == `comment-sort-button`) return;
-
-    
 
     feedPanel.classList.add(`pp_feedPanel`);
 
     const feedPanelContent = sortDropdown.parentElement.parentElement;
 
-    
-
     const location = getFeedLocation();
-    
+
     // remove rudiment
-    if(location == FeedLocation.Custom && feedPanel.previousElementSibling.className == `s:invisible`) {        
+    if (location == FeedLocation.Custom && feedPanel.previousElementSibling.className == `s:invisible`) {
         feedPanel.previousElementSibling.remove();
     }
 
@@ -68,36 +61,36 @@ export async function renderFeedButtons(main: Element) {
     sortDropdown.remove();
 
     let data = defaultFeedData.get(FeedLocation[location]);
-    if(location == FeedLocation.Sub) {
+    if (location == FeedLocation.Sub) {
         const sub = getCurrentSub();
         const subData = subsFeedData.get(sub);
 
-        if(subData) {
+        if (subData) {
             data = subData;
         }
 
         subsLatestSort.set(sub, currentSort);
     }
-    if(location == FeedLocation.Custom) {
+    if (location == FeedLocation.Custom) {
         const custom = getCurrentCustomFeed();
         const customData = customFeedData.get(custom);
 
-        if(customData != null) {
+        if (customData != null) {
             data = customData;
         }
     }
 
-    const sorts = getFeedSorts(location);   
-    
-    if(feedPanel.parentElement.className != `flex justify-between flex-wrap mb-xs mt-xs`) {
+    const sorts = getFeedSorts(location);
+
+    if (feedPanel.parentElement.className != `flex justify-between flex-wrap mb-xs mt-xs`) {
         feedPanel.parentElement.style.marginBottom = `1rem`;
     }
 
     const buttonsContainer = prependElement(feedPanelContent, `div`, `pp_feedPanel_buttons`);
 
     // shortcut buttons
-    for (const sort of sorts) {        
-        if(data.hiddenSort.includes(sort) && sort != currentSort) continue;
+    for (const sort of sorts) {
+        if (data.hiddenSort.includes(sort) && sort != currentSort) continue;
 
         const button = appendElement(buttonsContainer, `a`, [
             `inline-flex`,
@@ -141,5 +134,4 @@ export async function renderFeedButtons(main: Element) {
     settingsButton.addEventListener(`click`, event => {
         feedSettingsWindow.open({ location: location } as FeedSettingsContext);
     });
-
-} 
+}

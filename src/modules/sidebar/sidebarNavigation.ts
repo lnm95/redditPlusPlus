@@ -1,15 +1,15 @@
-import { dynamicElement, PascalCase } from "../../utils/tools";
-import { settings } from "../settings/settings";
+import { dynamicElement, PascalCase } from '../../utils/tools';
+import { settings } from '../settings/settings';
 
 export enum SidebarNavigation {
     Home = `home`,
     Popular = `popular`,
     Guides = `guides`,
     Explore = `explore`,
-    All = `all`    
+    All = `all`
 }
 
-export let navigations:Map<SidebarNavigation, string> = new Map<SidebarNavigation, string>([
+export let navigations: Map<SidebarNavigation, string> = new Map<SidebarNavigation, string>([
     [SidebarNavigation.Home, `Home`],
     [SidebarNavigation.Popular, `Popular`],
     [SidebarNavigation.Guides, `Answers`],
@@ -17,9 +17,8 @@ export let navigations:Map<SidebarNavigation, string> = new Map<SidebarNavigatio
     [SidebarNavigation.All, `All`]
 ]);
 
-
-export async function RenderSidebarNavigations(sidebar:Element) {
-    if(sidebar == null) {
+export async function RenderSidebarNavigations(sidebar: Element) {
+    if (sidebar == null) {
         sidebar = document.body.querySelector(`#left-sidebar-container`);
     }
 
@@ -27,7 +26,7 @@ export async function RenderSidebarNavigations(sidebar:Element) {
 
     Object.values(SidebarNavigation).forEach(name => {
         const setting = settings.SIDEBAR_NAV_BUTTON.getChild(PascalCase(name), true);
-        
+
         section.toggleAttribute(name, setting.isEnabled());
     });
 }

@@ -19,7 +19,7 @@ class DebugProfiler {
     }
 
     async render() {
-        if(!SHOW_PROFILER) return;
+        if (!SHOW_PROFILER) return;
 
         const documentBody = await dynamicElement(() => document.body);
 

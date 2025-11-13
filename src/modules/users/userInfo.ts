@@ -42,15 +42,14 @@ export async function renderUserInfo(userId: string, nickName: Element, tagsAnch
         profiler_comments.userDataLoading--;
     }
 
-    if ((usernameMode != UsernameMode.ProfileName) && userData.nick != undefined && userData.nick) {
+    if (usernameMode != UsernameMode.ProfileName && userData.nick != undefined && userData.nick) {
         const maxSymbols = parseInt(settings.USERNAME_MAX_SIMBOLS.get());
-        nickName.textContent = (maxSymbols <= 0 || userData.nick.length < maxSymbols) ? userData.nick : userData.nick.slice(0, maxSymbols - 2) + `...`;
+        nickName.textContent = maxSymbols <= 0 || userData.nick.length < maxSymbols ? userData.nick : userData.nick.slice(0, maxSymbols - 2) + `...`;
 
         if (usernameMode == UsernameMode.Both) {
-            if(userId == nickName.textContent) {
+            if (userId == nickName.textContent) {
                 nickName.textContent = `u/${nickName.textContent}`;
-            }
-            else if (contentType == ContentType.Comment) {
+            } else if (contentType == ContentType.Comment) {
                 const commentHeader = nickName.parentElement?.parentElement?.parentElement?.parentElement?.parentElement;
                 const flair = commentHeader.querySelector(`author-flair-event-handler`);
                 let profileContainer = null;

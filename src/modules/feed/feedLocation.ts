@@ -1,4 +1,3 @@
-
 export enum FeedLocation {
     Sub,
     Home,
@@ -16,11 +15,11 @@ export function getFeedLocation(): FeedLocation {
 
     if (window.location.href.includes(`reddit.com/r/all/`)) return FeedLocation.All;
 
-    if(customRegex.test(window.location.href)) return FeedLocation.Custom;
+    if (customRegex.test(window.location.href)) return FeedLocation.Custom;
 
     return FeedLocation.Sub;
 }
 
-export function isOverridableLocation(location:FeedLocation) {
+export function isOverridableLocation(location: FeedLocation) {
     return location == FeedLocation.Sub || location == FeedLocation.Custom;
 }

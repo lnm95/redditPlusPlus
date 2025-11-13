@@ -12,14 +12,11 @@ import style from './sidebarSettingsWindow.less';
 
 css.addStyle(style);
 
-
 export const sidebarSettingsWindow: Window = new Window('Sidebar settings', renderSettingsWindow, closeSettingsWindow);
-
 
 const changes = new ChangesObserver();
 
 function renderSettingsWindow(win: Window, context: any) {
-
     changes.Reset();
     changes.RenderBanner(win.content);
 
@@ -70,7 +67,6 @@ function renderSettingsWindow(win: Window, context: any) {
             config.setting.switch(state);
             changesSource.Capture(config.setting.isEnabled());
         });
-        
     });
 
     // navigations
@@ -99,7 +95,6 @@ function renderSettingsWindow(win: Window, context: any) {
             changesSource.Capture(navSetting.isEnabled());
         });
     });
-
 }
 
 function closeSettingsWindow() {

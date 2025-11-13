@@ -1,23 +1,20 @@
-import { appendElement } from "../../utils/element";
-import { appendSvg, buildSvg, CURRENT_COLOR, NONE_COLOR } from "../../utils/svg";
-import { Window } from "../../utils/window";
-import { prefs, PrefsKey } from "../settings/prefs";
-import { generateDefaultLayout, ProfileMenuElement, profileMenuElementConfigs, ProfileMenuElementData, renderProfileMenu } from "./profileMenu";
+import { appendElement } from '../../utils/element';
+import { appendSvg, buildSvg, CURRENT_COLOR, NONE_COLOR } from '../../utils/svg';
+import { Window } from '../../utils/window';
+import { prefs, PrefsKey } from '../settings/prefs';
+import { generateDefaultLayout, ProfileMenuElement, profileMenuElementConfigs, ProfileMenuElementData, renderProfileMenu } from './profileMenu';
 import dragAnchorSvg from '@resources/dragAnchor.svg';
 import deleteButtonSvg from '@resources/deleteButton.svg';
 import hiddenIcoSvg from '@resources/hiddenIco.svg';
 import showIcoSvg from '@resources/showIco.svg';
-import style from "./profileMenuWindow.less";
-import { css } from "../customCSS";
-
+import style from './profileMenuWindow.less';
+import { css } from '../customCSS';
 
 css.addStyle(style);
 
 export const profileMenuWindow: Window = new Window('Profile menu elements', renderProfileMenuWindow, onClose);
 
 const DRAG_TAG = `profileMenuElement`;
-
-
 
 function renderProfileMenuWindow(win: Window, context: any) {
     (win.container as HTMLElement).style.zIndex = `11`;
@@ -158,12 +155,11 @@ function renderProfileMenuWindow(win: Window, context: any) {
             elementTittle.textContent = profileMenuElementConfigs.get(elementData.element).tittle;
         }
 
-
         function borderColor(): string {
             return elementData.hidden ? `#bdbdbd` : `#00adff`;
         }
 
-        // delete/hide button        
+        // delete/hide button
         const isDeletable = elementData.element == ProfileMenuElement.Separator;
         const isOptional = isDeletable || profileMenuElementConfigs.get(elementData.element).isOptional;
         if (isOptional) {
@@ -248,7 +244,7 @@ function cleanupElements() {
 
     // remove duplicates
     let index = 0;
-    while (index < (menuElements.length - 1)) {
+    while (index < menuElements.length - 1) {
         while (menuElements[index].element == ProfileMenuElement.Separator && menuElements[index + 1].element == ProfileMenuElement.Separator) {
             menuElements.splice(index + 1, 1);
         }

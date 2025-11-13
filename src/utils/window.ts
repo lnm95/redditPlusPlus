@@ -24,7 +24,7 @@ export class Window {
     render: WindowRenderer;
     onClose: Function;
     container: Element;
-    tittle:Element;
+    tittle: Element;
     content: Element;
     closeButton: Element;
 

@@ -18,7 +18,6 @@ export const FLAIR_HIDDEN: string = `hidden`;
 export const FLAIR_BLURED: string = `blured`;
 export const FLAIR_BANNED: string = `banned`;
 
-
 class SubFlairsData {
     hidden: Array<string>;
     blured: Array<string>;

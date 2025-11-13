@@ -9,13 +9,12 @@ import { InputParams, renderUIInput } from '../../utils/UI/input';
 import { appendSvg, CURRENT_COLOR, NONE_COLOR } from '../../utils/svg';
 import { settings } from '../settings/settings';
 
-
 let filter: Map<string, HTMLElement> = null;
 
 export async function renderSubFilter(container: Element) {
     if (checkIsRendered(container, `pp-sub-filter`)) return;
 
-    if(settings.SUB_FILTER.isDisabled()) return;
+    if (settings.SUB_FILTER.isDisabled()) return;
 
     const manageSubsLink = (await dynamicElement(() => container.querySelector(`.left-nav-manage-communities-link`))) as HTMLElement;
 

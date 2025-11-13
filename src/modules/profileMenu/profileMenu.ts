@@ -1,16 +1,14 @@
 import settingsButtonSvg from '@resources/settingsButton.svg';
 import { settingsWindow } from '../settings/settingsWindow';
 import { buildSvg, NONE_COLOR } from '../../utils/svg';
-import { css } from "../customCSS";
-import style from "./profileMenu.less";
+import { css } from '../customCSS';
+import style from './profileMenu.less';
 import { checkIsRendered } from '../../utils/tools';
 import { appendElement } from '../../utils/element';
 import { prefs, PrefsKey } from '../settings/prefs';
 import { pp_log } from '../toaster';
 
-
 css.addStyle(style);
-
 
 export enum ProfileMenuElement {
     Separator,
@@ -46,66 +44,126 @@ export interface ProfileMenuElementData {
 }
 
 export const profileMenuElementConfigs = new Map<ProfileMenuElement, ProfileMenuElementConfig>([
-    [ProfileMenuElement.VeiwProfile, {
-        tittle: `View Profile`, isOptional: false, find: (element) => {
-            return element.querySelector(`faceplate-tracker[noun="profile"]`);
+    [
+        ProfileMenuElement.VeiwProfile,
+        {
+            tittle: `View Profile`,
+            isOptional: false,
+            find: element => {
+                return element.querySelector(`faceplate-tracker[noun="profile"]`);
+            }
         }
-    }],
-    [ProfileMenuElement.EditAvatar, {
-        tittle: `Edit Avatar`, isOptional: true, find: (element) => {
-            return element.querySelector(`faceplate-tracker[noun="edit_avatar"]`);
+    ],
+    [
+        ProfileMenuElement.EditAvatar,
+        {
+            tittle: `Edit Avatar`,
+            isOptional: true,
+            find: element => {
+                return element.querySelector(`faceplate-tracker[noun="edit_avatar"]`);
+            }
         }
-    }],
-    [ProfileMenuElement.Drafts, {
-        tittle: `Drafts`, isOptional: true, find: (element) => {
-            return element.querySelector(`#drafts-list-item`);
+    ],
+    [
+        ProfileMenuElement.Drafts,
+        {
+            tittle: `Drafts`,
+            isOptional: true,
+            find: element => {
+                return element.querySelector(`#drafts-list-item`);
+            }
         }
-    }],
-    [ProfileMenuElement.Achievements, {
-        tittle: `Achievements`, isOptional: true, find: (element) => {
-            return element.querySelector(`faceplate-tracker[source="achievements"]`);
+    ],
+    [
+        ProfileMenuElement.Achievements,
+        {
+            tittle: `Achievements`,
+            isOptional: true,
+            find: element => {
+                return element.querySelector(`faceplate-tracker[source="achievements"]`);
+            }
         }
-    }],
-    [ProfileMenuElement.Earn, {
-        tittle: `Earn`, isOptional: true, find: (element) => {
-            return element.querySelector(`faceplate-tracker[source="earn"]`);
+    ],
+    [
+        ProfileMenuElement.Earn,
+        {
+            tittle: `Earn`,
+            isOptional: true,
+            find: element => {
+                return element.querySelector(`faceplate-tracker[source="earn"]`);
+            }
         }
-    }],
-    [ProfileMenuElement.Premium, {
-        tittle: `Premium`, isOptional: true, find: (element) => {
-            return element.querySelector(`faceplate-tracker[noun="premium_menu"]`);
+    ],
+    [
+        ProfileMenuElement.Premium,
+        {
+            tittle: `Premium`,
+            isOptional: true,
+            find: element => {
+                return element.querySelector(`faceplate-tracker[noun="premium_menu"]`);
+            }
         }
-    }],
-    [ProfileMenuElement.DarkMode, {
-        tittle: `Dark Mode`, isOptional: true, find: (element) => {
-            return element.querySelector(`shreddit-darkmode-setter`);
+    ],
+    [
+        ProfileMenuElement.DarkMode,
+        {
+            tittle: `Dark Mode`,
+            isOptional: true,
+            find: element => {
+                return element.querySelector(`shreddit-darkmode-setter`);
+            }
         }
-    }],
-    [ProfileMenuElement.LogOut, {
-        tittle: `Log Out`, isOptional: false, find: (element) => {
-            return element.querySelector(`user-drawer-logout`);
+    ],
+    [
+        ProfileMenuElement.LogOut,
+        {
+            tittle: `Log Out`,
+            isOptional: false,
+            find: element => {
+                return element.querySelector(`user-drawer-logout`);
+            }
         }
-    }],
-    [ProfileMenuElement.Advertise, {
-        tittle: `Advertise on Reddit`, isOptional: true, find: (element) => {
-            return element.querySelector(`faceplate-tracker[noun="advertise"]`);
+    ],
+    [
+        ProfileMenuElement.Advertise,
+        {
+            tittle: `Advertise on Reddit`,
+            isOptional: true,
+            find: element => {
+                return element.querySelector(`faceplate-tracker[noun="advertise"]`);
+            }
         }
-    }],
-    [ProfileMenuElement.RedditPro, {
-        tittle: `Try Reddit Pro`, isOptional: true, find: (element) => {
-            return element.querySelector(`faceplate-tracker[noun="try_reddit_pro"]`);
+    ],
+    [
+        ProfileMenuElement.RedditPro,
+        {
+            tittle: `Try Reddit Pro`,
+            isOptional: true,
+            find: element => {
+                return element.querySelector(`faceplate-tracker[noun="try_reddit_pro"]`);
+            }
         }
-    }],
-    [ProfileMenuElement.Settings, {
-        tittle: `Settings`, isOptional: false, find: (element) => {
-            return element.querySelector(`faceplate-tracker[noun="settings"]`);
+    ],
+    [
+        ProfileMenuElement.Settings,
+        {
+            tittle: `Settings`,
+            isOptional: false,
+            find: element => {
+                return element.querySelector(`faceplate-tracker[noun="settings"]`);
+            }
         }
-    }],
-    [ProfileMenuElement.PlusPlus, {
-        tittle: `Reddit++`, isOptional: false, find: (element) => {
-            return element.querySelector(`faceplate-tracker[noun="pp-settings"]`);
+    ],
+    [
+        ProfileMenuElement.PlusPlus,
+        {
+            tittle: `Reddit++`,
+            isOptional: false,
+            find: element => {
+                return element.querySelector(`faceplate-tracker[noun="pp-settings"]`);
+            }
         }
-    }],
+    ]
 ]);
 
 const defaultLayout = Array<ProfileMenuElement>(
@@ -150,10 +208,10 @@ export function renderProfileMenu() {
         originElements = new Map<ProfileMenuElement, Element>();
         undefinedElements = new Array<Element>();
 
-        profileMenu.querySelectorAll(`ul`).forEach((ul) => {
+        profileMenu.querySelectorAll(`ul`).forEach(ul => {
             for (const element of [...searchingElements]) {
                 const find = profileMenuElementConfigs.get(element)?.find;
-                const foundElement = (find != null) ? find(ul) : null;
+                const foundElement = find != null ? find(ul) : null;
                 if (foundElement) {
                     originElements.set(element, foundElement);
                     foundElement.remove();
@@ -168,11 +226,11 @@ export function renderProfileMenu() {
             ul.remove();
         });
 
-        profileMenu.querySelectorAll(`hr`).forEach((hr) => hr.remove());
+        profileMenu.querySelectorAll(`hr`).forEach(hr => hr.remove());
     } else {
         // clearing for redraw
-        profileMenu.querySelectorAll(`ul`).forEach((ul) => ul.remove());
-        profileMenu.querySelectorAll(`hr`).forEach((hr) => hr.remove());
+        profileMenu.querySelectorAll(`ul`).forEach(ul => ul.remove());
+        profileMenu.querySelectorAll(`hr`).forEach(hr => hr.remove());
     }
 
     // render elements
@@ -215,9 +273,7 @@ export function renderProfileMenu() {
     }
 }
 
-
 function renderPlusPlusButton(profileMenu: Element) {
-
     let originSettingsButton = profileMenu.querySelector(`faceplate-tracker[noun="settings"]`);
 
     if (originSettingsButton == null) {

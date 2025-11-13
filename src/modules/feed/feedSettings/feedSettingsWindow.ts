@@ -1,21 +1,20 @@
-import { ChangesObserver, ChangesSource } from "../../../utils/changesObserver";
-import { Database } from "../../../utils/database";
-import { appendElement } from "../../../utils/element";
-import { renderUIOptions } from "../../../utils/UI/options";
-import { renderUIToggle } from "../../../utils/UI/toggle";
-import { Window } from "../../../utils/window";
-import { css } from "../../customCSS";
-import { getCurrentCustomFeed, realCustomFeedTittle } from "../../customFeed/customFeed";
-import { getCurrentSub } from "../../subs/subs";
-import { customFeedData, defaultFeedData, defaultSorts, FeedData, subsFeedData } from "../feed";
-import { FeedLocation } from "../feedLocation";
-import { redirectConfigs } from "../feedRedirect";
-import { FeedSort, getFeedSorts } from "../feedSort";
+import { ChangesObserver, ChangesSource } from '../../../utils/changesObserver';
+import { Database } from '../../../utils/database';
+import { appendElement } from '../../../utils/element';
+import { renderUIOptions } from '../../../utils/UI/options';
+import { renderUIToggle } from '../../../utils/UI/toggle';
+import { Window } from '../../../utils/window';
+import { css } from '../../customCSS';
+import { getCurrentCustomFeed, realCustomFeedTittle } from '../../customFeed/customFeed';
+import { getCurrentSub } from '../../subs/subs';
+import { customFeedData, defaultFeedData, defaultSorts, FeedData, subsFeedData } from '../feed';
+import { FeedLocation } from '../feedLocation';
+import { redirectConfigs } from '../feedRedirect';
+import { FeedSort, getFeedSorts } from '../feedSort';
 
-import style from "./feedSettingsWindow.less";
+import style from './feedSettingsWindow.less';
 
 css.addStyle(style);
-
 
 export const feedSettingsWindow: Window = new Window('Feed sort settings', renderFeedSettingsWindow, onCloseWindow);
 
@@ -26,9 +25,7 @@ export interface FeedSettingsContext {
 const changes = new ChangesObserver();
 const sortChanges = new Map<FeedSort, ChangesSource>();
 
-
 function renderFeedSettingsWindow(win: Window, context: any) {
-
     changes.Reset();
     changes.RenderBanner(win.content);
 
@@ -37,7 +34,6 @@ function renderFeedSettingsWindow(win: Window, context: any) {
 
     const scroll = appendElement(win.content, `div`, [`pp_window_scrollContent`, `styled-scrollbars`]);
     const commonArea = appendElement(scroll, `div`, `pp_window_elementsContainer`);
-
 
     let defaultData: FeedData = defaultFeedData.get(FeedLocation[location]);
     let overrideDatabase: Database<FeedData> = null;
@@ -88,7 +84,7 @@ function renderFeedSettingsWindow(win: Window, context: any) {
 
             isOverrided = state;
             overrideArea.classList.toggle(`pp_feedSettings_overrideSub`, isOverrided);
-            
+
             renderWindowTittle();
             renderOverrideArea();
         });
@@ -99,7 +95,6 @@ function renderFeedSettingsWindow(win: Window, context: any) {
     function renderWindowTittle() {
         win.tittle.innerHTML = isOverrided ? `Feed sort: <span class="pp_feedSettings_overrideTittle">${getOverrideTittle()}</span>` : `Feed sort: ${redirectConfig.tittle}`;
     }
-
 
     const sorts = getFeedSorts(location);
 
@@ -185,8 +180,8 @@ function renderFeedSettingsWindow(win: Window, context: any) {
             const controlArea = appendElement(buttonContainer, `div`, `pp_window_controlArea`);
 
             const defaultValue = !currentData.hiddenSort.includes(sort);
-            let changesSource:ChangesSource = null; 
-            if(sortChanges.has(sort)) {
+            let changesSource: ChangesSource = null;
+            if (sortChanges.has(sort)) {
                 changesSource = sortChanges.get(sort);
                 changesSource.Capture(defaultValue);
             } else {
@@ -196,7 +191,7 @@ function renderFeedSettingsWindow(win: Window, context: any) {
 
             renderUIToggle(controlArea, defaultValue, (state: boolean) => {
                 if (state) {
-                    currentData.hiddenSort = currentData.hiddenSort.filter((hiddenSort) => hiddenSort != sort);
+                    currentData.hiddenSort = currentData.hiddenSort.filter(hiddenSort => hiddenSort != sort);
                 } else {
                     currentData.hiddenSort.push(sort);
                 }

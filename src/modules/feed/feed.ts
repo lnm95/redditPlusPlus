@@ -9,7 +9,6 @@ import { FeedLocation, getFeedLocation } from './feedLocation';
 import { redirectConfigs } from './feedRedirect';
 import { FeedSort } from './feedSort';
 
-
 export class FeedData {
     redirect: boolean;
     defaultSort: FeedSort;
@@ -36,7 +35,6 @@ export const defaultFeedData: Database<FeedData> = new Database<FeedData>(`DEFAU
 export const customFeedData: Database<FeedData> = new Database<FeedData>(`CUSTOM_FEED_DATA`, { factory: DatabaseFactory.Null });
 export const subsFeedData: Database<FeedData> = new Database<FeedData>(`SUBS_FEED_DATA`, { factory: DatabaseFactory.Null });
 export const subsLatestSort: Database<FeedSort> = new Database<FeedSort>(`SUBS_LATEST_SORT`, { factory: DatabaseFactory.Null });
-
 
 let postObserver: MutationObserver = null;
 

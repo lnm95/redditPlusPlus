@@ -1,4 +1,4 @@
-import { FeedLocation } from "./feedLocation";
+import { FeedLocation } from './feedLocation';
 
 export enum FeedSort {
     Best = `Best`,
@@ -12,7 +12,7 @@ export function getFeedSorts(location: FeedLocation): Array<FeedSort> {
     switch (location) {
         case FeedLocation.All:
         case FeedLocation.Custom:
-            return Object.values(FeedSort).filter((sort) => sort != FeedSort.Best);
+            return Object.values(FeedSort).filter(sort => sort != FeedSort.Best);
         default:
             return Object.values(FeedSort);
     }

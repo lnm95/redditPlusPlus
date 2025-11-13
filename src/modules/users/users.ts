@@ -20,7 +20,7 @@ function userDataValidator(userData: UserData) {
 async function userDataLoader(userId: string): Promise<UserData> {
     let userData = {} as UserData;
 
-    if(userId == `[deleted]`) {
+    if (userId == `[deleted]`) {
         userData.banned = true;
         return userData;
     }

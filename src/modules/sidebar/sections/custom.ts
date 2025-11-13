@@ -1,10 +1,8 @@
-import { dynamicElement } from "../../../utils/tools";
-import { SidebarSectionElements, SidebarSectionRenderer } from "../sidebarSectionRenderer";
+import { dynamicElement } from '../../../utils/tools';
+import { SidebarSectionElements, SidebarSectionRenderer } from '../sidebarSectionRenderer';
 
 export class CustomRenderer extends SidebarSectionRenderer {
-
     FindContainer(sidebar: HTMLElement, element: HTMLElement): HTMLElement {
-
         let container: HTMLElement = null;
 
         sidebar.querySelectorAll(`faceplate-expandable-section-helper`).forEach(helper => {
@@ -27,5 +25,4 @@ export class CustomRenderer extends SidebarSectionRenderer {
             bottomLine: this.FindBottomLine(container)
         };
     }
-
 }

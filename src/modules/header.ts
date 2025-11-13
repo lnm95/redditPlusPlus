@@ -43,4 +43,3 @@ export async function renderHeader(container: Element) {
         logoPP.innerHTML = logoPP.textContent + ` <sup>(dev ${VERSION})</sup>`;
     }
 }
-

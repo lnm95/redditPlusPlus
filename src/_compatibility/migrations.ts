@@ -18,14 +18,14 @@ export class Migration {
     check() {
         const currentVersion = GM_getValue(DATABASE_VERSION, null);
 
-        if(DEBUG && FORCE_MIGRATIONS) {
+        if (DEBUG && FORCE_MIGRATIONS) {
             this.previous?.check();
             this.action();
             notify(`Reddit++ was upgraded to ${this.version} (DEBUG)`);
             return;
         }
 
-        if(currentVersion == null) {
+        if (currentVersion == null) {
             GM_setValue(DATABASE_VERSION, this.version);
             return;
         }

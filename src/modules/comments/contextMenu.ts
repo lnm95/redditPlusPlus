@@ -11,7 +11,6 @@ import { renderUserTagsPanel } from './userTagsPanel';
 import shareButtonSvg from '@resources/comments/shareButton.svg';
 
 export function renderContextMenu(comment: Element) {
-    
     let contextMenuButton = comment.querySelector(`shreddit-overflow-menu`).shadowRoot;
 
     css.registry(contextMenuButton);

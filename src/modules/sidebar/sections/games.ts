@@ -1,10 +1,8 @@
-import { dynamicElement } from "../../../utils/tools";
-import { SidebarSectionElements, SidebarSectionRenderer } from "../sidebarSectionRenderer";
+import { dynamicElement } from '../../../utils/tools';
+import { SidebarSectionElements, SidebarSectionRenderer } from '../sidebarSectionRenderer';
 
 export class GamesRenderer extends SidebarSectionRenderer {
-
     FindContainer(sidebar: HTMLElement, element: HTMLElement): HTMLElement {
-
         return sidebar.querySelector(`faceplate-tracker[noun="games_drawer"]`);
     }
 
@@ -17,5 +15,4 @@ export class GamesRenderer extends SidebarSectionRenderer {
             bottomLine: this.FindBottomLine(container)
         };
     }
-
 }

@@ -8,9 +8,7 @@ import bookmarkUnsavedSvg from '@resources/bookmarkUnsaved.svg';
 import { dynamicElement } from '../utils/tools';
 import { BookmarkMode } from './bookmarkMode';
 
-
 css.addStyle(style);
-
 
 export function renderCommentBookmark(comment: Element, forced: boolean = false) {
     const mode = settings.SAVED_BOOKMARK_COMMENTS.get() as BookmarkMode;
@@ -55,7 +53,7 @@ export function renderCommentBookmark(comment: Element, forced: boolean = false)
 
 export async function renderBookmarkPost(post: Element, forced: boolean = false, forcedValue: boolean | void = undefined) {
     const mode = settings.SAVED_BOOKMARK_POSTS.get() as BookmarkMode;
-    
+
     if (mode == BookmarkMode.Disabled) return;
 
     const contextMenu = await dynamicElement(() => post.querySelector(`shreddit-post-overflow-menu`)?.shadowRoot?.querySelector(`rpl-dropdown`)?.querySelector(`faceplate-menu`), 3000);
