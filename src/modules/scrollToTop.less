@@ -17,18 +17,16 @@
         padding-bottom 0.2s ease-in,
         color 0.2s ease-in,
         opacity 0.5s ease;
+
+    // to avoid overlap with sidebar edge buttons
+    clip-path: inset(0 0 0 8px); 
+    svg {
+        padding-left: 8px;
+    }
 }
 
 .pp_scrollToTop_inverted {
     transform: scale(1, -1);
-}
-
-.pp_scrollToTop_hidden {
-    opacity: 0 !important;
-}
-
-.pp_scrollToTop_hidden::before {
-    opacity: 0 !important;
 }
 
 .pp_scrollToTop:hover {
