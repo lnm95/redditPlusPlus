@@ -91,25 +91,60 @@ export async function renderScrollToTop() {
     checkScreenWidth();
 }
 
-let isHidden: boolean = true;
+let shouldShow: boolean = true;
 function checkScreenWidth() {
     const left = sidebarBlock?.getBoundingClientRect()?.right ?? 0;
     const right = contentBlock.getBoundingClientRect().left;
+    const availableSpace = right - left;
 
-    scrollToTop.style.left = `${(left + right) / 2 - 50}px`;
+    // Minimum space needed for the button (40px icon + padding)
+    const minButtonSpace = 60;
+    // Optimal button width
+    const optimalWidth = 100;
+    // Minimum gap needed (space for button + margins)
+    const minGap = 80;
 
-    isHidden = !(right - left > 116 && (isBottom || prevScrollHeight > 0));
-    const inverted = !isBottom && prevScrollHeight > 0;
-    scrollToTop.classList.toggle(`pp_scrollToTop_hidden`, isHidden);
-    scrollButton.classList.toggle(`pp_scrollToTop_inverted`, inverted);
+    let buttonWidth = optimalWidth;
+    let leftPosition = (left + right) / 2 - buttonWidth / 2;
 
-    if (isHidden) {
-        setTimeout(() => {
-            if (isHidden) {
-                scrollToTop.classList.toggle(`pp_hidden`, true);
-            }
-        }, 500);
+    // Adaptive width and positioning based on available space
+    if (availableSpace >= minGap + 40) {
+        // Enough space - use optimal or constrained width
+        buttonWidth = Math.min(optimalWidth, availableSpace - 20); // 20px total margin
+        leftPosition = (left + right) / 2 - buttonWidth / 2;
+    } else if (availableSpace >= minButtonSpace) {
+        // Limited space - use minimal width
+        buttonWidth = Math.max(minButtonSpace, availableSpace - 10); // 10px minimal margin
+        leftPosition = (left + right) / 2 - buttonWidth / 2;
     } else {
-        scrollToTop.classList.toggle(`pp_hidden`, false);
+        // Try positioning at the edge of sidebar if there's some space
+        if (availableSpace >= 40 && availableSpace < minButtonSpace) {
+            buttonWidth = Math.max(40, availableSpace - 5);
+            leftPosition = left + (availableSpace - buttonWidth) / 2;
+        } else {
+            // Last resort - position over the sidebar edge (semi-transparent)
+            buttonWidth = 60;
+            leftPosition = left - 30; // Half over sidebar, half in gap
+            scrollToTop.style.opacity = '0.7';
+        }
     }
+
+    // Apply the calculated dimensions and position
+    scrollToTop.style.width = `${buttonWidth}px`;
+    scrollToTop.style.left = `${leftPosition}px`;
+
+    // Reset opacity if not in last resort mode
+    if (availableSpace >= 40) {
+        scrollToTop.style.opacity = '';
+    }
+
+    // Check if page is actually scrollable
+    const isPageScrollable = document.documentElement.scrollHeight > window.innerHeight;
+
+    // Determine which button to show based on available space and scrollability
+    shouldShow = isPageScrollable && (isBottom || prevScrollHeight > 0) && availableSpace >= 30;
+    const inverted = !isBottom && prevScrollHeight > 0;
+
+    scrollToTop.classList.toggle(`pp_hidden`, !shouldShow);
+    scrollButton.classList.toggle(`pp_scrollToTop_inverted`, inverted);
 }
