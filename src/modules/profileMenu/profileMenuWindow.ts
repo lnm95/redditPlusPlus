@@ -26,7 +26,7 @@ function renderProfileMenuWindow(win: Window, context: any) {
     const elements = appendElement(scroll, `ul`, `pp_filter_list`);
 
     let menuElements = prefs.get(PrefsKey.PROFILE_MENU_ELEMENTS) as Array<ProfileMenuElementData>;
-    if (!(menuElements instanceof Array)) {
+    if (!Array.isArray(menuElements)) {
         menuElements = generateDefaultLayout();
     }
 
@@ -227,7 +227,7 @@ function onClose() {
 
 function cleanupElements() {
     let menuElements = prefs.get(PrefsKey.PROFILE_MENU_ELEMENTS) as Array<ProfileMenuElementData>;
-    if (!(menuElements instanceof Array)) {
+    if (!Array.isArray(menuElements)) {
         menuElements = generateDefaultLayout();
     }
 

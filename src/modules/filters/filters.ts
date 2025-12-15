@@ -46,7 +46,7 @@ let commentsFilters: Array<Filter> = null;
 
 function buildFilters(dataFilter: (data: FilterData) => boolean) {
     let datas = prefs.get(PrefsKey.CONTENT_FILTERS) as Array<FilterData>;
-    if (!(datas instanceof Array)) {
+    if (!Array.isArray(datas)) {
         datas = [] as Array<FilterData>;
     }
 

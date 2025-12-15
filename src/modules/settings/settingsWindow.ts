@@ -45,7 +45,9 @@ function renderSettingsWindow(win: Window, context: any) {
     addSettingToggle(`Wide mode`, `Make focus on the content by replacing the right sidebar to screen border`, settings.WIDE_MODE);
     addSettingString(`Content width`, `Width of the feed and comments in pixels`, settings.CONTENT_WIDTH.defaultValue, settings.CONTENT_WIDTH);
     addSettingString(`Content offset`, `Offset of the feed and comments in pixels`, settings.CONTENT_OFFSET.defaultValue, settings.CONTENT_OFFSET);
-    addSettingToggle(`Bigger fonts`, `Make fonts bigger for better reading`, settings.BIGGER_FONTS);
+    addSettingToggle(`Custom fonts`, `Adjust font sizes for better readability`, settings.BIGGER_FONTS);
+    addSettingString(`Content font size`, `Comment and post text. Default (reddit): 14px`, settings.BIGGER_FONTS_CONTENT_SIZE.defaultValue, settings.BIGGER_FONTS_CONTENT_SIZE);
+    addSettingString(`UI element font size`, `Headings, ratings, and buttons next to content. Default (reddit): 12px`, settings.BIGGER_FONTS_OTHER_SIZE.defaultValue, settings.BIGGER_FONTS_OTHER_SIZE);
     addGotoButton(`Profile menu`, `Hide and replace profile menu elements`, profileMenuWindow, [SettingBadge.New]);
     addSettingToggle(`Scroll to top button`, null, settings.SCROLL_TO_TOP);
     addSettingToggle(`Image viewer`, `Open (zoom) images instead default redirect behaviour`, settings.IMAGE_VIEWER);

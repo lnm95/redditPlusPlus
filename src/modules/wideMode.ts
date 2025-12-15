@@ -3,6 +3,7 @@ import { css } from './customCSS';
 import { settings } from './settings/settings';
 import { observeFor } from '../utils/tools';
 import { notify } from './toaster';
+import { renderRightSidebar } from './rightSidebar';
 
 function safePixels(value: string): string {
     return `${parseInt(value)}px`;
@@ -22,8 +23,7 @@ export function renderWideMode(pageContainer: Element, rightSidebar: Element) {
         return;
     }
 
-    // make right sidebar scrollable when a post opened
-    rightSidebar.className = `right-sidebar min-w-0 w-[316px] max-w-[316px] hidden s:block styled-scrollbars xs:sticky xs:top-[56px] xs:max-h-[calc(100vh-var(--shreddit-header-height)-1px)] xs:overflow-y-auto xs:overflow-x-hidden pp_rightSidebar`;
+    renderRightSidebar(rightSidebar);
 
     const originContainer = rightSidebar.parentElement;
 

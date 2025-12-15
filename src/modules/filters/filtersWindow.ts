@@ -27,7 +27,7 @@ function renderFiltersWindow(win: Window, context: any) {
     const elements = appendElement(scroll, `ul`, `pp_filter_list`);
 
     let filters = prefs.get(PrefsKey.CONTENT_FILTERS) as Array<FilterData>;
-    if (!(filters instanceof Array)) {
+    if (!Array.isArray(filters)) {
         filters = [] as Array<FilterData>;
     }
 
@@ -294,7 +294,7 @@ function onClose() {
 
 function cleanupBlankFilters() {
     let filters = prefs.get(PrefsKey.CONTENT_FILTERS) as Array<FilterData>;
-    if (!(filters instanceof Array)) {
+    if (!Array.isArray(filters)) {
         filters = [] as Array<FilterData>;
     }
 

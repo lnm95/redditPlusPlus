@@ -12,6 +12,7 @@ import { renderScrollToTop } from './scrollToTop';
 import { renderUserPage } from './users/userPage';
 import { clearHiddenContentButton } from './filters/hiddenContent';
 import { closeAllWindows } from '../utils/window';
+import { renderRightSidebar } from './rightSidebar';
 
 export async function renderApp() {
     css.addStyle(style, `app`);
@@ -43,8 +44,7 @@ export async function renderApp() {
     mainFeed.classList.add(`pp_mainFeed`);
 
     const rightSidebar = await dynamicElement(() => document.body.querySelector(`#right-sidebar-container`));
-    rightSidebar.classList.add(`pp_rightSidebar`);
-    rightSidebar.classList.toggle(`styled-scrollbars`, true);
+    renderRightSidebar(rightSidebar);
 
     renderWideMode(pageContainer, rightSidebar);
 

@@ -122,6 +122,8 @@ class SettingsManager {
     public CONTENT_WIDTH = new SettingStringProperty(`contentWidth`, `700`, defaultPositiveFilter(700));
     public CONTENT_OFFSET = new SettingStringProperty(`contentOffset`, `0`, defaultFilter(0));
     public BIGGER_FONTS = new SettingBoolProperty(`biggerFonts`);
+    public BIGGER_FONTS_CONTENT_SIZE = new SettingStringProperty(`biggerFontsContentSize`, `16`, defaultPositiveFilter(16));
+    public BIGGER_FONTS_OTHER_SIZE = new SettingStringProperty(`biggerFontsOtherSize`, `12`, defaultPositiveFilter(12));
     public SCROLL_TO_TOP = new SettingBoolProperty(`scrollToTop`);
     public IMAGE_VIEWER = new SettingBoolProperty(`imageViewer`);
     public COLLAPSE_AWARDS = new SettingDropdownProperty(`collapseAwards`, Object.values(AwardsMode), 1);

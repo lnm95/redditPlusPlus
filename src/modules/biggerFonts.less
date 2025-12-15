@@ -1,7 +1,7 @@
-// resize fonts
+// common fonts
 :is(.text-14-scalable):not(.pp_defaultText .text-14-scalable) {
-    font-size: 1rem !important;
-    line-height: 1.4rem !important;
+    font-size: var(--pp-biggerFonts-Content) !important; //1rem
+    line-height: 1.4rem !important; //1.4rem
 }
 
 faceplate-hovercard .text-12 {
@@ -9,8 +9,15 @@ faceplate-hovercard .text-12 {
 }
 
 shreddit-composer > div[role='textbox'] {
-    font-size: 1rem !important;
-    line-height: 1.4rem !important;
+    font-size: var(--pp-biggerFonts-Content) !important; //1rem
+    line-height: 1.4rem !important; //1.4rem
+}
+
+// other fonts
+:is(.text-12):not(.pp_defaultText .text-12) {
+    // rating, tittles
+    font-size: var(--pp-biggerFonts-Other) !important; //1rem
+    //line-height: 1.4rem !important;//1.4rem
 }
 
 // comments more space

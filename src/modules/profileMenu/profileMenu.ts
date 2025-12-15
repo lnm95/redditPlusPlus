@@ -198,6 +198,7 @@ let undefinedElements: Array<Element> = null;
 
 export function renderProfileMenu() {
     let profileMenu = document.getElementById(`user-drawer-content`);
+    profileMenu.classList.toggle(`pp_defaultText`, true);
 
     // initialization
     if (originElements == null) {
@@ -235,7 +236,7 @@ export function renderProfileMenu() {
 
     // render elements
     let elementsData = prefs.get(PrefsKey.PROFILE_MENU_ELEMENTS) as Array<ProfileMenuElementData>;
-    if (!(elementsData instanceof Array)) {
+    if (!Array.isArray(elementsData)) {
         elementsData = generateDefaultLayout();
     }
 
