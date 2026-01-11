@@ -56,7 +56,7 @@ export async function renderSubFilter(container: Element) {
 
     manageSubsLink.style.width = `65px`;
     manageSubsLink.style.paddingRight = `10px`;
-    const createSubText = await dynamicElement(() => manageSubsLink.querySelector(`.text-14`));
+    const createSubText = await dynamicElement(() => manageSubsLink.querySelector(`.text-body-2`));
     createSubText.remove();
     manageSubsLink.replaceWith(input);
     input.prepend(manageSubsLink);

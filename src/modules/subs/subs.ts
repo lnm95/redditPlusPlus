@@ -105,7 +105,7 @@ function renderContextMenu(e: MouseEvent) {
 
     // flairs settings
     const menuFlairsButton = originButton.cloneNode(true) as Element;
-    menuFlairsButton.querySelector(`.text-14`).textContent = `Flairs settings`;
+    menuFlairsButton.querySelector(`.text-body-2`).textContent = `Flairs settings`;
     controlMenu.prepend(menuFlairsButton);
 
     const sub = getCurrentSub();
@@ -121,6 +121,6 @@ function renderContextMenu(e: MouseEvent) {
     controlMenu.prepend(link);
 
     const menuAboutButton = originButton.cloneNode(true) as Element;
-    menuAboutButton.querySelector(`.text-14`).textContent = `About`;
+    menuAboutButton.querySelector(`.text-body-2`).textContent = `About`;
     link.prepend(menuAboutButton);
 }

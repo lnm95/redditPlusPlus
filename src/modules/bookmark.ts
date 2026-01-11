@@ -18,7 +18,7 @@ export function renderCommentBookmark(comment: Element, forced: boolean = false)
     const contextMenuButton = comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`rpl-dropdown`);
 
     const saveButton = contextMenuButton.querySelector(`.save-comment-menu-button`);
-    const saveButtonContent = saveButton.querySelector(`.text-14`);
+    const saveButtonContent = saveButton.querySelector(`.text-body-2`);
 
     saveButton.addEventListener(`click`, () => {
         renderCommentBookmark(comment, true);
@@ -65,7 +65,7 @@ export async function renderBookmarkPost(post: Element, forced: boolean = false,
     let isSaved: boolean = true;
     let saveButton: Element = null;
     contextMenu.querySelectorAll(`li`).forEach(element => {
-        const buttonSpan = element.querySelector(`.text-14`);
+        const buttonSpan = element.querySelector(`.text-body-2`);
 
         if (buttonSpan.textContent == `Save`) {
             isSaved = false;

@@ -292,7 +292,7 @@ function renderPlusPlusButton(profileMenu: Element) {
     const svg = buildSvg(settingsButtonSvg, 20, 20, { strokeColor: NONE_COLOR });
     originSvg.replaceWith(svg);
 
-    let text = ppSettingsButton.querySelector(`.text-14`);
+    let text = ppSettingsButton.querySelector(`.text-body-2`);
     text.textContent = `Reddit++`;
 
     ppSettingsButton.addEventListener(`click`, () => {
