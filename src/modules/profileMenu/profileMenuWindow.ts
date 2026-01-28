@@ -9,6 +9,7 @@ import hiddenIcoSvg from '@resources/hiddenIco.svg';
 import showIcoSvg from '@resources/showIco.svg';
 import style from './profileMenuWindow.less';
 import { css } from '../customCSS';
+import { renderUIButton } from '../../utils/UI/button';
 
 css.addStyle(style);
 
@@ -194,25 +195,29 @@ function renderProfileMenuWindow(win: Window, context: any) {
     }
 
     function addSeparatorButton() {
-        const buttonArea = appendElement(elements, `div`, [`pp_filter_addButton`, `button`, `button-primary`, `inline-flex`, `items-center`, `justify-center`]);
-        const buttonSpan = appendElement(buttonArea, `span`, [`flex`, `items-center`, `justify-center`]);
-        const buttonText = appendElement(buttonSpan, `span`, [`flex`, `items-center`, `gap-xs`]);
-        buttonText.textContent = `Add a separator`;
+        const buttonArea = renderUIButton(
+            elements,
+            `Add a separator`,
+            () => {
+                const newFilter = {} as ProfileMenuElementData;
 
-        buttonArea.addEventListener(`click`, () => {
-            const newFilter = {} as ProfileMenuElementData;
+                newFilter.element = ProfileMenuElement.Separator;
+                newFilter.hidden = false;
 
-            newFilter.element = ProfileMenuElement.Separator;
-            newFilter.hidden = false;
+                menuElements.push(newFilter);
 
-            menuElements.push(newFilter);
+                addElement(newFilter, buttonArea);
 
-            addElement(newFilter, buttonArea);
+                save();
 
-            save();
-
-            scroll.scrollBy(0, 200);
-        });
+                scroll.scrollBy(0, 200);
+            },
+            {
+                variant: 'primary',
+                size: 'large',
+                fullWidth: true
+            }
+        );
     }
 
     function save() {
