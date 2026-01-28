@@ -12,6 +12,7 @@ import { buildSvg, CURRENT_COLOR, NONE_COLOR } from '../../utils/svg';
 import { renderUIOptions } from '../../utils/UI/options';
 import { renderUIToggle } from '../../utils/UI/toggle';
 import { InputParams, renderUIInput } from '../../utils/UI/input';
+import { renderUIButton } from '../../utils/UI/button';
 
 export const filtersWindow: Window = new Window('Content filters', renderFiltersWindow, onClose);
 
@@ -259,28 +260,32 @@ function renderFiltersWindow(win: Window, context: any) {
     }
 
     function addAddButton() {
-        const buttonArea = appendElement(elements, `div`, [`pp_filter_addButton`, `button`, `button-primary`, `inline-flex`, `items-center`, `justify-center`]);
-        const buttonSpan = appendElement(buttonArea, `span`, [`flex`, `items-center`, `justify-center`]);
-        const buttonText = appendElement(buttonSpan, `span`, [`flex`, `items-center`, `gap-xs`]);
-        buttonText.textContent = `Add a filter`;
+        const buttonArea = renderUIButton(
+            elements,
+            `Add a filter`,
+            () => {
+                const newFilter = new FilterData();
 
-        buttonArea.addEventListener(`click`, () => {
-            const newFilter = new FilterData();
+                newFilter.expression = ``;
+                newFilter.color = `#6A51D9`;
+                newFilter.posts = true;
+                newFilter.comments = true;
+                newFilter.action = FilterAction.Hide;
 
-            newFilter.expression = ``;
-            newFilter.color = `#6A51D9`;
-            newFilter.posts = true;
-            newFilter.comments = true;
-            newFilter.action = FilterAction.Hide;
+                filters.push(newFilter);
 
-            filters.push(newFilter);
+                addFilter(newFilter, buttonArea);
 
-            addFilter(newFilter, buttonArea);
+                save();
 
-            save();
-
-            scroll.scrollBy(0, 200);
-        });
+                scroll.scrollBy(0, 200);
+            },
+            {
+                variant: 'primary',
+                size: 'large',
+                fullWidth: true
+            }
+        );
     }
 
     function save() {
