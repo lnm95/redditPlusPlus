@@ -6,3 +6,13 @@ faceplate-banner {
 .pp_hidden {
     display: none !important;
 }
+
+// reddit bug workaround - for viewports between 1200px and 1392px wide, some slight miscalculations
+// cause horizontal scrollbars to appear due to paddings.
+
+// NOTE: test from time to time to see if reddit has fixed this issue natively.
+@media (min-width: 1200px) {
+    .pp_mainFeed {
+        max-width: calc(100vw - var(--flex-nav-width,0px) - 15px) !important;
+    }
+}
