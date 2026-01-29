@@ -18,7 +18,7 @@ export enum ProfileMenuElement {
     Achievements,
     Earn,
     Premium,
-    DarkMode,
+    DisplayMode,
     LogOut,
     //br
     Advertise,
@@ -105,12 +105,12 @@ export const profileMenuElementConfigs = new Map<ProfileMenuElement, ProfileMenu
         }
     ],
     [
-        ProfileMenuElement.DarkMode,
+        ProfileMenuElement.DisplayMode,
         {
-            tittle: `Dark Mode`,
+            tittle: `Display Mode`,
             isOptional: true,
             find: element => {
-                return element.querySelector(`shreddit-darkmode-setter`);
+                return element.querySelector(`faceplate-tracker[noun="dark_mode"]`);
             }
         }
     ],
@@ -173,7 +173,7 @@ const defaultLayout = Array<ProfileMenuElement>(
     ProfileMenuElement.Achievements,
     ProfileMenuElement.Earn,
     ProfileMenuElement.Premium,
-    ProfileMenuElement.DarkMode,
+    ProfileMenuElement.DisplayMode,
     ProfileMenuElement.LogOut,
     ProfileMenuElement.Separator,
     ProfileMenuElement.Advertise,

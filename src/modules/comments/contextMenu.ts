@@ -20,7 +20,7 @@ export function renderContextMenu(comment: Element) {
 
     if (settings.HIDE_SHARE.isEnabled()) {
         let linkButton = originButton.cloneNode(true) as Element;
-        linkButton.querySelector(`span .text-14`).textContent = `Copy link`;
+        linkButton.querySelector(`span .text-body-2`).textContent = `Copy link`;
         originButton.before(linkButton);
 
         const originIcon = linkButton.querySelector(`svg`);
