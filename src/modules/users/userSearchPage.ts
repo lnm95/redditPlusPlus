@@ -12,7 +12,7 @@ export async function renderUserSearch(container: Element) {
     // back to user button
     const backButton = renderUIButton(
         tabs.parentElement,
-        `test`,
+        null,
         () => {
             window.location.replace(`/user/${currentUser}/`);
         },
