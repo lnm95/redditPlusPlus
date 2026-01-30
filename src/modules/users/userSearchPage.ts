@@ -32,8 +32,6 @@ export async function renderUserSearch(container: Element) {
 function renderSearchButton(tabs: Element, selector: string, url: string) {
     const button = tabs.querySelector(selector) as HTMLAnchorElement;
 
-    console.log(`serach page ${selector} is ${button != null}`);
-
     if (button == null) return;
 
     button.href = url;

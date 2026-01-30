@@ -4,7 +4,7 @@
 // @description      A lot of enhancements for new design of reddit.com like unwrapped feed buttons, bigger fonts, view images without redirect, filtering content by keywords and many more...
 // @description:ru   Множество улучшений для нового интерфейса reddit.com, таких как развернутые кнопки лент, увеличенный шрифт, увеличение изображений без редиректа, фильтрация контента по ключевым словам и много другое...
 // @namespace        RedditPlusPlus
-// @version          1.2.6
+// @version          1.2.7
 // @author           lnm95
 // @icon             data:image/png;base64,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
 // @source           https://github.com/lnm95/redditPlusPlus
@@ -2289,6 +2289,48 @@ module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 25 25\
 
 /***/ }),
 
+/***/ "./resources/profileMenu/comments.svg":
+/***/ ((module) => {
+
+module.exports = "<svg version=\"1.1\" id=\"Слой_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 800 800\" style=\"enable-background:new 0 0 800 800;\" xml:space=\"preserve\"><path d=\"M246,246.8c-18.2,0-33,14.8-33,33c0,18.2,14.8,33,33,33V246.8z M554,312.8c18.2,0,33-14.8,33-33c0-18.2-14.8-33-33-33V312.8 z M284.5,359.3c-18.2,0-33,14.8-33,33c0,18.2,14.8,33,33,33V359.3z M515.5,425.3c18.2,0,33-14.8,33-33c0-18.2-14.8-33-33-33V425.3z M253.2,92V59l-0.2,0L253.2,92z M546.9,92l0.3-33h-0.3V92z M708,255.6l-33-0.2v0.2H708z M708,454.1h-33v0.2L708,454.1z M661.3,569.3 l-23.5-23.2l0,0L661.3,569.3z M546.8,617.7v33h0.2L546.8,617.7z M253.2,617.7v-33c-5.6,0-11.2,1.5-16.1,4.2L253.2,617.7z M92,708H59 c0,11.7,6.2,22.5,16.3,28.5c10.1,5.9,22.6,6,32.8,0.3L92,708z M92,255.6h33l0-0.2L92,255.6z M138.7,140.4l-23.5-23.2l0,0 L138.7,140.4z M246,312.8h308v-66H246V312.8z M284.5,425.3h231v-66h-231V425.3z M253.2,125h293.7V59H253.2V125z M546.6,125 c71.4,0.5,128.9,58.9,128.4,130.3l66,0.5c0.8-107.9-86-196-193.9-196.8L546.6,125z M675,255.6v198.6h66V255.6H675z M675,454.4 c0.3,34.3-13.1,67.3-37.2,91.7l47,46.3c36.4-36.9,56.6-86.7,56.2-138.6L675,454.4z M637.8,546.1c-24.1,24.4-56.9,38.3-91.2,38.6 l0.5,66c51.8-0.4,101.4-21.3,137.7-58.2L637.8,546.1z M546.8,584.7H253.2v66h293.6V584.7z M237,588.9L75.9,679.2l32.3,57.6 l161.2-90.3L237,588.9z M125,708V255.6H59V708H125z M125,255.3c-0.3-34.3,13.1-67.3,37.2-91.7l-47-46.3 C78.8,154.1,58.6,204,59,255.8L125,255.3z M162.2,163.6c24.1-24.4,56.9-38.3,91.2-38.6l-0.5-66c-51.8,0.4-101.4,21.3-137.7,58.2 L162.2,163.6z\"></path></svg>"
+
+/***/ }),
+
+/***/ "./resources/profileMenu/history.svg":
+/***/ ((module) => {
+
+module.exports = "<svg viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M3 5.67541V3C3 2.44772 2.55228 2 2 2C1.44772 2 1 2.44772 1 3V7C1 8.10457 1.89543 9 3 9H7C7.55229 9 8 8.55229 8 8C8 7.44772 7.55229 7 7 7H4.52186C4.54218 6.97505 4.56157 6.94914 4.57995 6.92229C5.621 5.40094 7.11009 4.22911 8.85191 3.57803C10.9074 2.80968 13.173 2.8196 15.2217 3.6059C17.2704 4.3922 18.9608 5.90061 19.9745 7.8469C20.9881 9.79319 21.2549 12.043 20.7247 14.1724C20.1945 16.3018 18.9039 18.1638 17.0959 19.4075C15.288 20.6513 13.0876 21.1909 10.9094 20.9247C8.73119 20.6586 6.72551 19.605 5.27028 17.9625C4.03713 16.5706 3.27139 14.8374 3.06527 13.0055C3.00352 12.4566 2.55674 12.0079 2.00446 12.0084C1.45217 12.0088 0.995668 12.4579 1.04626 13.0078C1.25994 15.3309 2.2082 17.5356 3.76666 19.2946C5.54703 21.3041 8.00084 22.5931 10.6657 22.9188C13.3306 23.2444 16.0226 22.5842 18.2345 21.0626C20.4464 19.541 22.0254 17.263 22.6741 14.6578C23.3228 12.0526 22.9963 9.30013 21.7562 6.91897C20.5161 4.53782 18.448 2.69239 15.9415 1.73041C13.4351 0.768419 10.6633 0.756291 8.14853 1.69631C6.06062 2.47676 4.26953 3.86881 3 5.67541Z\" fill=\"#0F0F0F\"></path><path d=\"M12 5C11.4477 5 11 5.44771 11 6V12.4667C11 12.4667 11 12.7274 11.1267 12.9235C11.2115 13.0898 11.3437 13.2344 11.5174 13.3346L16.1372 16.0019C16.6155 16.278 17.2271 16.1141 17.5032 15.6358C17.7793 15.1575 17.6155 14.546 17.1372 14.2698L13 11.8812V6C13 5.44772 12.5523 5 12 5Z\" fill=\"#0F0F0F\"></path></svg>"
+
+/***/ }),
+
+/***/ "./resources/profileMenu/posts.svg":
+/***/ ((module) => {
+
+module.exports = "<svg version=\"1.1\" id=\"Слой_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 800 800\" style=\"enable-background:new 0 0 800 800;\" xml:space=\"preserve\"><style type=\"text/css\"> .st0{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#000000;stroke-width:60;stroke-miterlimit:10;} </style><path class=\"st0\" d=\"M646.7,657.4h-503c-43.5,0-78.7-35.2-78.7-78.7v-366c0-43.5,35.2-78.7,78.7-78.7h503 c43.5,0,78.7,35.2,78.7,78.7v366C725.4,622.2,690.2,657.4,646.7,657.4z\"></path><g><path d=\"M624.8,223.9H181.5c-15.7,0-28.5,12.7-28.5,28.5v1.9c0,15.7,12.7,28.5,28.5,28.5h443.3c15.7,0,28.5-12.7,28.5-28.5v-1.9 C653.3,236.6,640.5,223.9,624.8,223.9L624.8,223.9z\"></path></g><g><path d=\"M488.7,321.9H177.2c-13.3,0-24.1,10.8-24.1,24.1v10.5c0,13.3,10.8,24.1,24.1,24.1h311.5c13.3,0,24.1-10.8,24.1-24.1V346 C512.8,332.7,502,321.9,488.7,321.9L488.7,321.9z\"></path></g><path d=\"M224.4,578.2c-12.5,0-26.2-0.3-39.4-1.1c-9.2-0.6-17.6-5.8-22.2-13.8c-4.7-8-5-17.8-1-26.1c11.7-24.1,38-64.3,39.1-66 c5.1-7.8,13.7-12.5,23-12.6c9.3-0.1,18,4.4,23.2,12.1l43.2,62.9c5.7,8.3,6.5,19,2,28c-4.4,9-13.4,14.9-23.4,15.5 C267.7,577.2,248.5,578.2,224.4,578.2z\"></path><path d=\"M411.4,578.2c-9.2,0-17.7-4.5-22.9-12.1l-43.2-62.9c-5.7-8.3-6.5-19-2-28s13.4-14.9,23.4-15.5c1.8-0.1,45.3-2.5,83.8,0 c9.2,0.6,17.6,5.8,22.2,13.8c4.7,8,5,17.8,1,26.1c-11.7,24.1-38,64.3-39.1,66c-5.1,7.8-13.7,12.5-23,12.6 C411.6,578.2,411.5,578.2,411.4,578.2z\"></path></svg>"
+
+/***/ }),
+
+/***/ "./resources/profileMenu/saved.svg":
+/***/ ((module) => {
+
+module.exports = "<svg version=\"1.1\" id=\"Слой_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 20 20\" style=\"enable-background:new 0 0 20 20;\" xml:space=\"preserve\"><path d=\"M4.9,19.1c-0.7,0-1.3-0.6-1.3-1.3V3.6c0-0.9,0.8-1.7,1.7-1.7h9.4c0.9,0,1.7,0.8,1.7,1.7v14.2c0,0.7-0.6,1.3-1.3,1.3 c-0.2,0-0.5-0.1-0.7-0.2L10,16.1l-4.5,2.8C5.3,19,5.1,19.1,4.9,19.1L4.9,19.1z M5.3,3.6C5.3,3.6,5.3,3.6,5.3,3.6l0,13.5l4.7-3l4.7,3 V3.6L5.3,3.6z\"></path></svg>"
+
+/***/ }),
+
+/***/ "./resources/profileMenu/settings.svg":
+/***/ ((module) => {
+
+module.exports = "<svg version=\"1.1\" id=\"Слой_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 20 20\" style=\"enable-background:new 0 0 20 20;\" xml:space=\"preserve\"><path d=\"M8.9,19.8c-1.8,0-3.3-1.3-3.5-3.1H2.8c-1,0-1.8-0.8-1.8-1.8V11c0-0.1,0-0.2,0.1-0.2c0.1-0.1,0.1-0.1,0.2-0.1 c0,0,0.1,0,0.1,0l0.1,0c0.5,0,1-0.3,1.3-0.6s0.5-0.9,0.5-1.4C3.2,7.8,2.4,7,1.4,7c0,0-0.1,0-0.1,0C1.2,7,1.1,7,1.1,6.9 C1,6.9,1,6.8,1,6.7V2.8C1,1.8,1.8,1,2.8,1H7C7.1,1,7.2,1,7.3,1.1c0.1,0.1,0.1,0.2,0,0.3C6.9,2,6.9,2.8,7.3,3.3 c0.3,0.6,0.9,0.9,1.6,0.9c0.3,0,0.7-0.1,1-0.3c0.9-0.5,1.2-1.7,0.6-2.6c-0.1-0.1-0.1-0.2,0-0.3C10.5,1,10.6,1,10.7,1H15 C15,1,15,1,15,1c1,0.1,1.7,0.9,1.7,1.8v2.5c1.7,0.2,3,1.6,3.1,3.3c0.1,1.9-1.3,3.5-3.1,3.7v2.5c0,1-0.8,1.8-1.8,1.8h-2.5 c-0.2,1.7-1.6,3-3.3,3.1C9,19.8,8.9,19.8,8.9,19.8z M2.8,14.9l4,0c0.2,0,0.3,0.1,0.3,0.3v1.2c0.1,0.8,0.8,1.5,1.6,1.6l0.1,0 c0.9,0,1.7-0.7,1.7-1.6l0-1.2c0-0.2,0.1-0.3,0.3-0.3h4l0-4c0-0.2,0.1-0.3,0.3-0.3h1.2c0.8-0.1,1.5-0.8,1.6-1.6 c0-0.5-0.1-0.9-0.4-1.3s-0.7-0.6-1.2-0.6l-1.2,0C15.1,7.1,15,7,15,6.8v-4c0,0-0.1,0-0.1,0h-2.3c-0.2,1.9-1.7,3.4-3.7,3.4 c-1.9,0-3.5-1.5-3.7-3.4H2.8c0,0,0,0,0,0v2.7C4.1,6.1,5,7.4,5,8.9c0,1.5-0.9,2.8-2.2,3.4V14.9z\"></path></svg>"
+
+/***/ }),
+
+/***/ "./resources/profileMenu/upvoted.svg":
+/***/ ((module) => {
+
+module.exports = "<svg version=\"1.1\" id=\"Слой_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 16 16\" style=\"enable-background:new 0 0 16 16;\" xml:space=\"preserve\"><path d=\"M9.1,15H6.9c-1,0-1.7-0.8-1.7-1.8V8.9H2.9c-0.4,0-0.8-0.2-1.1-0.5C1.3,7.8,1.3,6.9,1.9,6.3l4.7-4.7c0.8-0.8,2-0.8,2.8,0 l4.7,4.7c0.3,0.3,0.5,0.7,0.5,1.1c0,0.8-0.7,1.5-1.5,1.4h-2.2v4.4C10.8,14.2,10,15,9.1,15z M5.8,7.7h0.6v5.6c0,0.3,0.2,0.5,0.5,0.5 h2.1c0.3,0,0.5-0.2,0.5-0.5V7.7h3.5c0.2,0,0.3-0.1,0.3-0.3c0-0.1,0-0.2-0.1-0.2l0,0L8.6,2.4c-0.3-0.3-0.8-0.3-1.1,0L2.7,7.2 C2.6,7.2,2.6,7.3,2.6,7.4s0,0.1,0.1,0.2c0.1,0.1,0.1,0.1,0.2,0.1L5.8,7.7z\"></path></svg>"
+
+/***/ }),
+
 /***/ "./resources/scrollButton.svg":
 /***/ ((module) => {
 
@@ -2300,13 +2342,6 @@ module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 40 40\
 /***/ ((module) => {
 
 module.exports = "<svg fill=\"currentColor\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"m7.942 15.442-.884-.884L11.616 10 7.058 5.442l.884-.884 5 5a.624.624 0 0 1 0 .884l-5 5Z\" style=\"fill:currentColor;stroke:none;stroke-width:0px\"></path></svg>"
-
-/***/ }),
-
-/***/ "./resources/settingsButton.svg":
-/***/ ((module) => {
-
-module.exports = "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\"><path d=\"M15.07,2.25a.33.33,0,0,1,.33.33V6.72h1.25a2.11,2.11,0,0,1,0,4.21H15.4v4.14a.33.33,0,0,1-.33.33H10.93v1.25a2.11,2.11,0,0,1-4.21,0V15.4H2.58a.33.33,0,0,1-.33-.33v-3A3.51,3.51,0,0,0,4.49,8.82,3.48,3.48,0,0,0,2.25,5.57v-3a.33.33,0,0,1,.33-.33H5.34a3.49,3.49,0,0,0,7,0h2.76m0-1.25H10.75A2.24,2.24,0,1,1,6.9,1H2.58A1.58,1.58,0,0,0,1,2.58v4a2.24,2.24,0,1,1,0,4.47v4a1.58,1.58,0,0,0,1.58,1.58H5.47a3.36,3.36,0,0,0,6.71,0h2.89a1.58,1.58,0,0,0,1.58-1.58V12.18a3.36,3.36,0,0,0,0-6.71V2.58A1.58,1.58,0,0,0,15.07,1Z\"></path></svg>"
 
 /***/ }),
 
@@ -6579,7 +6614,6 @@ async function renderUserSearch(container) {
 }
 function userSearchPage_renderSearchButton(tabs, selector, url) {
     const button = tabs.querySelector(selector);
-    console.log(`serach page ${selector} is ${button != null}`);
     if (button == null)
         return;
     button.href = url;
@@ -6668,9 +6702,24 @@ function renderNotifications(container) {
     });
 }
 
-// EXTERNAL MODULE: ./resources/settingsButton.svg
-var settingsButton = __webpack_require__("./resources/settingsButton.svg");
-var settingsButton_default = /*#__PURE__*/__webpack_require__.n(settingsButton);
+// EXTERNAL MODULE: ./resources/profileMenu/settings.svg
+var profileMenu_settings = __webpack_require__("./resources/profileMenu/settings.svg");
+var settings_default = /*#__PURE__*/__webpack_require__.n(profileMenu_settings);
+// EXTERNAL MODULE: ./resources/profileMenu/saved.svg
+var saved = __webpack_require__("./resources/profileMenu/saved.svg");
+var saved_default = /*#__PURE__*/__webpack_require__.n(saved);
+// EXTERNAL MODULE: ./resources/profileMenu/upvoted.svg
+var upvoted = __webpack_require__("./resources/profileMenu/upvoted.svg");
+var upvoted_default = /*#__PURE__*/__webpack_require__.n(upvoted);
+// EXTERNAL MODULE: ./resources/profileMenu/posts.svg
+var profileMenu_posts = __webpack_require__("./resources/profileMenu/posts.svg");
+var posts_default = /*#__PURE__*/__webpack_require__.n(profileMenu_posts);
+// EXTERNAL MODULE: ./resources/profileMenu/comments.svg
+var profileMenu_comments = __webpack_require__("./resources/profileMenu/comments.svg");
+var comments_default = /*#__PURE__*/__webpack_require__.n(profileMenu_comments);
+// EXTERNAL MODULE: ./resources/profileMenu/history.svg
+var profileMenu_history = __webpack_require__("./resources/profileMenu/history.svg");
+var history_default = /*#__PURE__*/__webpack_require__.n(profileMenu_history);
 // EXTERNAL MODULE: ./resources/dragAnchor.svg
 var dragAnchor = __webpack_require__("./resources/dragAnchor.svg");
 var dragAnchor_default = /*#__PURE__*/__webpack_require__.n(dragAnchor);
@@ -6931,9 +6980,7 @@ function renderProfileMenuWindow(win, context) {
     const scroll = appendElement(win.content, `div`, [`pp_window_scrollContent`, `styled-scrollbars`]);
     const elements = appendElement(scroll, `ul`, `pp_filter_list`);
     let menuElements = prefs.get(PrefsKey.PROFILE_MENU_ELEMENTS);
-    if (!Array.isArray(menuElements)) {
-        menuElements = generateDefaultLayout();
-    }
+    menuElements = ensureValidProfileMenu(menuElements);
     for (const element of menuElements) {
         addElement(element);
     }
@@ -7066,6 +7113,7 @@ function renderProfileMenuWindow(win, context) {
         }, {
             variant: ButtonVariant.Primary,
             size: ButtonSize.Large,
+            borderRadius: 15,
             fullWidth: true
         });
     }
@@ -7079,9 +7127,7 @@ function profileMenuWindow_onClose() {
 }
 function cleanupElements() {
     let menuElements = prefs.get(PrefsKey.PROFILE_MENU_ELEMENTS);
-    if (!Array.isArray(menuElements)) {
-        menuElements = generateDefaultLayout();
-    }
+    menuElements = ensureValidProfileMenu(menuElements);
     let lastIndex = menuElements.length - 1;
     while (lastIndex >= 0 && menuElements[lastIndex].element == ProfileMenuElement.Separator) {
         menuElements.splice(lastIndex, 1);
@@ -7255,6 +7301,11 @@ var profileMenu = __webpack_require__("./src/modules/profileMenu/profileMenu.les
 
 
 
+
+
+
+
+
 css.addStyle(profileMenu/* default */.A);
 var ProfileMenuElement;
 (function (ProfileMenuElement) {
@@ -7271,6 +7322,11 @@ var ProfileMenuElement;
     ProfileMenuElement[ProfileMenuElement["RedditPro"] = 10] = "RedditPro";
     ProfileMenuElement[ProfileMenuElement["Settings"] = 11] = "Settings";
     ProfileMenuElement[ProfileMenuElement["PlusPlus"] = 12] = "PlusPlus";
+    ProfileMenuElement[ProfileMenuElement["Saved"] = 13] = "Saved";
+    ProfileMenuElement[ProfileMenuElement["Upvoted"] = 14] = "Upvoted";
+    ProfileMenuElement[ProfileMenuElement["Posts"] = 15] = "Posts";
+    ProfileMenuElement[ProfileMenuElement["Comments"] = 16] = "Comments";
+    ProfileMenuElement[ProfileMenuElement["History"] = 17] = "History";
 })(ProfileMenuElement || (ProfileMenuElement = {}));
 const profileMenuElementConfigs = new Map([
     [
@@ -7278,9 +7334,7 @@ const profileMenuElementConfigs = new Map([
         {
             tittle: `View Profile`,
             isOptional: false,
-            find: element => {
-                return element.querySelector(`faceplate-tracker[noun="profile"]`);
-            }
+            noun: `profile`
         }
     ],
     [
@@ -7288,9 +7342,7 @@ const profileMenuElementConfigs = new Map([
         {
             tittle: `Edit Avatar`,
             isOptional: true,
-            find: element => {
-                return element.querySelector(`faceplate-tracker[noun="edit_avatar"]`);
-            }
+            noun: `edit_avatar`
         }
     ],
     [
@@ -7328,9 +7380,7 @@ const profileMenuElementConfigs = new Map([
         {
             tittle: `Premium`,
             isOptional: true,
-            find: element => {
-                return element.querySelector(`faceplate-tracker[noun="premium_menu"]`);
-            }
+            noun: `premium_menu`
         }
     ],
     [
@@ -7338,9 +7388,7 @@ const profileMenuElementConfigs = new Map([
         {
             tittle: `Display Mode`,
             isOptional: true,
-            find: element => {
-                return element.querySelector(`faceplate-tracker[noun="dark_mode"]`);
-            }
+            noun: `dark_mode`
         }
     ],
     [
@@ -7358,9 +7406,7 @@ const profileMenuElementConfigs = new Map([
         {
             tittle: `Advertise on Reddit`,
             isOptional: true,
-            find: element => {
-                return element.querySelector(`faceplate-tracker[noun="advertise"]`);
-            }
+            noun: `advertise`
         }
     ],
     [
@@ -7368,9 +7414,7 @@ const profileMenuElementConfigs = new Map([
         {
             tittle: `Try Reddit Pro`,
             isOptional: true,
-            find: element => {
-                return element.querySelector(`faceplate-tracker[noun="try_reddit_pro"]`);
-            }
+            noun: `try_reddit_pro`
         }
     ],
     [
@@ -7378,23 +7422,103 @@ const profileMenuElementConfigs = new Map([
         {
             tittle: `Settings`,
             isOptional: false,
-            find: element => {
-                return element.querySelector(`faceplate-tracker[noun="settings"]`);
-            }
+            noun: `settings`
         }
     ],
     [
         ProfileMenuElement.PlusPlus,
         {
+            isCustom: true,
             tittle: `Reddit++`,
+            icon: (settings_default()),
             isOptional: false,
-            find: element => {
-                return element.querySelector(`faceplate-tracker[noun="pp-settings"]`);
+            noun: `pp-settings`,
+            action: () => {
+                settingsWindow_settingsWindow.open();
+            }
+        }
+    ],
+    [
+        ProfileMenuElement.Saved,
+        {
+            isCustom: true,
+            tittle: `Saved`,
+            icon: (saved_default()),
+            isOptional: true,
+            noun: `pp-saved`,
+            action: () => {
+                window.location.replace(`${GetCurrentUser()}/saved/`);
+            }
+        }
+    ],
+    [
+        ProfileMenuElement.Upvoted,
+        {
+            isCustom: true,
+            tittle: `Upvoted`,
+            icon: (upvoted_default()),
+            isOptional: true,
+            noun: `pp-upvoted`,
+            action: () => {
+                window.location.replace(`${GetCurrentUser()}/upvoted/`);
+            }
+        }
+    ],
+    [
+        ProfileMenuElement.Posts,
+        {
+            isCustom: true,
+            tittle: `Posts`,
+            icon: (posts_default()),
+            isOptional: true,
+            noun: `pp-posts`,
+            action: () => {
+                window.location.replace(`${GetCurrentUser()}/submitted/`);
+            }
+        }
+    ],
+    [
+        ProfileMenuElement.Comments,
+        {
+            isCustom: true,
+            tittle: `Comments`,
+            icon: (comments_default()),
+            isOptional: true,
+            noun: `pp-comments`,
+            action: () => {
+                window.location.replace(`${GetCurrentUser()}/comments/`);
+            }
+        }
+    ],
+    [
+        ProfileMenuElement.History,
+        {
+            isCustom: true,
+            tittle: `History`,
+            icon: (history_default()),
+            isOptional: true,
+            noun: `pp-history`,
+            action: () => {
+                window.location.replace(`${GetCurrentUser()}/history/`);
             }
         }
     ]
 ]);
 const defaultLayout = Array(ProfileMenuElement.VeiwProfile, ProfileMenuElement.EditAvatar, ProfileMenuElement.Drafts, ProfileMenuElement.Achievements, ProfileMenuElement.Earn, ProfileMenuElement.Premium, ProfileMenuElement.DisplayMode, ProfileMenuElement.LogOut, ProfileMenuElement.Separator, ProfileMenuElement.Advertise, ProfileMenuElement.RedditPro, ProfileMenuElement.Separator, ProfileMenuElement.Settings, ProfileMenuElement.PlusPlus);
+let originElements = null;
+let undefinedElements = null;
+let currentUser;
+function ensureValidProfileMenu(elements) {
+    if (!Array.isArray(elements)) {
+        elements = generateDefaultLayout();
+    }
+    profileMenuElementConfigs.forEach((config, element) => {
+        if (elements.find(data => data.element == element) == null) {
+            elements.push({ element: element, hidden: true });
+        }
+    });
+    return elements;
+}
 function generateDefaultLayout() {
     const elements = new Array();
     for (const element of defaultLayout) {
@@ -7402,21 +7526,43 @@ function generateDefaultLayout() {
     }
     return elements;
 }
-let originElements = null;
-let undefinedElements = null;
+function GetCurrentUser() {
+    return currentUser;
+}
 function renderProfileMenu() {
     let profileMenu = document.getElementById(`user-drawer-content`);
     profileMenu.classList.toggle(`pp_defaultText`, true);
     if (originElements == null) {
-        renderPlusPlusButton(profileMenu);
+        let originButton = profileMenu.querySelector(`faceplate-tracker[noun="settings"]`);
+        if (originButton == null) {
+            originButton = profileMenu.querySelector(`faceplate-tracker[noun="login"]`);
+        }
+        profileMenuElementConfigs.forEach((config, element) => {
+            if (config.isCustom != undefined && config.isCustom) {
+                renderCustomButton(originButton, config);
+            }
+        });
         const searchingElements = Object.values(ProfileMenuElement);
         originElements = new Map();
         undefinedElements = new Array();
         profileMenu.querySelectorAll(`ul`).forEach(ul => {
             for (const element of [...searchingElements]) {
-                const find = profileMenuElementConfigs.get(element)?.find;
+                const noun = profileMenuElementConfigs.get(element)?.noun;
+                let find;
+                if (noun != undefined) {
+                    find = (element) => {
+                        return element.querySelector(`faceplate-tracker[noun="${noun}"]`);
+                    };
+                }
+                else {
+                    find = profileMenuElementConfigs.get(element)?.find;
+                }
                 const foundElement = find != null ? find(ul) : null;
                 if (foundElement) {
+                    if (element == ProfileMenuElement.VeiwProfile) {
+                        const a = foundElement.querySelector(`a`);
+                        currentUser = a.href;
+                    }
                     originElements.set(element, foundElement);
                     foundElement.remove();
                     searchingElements.splice(searchingElements.indexOf(element), 1);
@@ -7434,9 +7580,7 @@ function renderProfileMenu() {
         profileMenu.querySelectorAll(`hr`).forEach(hr => hr.remove());
     }
     let elementsData = prefs.get(PrefsKey.PROFILE_MENU_ELEMENTS);
-    if (!Array.isArray(elementsData)) {
-        elementsData = generateDefaultLayout();
-    }
+    elementsData = ensureValidProfileMenu(elementsData);
     if (undefinedElements.length > 0) {
         pp_log(`Detected ${undefinedElements.length} undefined elements in the Profile menu`);
         const undefinedUl = addUl();
@@ -7467,22 +7611,18 @@ function renderProfileMenu() {
         appendElement(profileMenu, `hr`, [`h-px`, `w-100`, `bg-neutral-border-weak`, `border-0`]);
     }
 }
-function renderPlusPlusButton(profileMenu) {
-    let originSettingsButton = profileMenu.querySelector(`faceplate-tracker[noun="settings"]`);
-    if (originSettingsButton == null) {
-        originSettingsButton = profileMenu.querySelector(`faceplate-tracker[noun="login"]`);
-    }
-    let ppSettingsButton = originSettingsButton.cloneNode(true);
-    ppSettingsButton.setAttribute(`noun`, `pp-settings`);
-    originSettingsButton.parentNode.appendChild(ppSettingsButton);
+function renderCustomButton(originButton, config) {
+    let ppSettingsButton = originButton.cloneNode(true);
+    ppSettingsButton.setAttribute(`noun`, config.noun);
+    originButton.parentNode.appendChild(ppSettingsButton);
     ppSettingsButton.querySelector(`a`).removeAttribute(`href`);
     const originSvg = ppSettingsButton.querySelector(`svg`);
-    const svg = buildSvg((settingsButton_default()), 20, 20, { strokeColor: NONE_COLOR });
+    const svg = buildSvg(config.icon, 20, 20, { strokeColor: NONE_COLOR });
     originSvg.replaceWith(svg);
     let text = ppSettingsButton.querySelector(`.text-body-2`);
-    text.textContent = `Reddit++`;
+    text.textContent = config.tittle;
     ppSettingsButton.addEventListener(`click`, () => {
-        settingsWindow_settingsWindow.open();
+        config.action();
     });
 }
 
@@ -7706,7 +7846,7 @@ async function startRedditPlusPlus() {
     }
     pp_meta = document.createElement(`meta`);
     pp_meta.setAttribute(`name`, `reddit-plus-plus`);
-    pp_meta.setAttribute(`version`, "1.2.6");
+    pp_meta.setAttribute(`version`, "1.2.7");
     document.head.append(pp_meta);
     latestMigration.check();
     if (checkRedirect()) {

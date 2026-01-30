@@ -2,7 +2,7 @@ import { appendElement } from '../../utils/element';
 import { appendSvg, buildSvg, CURRENT_COLOR, NONE_COLOR } from '../../utils/svg';
 import { Window } from '../../utils/window';
 import { prefs, PrefsKey } from '../settings/prefs';
-import { generateDefaultLayout, ProfileMenuElement, profileMenuElementConfigs, ProfileMenuElementData, renderProfileMenu } from './profileMenu';
+import { ensureValidProfileMenu, ProfileMenuElement, profileMenuElementConfigs, ProfileMenuElementData, renderProfileMenu } from './profileMenu';
 import dragAnchorSvg from '@resources/dragAnchor.svg';
 import deleteButtonSvg from '@resources/deleteButton.svg';
 import hiddenIcoSvg from '@resources/hiddenIco.svg';
@@ -27,9 +27,7 @@ function renderProfileMenuWindow(win: Window, context: any) {
     const elements = appendElement(scroll, `ul`, `pp_filter_list`);
 
     let menuElements = prefs.get(PrefsKey.PROFILE_MENU_ELEMENTS) as Array<ProfileMenuElementData>;
-    if (!Array.isArray(menuElements)) {
-        menuElements = generateDefaultLayout();
-    }
+    menuElements = ensureValidProfileMenu(menuElements);
 
     for (const element of menuElements) {
         addElement(element);
@@ -215,6 +213,7 @@ function renderProfileMenuWindow(win: Window, context: any) {
             {
                 variant: ButtonVariant.Primary,
                 size: ButtonSize.Large,
+                borderRadius: 15,
                 fullWidth: true
             }
         );
@@ -232,9 +231,7 @@ function onClose() {
 
 function cleanupElements() {
     let menuElements = prefs.get(PrefsKey.PROFILE_MENU_ELEMENTS) as Array<ProfileMenuElementData>;
-    if (!Array.isArray(menuElements)) {
-        menuElements = generateDefaultLayout();
-    }
+    menuElements = ensureValidProfileMenu(menuElements);
 
     // trim
     let lastIndex = menuElements.length - 1;
