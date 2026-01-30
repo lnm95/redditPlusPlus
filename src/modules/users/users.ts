@@ -49,3 +49,8 @@ async function userDataLoader(userId: string): Promise<UserData> {
 
     return userData;
 }
+
+export function getCurrentUser(): string {
+    const raw = window.location.href.split(`reddit.com/user/`);
+    return raw.length > 1 ? raw[1].split(`/`)[0] : null;
+}
