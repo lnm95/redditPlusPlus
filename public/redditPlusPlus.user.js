@@ -4,7 +4,7 @@
 // @description      A lot of enhancements for new design of reddit.com like unwrapped feed buttons, bigger fonts, view images without redirect, filtering content by keywords and many more...
 // @description:ru   Множество улучшений для нового интерфейса reddit.com, таких как развернутые кнопки лент, увеличенный шрифт, увеличение изображений без редиректа, фильтрация контента по ключевым словам и много другое...
 // @namespace        RedditPlusPlus
-// @version          1.2.4
+// @version          1.2.5
 // @author           lnm95
 // @icon             data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAQRklEQVR4nN2bCZAc1XnHf6+75569L0lI6DJCAmIQESBBEnFIwhyKwmHsshMnBRhSwQZifCSOKxw+iEPABldMUmCb4KtiCDKXicRhCZAAQSQkJJCwVtrVXtpzdmfnnu5+qdczOzuzO7M7e2BC/lVTuz3b773v+7/vescKpgi5fooNBB9HcgNwMbAE0Eq8B2nABurnw6KPQUUlhIbg6P4hQv0/wc0PEByhhNTi+alqA8bUm0yCrQguYS02m5Bcg2ReWe0sRY0LTloOl16PPHM9VDZAfwe89Isq8dwjX6C3x4ebuxB0zpa4s0dAgGqi3MwGrgcWTKmtADsG6flNcPkNuDZ+YXSSq+qhaRHS5TXEQ9+6AezTgFuB3Vl7mRGKm+NU4KYGwTeJ0grcOWXltQwBvzPh5wMeftGSpDs0iJQyR4L0V2KfeSGyqV6Q5jxsdiB4CDHFsUoMn4MadLJPDuehIfkyKY4g+QZQOeXRdehI6dzWVsXGnhP48hGNn728m6PNR5DWyORKTCFIBWqwfX71iEO75Foku4BbcvKvn6IO03YBm2Xs5FEE50yrvVCCQldS5+bOWvaKOv44GGb1Qh91G9ZQdfIKYrbElUiS9nqIKkE7WvGEex3S8oLgHOD7CP4ajUuwaGGDgK1ywuHzMXUXEPwNgv9BTkN5kf1oEEbnxwMVbLcbuKrO5JtN/dwY7OFq2UJgqIeuJLTZHjpjEN+zC9eWR9DC0cyUjc0CkuVYHEBws/O8ofzkVvDmWPMowJ1CYwf3AF+astI2GdO1GDFh9iXg8rY5nN/o4V+qO2gUJiQgVemn/9xPMnzmxViVDRih49TsfIyat55Gt6Uy/lwfJcb7J7by9YmUEULkvV4OAecKH0F+DlxR9O8y7yPy7Epmlc/FagNcbmzNxbNhnU+1VfPTZXE2eeMYZgrSKUiZzvtWdQArWI0R6UMbTmb6dOVJPfEkbybCZ9kp45MRMHkMyCj/G+D8ksqbI7MrQJMZQUX2+7QAL1DbCE0LYeFyrIaF+PvSXLDrGEsvWI4RMKHrCLT/Do63QH8Pen8UXZm8K6u4IjEpQMhMHCjmCqO4wpH5XHFpKRJyZBToMs4ChGAD/1Vy5hNZxZuqkQtOAa8f0d0CrYdhWH3vRa66BM68AJafA/UngMuL1A1StiScMKnxuTEUaaYJ6QT0dcDBN2DPdsSup6E7BRU4laGcuwSiw4i2d6F7KEOEf0KX2Mx5XM3tsqBeKN8FLhZ3I/m7ol3HgOpKWPcZ5NqroaYRNB0SUdizDXraYcUqWLEaaprAX5gl8wceJ38sDIM9cOBVeG83NC2AleeDL5gharAb8dtfwYu/hMGIKsImwn1slbdNnYAN4hYnxRRDCvBWwhXXIa+4BRoXFr6kSIgOQV15VXBJKHkGuiBQBd4xWnYfRTxxP/z6R5CMZIJjKQhuYov8YfkEXCIWYXMA6RhYIZQxhYGNn0TeeM945fMw4SxPKG+Z7RQJ/3YbbNmcsYLSMSGCziqek4cYQ0DxOsDiuaLKk/X5gIG95nLsMpQfyYDlZmaRlzyYpJ1sWoy1eiPSq0+2Kghi8aiTysdgPAEZ019esisb7Npq0v5qh4ucMKrMzFfCtokPhRk4dIhweztmMjEpCU7iSCUZ7uwkdPAQiaGw00+xdiI7F2ZFLbIqWI6Jnc2r42uYQgIuFmpx8bXJpJS2RTptkhzJgLaNrdwnL4YMtLbxznfv4sh1Gzl682fofWU7ZsosSYKjfNqk9+VtHL3pUxz9/Cb23/sdBtrac+84liEltm07WwcqCaWTKbBkeSYm+AcuFzWlCYCvAHMn7EQHbSBM4vgxwilJTGYEl7bMreAi0SR9W57B/9SPWWE287F5En33VpIqPRYx65HnRPNB7McfZOHh11i+WKeydRf9r7zIcH8oY1VKeSkxLctZH4QTFqmuFrRwpFwfqyZZaAU5AuQGZ2n5V5N2oYOwLTw7niC69zW6bEhIkRUu80q0sx1z306akiEqmiRBsx3/20+jtR/KFY35GPlO62omePhlqmstgr4Q9R17sN7aTux4d0bGrJXFpcZxCfG9O3DvfBJMu/xVjeBm+WdUjyMA4ezeVJTViRcCB16jcvN9iD2vk7Sk44/KFRTslImbKEGV+v0S2lrwDrbikokJXdWNScCTyBQ+4S58/YO44v1ImZlex9WU2ZsW2ls7qdh8H/79b4CnTOUzqCTKF8cTYHNT2V2oitc2aXjlCeY99T30vg5SQiMtbdK2xD1nLr6VZ2EuqEd63OD3Y/zhRRgLThrZ/yj60RcsxTj7IqgIIF0urAX1+FaejWfunIzp25K00ND725n71L3U73gSzTKns6j//EjUUMWk2khYC/ztlLpQsSAORjKKtew0UotOBdPCtixclQH0+nmYbjcuXzXi5LMQm26Fk1Y51fVIxhh1B6G+RtTMgXlLsawkdtWJxM+6FM+6P8c9b54TdE0JaUPHtfclgs89it43mNmGmUqRkUEVS9h25xFaMtxJPlt2os6HxwnDyK6jpNO2s4sjpYUel7jmL4HP3U4qFkVXawS3QSKRJB6JkE6lMJW7ZLOGYRi4XW58wQCeZefA4lXY8SiegB8pNMxEEsuysDRdcYzR1YpMJUdXh9OBxiZgm5GdgLXT6sQFeqwH14GXSa67DsvrxZa2s27XbInhcmMEK4nGE9x793d48/XXnZkcSWUyGzV1w0DXBYams+qcc/jq1/4eT7ASy7IxzRS2aWVyvrSxYiEqD2xDj3ZPvjcwESRXKqs35CUsxWTZNFmEtIX74B70Xc8wvPoqPJqGx0qg64bjDpbLjcdtEBse5pVtvyWZSIDbB5qGUK7gbJjYkErg9rhZceoK3G6DVCrtKK9SniIg5faSMgXB15/GdWA3pKypBr+xOFFlPv2OJVwEXDPtblRAjMfQBzoYPPF0YlXznGgtkwlMKbFsC03XaWxqIhwe4v3mZuxEHKSW3SWywEzi8vq48qqruO6GG6mtrycej5NMp0klU8SEm6h0oTfvpeFX38Lb9j5Cl7Oxp71bEfCXzh7vDAhQM+np7oDEMJG6E4lWzSVlK72SpNNpkqk0CxcvYeGixbh9AdISjGAF3qoqauobWLRkKZuuzCj/8ZVn0jcwQFzFi5TtKB+XBq7mPTQ++32q39qSUV6fsfJqApqF3OAsfD4xw46yuz/QvfYajq+7lvj8P0AIDYGFZtvomqC2tppELMq+vXt55713icbj+D0+Tj11OStPPwNfoILQ4KDj+xY6ttCcvB9o3cecFx6i8ZXHM4Fv9o5zHlcEvIlk1ax0l84QET3pdHrW30DojE9guoOOidu26bzichn4vT48Hje6pjnukkymiSfipNKZd9TGitDd6MkwNe88T9PzDxM8tCcT9GbxMM+UvCtS6+hxCRpmrVeV3Uwdq7KW2ClrGF51GfFla0hWNWIZXqTQnUwhle+rNCgEQjdAEwjLQk8ncA/34Du4g6pdTxE4uAs9MogwrNnw+UIIjisLSCIn3E8pD0vWwvzsKlq5xN4XkeF2rMp6rMZ5pBecgqk+DYuxKuqQhgep6wiVAdIxtEgIV08LxrH9GO3vYXR3YoR7Eenk6Cbrn9w4Kkq4H95+fKZSJ4RcP+1MOoozroZ/fqzgq95D79Jw46mZ2KACls+LDNQj/dVIvx+8rsweorQgnoZYDC02hIj2QjyRIdHFaLC760VYfWGu/1QqRfJH91Cx+RszEn12PKqyruBxcHCQ5sFhGjxk/FZFsngCMdSOsNpHzw5Gqs+RAxM9W126i6yZ6+cUPLa2HsObSJS5eisNI7uv4J1hPwXo6+t3Pjnb0rIjjIwixxxs55NRhj0ODAzQ199HfTQ6U1FT6oR3cKa95EPV7Cr3KxMtQOHqJ6O0NuYUqUxnVOW0GsO2ZnY9wJQMaSkIzaiXDxUzC1+GoFVz6+yfbRXUtrOmzXbOGj+GGL/JO8VO6NOcM/VZhBJMLW/9/uK76rMBXdfwer24vb6Z9SbZp2rVfbMpnJr5QCDAnDlNs9ltATweDzXVNQSra6bQqghs3jQQbC/Lla79IQRKJJ2GwiOwioogbrcL+6b/KO0Ke1+Fl/999FkVUpddX3r8usbcr4qAhoZ6PGsugLk/Ld3mZ3dAqLn0393scZKPXO9ccDqx5IvX3A3XFz8jLQaVCSaLA11dx2n64mq0cGvmi5+0wAmlT5ryIbMbKrpeekmYTCYZ+s1jND74F6VeeV88z8kZCQVPTDhi0/yyBBuBUjz//G0s+vv7aT3WSuSE00f/Uqby+WOUgpqAY8fa6ExYpTtQlp+rBG2eRDh37yZFKBTCNM3cDLtcLsck1U+R3fBUOTqRSDi1wNgjd7XTc7z7OB0dnSxLJsYNF4lEnLbOIUs2oKr+3W53bsaVgk4pnMzsFeaPYat7B+Ewbe3t6AP9pdWRzo2XLAEvsJ0NtCFL3LvrbicWizmsDg4N5ghQSldVVjn+WFVV5QioTDMajdLd3UNocJSsEagiRpE4NDSEL3RsdIyOVtql4ZCjFFNKKYJVNqmvq6eurhafz+d8r5QfGAg51aAaS405Mob6PRaLO9Xi4lB3qdlvEVvzLEBk3Orh7EXH8Xj+YVK6B/9AP3o8njmwVLPjdhOorMJ38mnoF27MECslw8MROjo7mfvSYwhNQ9ONnIBS2jSZJoHhPnyhg6PEPPiPGHOXUTscxkqnMwToOl6/n8raejyXfxp8PqcfRVBvXy/xt3ZQ0/oumqaj6VrubFlViAsskwXHdhcnwOZfR34dXQyleQAXtxW98BhqpvqXXxo9TxoLtUzNEqCgTFiZ4UW7HizVYhxcux5lzkQvnLculwmUFamZr205wClTGMOBYBjBf4485iKJ2MYgkgem1ltxKL+07Rlf4y0JZR1OpplOtWnziNhK28hjYQ8e7lOr2ZkIN2LqE2WB2YAThCdIgyXQhebcdcyhkIBnZAjJtz9QyT9cfJctsi1fgvE29EeOFbzx/1D5g2yV94/9cjwB6k6d7pwVRKYziqoB0mb6A40BKrWappU7WisDMQSXFnuteBRRt6nEJFdlikAFp97ePifPq5OdDwJqu03l/+HhYWzLLHeEryM5Wj4BCupeneR7ZXUf7neKk8OHm2k+coTOzi5kJDy76sci9PT0Ov2rgkyR7ErGJm+nLk/D/aWu0E98U1TtOKzn8ZJXZfOQXn4ZPUtXEQuHYXiAE1pewz/4fpnaTQ5ZvYTwyj9lQPeSjEao7D3KvMPPTtxOsJmtXDVWsandFs9cln4bpnmC/OFhGxGKXpae/KJkPir46kdQ+c2O8kEmDUQTE3CxuB3JHbMp2e8B9zk3xNXMl/GvM6UPRj56ykeczJV3KbocFK1X5QY+WsoLdqHxOfHfHJpq03Eu8BFTXi3gvsK5rJmO8gqFWWAdtyLKzP0fLsIIfoCLe8WzMzvYKYwBGp+ehbPiDxJqIfMwAR4Qv56dI71CAgTd/wcJOOZs2qp9yxfYLmZ6HjYGYwm4Bcki51/ef79Ql4gHEY4570fS4hzYpNkmtjF6X362AfwvvG5Pojz6v/sAAAAASUVORK5CYII=
 // @source           https://github.com/lnm95/redditPlusPlus
@@ -41,6 +41,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `faceplate-banner {
 }
 .pp_hidden {
   display: none !important;
+}
+@media (min-width: 1200px) {
+  .pp_mainFeed {
+    max-width: calc(100vw - var(--flex-nav-width, 0px) - 15px) !important;
+  }
 }
 `, ""]);
 // Exports
@@ -1443,6 +1448,34 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.masthead > section > div {
 
 /***/ }),
 
+/***/ "./src/modules/users/userPage.less":
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/css-loader/dist/runtime/noSourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `.pp_user_hiddenPostsMessage {
+  padding-left: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+`, ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./src/modules/wideMode.less":
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
@@ -1512,7 +1545,16 @@ ___CSS_LOADER_EXPORT___.push([module.id, `@media (min-width: 1392px) {
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ``, ""]);
+___CSS_LOADER_EXPORT___.push([module.id, `.pp_ui_button {
+  display: flex;
+}
+.pp_ui_button_panel {
+  gap: 8px;
+}
+.pp_ui_button_icon {
+  display: flex;
+}
+`, ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2041,6 +2083,13 @@ module.exports = function (cssWithMappingToString) {
 module.exports = function (i) {
   return i[1];
 };
+
+/***/ }),
+
+/***/ "./resources/back.svg":
+/***/ ((module) => {
+
+module.exports = "<svg fill=\"currentColor\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M17.5 9.1H4.679l5.487-5.462a.898.898 0 00.003-1.272.898.898 0 00-1.272-.003l-7.032 7a.898.898 0 000 1.275l7.03 7a.896.896 0 001.273-.003.898.898 0 00-.002-1.272l-5.487-5.462h12.82a.9.9 0 000-1.8z\"></path></svg>"
 
 /***/ }),
 
@@ -3737,6 +3786,10 @@ async function userDataLoader(userId) {
     userData.created = result.data?.created ?? 0;
     userData.accountId = result.kind + `_` + result.data?.id;
     return userData;
+}
+function getCurrentUser() {
+    const raw = window.location.href.split(`reddit.com/user/`);
+    return raw.length > 1 ? raw[1].split(`/`)[0] : null;
 }
 
 // EXTERNAL MODULE: ./resources/comments/newUser.svg
@@ -6377,19 +6430,164 @@ async function renderComment(comment) {
     }, { once: true });
 }
 
+// EXTERNAL MODULE: ./src/modules/users/userPage.less
+var userPage = __webpack_require__("./src/modules/users/userPage.less");
 ;// CONCATENATED MODULE: ./src/modules/users/userPage.ts
 
 
 
+
+
+
+
+
+
+css.addStyle(userPage/* default */.A);
 async function renderUserPage(container) {
-    const feed = await dynamicElement(() => container.querySelector(`#subgrid-container`)?.querySelector(`shreddit-feed`));
+    const subgrid = await dynamicElement(() => container.querySelector(`#subgrid-container`), MAX_LOAD_LAG);
+    if (subgrid == null)
+        return;
+    renderButtons(subgrid);
+    renderPosts(subgrid);
+}
+async function renderPosts(subgrid) {
+    const feed = await dynamicElement(() => subgrid.querySelector(`shreddit-feed`), MAX_LOAD_LAG);
+    if (feed == null)
+        return;
     feed.querySelectorAll(`shreddit-post`).forEach(post => {
         renderPost(post);
     });
     initializePostObserver(feed);
 }
+async function renderButtons(subgrid) {
+    const userPageContainer = await dynamicElement(() => subgrid.querySelector(`main`)?.querySelector(`div`), MAX_LOAD_LAG);
+    const shyNotice = userPageContainer?.lastElementChild?.querySelector('.text-body-1');
+    if (shyNotice == null || !shyNotice.textContent.includes(`hidden`))
+        return;
+    const currentUser = getCurrentUser();
+    const tabs = userPageContainer.querySelector(`#profile-feed-tabgroup`);
+    renderSearchButton(tabs, `#profile-tab-posts_tab`, `/user/${currentUser}/search/?q=&sort=new`);
+    renderSearchButton(tabs, `#profile-tab-comments_tab`, `/user/${currentUser}/search/?q=&sort=new&type=comments`);
+}
+function renderSearchButton(tabs, selector, url) {
+    const postButton = tabs.querySelector(selector);
+    postButton.href = url;
+    const postSpan = postButton.querySelector(`span .gap-xs`);
+    prependSvg(postSpan, (subFilter_default()), 16, 16, { strokeColor: NONE_COLOR, fillColor: CURRENT_COLOR });
+}
+
+// EXTERNAL MODULE: ./src/utils/UI/button.less
+var UI_button = __webpack_require__("./src/utils/UI/button.less");
+;// CONCATENATED MODULE: ./src/utils/UI/button.ts
+
+
+
+
+css.addStyle(UI_button/* default */.A);
+var ButtonSize;
+(function (ButtonSize) {
+    ButtonSize[ButtonSize["Small"] = 0] = "Small";
+    ButtonSize[ButtonSize["Medium"] = 1] = "Medium";
+    ButtonSize[ButtonSize["Large"] = 2] = "Large";
+})(ButtonSize || (ButtonSize = {}));
+var ButtonVariant;
+(function (ButtonVariant) {
+    ButtonVariant[ButtonVariant["Primary"] = 0] = "Primary";
+    ButtonVariant[ButtonVariant["Secondary"] = 1] = "Secondary";
+    ButtonVariant[ButtonVariant["Plain"] = 2] = "Plain";
+    ButtonVariant[ButtonVariant["Bordered"] = 3] = "Bordered";
+})(ButtonVariant || (ButtonVariant = {}));
+const SIZE_CLASSES = new Map([
+    [ButtonSize.Small, `button-small`],
+    [ButtonSize.Medium, `button-medium`],
+    [ButtonSize.Large, `button-large`]
+]);
+const VARINAT_CLASSES = new Map([
+    [ButtonVariant.Primary, `button-primary`],
+    [ButtonVariant.Secondary, `button-secondary`],
+    [ButtonVariant.Plain, `button-plain`],
+    [ButtonVariant.Bordered, `button-bordered`]
+]);
+function renderUIButton(container, label, onClick, params) {
+    const { icon, iconConfig, size, variant, fullWidth, borderRadius, containerClasses, buttonClasses } = {
+        icon: null,
+        iconConfig: { strokeColor: CURRENT_COLOR, fillColor: NONE_COLOR },
+        size: ButtonSize.Medium,
+        variant: ButtonVariant.Plain,
+        fullWidth: false,
+        borderRadius: -1,
+        containerClasses: [],
+        buttonClasses: [],
+        ...params
+    };
+    const btnContainer = appendElement(container, `div`, [`pp_ui_button_container`, `inline-flex`, ...containerClasses]);
+    const buttonEl = appendElement(btnContainer, `button`, [
+        `pp_ui_button`,
+        `button`,
+        `px-[var(--rem10)]`,
+        `items-center`,
+        `justify-center`,
+        VARINAT_CLASSES.get(variant),
+        SIZE_CLASSES.get(size),
+        ...buttonClasses
+    ]);
+    if (fullWidth) {
+        btnContainer.classList.add(`w-full`);
+        buttonEl.classList.add(`w-full`);
+    }
+    if (borderRadius >= 0) {
+        buttonEl.style.borderRadius = `${borderRadius}px`;
+    }
+    const panel = appendElement(buttonEl, `span`, [`pp_ui_button_panel`, `inline-flex`, `items-center`, `justify-center`]);
+    if (icon != null) {
+        const iconSpan = appendElement(panel, `span`, `pp_ui_button_icon`);
+        appendSvg(iconSpan, icon, 16, 16, iconConfig);
+    }
+    if (label != null) {
+        const labelSpan = appendElement(panel, `span`, `pp_ui_button_label`);
+        labelSpan.textContent = label;
+    }
+    buttonEl.addEventListener(`click`, () => {
+        onClick();
+    });
+    return btnContainer;
+}
+
+// EXTERNAL MODULE: ./resources/back.svg
+var back = __webpack_require__("./resources/back.svg");
+var back_default = /*#__PURE__*/__webpack_require__.n(back);
+;// CONCATENATED MODULE: ./src/modules/users/userSearchPage.ts
+
+
+
+
+
+async function renderUserSearch(container) {
+    const tabs = await dynamicElement(() => container.querySelector(`#search-results-page-tabgroup`));
+    const currentUser = getCurrentUser();
+    const backButton = renderUIButton(tabs.parentElement, `test`, () => {
+        window.location.replace(`/user/${currentUser}/`);
+    }, {
+        icon: (back_default()),
+        iconConfig: { strokeColor: NONE_COLOR, fillColor: CURRENT_COLOR }
+    });
+    tabs.parentElement.prepend(backButton);
+    tabs.parentElement.style.gap = `8px`;
+    tabs.parentElement.style.justifyContent = `flex-start`;
+    userSearchPage_renderSearchButton(tabs, `#search-results-page-tab-posts`, `/user/${currentUser}/search/?q=&sort=new`);
+    userSearchPage_renderSearchButton(tabs, `#search-results-page-tab-comments`, `/user/${currentUser}/search/?q=&sort=new&type=comments`);
+}
+function userSearchPage_renderSearchButton(tabs, selector, url) {
+    const button = tabs.querySelector(selector);
+    console.log(`serach page ${selector} is ${button != null}`);
+    if (button == null)
+        return;
+    button.href = url;
+}
 
 ;// CONCATENATED MODULE: ./src/modules/app.ts
+
+
 
 
 
@@ -6410,7 +6608,12 @@ async function renderApp() {
     clearHiddenContentButton();
     closeAllWindows();
     if (window.location.href.includes(`/user/`) && !window.location.href.includes(`/m/`)) {
-        renderUserPage(document.body);
+        if (window.location.href.includes(`/search/`)) {
+            renderUserSearch(document.body);
+        }
+        else {
+            renderUserPage(document.body);
+        }
     }
     else {
         renderFeed(document.body);
@@ -6422,9 +6625,11 @@ async function renderApp() {
     pageContainer.classList.add(`pp_pageContainer`);
     const mainFeed = pageContainer.querySelector(`.subgrid-container`);
     mainFeed.classList.add(`pp_mainFeed`);
-    const rightSidebar = await dynamicElement(() => document.body.querySelector(`#right-sidebar-container`));
-    renderRightSidebar(rightSidebar);
-    renderWideMode(pageContainer, rightSidebar);
+    const rightSidebar = await dynamicElement(() => document.body.querySelector(`#right-sidebar-container`), MAX_LOAD_LAG);
+    if (rightSidebar != null) {
+        renderRightSidebar(rightSidebar);
+        renderWideMode(pageContainer, rightSidebar);
+    }
     renderBiggerFonts();
 }
 
@@ -6477,53 +6682,6 @@ var contentFilter = __webpack_require__("./resources/contentFilter.svg");
 var contentFilter_default = /*#__PURE__*/__webpack_require__.n(contentFilter);
 // EXTERNAL MODULE: ./src/modules/filters/filtersWindow.less
 var filtersWindow = __webpack_require__("./src/modules/filters/filtersWindow.less");
-// EXTERNAL MODULE: ./src/utils/UI/button.less
-var UI_button = __webpack_require__("./src/utils/UI/button.less");
-;// CONCATENATED MODULE: ./src/utils/UI/button.ts
-
-
-
-
-css.addStyle(UI_button/* default */.A);
-function renderUIButton(container, label, onClick, params) {
-    const { icon, iconConfig, size, variant, fullWidth, containerClasses, buttonClasses } = {
-        icon: null,
-        iconConfig: { strokeColor: CURRENT_COLOR, fillColor: NONE_COLOR },
-        size: 'medium',
-        variant: 'plain',
-        fullWidth: false,
-        containerClasses: [],
-        buttonClasses: [],
-        ...params
-    };
-    const btnContainer = appendElement(container, `div`, [`pp_ui_button_container`, `inline-flex`, ...containerClasses]);
-    const buttonEl = appendElement(btnContainer, `button`, [
-        `pp_ui_button`,
-        `button`,
-        `px-[var(--rem10)]`,
-        `items-center`,
-        `justify-center`,
-        variant === 'primary' ? `button-primary` : variant === 'secondary' ? `button-secondary` : variant === 'bordered' ? `button-bordered` : `button-plain`,
-        size === 'small' ? `button-small` : size === 'large' ? `button-large` : `button-medium`,
-        ...buttonClasses
-    ]);
-    if (fullWidth) {
-        btnContainer.classList.add(`w-full`);
-        buttonEl.classList.add(`w-full`);
-    }
-    const panel = appendElement(buttonEl, `span`, [`pp_ui_button_panel`, `inline-flex`, `items-center`, `justify-center`]);
-    if (icon != null) {
-        const iconSpan = appendElement(panel, `span`, `pp_ui_button_icon`);
-        appendSvg(iconSpan, icon, 16, 16, iconConfig);
-    }
-    const labelSpan = appendElement(panel, `span`, `pp_ui_button_label`);
-    labelSpan.textContent = label;
-    buttonEl.addEventListener(`click`, () => {
-        onClick();
-    });
-    return btnContainer;
-}
-
 ;// CONCATENATED MODULE: ./src/modules/filters/filtersWindow.ts
 
 
@@ -6722,9 +6880,10 @@ function filtersWindow_renderFiltersWindow(win, context) {
             save();
             scroll.scrollBy(0, 200);
         }, {
-            variant: 'primary',
-            size: 'large',
-            fullWidth: true
+            variant: ButtonVariant.Primary,
+            size: ButtonSize.Large,
+            fullWidth: true,
+            borderRadius: 15
         });
     }
     function save() {
@@ -6905,8 +7064,8 @@ function renderProfileMenuWindow(win, context) {
             save();
             scroll.scrollBy(0, 200);
         }, {
-            variant: 'primary',
-            size: 'large',
+            variant: ButtonVariant.Primary,
+            size: ButtonSize.Large,
             fullWidth: true
         });
     }
@@ -7547,7 +7706,7 @@ async function startRedditPlusPlus() {
     }
     pp_meta = document.createElement(`meta`);
     pp_meta.setAttribute(`name`, `reddit-plus-plus`);
-    pp_meta.setAttribute(`version`, "1.2.4");
+    pp_meta.setAttribute(`version`, "1.2.5");
     document.head.append(pp_meta);
     latestMigration.check();
     if (checkRedirect()) {
@@ -7568,7 +7727,8 @@ async function startRedditPlusPlus() {
         }
         const isSubPage = element.matches(`shreddit-app`) == true;
         const isMainPage = element.classList.contains(`grid-container`) && element.parentElement.matches(`shreddit-app`) == true;
-        if (isSubPage || isMainPage) {
+        const isUserSearchPage = element.matches(`search-dynamic-id-cache-controller`) == true && element.parentElement.matches(`shreddit-app`) == true;
+        if (isSubPage || isMainPage || isUserSearchPage) {
             renderApp();
             renderScrollToTop();
             checkSortCommentsRedirect();

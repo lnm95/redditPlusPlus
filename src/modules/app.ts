@@ -13,6 +13,8 @@ import { renderUserPage } from './users/userPage';
 import { clearHiddenContentButton } from './filters/hiddenContent';
 import { closeAllWindows } from '../utils/window';
 import { renderRightSidebar } from './rightSidebar';
+import { renderUserSearch } from './users/userSearchPage';
+import { MAX_LOAD_LAG } from '../defines';
 
 export async function renderApp() {
     css.addStyle(style, `app`);
@@ -26,7 +28,11 @@ export async function renderApp() {
     closeAllWindows();
 
     if (window.location.href.includes(`/user/`) && !window.location.href.includes(`/m/`)) {
-        renderUserPage(document.body);
+        if (window.location.href.includes(`/search/`)) {
+            renderUserSearch(document.body);
+        } else {
+            renderUserPage(document.body);
+        }
     } else {
         renderFeed(document.body);
     }
@@ -43,10 +49,13 @@ export async function renderApp() {
     const mainFeed = pageContainer.querySelector(`.subgrid-container`);
     mainFeed.classList.add(`pp_mainFeed`);
 
-    const rightSidebar = await dynamicElement(() => document.body.querySelector(`#right-sidebar-container`));
-    renderRightSidebar(rightSidebar);
+    const rightSidebar = await dynamicElement(() => document.body.querySelector(`#right-sidebar-container`), MAX_LOAD_LAG);
 
-    renderWideMode(pageContainer, rightSidebar);
+    if (rightSidebar != null) {
+        renderRightSidebar(rightSidebar);
+
+        renderWideMode(pageContainer, rightSidebar);
+    }
 
     renderBiggerFonts();
 }

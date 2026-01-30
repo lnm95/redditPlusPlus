@@ -59,8 +59,9 @@ async function startRedditPlusPlus() {
         // content
         const isSubPage = element.matches(`shreddit-app`) == true;
         const isMainPage = element.classList.contains(`grid-container`) && element.parentElement.matches(`shreddit-app`) == true;
+        const isUserSearchPage = element.matches(`search-dynamic-id-cache-controller`) == true && element.parentElement.matches(`shreddit-app`) == true;
 
-        if (isSubPage || isMainPage) {
+        if (isSubPage || isMainPage || isUserSearchPage) {
             renderApp();
             renderScrollToTop();
             checkSortCommentsRedirect();

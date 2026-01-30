@@ -5,23 +5,51 @@ import style from './button.less';
 
 css.addStyle(style);
 
+export enum ButtonSize {
+    Small,
+    Medium,
+    Large
+}
+
+export enum ButtonVariant {
+    Primary,
+    Secondary,
+    Plain,
+    Bordered
+}
+
 export interface ButtonParams {
     icon?: any;
     iconConfig?: SVGConfig;
-    size?: 'small' | 'medium' | 'large';
-    variant?: 'primary' | 'secondary' | 'plain' | 'bordered';
+    size?: ButtonSize;
+    variant?: ButtonVariant;
     fullWidth?: boolean;
+    borderRadius?: number;
     containerClasses?: string[]; // extra classes on wrapper div
     buttonClasses?: string[]; // extra classes on <button>
 }
 
+const SIZE_CLASSES = new Map<ButtonSize, string>([
+    [ButtonSize.Small, `button-small`],
+    [ButtonSize.Medium, `button-medium`],
+    [ButtonSize.Large, `button-large`]
+]);
+
+const VARINAT_CLASSES = new Map<ButtonVariant, string>([
+    [ButtonVariant.Primary, `button-primary`],
+    [ButtonVariant.Secondary, `button-secondary`],
+    [ButtonVariant.Plain, `button-plain`],
+    [ButtonVariant.Bordered, `button-bordered`]
+]);
+
 export function renderUIButton(container: Element, label: string, onClick: () => void, params?: ButtonParams): HTMLElement {
-    const { icon, iconConfig, size, variant, fullWidth, containerClasses, buttonClasses } = {
+    const { icon, iconConfig, size, variant, fullWidth, borderRadius, containerClasses, buttonClasses } = {
         icon: null,
         iconConfig: { strokeColor: CURRENT_COLOR, fillColor: NONE_COLOR },
-        size: 'medium',
-        variant: 'plain',
+        size: ButtonSize.Medium,
+        variant: ButtonVariant.Plain,
         fullWidth: false,
+        borderRadius: -1,
         containerClasses: [] as string[],
         buttonClasses: [] as string[],
         ...params
@@ -35,14 +63,18 @@ export function renderUIButton(container: Element, label: string, onClick: () =>
         `px-[var(--rem10)]`,
         `items-center`,
         `justify-center`,
-        variant === 'primary' ? `button-primary` : variant === 'secondary' ? `button-secondary` : variant === 'bordered' ? `button-bordered` : `button-plain`,
-        size === 'small' ? `button-small` : size === 'large' ? `button-large` : `button-medium`,
+        VARINAT_CLASSES.get(variant),
+        SIZE_CLASSES.get(size),
         ...buttonClasses
     ]);
 
     if (fullWidth) {
         btnContainer.classList.add(`w-full`);
         buttonEl.classList.add(`w-full`);
+    }
+
+    if (borderRadius >= 0) {
+        buttonEl.style.borderRadius = `${borderRadius}px`;
     }
 
     const panel = appendElement(buttonEl, `span`, [`pp_ui_button_panel`, `inline-flex`, `items-center`, `justify-center`]);
@@ -52,8 +84,10 @@ export function renderUIButton(container: Element, label: string, onClick: () =>
         appendSvg(iconSpan, icon, 16, 16, iconConfig);
     }
 
-    const labelSpan = appendElement(panel, `span`, `pp_ui_button_label`);
-    labelSpan.textContent = label;
+    if (label != null) {
+        const labelSpan = appendElement(panel, `span`, `pp_ui_button_label`);
+        labelSpan.textContent = label;
+    }
 
     buttonEl.addEventListener(`click`, () => {
         onClick();

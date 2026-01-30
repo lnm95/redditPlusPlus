@@ -12,7 +12,7 @@ import { buildSvg, CURRENT_COLOR, NONE_COLOR } from '../../utils/svg';
 import { renderUIOptions } from '../../utils/UI/options';
 import { renderUIToggle } from '../../utils/UI/toggle';
 import { InputParams, renderUIInput } from '../../utils/UI/input';
-import { renderUIButton } from '../../utils/UI/button';
+import { ButtonSize, ButtonVariant, renderUIButton } from '../../utils/UI/button';
 
 export const filtersWindow: Window = new Window('Content filters', renderFiltersWindow, onClose);
 
@@ -281,9 +281,10 @@ function renderFiltersWindow(win: Window, context: any) {
                 scroll.scrollBy(0, 200);
             },
             {
-                variant: 'primary',
-                size: 'large',
-                fullWidth: true
+                variant: ButtonVariant.Primary,
+                size: ButtonSize.Large,
+                fullWidth: true,
+                borderRadius: 15
             }
         );
     }

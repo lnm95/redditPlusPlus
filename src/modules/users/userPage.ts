@@ -1,18 +1,29 @@
-import { appendElement, buildElement, prependElement } from '../../utils/element';
 import { dynamicElement } from '../../utils/tools';
 import { initializePostObserver } from '../feed/feed';
 import { renderPost } from '../posts/posts';
 import { getCurrentUser } from './users';
 import style from './userPage.less';
 import { css } from '../customCSS';
-import { renderUIButton } from '../../utils/UI/button';
+import { MAX_LOAD_LAG } from '../../defines';
+import searchSvg from '@resources/subFilter.svg';
+import { CURRENT_COLOR, NONE_COLOR, prependSvg } from '../../utils/svg';
 
 css.addStyle(style);
 
 export async function renderUserPage(container: Element) {
-    renderUserSearchPosts(container);
+    const subgrid = await dynamicElement(() => container.querySelector(`#subgrid-container`), MAX_LOAD_LAG);
 
-    const feed = await dynamicElement(() => container.querySelector(`#subgrid-container`)?.querySelector(`shreddit-feed`));
+    if (subgrid == null) return;
+
+    renderButtons(subgrid);
+
+    renderPosts(subgrid);
+}
+
+async function renderPosts(subgrid: Element) {
+    const feed = await dynamicElement(() => subgrid.querySelector(`shreddit-feed`), MAX_LOAD_LAG);
+
+    if (feed == null) return;
 
     // render embedded posts
     feed.querySelectorAll(`shreddit-post`).forEach(post => {
@@ -23,38 +34,22 @@ export async function renderUserPage(container: Element) {
     initializePostObserver(feed);
 }
 
-async function renderUserSearchPosts(container: Element) {
-    const containerElement = (await dynamicElement(() => container.querySelector(`#subgrid-container`))) as HTMLElement;
+async function renderButtons(subgrid: Element) {
+    const userPageContainer = await dynamicElement(() => subgrid.querySelector(`main`)?.querySelector(`div`), MAX_LOAD_LAG);
 
-    const mainContent = containerElement.querySelector(`[data-testid="profile-main"]`);
-    const privateUserContainer = buildElement(`div`, `pp_user_hiddenPostsMessage`);
-    mainContent.after(privateUserContainer);
+    const shyNotice = userPageContainer?.lastElementChild?.querySelector('.text-body-1');
+    if (shyNotice == null || !shyNotice.textContent.includes(`hidden`)) return;
 
     const currentUser = getCurrentUser();
-    const searchPostsUrl = `/user/${currentUser}/search/?q=&sort=new`;
-    const searchCommentsUrl = `/user/${currentUser}/search/?q=&sort=new&type=comments`;
+    const tabs = userPageContainer.querySelector(`#profile-feed-tabgroup`);
 
-    renderUIButton(
-        privateUserContainer,
-        `Search User's Posts`,
-        () => {
-            window.location.href = searchPostsUrl;
-        },
-        {
-            variant: 'secondary',
-            size: 'small'
-        }
-    );
+    renderSearchButton(tabs, `#profile-tab-posts_tab`, `/user/${currentUser}/search/?q=&sort=new`);
+    renderSearchButton(tabs, `#profile-tab-comments_tab`, `/user/${currentUser}/search/?q=&sort=new&type=comments`);
+}
 
-    renderUIButton(
-        privateUserContainer,
-        `Search User's Comments`,
-        () => {
-            window.location.href = searchCommentsUrl;
-        },
-        {
-            variant: 'secondary',
-            size: 'small'
-        }
-    );
+function renderSearchButton(tabs: Element, selector: string, url: string) {
+    const postButton = tabs.querySelector(selector) as HTMLAnchorElement;
+    postButton.href = url;
+    const postSpan = postButton.querySelector(`span .gap-xs`);
+    prependSvg(postSpan, searchSvg, 16, 16, { strokeColor: NONE_COLOR, fillColor: CURRENT_COLOR });
 }

@@ -9,7 +9,7 @@ import hiddenIcoSvg from '@resources/hiddenIco.svg';
 import showIcoSvg from '@resources/showIco.svg';
 import style from './profileMenuWindow.less';
 import { css } from '../customCSS';
-import { renderUIButton } from '../../utils/UI/button';
+import { ButtonSize, ButtonVariant, renderUIButton } from '../../utils/UI/button';
 
 css.addStyle(style);
 
@@ -213,8 +213,8 @@ function renderProfileMenuWindow(win: Window, context: any) {
                 scroll.scrollBy(0, 200);
             },
             {
-                variant: 'primary',
-                size: 'large',
+                variant: ButtonVariant.Primary,
+                size: ButtonSize.Large,
                 fullWidth: true
             }
         );
