@@ -4,7 +4,7 @@
 // @description      A lot of enhancements for new design of reddit.com like unwrapped feed buttons, bigger fonts, view images without redirect, filtering content by keywords and many more...
 // @description:ru   Множество улучшений для нового интерфейса reddit.com, таких как развернутые кнопки лент, увеличенный шрифт, увеличение изображений без редиректа, фильтрация контента по ключевым словам и много другое...
 // @namespace        RedditPlusPlus
-// @version          1.2.7
+// @version          1.2.8
 // @author           lnm95
 // @icon             data:image/png;base64,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
 // @source           https://github.com/lnm95/redditPlusPlus
@@ -3033,6 +3033,7 @@ class SettingsManager {
         this.IMAGE_VIEWER = new SettingBoolProperty(`imageViewer`);
         this.COLLAPSE_AWARDS = new SettingDropdownProperty(`collapseAwards`, Object.values(AwardsMode), 1);
         this.REDIRECT_MODE = new SettingDropdownProperty(`redirectMode`, Object.values(RedirectMode), 1);
+        this.USER_SEARCH_SHORTCUTS = new SettingBoolProperty(`userSearchShortcuts`, false);
         this.NOTIFY_POPUP = new SettingBoolProperty(`notifyPopup`);
         this.SHOW_FILTERED_CONTENT = new SettingBoolProperty(`showFilteredContent`);
         this.FILTERED_CONTENT_MAX_COUNT = new SettingStringProperty(`filteredContentMaxCount`, `20`, defaultPositiveFilter(20));
@@ -6467,50 +6468,6 @@ async function renderComment(comment) {
 
 // EXTERNAL MODULE: ./src/modules/users/userPage.less
 var userPage = __webpack_require__("./src/modules/users/userPage.less");
-;// CONCATENATED MODULE: ./src/modules/users/userPage.ts
-
-
-
-
-
-
-
-
-
-css.addStyle(userPage/* default */.A);
-async function renderUserPage(container) {
-    const subgrid = await dynamicElement(() => container.querySelector(`#subgrid-container`), MAX_LOAD_LAG);
-    if (subgrid == null)
-        return;
-    renderButtons(subgrid);
-    renderPosts(subgrid);
-}
-async function renderPosts(subgrid) {
-    const feed = await dynamicElement(() => subgrid.querySelector(`shreddit-feed`), MAX_LOAD_LAG);
-    if (feed == null)
-        return;
-    feed.querySelectorAll(`shreddit-post`).forEach(post => {
-        renderPost(post);
-    });
-    initializePostObserver(feed);
-}
-async function renderButtons(subgrid) {
-    const userPageContainer = await dynamicElement(() => subgrid.querySelector(`main`)?.querySelector(`div`), MAX_LOAD_LAG);
-    const shyNotice = userPageContainer?.lastElementChild?.querySelector('.text-body-1');
-    if (shyNotice == null || !shyNotice.textContent.includes(`hidden`))
-        return;
-    const currentUser = getCurrentUser();
-    const tabs = userPageContainer.querySelector(`#profile-feed-tabgroup`);
-    renderSearchButton(tabs, `#profile-tab-posts_tab`, `/user/${currentUser}/search/?q=&sort=new`);
-    renderSearchButton(tabs, `#profile-tab-comments_tab`, `/user/${currentUser}/search/?q=&sort=new&type=comments`);
-}
-function renderSearchButton(tabs, selector, url) {
-    const postButton = tabs.querySelector(selector);
-    postButton.href = url;
-    const postSpan = postButton.querySelector(`span .gap-xs`);
-    prependSvg(postSpan, (subFilter_default()), 16, 16, { strokeColor: NONE_COLOR, fillColor: CURRENT_COLOR });
-}
-
 // EXTERNAL MODULE: ./src/utils/UI/button.less
 var UI_button = __webpack_require__("./src/utils/UI/button.less");
 ;// CONCATENATED MODULE: ./src/utils/UI/button.ts
@@ -6586,6 +6543,76 @@ function renderUIButton(container, label, onClick, params) {
         onClick();
     });
     return btnContainer;
+}
+
+;// CONCATENATED MODULE: ./src/modules/users/userPage.ts
+
+
+
+
+
+
+
+
+
+
+
+
+css.addStyle(userPage/* default */.A);
+async function renderUserPage(container) {
+    const subgrid = await dynamicElement(() => container.querySelector(`#subgrid-container`), MAX_LOAD_LAG);
+    if (subgrid == null)
+        return;
+    renderButtons(subgrid);
+    if (settings.USER_SEARCH_SHORTCUTS.isEnabled()) {
+        renderShortcuts(subgrid);
+    }
+    renderPosts(subgrid);
+}
+async function renderPosts(subgrid) {
+    const feed = await dynamicElement(() => subgrid.querySelector(`shreddit-feed`), MAX_LOAD_LAG);
+    if (feed == null)
+        return;
+    feed.querySelectorAll(`shreddit-post`).forEach(post => {
+        renderPost(post);
+    });
+    initializePostObserver(feed);
+}
+async function renderButtons(subgrid) {
+    const userPageContainer = await dynamicElement(() => subgrid.querySelector(`main`)?.querySelector(`div`), MAX_LOAD_LAG);
+    const shyNotice = userPageContainer?.lastElementChild?.querySelector('.text-body-1');
+    if (shyNotice == null || !shyNotice.textContent.includes(`hidden`))
+        return;
+    const currentUser = getCurrentUser();
+    const tabs = userPageContainer.querySelector(`#profile-feed-tabgroup`);
+    renderSearchButton(tabs, `#profile-tab-posts_tab`, `/user/${currentUser}/search/?q=&sort=new`);
+    renderSearchButton(tabs, `#profile-tab-comments_tab`, `/user/${currentUser}/search/?q=&sort=new&type=comments`);
+}
+function renderSearchButton(tabs, selector, url) {
+    const postButton = tabs.querySelector(selector);
+    postButton.href = url;
+    const postSpan = postButton.querySelector(`span .gap-xs`);
+    prependSvg(postSpan, (subFilter_default()), 16, 16, { strokeColor: NONE_COLOR, fillColor: CURRENT_COLOR });
+}
+async function renderShortcuts(subgrid) {
+    const mainContent = subgrid.querySelector(`[data-testid="profile-main"]`);
+    const privateUserContainer = buildElement(`div`, `pp_user_hiddenPostsMessage`);
+    mainContent.after(privateUserContainer);
+    const currentUser = getCurrentUser();
+    const searchPostsUrl = `/user/${currentUser}/search/?q=&sort=new`;
+    const searchCommentsUrl = `/user/${currentUser}/search/?q=&sort=new&type=comments`;
+    renderUIButton(privateUserContainer, `Search User's Posts`, () => {
+        window.location.href = searchPostsUrl;
+    }, {
+        variant: ButtonVariant.Secondary,
+        size: ButtonSize.Small
+    });
+    renderUIButton(privateUserContainer, `Search User's Comments`, () => {
+        window.location.href = searchCommentsUrl;
+    }, {
+        variant: ButtonVariant.Secondary,
+        size: ButtonSize.Small
+    });
 }
 
 // EXTERNAL MODULE: ./resources/back.svg
@@ -7196,6 +7223,7 @@ function settingsWindow_renderSettingsWindow(win, context) {
     addSettingOptions(`Nickname mode`, `Allows showing a nickname instead of the profile name`, settings.USERNAME_MODE, [SettingBadge.APIRequests, SettingBadge.New]);
     addSettingString(`Nickname max symbols`, `Make nicknames with too many symbols shorter`, settings.USERNAME_MAX_SIMBOLS.defaultValue, settings.USERNAME_MAX_SIMBOLS);
     addSettingToggle(`User tags`, `Enable custom tags (sets via comment's context menu)`, settings.USER_TAGS);
+    addSettingToggle(`Search shortcuts`, `Add search buttons to the user profile page`, settings.USER_SEARCH_SHORTCUTS);
     addSubtittle(`Feed`);
     addSettingToggle(`Feed buttons`, `Unwrap feed sorting buttons`, settings.FEED_BUTTONS);
     addSettingToggle(`Flairs bar`, `Display available flairs to faster navigation. Specific flairs may be hidden via subreddit's flairs settings`, settings.FLAIR_BAR);
@@ -7446,8 +7474,8 @@ const profileMenuElementConfigs = new Map([
             icon: (saved_default()),
             isOptional: true,
             noun: `pp-saved`,
-            action: () => {
-                window.location.replace(`${GetCurrentUser()}/saved/`);
+            getHref: () => {
+                return `${GetCurrentUser()}saved/`;
             }
         }
     ],
@@ -7459,8 +7487,8 @@ const profileMenuElementConfigs = new Map([
             icon: (upvoted_default()),
             isOptional: true,
             noun: `pp-upvoted`,
-            action: () => {
-                window.location.replace(`${GetCurrentUser()}/upvoted/`);
+            getHref: () => {
+                return `${GetCurrentUser()}upvoted/`;
             }
         }
     ],
@@ -7472,8 +7500,8 @@ const profileMenuElementConfigs = new Map([
             icon: (posts_default()),
             isOptional: true,
             noun: `pp-posts`,
-            action: () => {
-                window.location.replace(`${GetCurrentUser()}/submitted/`);
+            getHref: () => {
+                return `${GetCurrentUser()}submitted/`;
             }
         }
     ],
@@ -7485,8 +7513,8 @@ const profileMenuElementConfigs = new Map([
             icon: (comments_default()),
             isOptional: true,
             noun: `pp-comments`,
-            action: () => {
-                window.location.replace(`${GetCurrentUser()}/comments/`);
+            getHref: () => {
+                return `${GetCurrentUser()}comments/`;
             }
         }
     ],
@@ -7498,8 +7526,8 @@ const profileMenuElementConfigs = new Map([
             icon: (history_default()),
             isOptional: true,
             noun: `pp-history`,
-            action: () => {
-                window.location.replace(`${GetCurrentUser()}/history/`);
+            getHref: () => {
+                return `${GetCurrentUser()}history/`;
             }
         }
     ]
@@ -7533,6 +7561,10 @@ function renderProfileMenu() {
     let profileMenu = document.getElementById(`user-drawer-content`);
     profileMenu.classList.toggle(`pp_defaultText`, true);
     if (originElements == null) {
+        const profileAnchor = profileMenu.querySelector(`faceplate-tracker[noun="profile"]`)?.querySelector(`a`);
+        if (profileAnchor != null) {
+            currentUser = profileAnchor.href;
+        }
         let originButton = profileMenu.querySelector(`faceplate-tracker[noun="settings"]`);
         if (originButton == null) {
             originButton = profileMenu.querySelector(`faceplate-tracker[noun="login"]`);
@@ -7559,10 +7591,6 @@ function renderProfileMenu() {
                 }
                 const foundElement = find != null ? find(ul) : null;
                 if (foundElement) {
-                    if (element == ProfileMenuElement.VeiwProfile) {
-                        const a = foundElement.querySelector(`a`);
-                        currentUser = a.href;
-                    }
                     originElements.set(element, foundElement);
                     foundElement.remove();
                     searchingElements.splice(searchingElements.indexOf(element), 1);
@@ -7615,15 +7643,23 @@ function renderCustomButton(originButton, config) {
     let ppSettingsButton = originButton.cloneNode(true);
     ppSettingsButton.setAttribute(`noun`, config.noun);
     originButton.parentNode.appendChild(ppSettingsButton);
-    ppSettingsButton.querySelector(`a`).removeAttribute(`href`);
+    const anchor = ppSettingsButton.querySelector(`a`);
+    if (config.getHref != undefined) {
+        anchor.href = config.getHref();
+    }
+    else {
+        anchor.removeAttribute(`href`);
+    }
     const originSvg = ppSettingsButton.querySelector(`svg`);
     const svg = buildSvg(config.icon, 20, 20, { strokeColor: NONE_COLOR });
     originSvg.replaceWith(svg);
     let text = ppSettingsButton.querySelector(`.text-body-2`);
     text.textContent = config.tittle;
-    ppSettingsButton.addEventListener(`click`, () => {
-        config.action();
-    });
+    if (config.action != undefined) {
+        ppSettingsButton.addEventListener(`click`, () => {
+            config.action();
+        });
+    }
 }
 
 ;// CONCATENATED MODULE: ./src/modules/header.ts
@@ -7846,7 +7882,7 @@ async function startRedditPlusPlus() {
     }
     pp_meta = document.createElement(`meta`);
     pp_meta.setAttribute(`name`, `reddit-plus-plus`);
-    pp_meta.setAttribute(`version`, "1.2.7");
+    pp_meta.setAttribute(`version`, "1.2.8");
     document.head.append(pp_meta);
     latestMigration.check();
     if (checkRedirect()) {

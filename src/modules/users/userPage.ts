@@ -7,6 +7,9 @@ import { css } from '../customCSS';
 import { MAX_LOAD_LAG } from '../../defines';
 import searchSvg from '@resources/subFilter.svg';
 import { CURRENT_COLOR, NONE_COLOR, prependSvg } from '../../utils/svg';
+import { settings } from '../settings/settings';
+import { ButtonSize, ButtonVariant, renderUIButton } from '../../utils/UI/button';
+import { buildElement } from '../../utils/element';
 
 css.addStyle(style);
 
@@ -16,6 +19,10 @@ export async function renderUserPage(container: Element) {
     if (subgrid == null) return;
 
     renderButtons(subgrid);
+
+    if(settings.USER_SEARCH_SHORTCUTS.isEnabled()) {
+        renderShortcuts(subgrid);
+    }
 
     renderPosts(subgrid);
 }
@@ -52,4 +59,38 @@ function renderSearchButton(tabs: Element, selector: string, url: string) {
     postButton.href = url;
     const postSpan = postButton.querySelector(`span .gap-xs`);
     prependSvg(postSpan, searchSvg, 16, 16, { strokeColor: NONE_COLOR, fillColor: CURRENT_COLOR });
+}
+
+async function renderShortcuts(subgrid: Element) {    
+    const mainContent = subgrid.querySelector(`[data-testid="profile-main"]`);
+    const privateUserContainer = buildElement(`div`, `pp_user_hiddenPostsMessage`);
+    mainContent.after(privateUserContainer);
+
+    const currentUser = getCurrentUser();
+    const searchPostsUrl = `/user/${currentUser}/search/?q=&sort=new`;
+    const searchCommentsUrl = `/user/${currentUser}/search/?q=&sort=new&type=comments`;
+
+    renderUIButton(
+        privateUserContainer,
+        `Search User's Posts`,
+        () => {
+            window.location.href = searchPostsUrl;
+        },
+        {
+            variant: ButtonVariant.Secondary,
+            size: ButtonSize.Small
+        }
+    );
+
+    renderUIButton(
+        privateUserContainer,
+        `Search User's Comments`,
+        () => {
+            window.location.href = searchCommentsUrl;
+        },
+        {
+            variant: ButtonVariant.Secondary,
+            size: ButtonSize.Small
+        }
+    );
 }

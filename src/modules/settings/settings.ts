@@ -128,6 +128,7 @@ class SettingsManager {
     public IMAGE_VIEWER = new SettingBoolProperty(`imageViewer`);
     public COLLAPSE_AWARDS = new SettingDropdownProperty(`collapseAwards`, Object.values(AwardsMode), 1);
     public REDIRECT_MODE = new SettingDropdownProperty(`redirectMode`, Object.values(RedirectMode), 1);
+    public USER_SEARCH_SHORTCUTS = new SettingBoolProperty(`userSearchShortcuts`, false);
 
     public NOTIFY_POPUP = new SettingBoolProperty(`notifyPopup`); // legacy
 

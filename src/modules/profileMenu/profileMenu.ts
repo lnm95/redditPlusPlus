@@ -53,6 +53,7 @@ export interface ProfileMenuElementConfig {
     noun?: string;
     find?: FindProfileMenuElement;
     action?: Function;
+    getHref?: Function;
 }
 
 export interface ProfileMenuElementData {
@@ -178,8 +179,8 @@ export const profileMenuElementConfigs = new Map<ProfileMenuElement, ProfileMenu
             icon: savedSvg,
             isOptional: true,
             noun: `pp-saved`,
-            action: () => {
-                window.location.replace(`${GetCurrentUser()}/saved/`);
+            getHref: () => {
+                return `${GetCurrentUser()}saved/`;
             }
         }
     ],
@@ -191,8 +192,8 @@ export const profileMenuElementConfigs = new Map<ProfileMenuElement, ProfileMenu
             icon: upvotedSvg,
             isOptional: true,
             noun: `pp-upvoted`,
-            action: () => {
-                window.location.replace(`${GetCurrentUser()}/upvoted/`);
+            getHref: () => {
+                return `${GetCurrentUser()}upvoted/`;
             }
         }
     ],
@@ -204,8 +205,8 @@ export const profileMenuElementConfigs = new Map<ProfileMenuElement, ProfileMenu
             icon: postsSvg,
             isOptional: true,
             noun: `pp-posts`,
-            action: () => {
-                window.location.replace(`${GetCurrentUser()}/submitted/`);
+            getHref: () => {
+                return `${GetCurrentUser()}submitted/`;
             }
         }
     ],
@@ -217,8 +218,8 @@ export const profileMenuElementConfigs = new Map<ProfileMenuElement, ProfileMenu
             icon: commentsSvg,
             isOptional: true,
             noun: `pp-comments`,
-            action: () => {
-                window.location.replace(`${GetCurrentUser()}/comments/`);
+            getHref: () => {
+                return `${GetCurrentUser()}comments/`;
             }
         }
     ],
@@ -230,8 +231,8 @@ export const profileMenuElementConfigs = new Map<ProfileMenuElement, ProfileMenu
             icon: historySvg,
             isOptional: true,
             noun: `pp-history`,
-            action: () => {
-                window.location.replace(`${GetCurrentUser()}/history/`);
+            getHref: () => {
+                return `${GetCurrentUser()}history/`;
             }
         }
     ]
@@ -294,6 +295,12 @@ export function renderProfileMenu() {
 
     // initialization
     if (originElements == null) {
+        // get user
+        const profileAnchor = profileMenu.querySelector(`faceplate-tracker[noun="profile"]`)?.querySelector(`a`) as HTMLAnchorElement;
+        if (profileAnchor != null) {
+            currentUser = profileAnchor.href;
+        }
+
         // custom buttons
         let originButton = profileMenu.querySelector(`faceplate-tracker[noun="settings"]`);
 
@@ -326,11 +333,6 @@ export function renderProfileMenu() {
 
                 const foundElement = find != null ? find(ul) : null;
                 if (foundElement) {
-                    if (element == ProfileMenuElement.VeiwProfile) {
-                        const a = foundElement.querySelector(`a`) as HTMLAnchorElement;
-                        currentUser = a.href;
-                    }
-
                     originElements.set(element, foundElement);
                     foundElement.remove();
                     searchingElements.splice(searchingElements.indexOf(element), 1);
@@ -397,7 +399,12 @@ function renderCustomButton(originButton: Element, config: ProfileMenuElementCon
 
     originButton.parentNode.appendChild(ppSettingsButton);
 
-    ppSettingsButton.querySelector(`a`).removeAttribute(`href`);
+    const anchor = ppSettingsButton.querySelector(`a`) as HTMLAnchorElement;
+    if (config.getHref != undefined) {
+        anchor.href = config.getHref();
+    } else {
+        anchor.removeAttribute(`href`);
+    }
 
     const originSvg = ppSettingsButton.querySelector(`svg`);
     const svg = buildSvg(config.icon, 20, 20, { strokeColor: NONE_COLOR });
@@ -406,7 +413,9 @@ function renderCustomButton(originButton: Element, config: ProfileMenuElementCon
     let text = ppSettingsButton.querySelector(`.text-body-2`);
     text.textContent = config.tittle;
 
-    ppSettingsButton.addEventListener(`click`, () => {
-        config.action();
-    });
+    if (config.action != undefined) {
+        ppSettingsButton.addEventListener(`click`, () => {
+            config.action();
+        });
+    }
 }

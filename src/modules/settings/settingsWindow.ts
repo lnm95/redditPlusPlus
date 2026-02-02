@@ -65,6 +65,7 @@ function renderSettingsWindow(win: Window, context: any) {
     addSettingOptions(`Nickname mode`, `Allows showing a nickname instead of the profile name`, settings.USERNAME_MODE, [SettingBadge.APIRequests, SettingBadge.New]);
     addSettingString(`Nickname max symbols`, `Make nicknames with too many symbols shorter`, settings.USERNAME_MAX_SIMBOLS.defaultValue, settings.USERNAME_MAX_SIMBOLS);
     addSettingToggle(`User tags`, `Enable custom tags (sets via comment's context menu)`, settings.USER_TAGS);
+    addSettingToggle(`Search shortcuts`, `Add search buttons to the user profile page`, settings.USER_SEARCH_SHORTCUTS);
 
     addSubtittle(`Feed`);
     addSettingToggle(`Feed buttons`, `Unwrap feed sorting buttons`, settings.FEED_BUTTONS);
