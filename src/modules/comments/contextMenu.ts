@@ -13,7 +13,7 @@ import shareButtonSvg from '@resources/comments/shareButton.svg';
 export function renderContextMenu(comment: Element) {
     let contextMenuButton = comment.querySelector(`shreddit-overflow-menu`).shadowRoot;
 
-    css.registry(contextMenuButton);
+    css.register(contextMenuButton);
 
     const contextMenu = contextMenuButton.querySelector(`faceplate-menu`);
     const originButton = contextMenu.querySelector(`faceplate-tracker[noun="report"]`);

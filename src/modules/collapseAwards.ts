@@ -25,7 +25,7 @@ export async function renderCollapseAward(target: Element, contentType: ContentT
 
     if (awardButton.getAttribute(`count`) == `0`) {
         if (contentType == ContentType.Post) {
-            css.registry(target.shadowRoot);
+            css.register(target.shadowRoot);
         }
 
         const targetContainer = contentType == ContentType.Comment ? target.querySelector(`shreddit-comment-action-row`)?.shadowRoot : target?.shadowRoot;

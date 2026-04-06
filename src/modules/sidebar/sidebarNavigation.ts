@@ -4,7 +4,7 @@ import { settings } from '../settings/settings';
 export enum SidebarNavigation {
     Home = `home`,
     Popular = `popular`,
-    Guides = `guides`,
+    News = `news`,
     Explore = `explore`,
     All = `all`
 }
@@ -12,7 +12,7 @@ export enum SidebarNavigation {
 export let navigations: Map<SidebarNavigation, string> = new Map<SidebarNavigation, string>([
     [SidebarNavigation.Home, `Home`],
     [SidebarNavigation.Popular, `Popular`],
-    [SidebarNavigation.Guides, `Answers`],
+    [SidebarNavigation.News, `News`],
     [SidebarNavigation.Explore, `Explore`],
     [SidebarNavigation.All, `All`]
 ]);

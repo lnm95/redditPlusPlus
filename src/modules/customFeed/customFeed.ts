@@ -15,7 +15,7 @@ export async function renderCustomFeed(main: Element) {
     const header = await dynamicElement(() => main.querySelector(`custom-feed-header`));
     const icoContainer = await dynamicElement(() => header.shadowRoot?.querySelector(`img`)?.parentElement);
 
-    css.registry(header.shadowRoot);
+    css.register(header.shadowRoot);
 
     icoContainer.classList.add(`pp_customFeed_masthead_ico`);
 

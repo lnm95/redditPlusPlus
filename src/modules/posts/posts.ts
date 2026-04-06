@@ -140,13 +140,13 @@ async function renderPostFlair(post: Element) {
 async function applyShadowRoot(post: Element) {
     const shadowRootLock = await dynamicElement(() => post.shadowRoot);
 
-    css.registry(post.shadowRoot);
+    css.register(post.shadowRoot);
 }
 
 async function renderShareButtonPost(post: Element) {
     const shareButton = await dynamicElement(() => post.shadowRoot?.querySelector(`shreddit-post-share-button`)?.shadowRoot?.querySelector(`button`));
 
-    css.registry(shareButton.parentNode.parentNode as ShadowRoot);
+    css.register(shareButton.parentNode.parentNode as ShadowRoot);
 
     shareButton.classList.add(`pp_post_shareButton`);
 }

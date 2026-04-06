@@ -30,7 +30,7 @@ export function renderUIInput(container: Element, placeholder: string, value: st
     inputButton.setAttribute(`tabindex`, `0`);
 
     const inputShadowRoot = inputButton.attachShadow({ mode: 'open' });
-    css.registry(inputShadowRoot);
+    css.register(inputShadowRoot);
 
     const inputPanel = appendElement(inputButton, `span`, [`pp_ui_input_panel`, `flex`, `items-center`, `justify-center`]);
     inputShadowRoot.appendChild(inputPanel);

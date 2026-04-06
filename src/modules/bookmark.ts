@@ -32,7 +32,7 @@ export function renderCommentBookmark(comment: Element, forced: boolean = false)
 
     if (isSaved || forced || mode == BookmarkMode.Always) {
         const downVoteButton = comment.querySelector(`shreddit-comment-action-row`)?.shadowRoot?.querySelector(`button[downvote]`);
-        css.registry(comment.querySelector(`shreddit-comment-action-row`)?.shadowRoot);
+        css.register(comment.querySelector(`shreddit-comment-action-row`)?.shadowRoot);
 
         const bookmarkButton = downVoteButton.cloneNode(true) as Element;
         downVoteButton.after(bookmarkButton);

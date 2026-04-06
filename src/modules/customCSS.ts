@@ -1,3 +1,5 @@
+import { pp_log } from "./toaster";
+
 class CustomCSS {
     rootStylesheet: CSSStyleSheet;
     styleSheets: Array<CSSStyleSheet>;
@@ -10,10 +12,15 @@ class CustomCSS {
         this.styleKeys = new Set<string>();
         this.sources = [];
 
-        this.registry(document);
+        this.register(document);
     }
 
-    registry(source: Document | ShadowRoot) {
+    register(source: Document | ShadowRoot) {
+        if(source == null) {
+            pp_log("Trying register an invalid source in CustomCSS");
+            return;
+        }
+        
         this.sources.push(source);
 
         for (const styleSheet of this.styleSheets) {
