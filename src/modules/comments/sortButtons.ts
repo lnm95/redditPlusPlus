@@ -112,7 +112,7 @@ function getCurrentSort(): string {
 }
 
 export function checkSortCommentsRedirect(): boolean {
-    if (settings.COMMENTS_REMEMBER_SORT.isEnabled() && window.location.href.includes(`/comments/`)) {
+    if (settings.COMMENTS_REMEMBER_SORT.isEnabled() && window.location.href.includes(`/comments/`) && !window.location.href.includes(`/user/`)) {
         const config = COMMENTS_SORT_CONFIGS.get(getCurrentSort());
 
         if (config.isCurrent(window.location.href)) {
