@@ -155,6 +155,7 @@ class SettingsManager {
     public UNWRAP_POST = new SettingBoolProperty(`unwrapPost`);
     public SHOW_POST_AUTHOR = new SettingBoolProperty(`showPostAuthor`);
     public SAVED_BOOKMARK_POSTS = new SettingDropdownProperty(`savedBookmarkPosts`, Object.values(BookmarkMode), 1);
+    public HIDE_COMMUNITY_RECOMMENDATIONS = new SettingBoolProperty(`hideCommunityRecommendations`, false);
 
     // comments
     public COMMENTS_SORT_BUTTONS = new SettingBoolProperty(`commentSortButtons`);

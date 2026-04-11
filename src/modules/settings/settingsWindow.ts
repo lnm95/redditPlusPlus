@@ -77,6 +77,7 @@ function renderSettingsWindow(win: Window, context: any) {
     addSettingToggle(`Soft background`, `Make the background of posts with soft gradient color`, settings.BACKPLATES);
     addSettingToggle(`Show post's author`, `Relates to Home, Popular and All feeds`, settings.SHOW_POST_AUTHOR);
     addSettingOptions(`Save-post bookmarks`, `Show the save bookmark next to the vote buttons`, settings.SAVED_BOOKMARK_POSTS);
+    addSettingToggle(`Hide Community Recommendations`, `Hides the related communities section in feed`, settings.HIDE_COMMUNITY_RECOMMENDATIONS);
 
     addSubtittle(`Comments`);
     addSettingToggle(`Sort buttons`, `Unwrap the comment's sort buttons`, settings.COMMENTS_SORT_BUTTONS);

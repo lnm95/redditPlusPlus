@@ -70,6 +70,8 @@ export async function renderSub(main: Element) {
     renderFlairBar(main);
 
     renderHighlights(main);
+
+    renderRecommendedCommunities(main);
 }
 
 async function renderMasthead(main: Element) {
@@ -89,6 +91,16 @@ async function renderHighlights(main: Element) {
 
     if (highlightButton != null) {
         (highlightButton as HTMLElement).click();
+    }
+}
+
+async function renderRecommendedCommunities(main: Element) {
+    if (settings.HIDE_COMMUNITY_RECOMMENDATIONS.isDisabled()) return;
+
+    const recommendedCommunities = await dynamicElement(() => main?.querySelector(`in-feed-community-recommendations`), MAX_LOAD_LAG * 5);
+
+    if (recommendedCommunities != null) {
+        (recommendedCommunities as HTMLElement).remove();
     }
 }
 
