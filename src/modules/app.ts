@@ -40,11 +40,11 @@ export async function renderApp() {
     renderComments(document.body);
 
     const leftSidebar = await dynamicElement(() => document.body.querySelector(`#left-sidebar-container`), 3000);
-
-    renderSidebar(leftSidebar);
-
+    
     const pageContainer = leftSidebar.parentElement;
     pageContainer.classList.add(`pp_pageContainer`);
+
+    renderSidebar(leftSidebar);
 
     const mainFeed = pageContainer.querySelector(`.subgrid-container`);
     mainFeed.classList.add(`pp_mainFeed`);

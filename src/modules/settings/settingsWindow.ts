@@ -53,7 +53,10 @@ function renderSettingsWindow(win: Window, context: any) {
     addSettingToggle(`Image viewer`, `Open (zoom) images instead default redirect behaviour`, settings.IMAGE_VIEWER);
     addSettingOptions(`Redirect`, `Special behaviour when you visit old.reddit pages`, settings.REDIRECT_MODE);
     addSettingOptions(`Awards`, `Collapse the award's button for none upvoted posts and comments or remove completely`, settings.COLLAPSE_AWARDS);
+    addSettingToggle(`Remove left sidebar`, null, settings.REMOVE_LEFT_SIDEBAR);
+    addSettingToggle(`Remove right sidebar`, null, settings.REMOVE_RIGHT_SIDEBAR);
     //addSettingToggle(`Better notify popup`, `Make notify popup a bit larger and remove useless button`, settings.NOTIFY_POPUP); //deprecated
+
 
     addSubtittle(`Content`);
     addGotoButton(`Filters`, `Hide posts and comments by regular expressions`, filtersWindow);

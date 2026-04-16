@@ -130,6 +130,9 @@ class SettingsManager {
     public REDIRECT_MODE = new SettingDropdownProperty(`redirectMode`, Object.values(RedirectMode), 1);
     public USER_SEARCH_SHORTCUTS = new SettingBoolProperty(`userSearchShortcuts`, false);
 
+    public REMOVE_LEFT_SIDEBAR = new SettingBoolProperty(`removeLeftSidebar`, false);
+    public REMOVE_RIGHT_SIDEBAR = new SettingBoolProperty(`removeRightSidebar`, false);
+
     public NOTIFY_POPUP = new SettingBoolProperty(`notifyPopup`); // legacy
 
     // content

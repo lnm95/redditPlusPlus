@@ -10,7 +10,7 @@ function safePixels(value: string): string {
 }
 
 export function renderWideMode(pageContainer: Element, rightSidebar: Element) {
-    if (settings.WIDE_MODE.isDisabled()) return;
+    if (settings.WIDE_MODE.isDisabled() && settings.REMOVE_RIGHT_SIDEBAR.isDisabled()) return;
 
     css.addStyle(wideModeStyle, `wideMode`);
 
@@ -34,10 +34,13 @@ export function renderWideMode(pageContainer: Element, rightSidebar: Element) {
 
     // fix for context lookup
     observeFor(`WIDEMODE_PAGE`, pageContainer, renderContextPopup, false);
-    observeFor(`WIDEMODE_CONTEXT`, originContainer, renderContextPopup, false);
+    
+    if(settings.REMOVE_RIGHT_SIDEBAR.isDisabled()) {
+        observeFor(`WIDEMODE_CONTEXT`, originContainer, renderContextPopup, false);
+    }    
 
     function renderContextPopup(element: HTMLElement): boolean {
-        if (element.classList.contains(`rounded-[16px]`)) {
+        if (element?.classList?.contains(`rounded-[16px]`) ?? false) {
             element.classList.add(`pp_rightSidebar_contextLookup`);
 
             if (window.innerWidth < 1392 && element.parentNode != rightSidebar.parentNode) {
@@ -55,13 +58,17 @@ export function renderWideMode(pageContainer: Element, rightSidebar: Element) {
 
     function refreshAppRender() {
         if (window.innerWidth >= 1392 && !isWideMode) {
-            pageContainer.prepend(rightSidebar);
+            if(settings.REMOVE_RIGHT_SIDEBAR.isDisabled()) {
+                pageContainer.prepend(rightSidebar);
+            }            
 
             isWideMode = true;
         }
 
         if (window.innerWidth < 1392 && isWideMode) {
-            originContainer.append(rightSidebar);
+            if(settings.REMOVE_RIGHT_SIDEBAR.isDisabled()) {
+                originContainer.append(rightSidebar);
+            }            
             isWideMode = false;
         }
     }

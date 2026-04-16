@@ -7,10 +7,16 @@ import style from './sidebar.less';
 import { sidebarSettingsWindow } from './sidebarSettingsWindow';
 import { sections, SidebarSection, SidebarSectionConfig } from './sidebarSection';
 import { RenderSidebarNavigations } from './sidebarNavigation';
+import { settings } from '../settings/settings';
 
 css.addStyle(style);
 
 export async function renderSidebar(sidebar: Element) {
+    if (settings.REMOVE_LEFT_SIDEBAR.isEnabled()) {
+        sidebar.remove();
+        return;
+    }
+
     sidebar.classList.add(`pp_defaultText`);
 
     RenderSidebarNavigations(sidebar);
