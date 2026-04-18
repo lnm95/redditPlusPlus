@@ -81,10 +81,7 @@ export async function renderPost(post: Element) {
 
     renderBookmarkPost(post);
 
-    const award = await dynamicElement(() => post.shadowRoot?.querySelector(`award-button`), MAX_LOAD_LAG);
-    if (award != null) {
-        renderCollapseAward(post, ContentType.Post);
-    }
+    renderCollapseAward(post, ContentType.Post);
 
     if (settings.SELECTABLE_POSTS.isEnabled()) {
         post.querySelector(`a[slot="full-post-link"]`)?.remove();

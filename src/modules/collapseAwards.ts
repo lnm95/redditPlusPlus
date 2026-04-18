@@ -12,9 +12,7 @@ export async function renderCollapseAward(target: Element, contentType: ContentT
 
     if (mode == AwardsMode.Default) return;
 
-    css.addStyle(style, `collapseAwards`);
-
-    const awardButton = contentType == ContentType.Comment ? target.querySelector(`award-button`) : target.shadowRoot.querySelector(`award-button`);
+    let awardButton = await dynamicElement(() => (contentType == ContentType.Comment ? target.querySelector(`award-button`) : target.shadowRoot?.querySelector(`award-button`)), MAX_LOAD_LAG * 2);
 
     if (awardButton == null) return;
 

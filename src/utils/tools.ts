@@ -3,13 +3,13 @@ import { PROFILE_DYNAMIC_ELEMENTS, profiler_dynamicElements } from '../_debug/de
 const DYNAMIC_ELEMENT_FREQUENCY: number = 10;
 
 export async function dynamicElement(elementRequest: Function, maxLifetime: number = 0): Promise<Element> {
+    let element = elementRequest();
+
+    if (element != null) {
+        return Promise.resolve<Element>(element);
+    }
+
     return new Promise<Element>(resolve => {
-        let element = elementRequest();
-
-        if (element != null) {
-            return resolve(element);
-        }
-
         if (DEBUG && PROFILE_DYNAMIC_ELEMENTS) {
             profiler_dynamicElements.dynamicElement++;
         }

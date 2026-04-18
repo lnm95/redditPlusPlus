@@ -49,8 +49,16 @@ export async function renderFeed(container: Element) {
     const initialPostsObserver = new MutationObserver(mutations => {
         for (const mutation of mutations) {
             for (const node of mutation.addedNodes) {
-                if (node instanceof HTMLElement && node.matches(`shreddit-post`)) {
-                    renderPost(node);
+                if (node instanceof HTMLElement) {
+                    if (node.matches(`shreddit-post`)) {
+                        renderPost(node);
+                    }
+
+                    if (node.matches(`shreddit-feed`)) {
+                        node.querySelectorAll(`shreddit-post`).forEach(post => {
+                            renderPost(post);
+                        });
+                    }
                 }
             }
         }

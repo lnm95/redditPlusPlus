@@ -42,7 +42,7 @@ export async function renderComments(container: Element) {
                         renderComment(entry.target.parentElement);
 
                         // registry childs when root becomes visible
-                        registryAllComments(entry.target.parentElement);
+                        registerAllComments(entry.target.parentElement);
 
                         if (DEBUG && PROFILE_USER_DATA) {
                             profiler_comments.observedRoots--;
@@ -94,7 +94,7 @@ export async function renderComments(container: Element) {
                         const commentTree = node.parentElement?.querySelector(`shreddit-comment-tree`);
 
                         if (commentTree != null) {
-                            registryAllRoots(commentTree);
+                            registerAllRoots(commentTree);
 
                             // singal to commentsSort buttons that comments refreshed
                             OnCommentsTreeLoaded();
@@ -103,11 +103,11 @@ export async function renderComments(container: Element) {
                         // dynamic comments
                         if (node.matches(`shreddit-comment`)) {
                             if (node.getAttribute(`depth`) == `0`) {
-                                registryRoot(node);
+                                registerRoot(node);
                             } else {
-                                registryComment(node);
+                                registerComment(node);
 
-                                registryAllComments(node);
+                                registerAllComments(node);
                             }
                         }
 
@@ -131,13 +131,13 @@ export async function renderComments(container: Element) {
     renderCommentsSortButtons(container);
 }
 
-function registryAllRoots(container: Element) {
+function registerAllRoots(container: Element) {
     container.querySelectorAll(`shreddit-comment[depth="0"]`).forEach(comment => {
-        registryRoot(comment);
+        registerRoot(comment);
     });
 }
 
-function registryRoot(comment: Element) {
+function registerRoot(comment: Element) {
     if (checkIsRendered(comment)) return;
 
     rootIntersector.observe(comment.querySelector(`div[slot="commentMeta"]`));
@@ -147,13 +147,13 @@ function registryRoot(comment: Element) {
     }
 }
 
-function registryAllComments(container: Element) {
+function registerAllComments(container: Element) {
     container.querySelectorAll(`shreddit-comment`).forEach(comment => {
-        registryComment(comment);
+        registerComment(comment);
     });
 }
 
-function registryComment(comment: Element) {
+function registerComment(comment: Element) {
     if (checkIsRendered(comment)) return;
 
     commentsIntersector.observe(comment.querySelector(`div[slot="commentMeta"]`));
@@ -164,6 +164,9 @@ function registryComment(comment: Element) {
 }
 
 export async function renderComment(comment: Element) {
+    // skip [deleted]
+    if (comment.getAttribute(`author`) == `[deleted]`) return;
+
     const commentBody = comment.querySelector(`div[slot="comment"]`);
 
     if (DEBUG && SHOW_RENDERED_COMMENTS) {
@@ -190,16 +193,10 @@ export async function renderComment(comment: Element) {
         }
     }
 
-    // unwrap moreComments
-    setTimeout(() => {
-        renderMoreReplies(comment);
-    }, 150);
+    renderMoreReplies(comment);
 
     // add anchors
     const nickname = comment.querySelector(`div[slot="commentMeta"]`).querySelector(`faceplate-tracker[noun="comment_author"]`)?.parentElement?.parentElement;
-
-    // skip [deleted]
-    if (nickname == null) return;
 
     const tagsAnchor = document.createElement(`div`);
     tagsAnchor.setAttribute(`pp-anchor`, `tags`);
@@ -223,7 +220,7 @@ export async function renderComment(comment: Element) {
         commentBody.classList.add(`pp_muted_content`);
     }
 
-    // registry image
+    // register image
     const imageContainer = commentBody.querySelector(`figure[class="rte-media"]`);
     if (imageContainer != null && settings.IMAGE_VIEWER.isEnabled()) {
         const imageAnchor = imageContainer.querySelector(`a`) as HTMLAnchorElement;
@@ -232,7 +229,7 @@ export async function renderComment(comment: Element) {
 
         let image = imageContainer.querySelector(`img`) as HTMLImageElement | HTMLVideoElement;
         if (image == null) {
-            image = imageContainer.querySelector(`shreddit-player-2`);
+            image = imageContainer.querySelector(`shreddit-player`);
         }
         image.classList.add(`pp_imageViewable`);
 

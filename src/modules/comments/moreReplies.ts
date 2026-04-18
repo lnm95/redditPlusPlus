@@ -8,6 +8,12 @@ export function renderMoreReplies(comment: Element) {
 
     if (comment.getAttribute(`collapsed`) != null) return;
 
+    setTimeout(() => {
+        openMoreReply(comment);
+    }, 150);
+}
+
+function openMoreReply(comment: Element) {
     for (const moreReplies of comment.childNodes) {
         if (moreReplies instanceof HTMLElement) {
             // loadable replies
@@ -25,7 +31,7 @@ export function renderMoreReplies(comment: Element) {
                     if (moreReplies.parentNode == null) {
                         clearInterval(refreshAwaiter);
                         setTimeout(() => {
-                            renderMoreReplies(comment);
+                            openMoreReply(comment);
                         }, 50);
                         return;
                     }

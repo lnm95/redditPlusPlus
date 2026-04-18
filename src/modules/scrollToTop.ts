@@ -39,15 +39,15 @@ export async function renderScrollToTop() {
             checkScreenWidth();
         });
 
-        let prevIsBottom = false;
-        window.addEventListener(`scroll`, () => {
-            isBottom = window.scrollY > START_Y;
+        const anchor = appendElement(document.body, `div`, `pp_scrollToTop_anchor`);
 
-            if (isBottom != prevIsBottom) {
-                prevIsBottom = isBottom;
-                checkScreenWidth();
-            }
+        const observer = new IntersectionObserver(([entry]) => {
+            isBottom = !entry.isIntersecting;
+
+            checkScreenWidth();
         });
+
+        observer.observe(anchor);
     } else {
         // cleaning
         scrollToTop.remove();
