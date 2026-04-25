@@ -36,7 +36,7 @@
     <h4>Posts</h4>
     <li>Gradient background.</li>
     <li>Selectable text.</li>
-    <li><details><summary>Unwrap text posts by button.</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/screenshots/greasyfork/post.png alt="post"></details></li>
+    <li><details><summary>Unwrap text posts by button.</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/screenshots/greasyfork/unwrapLongPost.png alt="unwrapLongPost"></details></li>
 
     <h4>Comments</h4>
     <li><details><summary>Unwrap comments sort buttons, remember the latest used sort.</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/screenshots/greasyfork/commentsSort.png alt="commentsSort"></details></li>

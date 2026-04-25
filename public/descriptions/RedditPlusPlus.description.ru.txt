@@ -35,7 +35,7 @@
     <h4>Посты</h4>
     <li>Градиентный фон.</li>
     <li>Выделяемый текст.</li>
-    <li><details><summary>Развёртывание текстовых постов по кнопке.</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/screenshots/greasyfork/post.png alt="post"></details></li>
+    <li><details><summary>Развёртывание текстовых постов по кнопке.</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/screenshots/greasyfork/unwrapLongPost.png alt="unwrapLongPost"></details></li>
 
     <h4>Комментарии</h4>
     <li><details><summary>Кнопки сортировки комментариев, сохранение сортировки комментариев.</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/screenshots/greasyfork/commentsSort.png alt="commentsSort"></details></li>
