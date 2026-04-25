@@ -1,14 +1,14 @@
 import { latestMigration } from './_compatibility/latestMigration';
-import { observeFor } from './utils/tools';
-import { renderApp } from './modules/app';
-import { renderHeader } from './modules/header';
-import { checkRedirect } from './modules/redirect';
-import { notify, pp_log } from './modules/toaster';
 import { MAX_LOAD_LAG } from './defines';
-import { dynamicElement } from './utils/tools';
+import { renderApp } from './modules/app';
 import { checkSortCommentsRedirect } from './modules/comments/sortButtons';
 import { initializeFeedRedirect } from './modules/feed/feedRedirect';
+import { renderHeader } from './modules/header';
+import { checkRedirect } from './modules/redirect';
 import { renderScrollToTop } from './modules/scrollToTop';
+import { notify, pp_log } from './modules/toaster';
+import { dynamic } from './utils/dynamic';
+import { observeFor } from './utils/tools';
 
 // ***********************************************************************************************************************
 // ********************************************** ENTRY POINT ************************************************************
@@ -17,7 +17,12 @@ import { renderScrollToTop } from './modules/scrollToTop';
 startRedditPlusPlus();
 
 async function startRedditPlusPlus() {
-    const documentBody = await dynamicElement(() => (document.head != null && document.body != null ? document.body : null));
+    const documentBody = await dynamic(() => (document.head != null && document.body != null ? document.body : null));
+
+    if (documentBody == null) {
+        pp_log(`Failed to get document.body`);
+        return;
+    }
 
     // check dublicates
     let pp_meta = document.head.querySelector(`meta[name="reddit-plus-plus"]`);
@@ -39,7 +44,7 @@ async function startRedditPlusPlus() {
 
     initializeFeedRedirect();
 
-    const pp_app = await dynamicElement(() => documentBody.querySelector(`shreddit-app`), MAX_LOAD_LAG);
+    const pp_app = await dynamic(() => documentBody.querySelector(`shreddit-app`), MAX_LOAD_LAG);
     if (pp_app == null || pp_app.getAttribute(`devicetype`) != `desktop`) {
         pp_log(`Reddit++ was stopped for a non compatible page`);
         return;
@@ -53,13 +58,15 @@ async function startRedditPlusPlus() {
     observeFor(`CORE`, documentBody, element => {
         // header
         if (element.matches(`reddit-header-large`) == true) {
-            renderHeader(element.parentElement);
+            renderHeader(element.parentElement!);
         }
 
         // content
         const isSubPage = element.matches(`shreddit-app`) == true;
-        const isMainPage = element.classList.contains(`grid-container`) && element.parentElement.matches(`shreddit-app`) == true;
-        const isUserSearchPage = element.matches(`search-dynamic-id-cache-controller`) == true && element.parentElement.matches(`shreddit-app`) == true;
+
+        const isParentSh = element.parentElement?.matches(`shreddit-app`) == true;
+        const isMainPage = isParentSh && element.classList.contains(`grid-container`);
+        const isUserSearchPage = isParentSh && element.matches(`search-dynamic-id-cache-controller`) == true;
 
         if (isSubPage || isMainPage || isUserSearchPage) {
             renderApp();

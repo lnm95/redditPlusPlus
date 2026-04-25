@@ -1,15 +1,16 @@
-import { Database, DatabaseConfig, ICleanupableData } from '../../utils/database';
-import { notify, pp_log } from '../toaster';
-import { renderFlairBar } from './flairBar';
-import { css } from '../customCSS';
-import style from './subs.less';
-import { FlairData } from './flair';
-import { checkIsRendered, dynamicElement } from '../../utils/tools';
-import { flairsWindow } from './flairWindow';
 import { MAX_LOAD_LAG } from '../../defines';
-import { settings } from '../settings/settings';
+import { Database, DatabaseConfig, ICleanupableData } from '../../utils/database';
+import { dynamic } from '../../utils/dynamic';
 import { requestAPI } from '../../utils/redditAPI';
-import { FeedSort } from '../feed/feedSort';
+import { checkIsRendered } from '../../utils/tools';
+import { css } from '../customCSS';
+import { settings } from '../settings/settings';
+import { pp_log } from '../toaster';
+import { FlairData } from './flair';
+import { renderFlairBar } from './flairBar';
+import { flairsWindow } from './flairWindow';
+
+import style from './subs.less';
 
 css.addStyle(style);
 
@@ -19,15 +20,14 @@ export const FLAIR_BLURED: string = `blured`;
 export const FLAIR_BANNED: string = `banned`;
 
 class SubFlairsData {
-    hidden: Array<string>;
-    blured: Array<string>;
-    banned: Array<string>;
+    hidden!: Array<string>;
+    blured!: Array<string>;
+    banned!: Array<string>;
 }
 
 class SubData implements ICleanupableData {
-    timestamp: number;
-
-    flairs: Array<FlairData>;
+    timestamp!: number;
+    flairs!: Array<FlairData>;
 }
 
 export const flairs: Database<SubFlairsData> = new Database<SubFlairsData>(`FLAIRS`);
@@ -38,7 +38,8 @@ function subDataValidator(subData: SubData) {
 }
 
 async function subDataLoader(sub: string): Promise<SubData> {
-    let subData = { flairs: [] } as SubData;
+    let subData = {} as SubData;
+    subData.flairs = [];
 
     const { status, result } = await requestAPI(`/r/${sub}/api/link_flair_v2.json`);
 
@@ -55,14 +56,20 @@ async function subDataLoader(sub: string): Promise<SubData> {
     return subData;
 }
 
-export function getCurrentSub(): string {
+export function getCurrentSub(): string | null {
     const raw = window.location.href.split(`reddit.com/r/`);
-    return raw.length > 1 ? raw[1].split(`/`)[0] : null;
+
+    if (raw.length < 2) {
+        pp_log(`Failed to get sub name from: ${window.location.href}`);
+        return null;
+    }
+
+    return raw[1].split(`/`)[0];
 }
 
 export async function renderSub(main: Element) {
     // skip page without feed
-    const checkIsFeed = await dynamicElement(() => main.querySelector(`shreddit-feed-error-banner`), MAX_LOAD_LAG);
+    const checkIsFeed = await dynamic(() => main.querySelector(`shreddit-feed-error-banner`), MAX_LOAD_LAG);
     if (checkIsFeed == null) return;
 
     renderMasthead(main);
@@ -75,11 +82,11 @@ export async function renderSub(main: Element) {
 }
 
 async function renderMasthead(main: Element) {
-    const masthead = await dynamicElement(() => main.parentElement.parentElement.querySelector(`.masthead`));
+    const masthead = await dynamic(() => main.parentElement?.parentElement?.querySelector(`.masthead`));
 
-    if (checkIsRendered(masthead)) return;
+    if (!masthead || checkIsRendered(masthead)) return;
 
-    masthead.querySelector(`section`).classList.add(`pp_mastheadSection`);
+    masthead.querySelector(`section`)?.classList.add(`pp_mastheadSection`);
 
     document.body.addEventListener(`click`, renderContextMenu);
 }
@@ -87,7 +94,7 @@ async function renderMasthead(main: Element) {
 async function renderHighlights(main: Element) {
     if (settings.COLLAPSE_HIGHLIGHTS.isDisabled()) return;
 
-    const highlightButton = await dynamicElement(() => main?.querySelector(`community-highlight-carousel`)?.shadowRoot?.querySelector(`button`), MAX_LOAD_LAG * 5);
+    const highlightButton = await dynamic(() => main?.querySelector(`community-highlight-carousel`)?.shadowRoot?.querySelector(`button`), MAX_LOAD_LAG * 5);
 
     if (highlightButton != null) {
         (highlightButton as HTMLElement).click();
@@ -97,7 +104,7 @@ async function renderHighlights(main: Element) {
 async function renderRecommendedCommunities(main: Element) {
     if (settings.HIDE_COMMUNITY_RECOMMENDATIONS.isDisabled()) return;
 
-    const recommendedCommunities = await dynamicElement(() => main?.querySelector(`in-feed-community-recommendations`), MAX_LOAD_LAG * 5);
+    const recommendedCommunities = await dynamic(() => main?.querySelector(`in-feed-community-recommendations`), MAX_LOAD_LAG * 5);
 
     if (recommendedCommunities != null) {
         (recommendedCommunities as HTMLElement).remove();
@@ -107,17 +114,21 @@ async function renderRecommendedCommunities(main: Element) {
 function renderContextMenu(e: MouseEvent) {
     const targetElement = e.target as Element;
 
-    if (targetElement.matches(`shreddit-subreddit-header-buttons`) != true) return;
+    if (!targetElement.matches(`shreddit-subreddit-header-buttons`)) return;
 
     if (checkIsRendered(targetElement)) return;
 
-    const controlMenu = targetElement.shadowRoot.querySelector(`shreddit-subreddit-overflow-control`).shadowRoot.querySelector(`faceplate-menu`);
+    const controlMenu = targetElement.shadowRoot?.querySelector(`shreddit-subreddit-overflow-control`)?.shadowRoot?.querySelector(`faceplate-menu`);
+    const originButton = controlMenu?.querySelector(`li`);
 
-    const originButton = controlMenu.querySelector(`li`);
+    if (!controlMenu || !originButton) {
+        pp_log(`Failed to render subreddit context menu`);
+        return;
+    }
 
     // flairs settings
-    const menuFlairsButton = originButton.cloneNode(true) as Element;
-    menuFlairsButton.querySelector(`.text-body-2`).textContent = `Flairs settings`;
+    const menuFlairsButton = originButton.cloneNode(true) as HTMLElement;
+    setButtonText(menuFlairsButton, `Flairs settings`);
     controlMenu.prepend(menuFlairsButton);
 
     const sub = getCurrentSub();
@@ -133,6 +144,14 @@ function renderContextMenu(e: MouseEvent) {
     controlMenu.prepend(link);
 
     const menuAboutButton = originButton.cloneNode(true) as Element;
-    menuAboutButton.querySelector(`.text-body-2`).textContent = `About`;
+    setButtonText(menuAboutButton, `About`);
     link.prepend(menuAboutButton);
+
+    function setButtonText(button: Element, text: string) {
+        const textBody = button.querySelector(`.text-body-2`);
+
+        if (textBody) {
+            textBody.textContent = text;
+        }
+    }
 }

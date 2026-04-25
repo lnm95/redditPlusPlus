@@ -1,13 +1,16 @@
+import { dynamic } from '../../utils/dynamic';
 import { appendElement, prependElement } from '../../utils/element';
 import { appendSvg } from '../../utils/svg';
-import { dynamicElement, observeFor } from '../../utils/tools';
+import { observeFor } from '../../utils/tools';
 import { css } from '../customCSS';
-import settingGearSvg from '@resources/settingsGear.svg';
-import style from './sidebar.less';
-import { sidebarSettingsWindow } from './sidebarSettingsWindow';
-import { sections, SidebarSection, SidebarSectionConfig } from './sidebarSection';
-import { RenderSidebarNavigations } from './sidebarNavigation';
 import { settings } from '../settings/settings';
+import { RenderSidebarNavigations } from './sidebarNavigation';
+import { SidebarSection, SidebarSectionConfig, sections } from './sidebarSection';
+import { sidebarSettingsWindow } from './sidebarSettingsWindow';
+
+import settingGearSvg from '@resources/settingsGear.svg';
+
+import style from './sidebar.less';
 
 css.addStyle(style);
 
@@ -24,29 +27,29 @@ export async function renderSidebar(sidebar: Element) {
     RenderSettingsButton(sidebar);
 
     // render sections
-    const renderedSections = new Map<SidebarSection, SidebarSectionConfig>(sections);
+    const unrenderedSections = new Map<SidebarSection, SidebarSectionConfig>(sections);
 
     observeFor(`SIDEBAR`, sidebar, (element: HTMLElement) => {
-        renderedSections.forEach((config, section, map) => {
+        unrenderedSections.forEach((config, section, map) => {
             const sectionContainer = config.renderer.FindContainer(sidebar as HTMLElement, element);
 
             if (sectionContainer != null) {
-                config.renderer.Render(sectionContainer, config.autocollapse, config.setting);
+                config.renderer.Render(sectionContainer, config.setting);
 
                 map.delete(section);
             }
         });
 
-        if (renderedSections.size == 0) {
+        if (unrenderedSections.size == 0) {
             return true;
         }
     });
 }
 
 async function RenderSettingsButton(sidebar: Element) {
-    const flexSidebar = await dynamicElement(() => sidebar.querySelector(`#flex-left-nav-container`));
+    const flexSidebar = await dynamic(() => sidebar.querySelector(`#flex-left-nav-container`));
 
-    const settingsButtonContainer = prependElement(flexSidebar, `div`);
+    const settingsButtonContainer = prependElement(flexSidebar!, `div`);
     settingsButtonContainer.setAttribute(`id`, `pp-settings`);
 
     const settingsButtonTooltip = appendElement(settingsButtonContainer, `rpl-tooltip`);

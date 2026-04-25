@@ -5,19 +5,10 @@ const { UserScriptMetaDataPlugin } = require('userscript-metadata-webpack-plugin
 const metadata = require('./metadata.cjs');
 const webpackConfig = require('./webpack.config.base.cjs');
 
-if (!process.env.npm_config_release) {
-    metadata.name = {
-        $: 'Reddit++ Preview',
-        ru: 'Reddit++ Preview'
-    };
-
-    metadata.namespace = metadata.namespace + `Preview`;
-}
-
 const cfg = merge(webpackConfig, {
     mode: 'production',
     output: {
-        filename: process.env.npm_config_release ? 'redditPlusPlus.user.js' : 'redditPlusPlus.preview.user.js'
+        filename: 'redditPlusPlus.user.js'
     },
     optimization: {
         usedExports: true
@@ -36,5 +27,34 @@ const cfg = merge(webpackConfig, {
         })
     ]
 });
+
+class RPPCompactifyPlugin {
+    apply(compiler) {
+        compiler.hooks.thisCompilation.tap('RPPCompactifyPlugin', compilation => {
+            compilation.hooks.processAssets.tap(
+                {
+                    name: 'RPPCompactifyPlugin',
+                    stage: compiler.webpack.Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE
+                },
+                assets => {
+                    for (const name in assets) {
+                        if (!name.endsWith('.js')) continue;
+
+                        let source = assets[name].source();
+
+                        source = source.replace(/^\s*if \(false\) \/\/ removed by dead control flow\s*\r?\n\s*\{\}$/gm, '');
+                        source = source.replace(/^\/\/ EXTERNAL MODULE: .*$/gm, ``);
+                        source = source.replace(/\/\*.*?\*\//g, ``);
+                        source = source.replace(/\n{3,}/g, `\n\n`);
+
+                        compilation.updateAsset(name, new compiler.webpack.sources.RawSource(source));
+                    }
+                }
+            );
+        });
+    }
+}
+
+cfg.plugins.push(new RPPCompactifyPlugin());
 
 module.exports = cfg;

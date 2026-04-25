@@ -43,20 +43,23 @@ function isRedirectable() {
 export function initializeFeedRedirect() {
     checkFeedRedirect();
 
-    const observeUrlChange = () => {
-        let oldHref = document.location.href;
+    let oldHref = document.location.href;
+    const observer = new MutationObserver(mutations => {
+        if (oldHref !== document.location.href) {
+            oldHref = document.location.href;
+
+            checkFeedRedirect();
+        }
+    });
+
+    window.addEventListener('load', () => {
         const body = document.querySelector('body');
-        const observer = new MutationObserver(mutations => {
-            if (oldHref !== document.location.href) {
-                oldHref = document.location.href;
 
-                checkFeedRedirect();
-            }
-        });
+        if (!body) return;
+
+        observer.disconnect();
         observer.observe(body, { childList: true, subtree: true });
-    };
-
-    window.onload = observeUrlChange;
+    });
 }
 
 function checkFeedRedirect() {
@@ -68,6 +71,9 @@ function checkFeedRedirect() {
 
     if (location == FeedLocation.Sub) {
         const sub = getCurrentSub();
+
+        if (!sub) return;
+
         const latest = subsLatestSort.get(sub);
         const subData = subsFeedData.get(sub);
 
@@ -81,14 +87,14 @@ function checkFeedRedirect() {
         if (!data.redirect) return;
 
         if (latest != null && data.defaultSort != latest) {
-            document.location.replace(`${document.location.href}${subData.defaultSort.toString().toLowerCase()}/`);
+            document.location.replace(`${document.location.href}${data.defaultSort.toString().toLowerCase()}/`);
             return;
         }
     }
 
     if (location == FeedLocation.Custom) {
         const custom = getCurrentCustomFeed();
-        const customData = customFeedData.get(custom);
+        const customData = custom ? customFeedData.get(custom) : null;
 
         if (customData != null) {
             if (customData.defaultSort == defaultSort || !customData.redirect) return;

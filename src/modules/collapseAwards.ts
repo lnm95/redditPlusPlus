@@ -1,18 +1,22 @@
 import { ContentType, MAX_LOAD_LAG } from '../defines';
-import { dynamicElement } from '../utils/tools';
-import style from './collapseAwards.less';
+import { dynamic } from '../utils/dynamic';
 import { AwardsMode } from './collapseAwardsMode';
-import { css } from './customCSS';
+import { CustomCSS } from './customCSS';
 import { settings } from './settings/settings';
 
-css.addStyle(style);
+import style from './collapseAwards.less';
+
+const awardsCss = new CustomCSS();
+awardsCss.register(document);
+awardsCss.addStyle(style);
 
 export async function renderCollapseAward(target: Element, contentType: ContentType) {
     const mode = settings.COLLAPSE_AWARDS.get() as AwardsMode;
 
     if (mode == AwardsMode.Default) return;
 
-    let awardButton = await dynamicElement(() => (contentType == ContentType.Comment ? target.querySelector(`award-button`) : target.shadowRoot?.querySelector(`award-button`)), MAX_LOAD_LAG * 2);
+    const awardButtonRequest = contentType == ContentType.Comment ? () => target.querySelector(`award-button`) : () => target.shadowRoot?.querySelector(`award-button`);
+    let awardButton = await dynamic(awardButtonRequest, MAX_LOAD_LAG * 2);
 
     if (awardButton == null) return;
 
@@ -23,11 +27,11 @@ export async function renderCollapseAward(target: Element, contentType: ContentT
 
     if (awardButton.getAttribute(`count`) == `0`) {
         if (contentType == ContentType.Post) {
-            css.register(target.shadowRoot);
+            awardsCss.register(target.shadowRoot);
         }
 
         const targetContainer = contentType == ContentType.Comment ? target.querySelector(`shreddit-comment-action-row`)?.shadowRoot : target?.shadowRoot;
-        const upVoteButton = await dynamicElement(() => targetContainer?.querySelector(`button[upvote]`), MAX_LOAD_LAG);
+        const upVoteButton = await dynamic(() => targetContainer?.querySelector(`button[upvote]`), MAX_LOAD_LAG);
 
         if (upVoteButton == null) return;
 

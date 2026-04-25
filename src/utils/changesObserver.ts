@@ -7,7 +7,7 @@ css.addStyle(style);
 
 export class ChangesObserver {
     private changes = 0;
-    private bannerContainer: Element = null;
+    private bannerContainer?: Element;
 
     CreateSource(defaultValue: any): ChangesSource {
         return new PlainChangesSource(this, defaultValue);
@@ -24,13 +24,11 @@ export class ChangesObserver {
     OnChange(value: number) {
         this.changes += value;
 
-        if (this.bannerContainer != null) {
-            this.bannerContainer.classList.toggle(`pp_changesBanner_active`, this.HasChanges());
-        }
+        this.bannerContainer?.classList.toggle(`pp_changesBanner_active`, this.HasChanges());
     }
 
     RenderBanner(container: Element) {
-        if (this.bannerContainer == null) {
+        if (!this.bannerContainer) {
             this.bannerContainer = appendElement(container, `div`, `pp_changesBannerContainer`);
             const banner = appendElement(this.bannerContainer, `div`, `pp_changesBanner`);
             banner.textContent = `Page will be reloaded to apply new settings`;

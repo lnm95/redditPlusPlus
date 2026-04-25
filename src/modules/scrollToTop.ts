@@ -1,21 +1,23 @@
-import { buildSvg } from '../utils/svg';
+import { dynamic } from '../utils/dynamic';
 import { appendElement } from '../utils/element';
+import { buildSvg } from '../utils/svg';
+import { animate } from '../utils/tools';
 import { css } from './customCSS';
-import style from './scrollToTop.less';
-import scrollButtonSvg from '@resources/scrollButton.svg';
 import { settings } from './settings/settings';
-import { animate, dynamicElement } from '../utils/tools';
+import { pp_log } from './toaster';
 
-const START_Y: number = 1000;
+import scrollButtonSvg from '@resources/scrollButton.svg';
 
-let scrollToTop: HTMLElement = null;
-let scrollButton: SVGSVGElement = null;
+import style from './scrollToTop.less';
+
+let scrollToTop: HTMLElement | undefined;
+let scrollButton: SVGSVGElement | undefined;
 
 let prevScrollHeight: number = 0;
 let isBottom = false;
 
-let contentBlock: HTMLElement = null;
-let sidebarBlock: HTMLElement = null;
+let contentBlock: HTMLElement | null = null;
+let sidebarBlock: HTMLElement | null = null;
 
 const sidebarObserver = new MutationObserver(() => {
     animate(() => {
@@ -28,12 +30,18 @@ export async function renderScrollToTop() {
 
     css.addStyle(style, `scrollToTop`);
 
-    contentBlock = (await dynamicElement(() => document.body.querySelector(`.main-container`))) as HTMLElement;
-    const main = contentBlock.parentElement;
+    contentBlock = await dynamic(() => document.body.querySelector(`.main-container`) as HTMLElement);
+    const sidebar = await dynamic(() => document.body.querySelector(`#left-sidebar-container`));
 
-    const sidebar = await dynamicElement(() => document.body.querySelector(`#left-sidebar-container`));
+    if (!contentBlock || !sidebar) {
+        pp_log(`Failed to render scroll to top`);
+        return;
+    }
 
-    if (scrollToTop == null) {
+    sidebarBlock = sidebar.querySelector(`#flex-left-nav-contents`)!;
+    const main = contentBlock.parentElement!;
+
+    if (!scrollToTop) {
         // initialize
         window.addEventListener('resize', () => {
             checkScreenWidth();
@@ -58,8 +66,6 @@ export async function renderScrollToTop() {
 
     sidebarObserver.observe(sidebar, { childList: false, subtree: false, attributes: true });
 
-    sidebarBlock = sidebar.querySelector(`#flex-left-nav-contents`);
-
     const sidebarButton = sidebar.querySelector(`#flex-nav-buttons`);
     if (sidebarButton != null) {
         sidebarButton.addEventListener(`click`, event => {
@@ -69,7 +75,7 @@ export async function renderScrollToTop() {
         });
     }
 
-    scrollToTop = appendElement(main.parentElement, `div`, `pp_scrollToTop`);
+    scrollToTop = appendElement(main.parentElement!, `div`, `pp_scrollToTop`);
 
     scrollButton = buildSvg(scrollButtonSvg, 40, 40);
     scrollToTop.append(scrollButton);
@@ -93,8 +99,10 @@ export async function renderScrollToTop() {
 
 let shouldShow: boolean = true;
 function checkScreenWidth() {
+    if (!scrollToTop || !scrollButton) return;
+
     const left = sidebarBlock?.getBoundingClientRect()?.right ?? 0;
-    const right = contentBlock.getBoundingClientRect().left;
+    const right = contentBlock?.getBoundingClientRect()?.left ?? 0;
     const availableSpace = right - left;
 
     // Minimum space needed for the button (40px icon + padding)

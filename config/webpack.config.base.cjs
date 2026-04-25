@@ -1,13 +1,15 @@
 const path = require('path');
 
-const WebpackStringReplacer = require('webpack-string-replacer');
-
 const webpackConfig = {
     resolve: {
         extensions: ['.js', '.ts'],
         alias: {
             '@resources': path.resolve(__dirname, '../resources')
         }
+    },
+    performance: {
+        maxAssetSize: 1000000,
+        maxEntrypointSize: 1000000
     },
     optimization: {
         minimize: false,
@@ -16,7 +18,7 @@ const webpackConfig = {
     entry: './src/core.ts',
     output: {
         clean: false,
-        path: path.resolve(__dirname, process.env.npm_config_release ? '../public' : '../dist')
+        path: path.resolve(__dirname, '../dist')
     },
     target: 'web',
     module: {
@@ -39,24 +41,5 @@ const webpackConfig = {
     },
     plugins: []
 };
-
-// cleanup removed modules
-webpackConfig.plugins.push(
-    new WebpackStringReplacer({
-        logAroundPatternMatches: 200,
-        rules: [
-            {
-                applyStage: 'optimizeChunkAssets',
-                outputFileInclude: /\.js$/,
-                replacements: [
-                    {
-                        pattern: 'if (false) {}',
-                        replacement: ''
-                    }
-                ]
-            }
-        ]
-    })
-);
 
 module.exports = webpackConfig;

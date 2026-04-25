@@ -1,10 +1,13 @@
-import { dynamicElement } from '../../utils/tools';
-import { css } from '../customCSS';
+import { dynamic } from '../../utils/dynamic';
+import { CustomCSS } from '../customCSS';
+
 import style from './customFeed.less';
 
-css.addStyle(style);
+const customFeedCss = new CustomCSS();
+customFeedCss.register(document);
+customFeedCss.addStyle(style);
 
-export let realCustomFeedTittle: string = null;
+export let realCustomFeedTittle: string | null = null;
 
 export function getCurrentCustomFeed() {
     const raw = window.location.href.split(`/m/`);
@@ -12,12 +15,11 @@ export function getCurrentCustomFeed() {
 }
 
 export async function renderCustomFeed(main: Element) {
-    const header = await dynamicElement(() => main.querySelector(`custom-feed-header`));
-    const icoContainer = await dynamicElement(() => header.shadowRoot?.querySelector(`img`)?.parentElement);
+    const headerShadowRoot = await dynamic(() => main.querySelector(`custom-feed-header`)?.shadowRoot);
+    customFeedCss.register(headerShadowRoot);
 
-    css.register(header.shadowRoot);
+    const icoContainer = await dynamic(() => headerShadowRoot?.querySelector(`img`)?.parentElement);
+    icoContainer?.classList.add(`pp_customFeed_masthead_ico`);
 
-    icoContainer.classList.add(`pp_customFeed_masthead_ico`);
-
-    realCustomFeedTittle = header.shadowRoot?.querySelector(`.text-18`)?.textContent;
+    realCustomFeedTittle = headerShadowRoot?.querySelector(`.text-18`)?.textContent ?? null;
 }

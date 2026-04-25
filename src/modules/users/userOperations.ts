@@ -3,9 +3,9 @@ import { notify } from '../toaster';
 import { users } from './users';
 
 class UserOperation {
-    key: string;
-    enable: string;
-    disable: string;
+    key!: string;
+    enable!: string;
+    disable!: string;
     getInput(state: boolean, accountId: string) {}
 
     run(state: boolean, userId: string) {

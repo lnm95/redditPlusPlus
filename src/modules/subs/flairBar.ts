@@ -1,18 +1,21 @@
 import { MAX_LOAD_LAG } from '../../defines';
-import { dynamicElement } from '../../utils/tools';
+import { dynamic } from '../../utils/dynamic';
 import { appendElement } from '../../utils/element';
 import { css } from '../customCSS';
 import { settings } from '../settings/settings';
 import { renderFlair } from './flair';
-import style from './flairBar.less';
 import { flairs, getCurrentSub, subs } from './subs';
 
+import style from './flairBar.less';
+
 css.addStyle(style);
+
+let updateRequested: boolean = false;
 
 export async function renderFlairBar(main: Element) {
     if (settings.FLAIR_BAR.isDisabled()) return;
 
-    let feedContent = await dynamicElement(() => main?.querySelector(`shreddit-title`)?.parentElement, MAX_LOAD_LAG);
+    let feedContent = await dynamic(() => main?.querySelector(`shreddit-title`)?.parentElement, MAX_LOAD_LAG);
 
     // skip render for non feed page
     if (feedContent == null) return;
@@ -29,6 +32,8 @@ export async function renderFlairBar(main: Element) {
     }
 
     const sub = getCurrentSub();
+
+    if (sub == null) return;
 
     // load data
     const subData = await subs.getWithLoader(sub);
@@ -100,16 +105,24 @@ export async function renderFlairBar(main: Element) {
 }
 
 function onMoveOverFlairs(e: MouseEvent, ul: HTMLElement, flairMenu: HTMLElement) {
-    const ulRect = ul.getBoundingClientRect();
-    const menuRect = flairMenu.getBoundingClientRect();
+    if (!updateRequested) {
+        updateRequested = true;
 
-    if (ulRect.width < menuRect.width) {
-        ul.style.left = `25px`;
-        return;
+        requestAnimationFrame(() => {
+            const ulRect = ul.getBoundingClientRect();
+            const menuRect = flairMenu.getBoundingClientRect();
+
+            if (ulRect.width < menuRect.width) {
+                ul.style.left = `25px`;
+                return;
+            }
+
+            let scale = (e.clientX - (menuRect.x + 25)) / (menuRect.right - 25 - (menuRect.x + 25));
+            scale = Math.max(0, Math.min(scale, 1));
+
+            ul.style.left = `${Math.round(25 - (ulRect.width - menuRect.width + 50) * scale)}px`;
+
+            updateRequested = false;
+        });
     }
-
-    let scale = (e.clientX - (menuRect.x + 25)) / (menuRect.right - 25 - (menuRect.x + 25));
-    scale = Math.max(0, Math.min(scale, 1));
-
-    ul.style.left = `${Math.round(25 - (ulRect.width - menuRect.width + 50) * scale)}px`;
 }

@@ -1,14 +1,13 @@
 import { PROFILE_USER_DATA, profiler_comments } from '../../_debug/debug';
 import { Database, DatabaseConfig } from '../../utils/database';
 import { requestAPI } from '../../utils/redditAPI';
-import { pp_log } from '../toaster';
 
 export class UserData {
-    accountId: string;
-    nick: string;
-    created: number;
-    rating: number;
-    banned: boolean;
+    accountId!: string;
+    nick!: string;
+    created!: number;
+    rating!: number;
+    banned!: boolean;
 }
 
 export const users = new Database<UserData>(`USERS`, { isCleanupable: true, validator: userDataValidator, loader: userDataLoader } as DatabaseConfig<UserData>);
@@ -40,7 +39,7 @@ async function userDataLoader(userId: string): Promise<UserData> {
         return userData;
     }
 
-    userData.rating = (result.data?.link_karma ?? 0) + (result.data?.comment_karma ?? 0) / 2;
+    userData.rating = (result.data?.link_karma ?? 0) + (result.data?.comment_karma ?? 0);
     if (result.data?.subreddit?.title) {
         userData.nick = result.data.subreddit.title;
     }
@@ -50,7 +49,7 @@ async function userDataLoader(userId: string): Promise<UserData> {
     return userData;
 }
 
-export function getCurrentUser(): string {
+export function getCurrentUser(): string | null {
     const raw = window.location.href.split(`reddit.com/user/`);
     return raw.length > 1 ? raw[1].split(`/`)[0] : null;
 }

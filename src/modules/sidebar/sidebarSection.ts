@@ -16,15 +16,14 @@ export enum SidebarSection {
 
 export interface SidebarSectionConfig {
     tittle: string;
-    autocollapse: boolean;
     setting: SettingBoolProperty;
     renderer: SidebarSectionRenderer;
 }
 
 export const sections = new Map<SidebarSection, SidebarSectionConfig>([
-    [SidebarSection.Games, { tittle: `Games on reddit`, autocollapse: false, setting: settings.SIDEBAR_GAMES, renderer: new GamesRenderer() }],
-    [SidebarSection.Custom, { tittle: `Custom feeds`, autocollapse: true, setting: settings.SIDEBAR_CUSTOMS, renderer: new CustomRenderer() }],
-    [SidebarSection.Recent, { tittle: `Recent`, autocollapse: true, setting: settings.SIDEBAR_RECENT, renderer: new RecentRenderer() }],
-    [SidebarSection.Subs, { tittle: `Communities`, autocollapse: true, setting: settings.SIDEBAR_SUBS, renderer: new SubsRenderer() }],
-    [SidebarSection.Resources, { tittle: `Resources`, autocollapse: true, setting: settings.SIDEBAR_RESOURCES, renderer: new ResourcesRenderer() }]
+    [SidebarSection.Games, { tittle: `Games on reddit`, setting: settings.SIDEBAR_GAMES, renderer: new GamesRenderer() }],
+    [SidebarSection.Custom, { tittle: `Custom feeds`, setting: settings.SIDEBAR_CUSTOMS, renderer: new CustomRenderer() }],
+    [SidebarSection.Recent, { tittle: `Recent`, setting: settings.SIDEBAR_RECENT, renderer: new RecentRenderer() }],
+    [SidebarSection.Subs, { tittle: `Communities`, setting: settings.SIDEBAR_SUBS, renderer: new SubsRenderer() }],
+    [SidebarSection.Resources, { tittle: `Resources`, setting: settings.SIDEBAR_RESOURCES, renderer: new ResourcesRenderer() }]
 ]);

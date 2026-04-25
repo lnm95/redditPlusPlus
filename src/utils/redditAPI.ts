@@ -2,7 +2,7 @@ import { settings } from '../modules/settings/settings';
 import { notify, pp_log } from '../modules/toaster';
 
 const tooManyRequestStatus: number = 429;
-let tooManyRequestTimeout: number = null;
+let tooManyRequestTimeout: number | null = null;
 
 export async function requestAPI(api: string): Promise<any> {
     try {
@@ -33,7 +33,7 @@ export async function requestAPI(api: string): Promise<any> {
             pp_log(`${api} request failed with code ${response.status} : ${response.statusText}`);
 
             if (response.status == tooManyRequestStatus) {
-                const resetSeconds = parseInt(response.headers.get(`x-ratelimit-reset`));
+                const resetSeconds = parseInt(response.headers.get(`x-ratelimit-reset`)!);
                 tooManyRequestTimeout = Date.now() + resetSeconds * 1000 + 500;
 
                 if (settings.API_WARNINGS.isEnabled()) {

@@ -1,0 +1,38 @@
+.pp_guidline_mainline > .bg-tone-4 {
+    width: var(--line-width) !important;
+}
+
+.pp_guidline_mainline.pp_guidline_colorized > .bg-tone-4 {
+    background-color: ~'hsl(from var(--line-color) h s calc(l + var(--pp-guidline-color-add)))' !important;
+}
+
+.pp_guidline_mainline > .bg-tone-2 {
+    width: var(--line-width) !important;
+}
+
+.pp_guidline_mainline.pp_guidline_colorized > .bg-tone-2 {
+    background-color: var(--line-color) !important;
+}
+
+.pp_guidline_branch {
+    border-bottom-width: var(--line-width) !important;
+}
+
+:is(.pp_guidline_branch):not(.pp_guidline_extraLine) {
+    border-inline-start-width: var(--line-width) !important;
+}
+
+.pp_guidline_branch.pp_guidline_colorized {
+    border-color: ~'hsl(from var(--line-color) h s calc(l + var(--pp-guidline-color-add)))' !important;
+}
+
+.\[\&\>\.threadline\>\*\]\:border-tone-2 > .threadline > .pp_guidline_branch.pp_guidline_colorized {
+    border-color: var(--line-color) !important;
+}
+
+:root {
+    --pp-guidline-color-add: 30;
+}
+:root.theme-dark {
+    --pp-guidline-color-add: -30 !important;
+}

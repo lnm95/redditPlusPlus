@@ -1,6 +1,6 @@
 import { DAY_SECONDS, HOUR_SECONDS } from '../../defines';
-import { buildSvg } from '../../utils/svg';
 import { appendElement } from '../../utils/element';
+import { buildSvg } from '../../utils/svg';
 import { css } from '../customCSS';
 import { settings } from '../settings/settings';
 import { notify } from '../toaster';
@@ -8,10 +8,10 @@ import { BLOCK_OPERATION, FOLLOW_OPERATION } from '../users/userOperations';
 import { USERTAG_CONFIGS, UserTag, UserTagConfig, renderUserTags, tags } from './userTags';
 
 class UserTagButtonContext {
-    userTag: string;
-    userId: string;
-    button: HTMLElement;
-    hint: HTMLElement;
+    userTag!: string;
+    userId!: string;
+    button!: HTMLElement;
+    hint!: HTMLElement;
 }
 
 const BLOCK_COOLDOWN_SECONDS = DAY_SECONDS + 42;
@@ -67,9 +67,11 @@ function refreshUserTagsPanel(tagsPanel: Element, userId: string) {
     const tagsData = tags.get(userId);
     const tagsList = tagsData?.tags ?? [];
 
-    tagsPanel.querySelectorAll(`.pp_tagButton`).forEach((button: HTMLElement) => {
-        const tag = button.getAttribute(`userTag`);
-        const config = USERTAG_CONFIGS.get(tag);
+    tagsPanel.querySelectorAll(`.pp_tagButton`).forEach(_button => {
+        const button = _button as HTMLElement;
+
+        const tag = button.getAttribute(`userTag`)!;
+        const config = USERTAG_CONFIGS.get(tag)!;
 
         button.removeAttribute(`has-cooldown`);
         button.removeAttribute(`has-blocked`);
@@ -122,7 +124,7 @@ function userTagButtonClick(context: UserTagButtonContext) {
     }
 
     if (tagsData.tags.length > 1) {
-        tagsData.tags.sort((firstItem, secondItem) => USERTAG_CONFIGS.get(firstItem).priority - USERTAG_CONFIGS.get(secondItem).priority);
+        tagsData.tags.sort((firstItem, secondItem) => (USERTAG_CONFIGS.get(firstItem)?.priority ?? 0) - (USERTAG_CONFIGS.get(secondItem)?.priority ?? 0));
     }
 
     tags.set(context.userId, tagsData);
@@ -151,16 +153,16 @@ function userTagButtonClick(context: UserTagButtonContext) {
     }
 
     // refresh context menu
-    refreshUserTagsPanel(context.button.parentElement, context.userId);
+    refreshUserTagsPanel(context.button.parentElement!, context.userId);
 }
 
 function userTagButtonEnter(context: UserTagButtonContext) {
-    context.hint.style.display = null;
+    context.hint.style.removeProperty(`display`);
 
     context.hint.dataset.target = context.userTag;
 
     const tagsData = tags.get(context.userId);
-    const config = USERTAG_CONFIGS.get(context.userTag);
+    const config = USERTAG_CONFIGS.get(context.userTag)!;
 
     const isActivated = (tagsData?.tags ?? []).includes(context.userTag);
     context.hint.innerText = isActivated ? config.removeHint : config.addHint;

@@ -1,17 +1,17 @@
 import { appendElement } from '../utils/element';
+import { checkSortCommentsRedirect } from './comments/sortButtons';
+import { css } from './customCSS';
+import { RedirectMode } from './redirectMode';
 import { settings } from './settings/settings';
 
 import style from './redirect.less';
-import { css } from './customCSS';
-import { checkSortCommentsRedirect } from './comments/sortButtons';
-import { RedirectMode } from './redirectMode';
 
 export function checkRedirect(): boolean {
     const mode = settings.REDIRECT_MODE.get() as RedirectMode;
 
     const isOld = window.location.href.includes(`old.reddit.com`);
 
-    let redirect: string = null;
+    let redirect: string | null = null;
     if (isOld) {
         redirect = window.location.href.replace(`old.reddit.com`, `reddit.com`);
     }

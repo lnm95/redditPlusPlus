@@ -1,39 +1,36 @@
-import { buildSvg } from './svg';
+import { css } from '../modules/customCSS';
 import { appendElement } from './element';
+import { buildSvg } from './svg';
 
 import imageCloseButtonSvg from '@resources/imageCloseButton.svg';
 
 import style from './imageViewer.less';
-import { css } from '../modules/customCSS';
 
 css.addStyle(style);
 
 class Mouse {
-    public x: number;
-    public y: number;
+    public x!: number;
+    public y!: number;
 }
 
 class Drag {
-    public enabled: boolean;
-    public start: Mouse;
-    public current: Mouse;
-    public scale: number;
+    public enabled!: boolean;
+    public start!: Mouse;
+    public current!: Mouse;
+    public scale!: number;
 }
 
 class ImageViewer {
     openned: boolean;
-    viewer: HTMLElement;
-    container: HTMLElement;
-    image: HTMLImageElement;
+    viewer!: HTMLElement;
+    container!: HTMLElement;
+    image!: HTMLImageElement;
 
     mouse: Mouse;
     drag: Drag;
 
     constructor() {
         this.openned = false;
-        this.viewer = null;
-        this.container = null;
-        this.image = null;
 
         this.mouse = { x: 0, y: 0 };
         this.drag = {
@@ -53,7 +50,7 @@ class ImageViewer {
         if (this.openned) return;
         this.openned = true;
 
-        if (this.viewer == null) {
+        if (this.viewer == undefined) {
             this.build();
         }
 

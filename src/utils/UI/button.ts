@@ -1,6 +1,7 @@
 import { css } from '../../modules/customCSS';
-import { appendSvg, CURRENT_COLOR, NONE_COLOR, SVGConfig } from '../svg';
 import { appendElement } from '../element';
+import { CURRENT_COLOR, NONE_COLOR, SVGConfig, appendSvg } from '../svg';
+
 import style from './button.less';
 
 css.addStyle(style);
@@ -42,7 +43,7 @@ const VARINAT_CLASSES = new Map<ButtonVariant, string>([
     [ButtonVariant.Bordered, `button-bordered`]
 ]);
 
-export function renderUIButton(container: Element, label: string, onClick: () => void, params?: ButtonParams): HTMLElement {
+export function renderUIButton(container: Element, label: string | null, onClick: () => void, params?: ButtonParams): HTMLElement {
     const { icon, iconConfig, size, variant, fullWidth, borderRadius, containerClasses, buttonClasses } = {
         icon: null,
         iconConfig: { strokeColor: CURRENT_COLOR, fillColor: NONE_COLOR },
@@ -63,8 +64,8 @@ export function renderUIButton(container: Element, label: string, onClick: () =>
         `px-[var(--rem10)]`,
         `items-center`,
         `justify-center`,
-        VARINAT_CLASSES.get(variant),
-        SIZE_CLASSES.get(size),
+        VARINAT_CLASSES.get(variant)!,
+        SIZE_CLASSES.get(size)!,
         ...buttonClasses
     ]);
 

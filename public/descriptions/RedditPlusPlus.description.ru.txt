@@ -1,53 +1,55 @@
 <br>
-<mark>Обновления Reddit могут поломать скрипт, так что не стесняйтесь сообщать о багах.</mark>
+<mark>Ознакомиться с исходным кодом и внести свой вклад можно в <a href="https://github.com/lnm95/redditPlusPlus">GitHub</a></mark>
 
-<mark>Скрипт содержит много бойлерплейт кода т.к. собирается с помощью webpack. Исходный код можно посмотреть на <a href="https://github.com/lnm95/redditPlusPlus">github</a></mark>
+<mark>Обновления Reddit могут поломать скрипт, так что если заметили проблему, то сообщите о ней в отзывах или создайте новый <a href="https://github.com/lnm95/redditPlusPlus/issues">Issue в GitHub</a>.</mark>
+
 <h3>Совместимость</h3>
 <ul>
-    <li>Работа скрипта проверялась только на <b>chrome/firefox</b> с расширением <b>tampermonkey</b>. Работоспособность других конфигураций не гарантируется.</li>
+    <li>Работа скрипта проверялась только на <b>Chrome/Firefox</b> с расширениями <b>Tampermonkey/Violentmonkey</b>. Работоспособность других конфигураций не гарантируется.</li>
     <li>Мобильная версия сайта не поддерживается.</li>
-    <li>Старые версии (old.reddit, new.reddit) не поддерживаются.</li>
+    <li>Старая версия (old.reddit) не поддерживается.</li>
     <li>Community themes не поддерживаются.</li>
 </ul>
 
-<h2>Описание</h2>
+<h2>Функции</h2>
 <ul>
     <h4>Общее</h4>
-    <li><details><summary>Правый сайдбар перемещён, чтобы контент был централизован.</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/scr/page.png alt="common view"></details></li>
-    <li>Увеличение шрифтов в комментариях и постах.</li>
+    <li><details><summary>Правый сайдбар перемещён, чтобы контент был централизован.</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/screenshots/greasyfork/page.png alt="common view"></details></li>
+    <li>Настраиваемый размер текста.</li>
     <li>Фильтрация комментариев и постов по ключевым словам или регулярным выражениям. Посты также можно фильтровать по флеирам.</li>
     <li>Увеличение изображений без перехода на другую вкладку.</li>
-    <li><details><summary>Возможность вынести закладку сохранёного из контекстного меню.</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/scr/bookmarks.png alt="bookmarks"></details></li>
+    <li>Кастомизация меню профиля.</li>
+    <li><details><summary>Возможность вынести закладку сохранёного из контекстного меню.</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/screenshots/greasyfork/bookmarks.png alt="bookmarks"></details></li>
     <li>Автоматическое сворачивание "Awards".</li>
     <li>Редирект ссылок с старой версией на актуальную версию.</li>
 
     <h4>Левый садбар</h4>
-    <li>Сохранение свернутых категорий.</li>
-    <li>Сокрытие категорий (через настройки).</li>
+    <li>Сокрытие секций.</li>
     <li>Фильтр сообществ.</li>
 
     <h4>Сабреддиты</h4>
-    <li><details><summary>Кнопки лент Hot/New/Top</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/scr/feedButtons.png alt="feedButtons"></details></li>
+    <li><details><summary>Кнопки лент Hot/New/Top</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/screenshots/greasyfork/feedButtons.png alt="feedButtons"></details></li>
     <li>Переопределение лент по умолчанию (глобально или для конкретных сабов).</li>
     <li>Флеир бар для быстрой навигации.</li>
 
     <h4>Посты</h4>
     <li>Градиентный фон.</li>
     <li>Выделяемый текст.</li>
-    <li><details><summary>Развёртывание текстовых постов по кнопке.</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/scr/post.png alt="post"></details></li>
+    <li><details><summary>Развёртывание текстовых постов по кнопке.</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/screenshots/greasyfork/post.png alt="post"></details></li>
 
     <h4>Комментарии</h4>
-    <li><details><summary>Кнопки сортировки комментариев, сохранение сортировки комментариев.</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/scr/commentsSort.png alt="commentsSort"></details></li>
+    <li><details><summary>Кнопки сортировки комментариев, сохранение сортировки комментариев.</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/screenshots/greasyfork/commentsSort.png alt="commentsSort"></details></li>
     <li>Информация о пользователе (рейтинг, индикация новых пользователей, замена имени пользователя на никнеймы).</li>
-    <li><details><summary>Теги пользователей (декоративные: liked, warned; функциональные: follow, block).</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/scr/userTags.png alt="userTags"></details></li>
-    <li>Автоматическое сворачивание комментариев от AutoModerator.</li>
-    <li>Развёртывание "more replies".</li>
+    <li><details><summary>Теги пользователей (декоративные: liked, warned; функциональные: follow, block).</summary><img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/screenshots/greasyfork/userTags.png alt="userTags"></details></li>
+    <li>Автоматическое сворачивание закреплённых комментариев.</li>
+    <li>Развёртывание "more replies" автоматически.</li>
+    <li>Цветные линии веток комментариев.</li>
 </ul>
 
 <h2>Настройки</h2>
 <ul>
     <li>Настройки функций скрипта:</li>
-    <img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/scr/settings.png alt="Features setting">
+    <img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/screenshots/greasyfork/settings.png alt="Features setting">
     <li>Настройки флеиров (для каждого сабредита):</li>
-    <img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/scr/flairs.png alt="Flairs settings">
+    <img src=https://raw.githubusercontent.com/lnm95/redditPlusPlus/main/public/screenshots/greasyfork/flairs.png alt="Flairs settings">
 </ul>

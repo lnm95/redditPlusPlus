@@ -1,26 +1,23 @@
-import { pp_log } from "./toaster";
+import { pp_log } from './toaster';
 
-class CustomCSS {
-    rootStylesheet: CSSStyleSheet;
+export class CustomCSS {
     styleSheets: Array<CSSStyleSheet>;
     styleKeys: Set<string>;
     sources: Array<Document | ShadowRoot>;
+    rulesStyleSheet!: CSSStyleSheet;
 
     constructor() {
-        this.rootStylesheet = new CSSStyleSheet();
-        this.styleSheets = [this.rootStylesheet];
+        this.styleSheets = [];
         this.styleKeys = new Set<string>();
         this.sources = [];
-
-        this.register(document);
     }
 
-    register(source: Document | ShadowRoot) {
-        if(source == null) {
-            pp_log("Trying register an invalid source in CustomCSS");
+    register(source: Document | ShadowRoot | null | undefined) {
+        if (!source) {
+            pp_log('Trying register an invalid source in CustomCSS');
             return;
         }
-        
+
         this.sources.push(source);
 
         for (const styleSheet of this.styleSheets) {
@@ -28,7 +25,7 @@ class CustomCSS {
         }
     }
 
-    addStyle(style: string, key: string = null) {
+    addStyle(style: string, key: string | null = null) {
         if (key != null) {
             if (this.styleKeys.has(key)) return;
 
@@ -46,13 +43,25 @@ class CustomCSS {
     }
 
     addRule(rule: string) {
-        this.rootStylesheet.insertRule(rule, 0);
+        if (!this.rulesStyleSheet) {
+            this.rulesStyleSheet = new CSSStyleSheet();
+
+            this.styleSheets.push(this.rulesStyleSheet);
+
+            for (const source of this.sources) {
+                source.adoptedStyleSheets.push(this.rulesStyleSheet);
+            }
+        }
+
+        this.rulesStyleSheet.insertRule(rule, 0);
     }
 
-    addVar(name: string, lightValue: string, darkValue: string = null) {
+    addVar(name: string, lightValue: string, darkValue: string | null = null) {
         this.addRule(`:root.theme-light { ${name}: ${lightValue} !important;}`);
         this.addRule(`:root { ${name}: ${darkValue ?? lightValue};}`);
     }
 }
 
 export const css = new CustomCSS();
+
+css.register(document);

@@ -1,20 +1,21 @@
 import { MAX_LOAD_LAG } from '../../defines';
-import { buildSvg } from '../../utils/svg';
-import { checkIsRendered, dynamicElement } from '../../utils/tools';
+import { dynamic } from '../../utils/dynamic';
 import { appendElement } from '../../utils/element';
+import { buildSvg } from '../../utils/svg';
+import { checkIsRendered } from '../../utils/tools';
 import { css } from '../customCSS';
+import { PrefsKey, prefs } from '../settings/prefs';
 import { settings } from '../settings/settings';
 import { notify } from '../toaster';
-import style from './sortButtons.less';
-
-import bestSvg from '@resources/feedButtons/feedButtonBest.svg';
-import newSvg from '@resources/feedButtons/feedButtonNew.svg';
-import topSvg from '@resources/feedButtons/feedButtonTop.svg';
 
 import controversialSvg from '@resources/comments/sortButtons/controversial.svg';
 import oldSvg from '@resources/comments/sortButtons/old.svg';
 import qaSvg from '@resources/comments/sortButtons/qa.svg';
-import { PrefsKey, prefs } from '../settings/prefs';
+import bestSvg from '@resources/feedButtons/feedButtonBest.svg';
+import newSvg from '@resources/feedButtons/feedButtonNew.svg';
+import topSvg from '@resources/feedButtons/feedButtonTop.svg';
+
+import style from './sortButtons.less';
 
 class CommentSort {
     static BEST: string = `Best`;
@@ -25,14 +26,10 @@ class CommentSort {
     static QA: string = `QA`;
 }
 
-interface CommentSortCheck {
-    (href: string): boolean;
-}
-
 class CommentSortConfig {
-    icon: string;
-    href: string;
-    isCurrent?: CommentSortCheck;
+    icon!: string;
+    href!: string;
+    isCurrent!: (href: string) => boolean;
     isHidden?: boolean;
     overrideName?: string;
 }
@@ -113,7 +110,7 @@ function getCurrentSort(): string {
 
 export function checkSortCommentsRedirect(): boolean {
     if (settings.COMMENTS_REMEMBER_SORT.isEnabled() && window.location.href.includes(`/comments/`) && !window.location.href.includes(`/user/`)) {
-        const config = COMMENTS_SORT_CONFIGS.get(getCurrentSort());
+        const config = COMMENTS_SORT_CONFIGS.get(getCurrentSort())!;
 
         if (config.isCurrent(window.location.href)) {
             return false;
@@ -142,19 +139,17 @@ export async function renderCommentsSortButtons(container: Element) {
 
     sortButtonsRendered = false;
 
-    const sortContainer = await dynamicElement(() => container.querySelector(`comment-body-header`)?.querySelector(`.pdp-comments-tree-sort-container`), MAX_LOAD_LAG);
+    const sortContainer = await dynamic(() => container.querySelector(`comment-body-header`)?.querySelector(`.pdp-comments-tree-sort-container`), MAX_LOAD_LAG);
 
-    if (sortContainer == null) return;
-
-    if (checkIsRendered(sortContainer)) {
+    if (!sortContainer || checkIsRendered(sortContainer)) {
         return;
     }
 
     renderSearchComments(container);
 
-    sortContainer.querySelector(`shreddit-sort-dropdown`).classList.add(`pp_sortDropdown_hidden`);
+    sortContainer.querySelector(`shreddit-sort-dropdown`)!.classList.add(`pp_sortDropdown_hidden`);
 
-    let currentSort: string = undefined;
+    let currentSort: string = CommentSort.BEST;
 
     if (settings.COMMENTS_REMEMBER_SORT.isEnabled()) {
         currentSort = getCurrentSort();
@@ -171,7 +166,7 @@ export async function renderCommentsSortButtons(container: Element) {
     });
 
     function renderButton(sort: string, config: CommentSortConfig) {
-        const button = appendElement(sortContainer, `div`, `pp_sortButton`);
+        const button = appendElement(sortContainer!, `div`, `pp_sortButton`);
         button.classList.toggle(`pp_sortButton_active`, sort == currentSort);
         button.setAttribute(`commentSort`, sort);
 
@@ -190,7 +185,7 @@ export async function renderCommentsSortButtons(container: Element) {
 }
 
 async function renderSearchComments(container: Element) {
-    const searchSpan = await dynamicElement(() => container.querySelector(`comment-body-header`)?.querySelector(`pdp-comment-search-input`)?.shadowRoot?.querySelector(`.pr-xs`), MAX_LOAD_LAG);
+    const searchSpan = await dynamic(() => container.querySelector(`comment-body-header`)?.querySelector(`pdp-comment-search-input`)?.shadowRoot?.querySelector(`.pr-xs`), MAX_LOAD_LAG);
 
     if (searchSpan == null) return;
 
@@ -213,9 +208,11 @@ export async function switchSort(sort: string) {
         return;
     }
 
-    const sortContainer = await dynamicElement(() => document.body.querySelector(`comment-body-header`)?.querySelector(`.pdp-comments-tree-sort-container`), MAX_LOAD_LAG);
+    const sortContainer = await dynamic(() => document.body.querySelector(`comment-body-header`)?.querySelector(`.pdp-comments-tree-sort-container`), MAX_LOAD_LAG);
 
-    const config = COMMENTS_SORT_CONFIGS.get(sort);
+    if (!sortContainer) return;
+
+    const config = COMMENTS_SORT_CONFIGS.get(sort)!;
 
     const newButton = sortContainer.querySelector(`data[value="${config.href.toUpperCase()}"]`) as HTMLElement;
     newButton.click();
@@ -230,7 +227,7 @@ export async function switchSort(sort: string) {
 
             // refresh buttons
             COMMENTS_SORT_CONFIGS.forEach((refreshConfig, refreshSort) => {
-                const button = sortContainer.querySelector(`div[commentSort="${refreshSort}"]`);
+                const button = sortContainer.querySelector(`div[commentSort="${refreshSort}"]`)!;
                 button.classList.toggle(`pp_sortButton_active`, refreshSort == sort);
             });
         }

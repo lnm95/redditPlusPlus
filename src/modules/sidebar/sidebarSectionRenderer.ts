@@ -2,17 +2,17 @@ import { checkIsRendered } from '../../utils/tools';
 import { SettingBoolProperty } from '../settings/settings';
 
 export class SidebarSectionElements {
-    public container: Element;
-    public button: Element;
-    public bottomLine: Element;
+    public container!: HTMLElement;
+    public button!: HTMLElement;
+    public bottomLine!: HTMLElement | null;
 }
 
 export abstract class SidebarSectionRenderer {
-    abstract FindContainer(sidebar: HTMLElement, element: HTMLElement): HTMLElement;
+    abstract FindContainer(sidebar: HTMLElement, element: HTMLElement): HTMLElement | null;
 
     abstract GetSectionElements(container: HTMLElement): Promise<SidebarSectionElements>;
 
-    async Render(container: HTMLElement, autocollapse: boolean, setting: SettingBoolProperty) {
+    async Render(container: HTMLElement, setting: SettingBoolProperty) {
         if (checkIsRendered(container)) return;
 
         container.classList.add(`pp_sidebar_loadingSection`);
@@ -21,36 +21,13 @@ export abstract class SidebarSectionRenderer {
 
         container.classList.remove(`pp_sidebar_loadingSection`);
 
-        if (setting.isEnabled()) {
-            if (autocollapse) {
-                const settingCollapsed = setting.getChild(`Collapsed`, false);
-
-                const details = section.container.querySelector(`details`);
-
-                if (settingCollapsed.isEnabled()) {
-                    section.container.toggleAttribute(`open`, false);
-                    details.classList.add(`pp_sidebar_collapsedSection`);
-                }
-
-                section.button.addEventListener(`click`, (e: MouseEvent) => {
-                    const button = e.currentTarget as Element;
-                    // hack because event may be called before aria-expanded was changed
-                    setTimeout(() => {
-                        const isCollapsed = button.getAttribute(`aria-expanded`) === 'false';
-
-                        settingCollapsed.switch(isCollapsed);
-                    }, 10);
-
-                    details.classList.toggle(`pp_sidebar_collapsedSection`, false);
-                });
-            }
-        } else {
+        if (setting.isDisabled()) {
             section.container.remove();
             section.bottomLine?.remove();
         }
     }
 
-    FindBottomLine(container: Element): Element {
+    FindBottomLine(container: Element): Element | null {
         let bottomLine = container.nextElementSibling;
 
         while (bottomLine != null && !bottomLine.matches(`hr`)) {

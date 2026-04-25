@@ -1,32 +1,16 @@
 import { profiler } from '../_debug/debug';
 import { DAY_SECONDS, HOUR_SECONDS, secondsToTime } from '../defines';
+import { pp_log } from '../modules/toaster';
 
 export interface ICleanupableData {
     timestamp: number;
 }
 
-// Return true when data need to refresh
-interface DataValidator<T> {
-    (originData: T): boolean;
-}
-
-interface DataLoader<T> {
-    (id: string): Promise<T>;
-}
-
 export class DatabaseConfig<T> {
     isCleanupable?: boolean;
-    validator?: DataValidator<T>;
-    loader?: DataLoader<T>;
+    validator?: (originData: T) => boolean;
+    loader?: (id: string) => Promise<T>;
     factory?: Function;
-}
-
-interface WithLoaderResult {
-    (isLoaded: boolean): void;
-}
-
-interface DatabaseIterator {
-    (key: string, value: any): void;
 }
 
 export class DatabaseFactory {
@@ -45,11 +29,12 @@ export class Database<T> {
     isCleanupable: boolean;
     factory: Function;
 
-    validator: DataValidator<T>;
-    loader: DataLoader<T>;
+    // Validate data, return true if data requires update
+    validator: ((originData: T) => boolean) | null;
+    loader: ((id: string) => Promise<T>) | null;
 
     data: { [id: string]: T };
-    refreshed: number;
+    refreshed: number = 0;
 
     constructor(name: string, config: DatabaseConfig<T> = new DatabaseConfig<T>()) {
         this.databaseKey = name + `_DATABASE`;
@@ -59,7 +44,7 @@ export class Database<T> {
         this.validator = config?.validator ?? null;
         this.loader = config?.loader ?? null;
         this.factory = config?.factory ?? DatabaseFactory.EmptyObject;
-        this.refresh();
+        this.data = this.refreshData();
 
         // cleanup database
         if (this.isCleanupable && GM_getValue(this.cleanupKey, 0) < Date.now()) {
@@ -75,65 +60,76 @@ export class Database<T> {
         }
     }
 
-    refresh() {
+    private refreshData(): { [id: string]: T } {
         const lastRefreshed = GM_getValue(this.refreshKey, 0);
-        if (this.data == undefined || this.refreshed < lastRefreshed) {
+        if (!this.data || this.refreshed < lastRefreshed) {
             this.refreshed = lastRefreshed;
-            this.data = GM_getValue(this.databaseKey, {});
+            const data = GM_getValue(this.databaseKey, {});
 
             if (DEBUG) {
-                profiler.databases.set(this.databaseKey.replace(`_DATABASE`, ``), Object.entries(this.data).length);
+                profiler.databases.set(this.databaseKey.replace(`_DATABASE`, ``), Object.entries(data).length);
             }
+
+            return data;
         }
+
+        return this.data;
     }
 
     get(id: string): T {
-        this.refresh();
+        this.data = this.refreshData();
 
         const raw = this.data[id];
 
         return (raw == undefined ? this.factory(id) : raw) as T;
     }
 
-    forEach(iterator: DatabaseIterator): void {
-        this.refresh();
+    forEach(iterator: (key: string, value: any) => void): void {
+        this.data = this.refreshData();
 
         Object.keys(this.data).forEach(key => {
             iterator(key, this.data[key]);
         });
     }
 
-    async getWithLoader(id: string, onLoaded: WithLoaderResult = null): Promise<T> {
-        this.refresh();
+    async getWithLoader(id: string, onLoaded: ((isLoaded: boolean) => void) | null = null): Promise<T> {
+        this.data = this.refreshData();
 
         const raw = this.data[id];
         let data = (raw == undefined ? this.factory(id) : raw) as T;
         let isLoaded = false;
 
-        if (this.validator(data)) {
-            data = await this.loader(id);
+        if (DEBUG && (!this.loader || !this.validator)) {
+            pp_log(`Trying call getWithLoader() in an invalid database. The database must define Loader and Validator.`);
+            return data as T;
+        }
+
+        if (this.validator!(data) ?? true) {
+            data = await this.loader!(id);
 
             this.set(id, data);
 
             isLoaded = true;
         }
 
-        if (onLoaded != null) {
-            onLoaded(isLoaded);
-        }
+        onLoaded?.(isLoaded);
 
         return data as T;
     }
 
-    set(id: string, value: T) {
-        this.refresh();
+    set(id: string, value: T | null) {
+        this.data = this.refreshData();
 
-        if (this.isCleanupable) {
-            (value as ICleanupableData).timestamp = Date.now();
+        if (value == null) {
+            delete this.data[id];
+        } else {
+            if (this.isCleanupable) {
+                (value as unknown as ICleanupableData).timestamp = Date.now();
+            }
+
+            this.data[id] = value;
+            this.refreshed = Date.now();
         }
-
-        this.data[id] = value;
-        this.refreshed = Date.now();
 
         GM_setValue(this.databaseKey, this.data);
         GM_setValue(this.refreshKey, this.refreshed);

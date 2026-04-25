@@ -1,10 +1,11 @@
 import { css } from '../../modules/customCSS';
-import { buildSvg } from '../svg';
+import { notify } from '../../modules/toaster';
 import { appendElement } from '../element';
+import { buildSvg } from '../svg';
+
 import arrowSvg from '@resources/settingsArrow.svg';
 
 import style from './options.less';
-import { notify } from '../../modules/toaster';
 
 css.addStyle(style);
 

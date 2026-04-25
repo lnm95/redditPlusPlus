@@ -1,11 +1,11 @@
+import { renderUIToggle } from '../../utils/UI/toggle';
 import { ChangesObserver } from '../../utils/changesObserver';
 import { appendElement } from '../../utils/element';
-import { PascalCase } from '../../utils/tools';
-import { renderUIToggle } from '../../utils/UI/toggle';
+import { pascalCase } from '../../utils/tools';
 import { Window } from '../../utils/window';
 import { css } from '../customCSS';
 import { settings } from '../settings/settings';
-import { navigations, SidebarNavigation } from './sidebarNavigation';
+import { SidebarNavigation, navigations } from './sidebarNavigation';
 import { sections } from './sidebarSection';
 
 import style from './sidebarSettingsWindow.less';
@@ -85,7 +85,7 @@ function renderSettingsWindow(win: Window, context: any) {
 
         const controlArea = appendElement(buttonContainer, `div`, `pp_window_controlArea`);
 
-        const navSetting = settings.SIDEBAR_NAV_BUTTON.getChild(PascalCase(navigaton), true);
+        const navSetting = settings.SIDEBAR_NAV_BUTTON.getChild(pascalCase(navigaton), true);
 
         const changesSource = changes.CreateSource(navSetting.isEnabled());
 

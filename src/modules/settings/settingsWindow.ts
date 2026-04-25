@@ -1,25 +1,27 @@
-import arrowSvg from '@resources/settingsArrow.svg';
-import { appendElement } from '../../utils/element';
-import { buildSvg } from '../../utils/svg';
 import { InputParams, renderUIInput } from '../../utils/UI/input';
 import { renderUIOptions } from '../../utils/UI/options';
 import { renderUIToggle } from '../../utils/UI/toggle';
+import { ChangesObserver } from '../../utils/changesObserver';
+import { appendElement } from '../../utils/element';
+import { buildSvg } from '../../utils/svg';
 import { Window } from '../../utils/window';
 import { css } from '../customCSS';
 import { filtersWindow } from '../filters/filtersWindow';
-import { SettingBoolProperty, SettingDropdownProperty, settings, SettingStringProperty } from './settings';
-import style from './settingsWindow.less';
-import { ChangesObserver } from '../../utils/changesObserver';
 import { profileMenuWindow } from '../profileMenu/profileMenuWindow';
+import { SettingBoolProperty, SettingDropdownProperty, SettingStringProperty, settings } from './settings';
+
+import arrowSvg from '@resources/settingsArrow.svg';
+
+import style from './settingsWindow.less';
 
 css.addStyle(style);
 
 export const settingsWindow: Window = new Window('Reddit++ Settings', renderSettingsWindow, closeSettingsWindow);
 
 class SettingBadge {
-    text: string;
-    color: string;
-    link: string;
+    text!: string;
+    color!: string;
+    link!: string;
 
     static APIRequests: SettingBadge = { text: `API requests`, color: `var(--shreddit-color-wordmark)`, link: `https://github.com/lnm95/redditPlusPlus/blob/main/redditAPI.md` } as SettingBadge;
     static New: SettingBadge = { text: `New`, color: `#2C96C4`, link: `https://greasyfork.org/en/scripts/490046-reddit/versions` } as SettingBadge;
@@ -28,7 +30,7 @@ class SettingBadge {
 let changes: ChangesObserver = new ChangesObserver();
 
 function renderSettingsWindow(win: Window, context: any) {
-    // hack to close user menu
+    // hack to close profile menu
     document.body.click();
 
     changes.Reset();
@@ -38,66 +40,71 @@ function renderSettingsWindow(win: Window, context: any) {
 
     const elements = appendElement(scroll, `div`, `pp_window_elementsContainer`);
 
-    addSettingString(`App name`, `Without authorization API requests will be limited by 100 per 10 minutes`, `Unauthorized`, settings.API_APP, [SettingBadge.APIRequests]);
-    addSettingToggle(`Show the requests limit warnings`, null, settings.API_WARNINGS, [SettingBadge.APIRequests]);
+    addSettingString(`App name`, `Unauthenticated API requests are limited to 100 requests per 10 minutes`, settings.API_APP, [SettingBadge.APIRequests]);
+    addSettingToggle(`Show request limit warnings`, null, settings.API_WARNINGS, [SettingBadge.APIRequests]);
 
-    addSubtittle(`Common`);
-    addSettingToggle(`Wide mode`, `Make focus on the content by replacing the right sidebar to screen border`, settings.WIDE_MODE);
-    addSettingString(`Content width`, `Width of the feed and comments in pixels`, settings.CONTENT_WIDTH.defaultValue, settings.CONTENT_WIDTH);
-    addSettingString(`Content offset`, `Offset of the feed and comments in pixels`, settings.CONTENT_OFFSET.defaultValue, settings.CONTENT_OFFSET);
-    addSettingToggle(`Custom fonts`, `Adjust font sizes for better readability`, settings.BIGGER_FONTS);
-    addSettingString(`Content font size`, `Comment and post text. Default (reddit): 14px`, settings.BIGGER_FONTS_CONTENT_SIZE.defaultValue, settings.BIGGER_FONTS_CONTENT_SIZE);
-    addSettingString(`UI element font size`, `Headings, ratings, and buttons next to content. Default (reddit): 12px`, settings.BIGGER_FONTS_OTHER_SIZE.defaultValue, settings.BIGGER_FONTS_OTHER_SIZE);
-    addGotoButton(`Profile menu`, `Hide and replace profile menu elements`, profileMenuWindow, [SettingBadge.New]);
-    addSettingToggle(`Scroll to top button`, null, settings.SCROLL_TO_TOP);
-    addSettingToggle(`Image viewer`, `Open (zoom) images instead default redirect behaviour`, settings.IMAGE_VIEWER);
-    addSettingOptions(`Redirect`, `Special behaviour when you visit old.reddit pages`, settings.REDIRECT_MODE);
-    addSettingOptions(`Awards`, `Collapse the award's button for none upvoted posts and comments or remove completely`, settings.COLLAPSE_AWARDS);
+    addSubtitle(`Page view`);
+    addSettingToggle(`Wide mode`, `Focus on content by moving the right sidebar to the screen edge`, settings.WIDE_MODE);
+    addSettingString(`Content width`, `Width of the feed and comments in pixels`, settings.CONTENT_WIDTH);
+    addSettingString(`Content offset`, `Horizontal offset of the feed and comments in pixels`, settings.CONTENT_OFFSET);
     addSettingToggle(`Remove left sidebar`, null, settings.REMOVE_LEFT_SIDEBAR);
     addSettingToggle(`Remove right sidebar`, null, settings.REMOVE_RIGHT_SIDEBAR);
-    //addSettingToggle(`Better notify popup`, `Make notify popup a bit larger and remove useless button`, settings.NOTIFY_POPUP); //deprecated
 
+    addSubtitle(`Common enhancements`);
+    addGotoButton(`Profile menu`, `Hide and replace profile menu elements`, profileMenuWindow);
+    addSettingToggle(`Image viewer`, `Zoom images instead of default redirect behaviour`, settings.IMAGE_VIEWER);
+    addSettingToggle(`Scroll to top button`, null, settings.SCROLL_TO_TOP);
+    addSettingString(`Content font size`, `Text size for posts and comments (default: 14px)`, settings.BIGGER_FONTS_CONTENT_SIZE);
+    addSettingString(`UI font size`, `Text size for UI elements (headings, buttons, etc.) (default: 12px)`, settings.BIGGER_FONTS_OTHER_SIZE);
+    addSettingOptions(`Awards`, `Collapse awards for non-upvoted posts and comments or remove them completely`, settings.COLLAPSE_AWARDS);
+    addSettingOptions(`Redirect`, `Behavior when visiting old.reddit pages`, settings.REDIRECT_MODE);
 
-    addSubtittle(`Content`);
-    addGotoButton(`Filters`, `Hide posts and comments by regular expressions`, filtersWindow);
-    addSettingToggle(`Hidden posts history`, `Allows to show latest hidden posts`, settings.SHOW_FILTERED_CONTENT);
-    addSettingString(`Hidden posts history limit`, `Max count of posts in history window`, settings.FILTERED_CONTENT_MAX_COUNT.defaultValue, settings.FILTERED_CONTENT_MAX_COUNT);
+    addSubtitle(`Content`);
+    addGotoButton(`Filters`, `Hide posts and comments using regular expressions`, filtersWindow);
+    addSettingToggle(`Hidden posts history`, `Show recently hidden posts`, settings.SHOW_FILTERED_CONTENT);
+    addSettingString(`History limit`, `Maximum number of posts in the history`, settings.FILTERED_CONTENT_MAX_COUNT);
 
-    addSubtittle(`Users`);
-    addSettingToggle(`User info`, `Show user's karma and "new user" mark`, settings.USER_INFO, [SettingBadge.APIRequests]);
-    addSettingOptions(`Nickname mode`, `Allows showing a nickname instead of the profile name`, settings.USERNAME_MODE, [SettingBadge.APIRequests, SettingBadge.New]);
-    addSettingString(`Nickname max symbols`, `Make nicknames with too many symbols shorter`, settings.USERNAME_MAX_SIMBOLS.defaultValue, settings.USERNAME_MAX_SIMBOLS);
-    addSettingToggle(`User tags`, `Enable custom tags (sets via comment's context menu)`, settings.USER_TAGS);
-    addSettingToggle(`Search shortcuts`, `Add search buttons to the user profile page`, settings.USER_SEARCH_SHORTCUTS);
+    addSubtitle(`Users`);
+    addSettingToggle(`User info`, `Show user karma and a "new user" badge`, settings.USER_INFO, [SettingBadge.APIRequests]);
+    addSettingOptions(`Nickname mode`, `Display nickname instead of the profile name`, settings.USERNAME_MODE, [SettingBadge.APIRequests]);
+    addSettingString(`Nickname max symbols`, `Shorten nicknames that exceed this lengt`, settings.USERNAME_MAX_SIMBOLS);
+    addSettingToggle(`User tags`, `Enable custom user tags (sets via the comment context menu)`, settings.USER_TAGS);
+    //addSettingToggle(`Search shortcuts`, `Add search buttons to the user profile page`, settings.USER_SEARCH_SHORTCUTS); //legacy
 
-    addSubtittle(`Feed`);
-    addSettingToggle(`Feed buttons`, `Unwrap feed sorting buttons`, settings.FEED_BUTTONS);
-    addSettingToggle(`Flairs bar`, `Display available flairs to faster navigation. Specific flairs may be hidden via subreddit's flairs settings`, settings.FLAIR_BAR);
-    addSettingToggle(`Show flairs always`, `Show flairs for posts in specific feeds (Home, Popular and All) and filter posts by flairs.`, settings.FLAIR_SHOW_ALWAYS, [SettingBadge.APIRequests]);
+    addSubtitle(`Feed page`);
+    addSettingToggle(`Feed buttons`, `Unwrap sorting buttons`, settings.FEED_BUTTONS);
+    addSettingToggle(`Flairs bar`, `Display available flairs for faster navigation (can be customized per subreddit)`, settings.FLAIR_BAR);
     addSettingToggle(`Collapse community highlights`, null, settings.COLLAPSE_HIGHLIGHTS);
-    addSettingToggle(`Selectable text`, `Make a text selectable when posts viewed in feed`, settings.SELECTABLE_POSTS);
-    addSettingToggle(`Unwrap button`, `Show the unwrap button for long-text posts in feed`, settings.UNWRAP_POST);
-    addSettingToggle(`Soft background`, `Make the background of posts with soft gradient color`, settings.BACKPLATES);
-    addSettingToggle(`Show post's author`, `Relates to Home, Popular and All feeds`, settings.SHOW_POST_AUTHOR);
-    addSettingOptions(`Save-post bookmarks`, `Show the save bookmark next to the vote buttons`, settings.SAVED_BOOKMARK_POSTS);
-    addSettingToggle(`Hide community recommendations`, `Hides the related communities section in feed`, settings.HIDE_COMMUNITY_RECOMMENDATIONS);
+    addSettingToggle(`Hide community recommendations`, `Hides the related communities section in the feed`, settings.HIDE_COMMUNITY_RECOMMENDATIONS);
 
-    addSubtittle(`Comments`);
-    addSettingToggle(`Sort buttons`, `Unwrap the comment's sort buttons`, settings.COMMENTS_SORT_BUTTONS);
-    addSettingToggle(`Remember sort`, `Remember latest used comment's sort`, settings.COMMENTS_REMEMBER_SORT);
+    addSubtitle(`Posts`);
+    addSettingToggle(`Soft background`, `Apply a soft gradient background to hovered posts`, settings.BACKPLATES);
+    addSettingToggle(`Show post's author`, `Applies to Home and Popular feeds`, settings.SHOW_POST_AUTHOR);
+    addSettingToggle(`Show flairs always`, `Always display flairs in specific feeds (Home, Popular) and enable flair-based filtering`, settings.FLAIR_SHOW_ALWAYS, [SettingBadge.APIRequests]);
+    addSettingToggle(`Selectable text`, `Allow text selection in posts within the feed`, settings.SELECTABLE_POSTS);
+    addSettingToggle(`Unwrap button`, `Show an expand button for long-text posts`, settings.UNWRAP_POST);
+    addSettingOptions(`Save bookmarks`, `Show the save button next to vote buttons`, settings.SAVED_BOOKMARK_POSTS);
+
+    addSubtitle(`Comments page`);
+    addSettingToggle(`Sort buttons`, `Unwrap comment sort buttons`, settings.COMMENTS_SORT_BUTTONS);
+    addSettingToggle(`Remember sort`, `Remember the last used comment sort`, settings.COMMENTS_REMEMBER_SORT);
+    addSettingToggle(`Hide related posts`, `Hides the related posts section`, settings.HIDE_RELATED_POSTS);
+
+    addSubtitle(`Comments`);
     addSettingToggle(`Unwrap "more replies"`, `Automatically unwrap more replies when it becomes visible`, settings.UNWRAP_MORE_REPLIES);
-    addSettingToggle(`Hide share button`, `Replace the share button to comment's context menu`, settings.HIDE_SHARE);
-    addSettingToggle(`Ghosted comments`, `Make comments ghosted when comment's rating below zero`, settings.GHOSTED_COMMENTS);
-    addSettingToggle(`Collapse unwanted`, `Automatic collapse all automoderator and mod's pinned comments`, settings.COLLAPSE_AUTOMODERATOR);
-    addSettingOptions(`Save-comment bookmarks`, `Show the save bookmark next to the vote buttons`, settings.SAVED_BOOKMARK_COMMENTS);
-    addSettingToggle(`Hide related posts`, null, settings.HIDE_RELATED_POSTS);
+    addSettingToggle(`Hide share button`, `Move the share button to the comment context menu`, settings.HIDE_SHARE);
+    addSettingToggle(`Ghosted comments`, `Fade comments with a negative score`, settings.GHOSTED_COMMENTS);
+    addSettingOptions(`Guidelines color`, null, settings.GUIDELINES_COLOR, [SettingBadge.New]);
+    addSettingToggle(`Thick guidelines`, `Doubling the thickness of comment guidelines`, settings.GUIDELINES_THICK, [SettingBadge.New]);
+    addSettingToggle(`Collapse pinned`, `Automatically collapse pinned comments (AutoModerator and moderators)`, settings.COLLAPSE_AUTOMODERATOR);
+    addSettingOptions(`Save bookmarks`, `Show the save button next to vote buttons`, settings.SAVED_BOOKMARK_COMMENTS);
 
-    function addSubtittle(text: string) {
+    function addSubtitle(text: string) {
         const subtittle = appendElement(elements, `h3`, `pp_settings_subtittle`);
         subtittle.textContent = text;
     }
 
-    function renderBaseProperty(tittleText: string, descriptionText: string, badges: Array<SettingBadge> = []) {
+    function renderBaseProperty(tittleText: string, descriptionText: string | null, badges: Array<SettingBadge> = []) {
         const propertyArea = appendElement(elements, `div`, `pp_window_element`);
 
         const header = appendElement(propertyArea, `div`, `pp_settings_propertyHeader`);
@@ -136,14 +143,14 @@ function renderSettingsWindow(win: Window, context: any) {
         const gotoButtonSvg = buildSvg(arrowSvg, 20, 20);
         gotoButton.append(gotoButtonSvg);
 
-        buttonContainer.parentElement.style.cursor = `pointer`;
+        buttonContainer.parentElement!.style.cursor = `pointer`;
 
-        buttonContainer.parentElement.addEventListener(`click`, () => {
+        buttonContainer.parentElement!.addEventListener(`click`, () => {
             window.open();
         });
     }
 
-    function addSettingToggle(tittleText: string, descriptionText: string, setting: SettingBoolProperty, badges: Array<SettingBadge> = []) {
+    function addSettingToggle(tittleText: string, descriptionText: string | null, setting: SettingBoolProperty, badges: Array<SettingBadge> = []) {
         const buttonContainer = renderBaseProperty(tittleText, descriptionText, badges);
 
         const controlArea = appendElement(buttonContainer, `div`, `pp_window_controlArea`);
@@ -156,7 +163,7 @@ function renderSettingsWindow(win: Window, context: any) {
         });
     }
 
-    function addSettingOptions(tittleText: string, descriptionText: string, setting: SettingDropdownProperty, badges: Array<SettingBadge> = []) {
+    function addSettingOptions(tittleText: string, descriptionText: string | null, setting: SettingDropdownProperty, badges: Array<SettingBadge> = []) {
         const buttonContainer = renderBaseProperty(tittleText, descriptionText, badges);
 
         const controlArea = appendElement(buttonContainer, `div`, `pp_window_controlArea`);
@@ -169,7 +176,7 @@ function renderSettingsWindow(win: Window, context: any) {
         });
     }
 
-    function addSettingString(tittleText: string, descriptionText: string, placeholderText: string, setting: SettingStringProperty, badges: Array<SettingBadge> = []) {
+    function addSettingString(tittleText: string, descriptionText: string | null, setting: SettingStringProperty, badges: Array<SettingBadge> = []) {
         const inputContainer = renderBaseProperty(tittleText, descriptionText, badges);
 
         const inputArea = appendElement(inputContainer, `div`, `pp_window_controlArea`);
@@ -178,7 +185,7 @@ function renderSettingsWindow(win: Window, context: any) {
 
         renderUIInput(
             inputArea,
-            placeholderText,
+            setting.defaultValue,
             setting.get(),
             value => {
                 setting.set(value);

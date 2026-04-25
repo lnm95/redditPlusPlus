@@ -7,9 +7,9 @@ const DATABASE_VERSION: string = `DATABASE_VERSION`;
 export class Migration {
     version: string;
     action: Function;
-    previous: Migration;
+    previous?: Migration;
 
-    constructor(version: string, action: Function, previous: Migration = null) {
+    constructor(version: string, action: Function, previous?: Migration) {
         this.version = version;
         this.action = action;
         this.previous = previous;

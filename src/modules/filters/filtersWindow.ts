@@ -1,18 +1,19 @@
-import { appendElement } from '../../utils/element';
-import { Window } from '../../utils/window';
-import { css } from '../customCSS';
-import { prefs, PrefsKey } from '../settings/prefs';
-import { FilterAction, filterActions, FilterData } from './filters';
-import dragAnchor from '@resources/dragAnchor.svg';
-import deleteButtonSVG from '@resources/deleteButton.svg';
-import conetnFilterSVG from '@resources/contentFilter.svg';
-
-import style from './filtersWindow.less';
-import { buildSvg, CURRENT_COLOR, NONE_COLOR } from '../../utils/svg';
+import { ButtonSize, ButtonVariant, renderUIButton } from '../../utils/UI/button';
+import { InputParams, renderUIInput } from '../../utils/UI/input';
 import { renderUIOptions } from '../../utils/UI/options';
 import { renderUIToggle } from '../../utils/UI/toggle';
-import { InputParams, renderUIInput } from '../../utils/UI/input';
-import { ButtonSize, ButtonVariant, renderUIButton } from '../../utils/UI/button';
+import { appendElement } from '../../utils/element';
+import { CURRENT_COLOR, NONE_COLOR, buildSvg } from '../../utils/svg';
+import { Window } from '../../utils/window';
+import { css } from '../customCSS';
+import { PrefsKey, prefs } from '../settings/prefs';
+import { FilterAction, FilterData, filterActions } from './filters';
+
+import conetnFilterSVG from '@resources/contentFilter.svg';
+import deleteButtonSVG from '@resources/deleteButton.svg';
+import dragAnchor from '@resources/dragAnchor.svg';
+
+import style from './filtersWindow.less';
 
 export const filtersWindow: Window = new Window('Content filters', renderFiltersWindow, onClose);
 
@@ -39,11 +40,11 @@ function renderFiltersWindow(win: Window, context: any) {
     addAddButton();
 
     // drag filters
-    let draggedFilter: HTMLElement = null;
+    let draggedFilter: HTMLElement | null = null;
 
     elements.addEventListener(`dragstart`, e => {
         const target = e.target as HTMLElement;
-        if (target.matches(`li`)) {
+        if (target.matches(`li`) && e.dataTransfer) {
             draggedFilter = target;
             draggedFilter.classList.toggle(`pp_filter_dragged`, true);
 
@@ -60,7 +61,7 @@ function renderFiltersWindow(win: Window, context: any) {
     });
 
     elements.addEventListener(`dragend`, e => {
-        draggedFilter.classList.toggle(`pp_filter_dragged`, false);
+        draggedFilter?.classList.toggle(`pp_filter_dragged`, false);
         draggedFilter = null;
     });
 
@@ -79,8 +80,8 @@ function renderFiltersWindow(win: Window, context: any) {
 
         if (targetFilter == null) return;
 
-        const fromIndex = parseInt(draggedFilter.getAttribute(`index`));
-        const toIndex = parseInt(targetFilter.getAttribute(`index`));
+        const fromIndex = parseInt(draggedFilter?.getAttribute(`index`) ?? `0`);
+        const toIndex = parseInt(targetFilter?.getAttribute(`index`) ?? `0`);
 
         // move data
         const movedFilter = filters[fromIndex];
@@ -90,16 +91,16 @@ function renderFiltersWindow(win: Window, context: any) {
 
         // move nodes
         if (fromIndex > toIndex) {
-            targetFilter.before(draggedFilter);
+            targetFilter.before(draggedFilter!);
         } else {
-            targetFilter.after(draggedFilter);
+            targetFilter.after(draggedFilter!);
         }
 
         // refresh indexes
         let currentFilter = elements.firstElementChild;
         let currentIndex: number = 0;
 
-        while (currentFilter.hasAttribute(`filter`)) {
+        while (currentFilter?.hasAttribute(`filter`)) {
             currentFilter.setAttribute(`index`, currentIndex.toString());
             currentIndex++;
 
@@ -107,7 +108,7 @@ function renderFiltersWindow(win: Window, context: any) {
         }
     });
 
-    function getFilterRoot(element: HTMLElement): HTMLElement {
+    function getFilterRoot(element: HTMLElement): HTMLElement | null {
         let current = element;
         while (!current.hasAttribute(`filter`) && current.parentElement != null) {
             current = current.parentElement;
@@ -116,16 +117,14 @@ function renderFiltersWindow(win: Window, context: any) {
         return current.hasAttribute(`filter`) ? current : null;
     }
 
-    function addFilter(filter: FilterData, addButton: Element = null) {
+    function addFilter(filter: FilterData, addButton?: Element) {
         const filterArea = appendElement(elements, `li`, `pp_filter_element`);
         filterArea.style.borderColor = borderColor(filter.color);
 
         filterArea.toggleAttribute(`filter`, true);
         filterArea.setAttribute(`index`, filters.findIndex(f => f == filter).toString());
 
-        if (addButton != null) {
-            addButton.before(filterArea);
-        }
+        addButton?.before(filterArea);
 
         const filterPanel = appendElement(filterArea, `div`);
 
@@ -206,7 +205,7 @@ function renderFiltersWindow(win: Window, context: any) {
         const actionOptions = renderUIOptions(filterPanel, filter.action as number, filterActions, index => {
             filter.action = index;
 
-            let color: string = null;
+            let color: string;
             switch (filter.action) {
                 case FilterAction.Hide:
                     color = `#6A51D9`;
@@ -219,7 +218,7 @@ function renderFiltersWindow(win: Window, context: any) {
                     break;
             }
 
-            if (color != null && (filter.color == `#6A51D9` || filter.color == `#5BB3D9` || filter.color == `#74CB39`)) {
+            if (!color && (filter.color == `#6A51D9` || filter.color == `#5BB3D9` || filter.color == `#74CB39`)) {
                 filter.color = color;
                 filterArea.style.borderColor = borderColor(color);
                 colorPicker.setAttribute(`value`, color);
@@ -228,7 +227,7 @@ function renderFiltersWindow(win: Window, context: any) {
             save();
         });
 
-        const inputButton = inputContainer.querySelector(`.pp_ui_input_button`);
+        const inputButton = inputContainer.querySelector(`.pp_ui_input_button`)!;
 
         inputButton.addEventListener(`focus`, () => {
             colorPickerContainer.classList.toggle(`pp_hidden`, true);

@@ -1,16 +1,18 @@
-import { appendSvg, buildSvg, CURRENT_COLOR, NONE_COLOR } from '../../utils/svg';
-import { dynamicElement } from '../../utils/tools';
-import { buildElement, prependElement } from '../../utils/element';
-import { appendElement } from '../../utils/element';
-import { css } from '../customCSS';
-import { prefs, PrefsKey } from '../settings/prefs';
-import style from './filters.less';
-import hiddenSvg from '@resources/hiddenIco.svg';
-import { getSub } from '../posts/posts';
-import { flairs, subs } from '../subs/subs';
 import { MAX_LOAD_LAG } from '../../defines';
-import { registerHiddenContent } from './hiddenContent';
+import { dynamic } from '../../utils/dynamic';
+import { prependElement } from '../../utils/element';
+import { appendElement } from '../../utils/element';
+import { CURRENT_COLOR, NONE_COLOR, appendSvg, buildSvg } from '../../utils/svg';
+import { css } from '../customCSS';
+import { getSub } from '../posts/posts';
+import { PrefsKey, prefs } from '../settings/prefs';
 import { settings } from '../settings/settings';
+import { flairs, subs } from '../subs/subs';
+import { registerHiddenContent } from './hiddenContent';
+
+import hiddenSvg from '@resources/hiddenIco.svg';
+
+import style from './filters.less';
 
 css.addStyle(style);
 
@@ -23,26 +25,26 @@ export enum FilterAction {
 export const filterActions: Array<string> = (Object.values(FilterAction) as Array<string>).slice(0, Object.values(FilterAction).length / 2);
 
 export class FilterData {
-    expression: string;
-    posts: boolean;
-    comments: boolean;
-    color: string;
-    action: FilterAction;
+    expression!: string;
+    posts!: boolean;
+    comments!: boolean;
+    color!: string;
+    action!: FilterAction;
 }
 
 class Filter {
-    regExp: RegExp;
-    data: FilterData;
+    regExp!: RegExp;
+    data!: FilterData;
 }
 
 class FiltrationState {
-    isPost: boolean;
+    isPost!: boolean;
     hide: boolean = false;
-    blur: { text: string; color: string } = null;
+    blur: { text: string; color: string } | null = null;
 }
 
-let postsFilters: Array<Filter> = null;
-let commentsFilters: Array<Filter> = null;
+let postsFilters: Array<Filter> | undefined;
+let commentsFilters: Array<Filter> | undefined;
 
 function buildFilters(dataFilter: (data: FilterData) => boolean) {
     let datas = prefs.get(PrefsKey.CONTENT_FILTERS) as Array<FilterData>;
@@ -64,20 +66,20 @@ function buildFilters(dataFilter: (data: FilterData) => boolean) {
 export async function filterPost(post: Element) {
     const isFeed = !window.location.href.includes(`/comments/`);
 
-    if (postsFilters == null) {
+    if (!postsFilters) {
         postsFilters = buildFilters(data => data.posts == true);
     }
 
     const state = new FiltrationState();
     state.isPost = true;
 
-    applyFilters(post.querySelector(`a[slot="title"]`), postsFilters, state);
+    applyFilters(post.querySelector(`a[slot="title"]`)!, postsFilters, state);
 
     post
         .querySelector(`a[slot="text-body"]`)
         ?.querySelectorAll(`p`)
         ?.forEach(p => {
-            applyFilters(p, postsFilters, state);
+            applyFilters(p, postsFilters!, state);
         });
 
     // skip flair
@@ -88,22 +90,21 @@ export async function filterPost(post: Element) {
 
     // flairs filtration
     if (isFeed) {
-        const flairLock = await dynamicElement(() => (post.hasAttribute(`pp_flair`) ? post : null));
-        const flairText = post.getAttribute(`pp_flair`);
+        const flairText = await dynamic(() => post.getAttribute(`pp_flair`), MAX_LOAD_LAG * 3);
 
         const sub = getSub(post);
         const flairData = flairs.get(sub);
 
-        if (flairText.length > 0) {
+        if (flairText && flairText.length > 0) {
             if (flairData.banned?.includes(flairText) ?? false) {
                 state.hide = true;
             }
 
             if (flairData.blured?.includes(flairText) ?? false) {
                 const subData = subs.get(sub);
-                const flairData = subData.flairs.find(f => f.text == flairText);
+                const flairData = subData.flairs?.find(f => f.text == flairText);
 
-                if (state.blur == null) {
+                if (state.blur == null && flairData) {
                     state.blur = { text: flairText, color: flairData.background };
                 }
             }
@@ -117,10 +118,13 @@ export async function filterPost(post: Element) {
     }
 
     async function hidePost() {
-        const next = await dynamicElement(() => post.parentElement.nextElementSibling, MAX_LOAD_LAG);
+        const next = await dynamic(() => post.parentElement!.nextElementSibling, MAX_LOAD_LAG);
 
         post.remove();
-        next?.remove();
+
+        if (next?.matches(`hr`)) {
+            next.remove();
+        }
 
         if (settings.SHOW_FILTERED_CONTENT.isEnabled()) {
             registerHiddenContent(post);
@@ -156,14 +160,14 @@ function applyFilters(element: Element, filters: Filter[], state: FiltrationStat
 }
 
 export function filterComment(comment: Element, commentBody: Element) {
-    if (commentsFilters == null) {
+    if (!commentsFilters) {
         commentsFilters = buildFilters(data => data.comments == true);
     }
 
     const state = new FiltrationState();
 
     commentBody.querySelectorAll(`p`).forEach(p => {
-        applyFilters(p, commentsFilters, state);
+        applyFilters(p, commentsFilters!, state);
     });
 
     if (state.hide) {
@@ -214,10 +218,10 @@ function blurContent(body: Element, state: FiltrationState) {
 
     const clickArea = prependElement(body, `div`, `pp_blured_content_area`);
 
-    const showButtonContainer = prependElement(body.parentElement, `div`, `pp_blured_button_container`);
+    const showButtonContainer = prependElement(body.parentElement!, `div`, `pp_blured_button_container`);
 
     const showButton = appendElement(showButtonContainer, `div`, `pp_blured_button`);
-    showButton.style.backgroundColor = state.blur.color + `55`;
+    showButton.style.backgroundColor = state.blur!.color + `55`;
     if (state.isPost) {
         showButton.style.top = `20px`;
     }
@@ -227,7 +231,7 @@ function blurContent(body: Element, state: FiltrationState) {
     const icon = appendSvg(showButtonContent, hiddenSvg, 16, 16, { strokeColor: CURRENT_COLOR, fillColor: NONE_COLOR });
 
     const showContent = appendElement(showButtonContent, `span`);
-    showContent.textContent = state.blur.text;
+    showContent.textContent = state.blur!.text;
 
     clickArea.addEventListener(
         `click`,

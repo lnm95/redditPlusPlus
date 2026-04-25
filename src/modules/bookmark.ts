@@ -1,27 +1,30 @@
+import { MAX_LOAD_LAG } from '../defines';
+import { dynamic } from '../utils/dynamic';
 import { buildSvg } from '../utils/svg';
-import { css } from './customCSS';
+import { BookmarkMode } from './bookmarkMode';
+import { CustomCSS, css } from './customCSS';
 import { settings } from './settings/settings';
-import style from './bookmark.less';
+import { pp_log } from './toaster';
 
 import bookmarkSavedSvg from '@resources/bookmarkSaved.svg';
 import bookmarkUnsavedSvg from '@resources/bookmarkUnsaved.svg';
-import { dynamicElement } from '../utils/tools';
-import { BookmarkMode } from './bookmarkMode';
 
-css.addStyle(style);
+import style from './bookmark.less';
 
-export function renderCommentBookmark(comment: Element, forced: boolean = false) {
+export const bookmarksCss = new CustomCSS();
+bookmarksCss.register(document);
+bookmarksCss.addStyle(style);
+
+export function renderCommentBookmark(comment: Element, contextMenu: Element, forced: boolean = false) {
     const mode = settings.SAVED_BOOKMARK_COMMENTS.get() as BookmarkMode;
 
-    if (mode == BookmarkMode.Disabled) return;
+    if (mode == BookmarkMode.Disabled || contextMenu == null) return;
 
-    const contextMenuButton = comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`rpl-dropdown`);
-
-    const saveButton = contextMenuButton.querySelector(`.save-comment-menu-button`);
-    const saveButtonContent = saveButton.querySelector(`.text-body-2`);
+    const saveButton = contextMenu.querySelector(`.save-comment-menu-button`)!;
+    const saveButtonContent = saveButton.querySelector(`.text-body-2`)!;
 
     saveButton.addEventListener(`click`, () => {
-        renderCommentBookmark(comment, true);
+        renderCommentBookmark(comment, contextMenu, true);
     });
 
     let isSaved = saveButtonContent.textContent == `Remove from saved`;
@@ -31,13 +34,14 @@ export function renderCommentBookmark(comment: Element, forced: boolean = false)
     }
 
     if (isSaved || forced || mode == BookmarkMode.Always) {
-        const downVoteButton = comment.querySelector(`shreddit-comment-action-row`)?.shadowRoot?.querySelector(`button[downvote]`);
-        css.register(comment.querySelector(`shreddit-comment-action-row`)?.shadowRoot);
+        const actionRowShadowRoot = comment.querySelector(`shreddit-comment-action-row`)!.shadowRoot!;
+        bookmarksCss.register(actionRowShadowRoot);
 
+        const downVoteButton = actionRowShadowRoot.querySelector(`button[downvote]`)!;
         const bookmarkButton = downVoteButton.cloneNode(true) as Element;
         downVoteButton.after(bookmarkButton);
 
-        let bookmarkSvg = bookmarkButton.querySelector(`svg`);
+        let bookmarkSvg = bookmarkButton.querySelector(`svg`)!;
         bookmarkSvg = replaceBookmarkIcon(bookmarkSvg, isSaved);
 
         bookmarkButton.addEventListener(`click`, () => {
@@ -51,21 +55,21 @@ export function renderCommentBookmark(comment: Element, forced: boolean = false)
     }
 }
 
-export async function renderBookmarkPost(post: Element, forced: boolean = false, forcedValue: boolean | void = undefined) {
+export async function renderBookmarkPost(post: Element, forced: boolean = false, forcedIsSaved?: boolean) {
     const mode = settings.SAVED_BOOKMARK_POSTS.get() as BookmarkMode;
 
     if (mode == BookmarkMode.Disabled) return;
 
-    const contextMenu = await dynamicElement(() => post.querySelector(`shreddit-post-overflow-menu`)?.shadowRoot?.querySelector(`rpl-dropdown`)?.querySelector(`faceplate-menu`), 3000);
+    const contextMenu = await dynamic(() => post.querySelector(`shreddit-post-overflow-menu`)?.shadowRoot?.querySelector(`rpl-dropdown`)?.querySelector(`faceplate-menu`), MAX_LOAD_LAG * 2);
 
-    if (contextMenu == undefined) {
-        return;
-    }
+    if (!contextMenu) return;
 
     let isSaved: boolean = true;
-    let saveButton: Element = null;
+    let saveButton: Element | undefined;
     contextMenu.querySelectorAll(`li`).forEach(element => {
         const buttonSpan = element.querySelector(`.text-body-2`);
+
+        if (!buttonSpan) return;
 
         if (buttonSpan.textContent == `Save`) {
             isSaved = false;
@@ -75,10 +79,16 @@ export async function renderBookmarkPost(post: Element, forced: boolean = false,
         }
     });
 
+    const upVoteButton = await dynamic(() => post.shadowRoot?.querySelector(`button[upvote]`));
+
+    if (!upVoteButton) {
+        pp_log(`${post.getAttribute(`permalink`)} wasn't loaded properly`);
+        return;
+    }
+
     // just refresh bookmark button
-    if (saveButton == null) {
-        const upVoteButton = post.shadowRoot?.querySelector(`button[upvote]`);
-        const bookmarkButton = post.shadowRoot?.querySelector(`button[bookmark]`);
+    if (!saveButton) {
+        const bookmarkButton = post.shadowRoot!.querySelector(`button[bookmark]`)!;
         bookmarkButton.className = upVoteButton.className;
         bookmarkButton.classList.add(`pp_bookmark_post`);
         return;
@@ -88,17 +98,16 @@ export async function renderBookmarkPost(post: Element, forced: boolean = false,
         renderBookmarkPost(post, true, true);
     });
 
-    const upVoteButton = post.shadowRoot?.querySelector(`button[upvote]`);
     upVoteButton.addEventListener(`click`, () => {
         renderBookmarkPost(post, true);
     });
 
-    if (forcedValue != undefined) {
-        isSaved = forcedValue as boolean;
+    if (forcedIsSaved != undefined) {
+        isSaved = forcedIsSaved as boolean;
     }
 
     if (isSaved || forced || mode == BookmarkMode.Always) {
-        const downVoteButton = post.shadowRoot?.querySelector(`button[downvote]`);
+        const downVoteButton = post.shadowRoot!.querySelector(`button[downvote]`)!;
 
         const bookmarkButton = downVoteButton.cloneNode(true) as Element;
         bookmarkButton.classList.add(`pp_bookmark_post`);
@@ -107,7 +116,7 @@ export async function renderBookmarkPost(post: Element, forced: boolean = false,
         bookmarkButton.setAttribute(`bookmark`, ``);
         downVoteButton.after(bookmarkButton);
 
-        let bookmarkSvg = bookmarkButton.querySelector(`svg`);
+        let bookmarkSvg = bookmarkButton.querySelector(`svg`)!;
         bookmarkSvg = replaceBookmarkIcon(bookmarkSvg, isSaved);
 
         bookmarkButton.addEventListener(`click`, () => {

@@ -48,7 +48,11 @@ function openMoreReply(comment: Element) {
 
             // redirectable replies
             if (moreReplies.matches(`a`) && moreReplies.getAttribute(`slot`) == `more-comments-permalink`) {
-                moreReplies.querySelector(`.text-secondary-weak`).textContent = `More replies in single thread`;
+                const moreRepliesText = moreReplies.querySelector(`.text-secondary-weak`);
+
+                if (moreRepliesText) {
+                    moreRepliesText.textContent = `More replies in single thread`;
+                }
             }
         }
     }

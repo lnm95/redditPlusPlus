@@ -1,50 +1,31 @@
 import { PROFILE_DYNAMIC_ELEMENTS, profiler_dynamicElements } from '../_debug/debug';
 
-const DYNAMIC_ELEMENT_FREQUENCY: number = 10;
-
-export async function dynamicElement(elementRequest: Function, maxLifetime: number = 0): Promise<Element> {
-    let element = elementRequest();
-
-    if (element != null) {
-        return Promise.resolve<Element>(element);
+export async function observeChildren(element: Element): Promise<Element> {
+    if (element.childElementCount > 0) {
+        return element;
     }
 
     return new Promise<Element>(resolve => {
-        if (DEBUG && PROFILE_DYNAMIC_ELEMENTS) {
-            profiler_dynamicElements.dynamicElement++;
-        }
+        let triggered = false;
+        const observer = new MutationObserver((list, observer) => {
+            if (!triggered) {
+                triggered = true;
 
-        let time = maxLifetime / DYNAMIC_ELEMENT_FREQUENCY;
+                observer.disconnect();
 
-        const intervalId = setInterval(() => {
-            element = elementRequest();
-            let forced = false;
-            if (maxLifetime > 0) {
-                time--;
-                if (time < 0) forced = true;
+                resolve(element);
             }
+        });
 
-            if (element != null || forced) {
-                if (DEBUG && PROFILE_DYNAMIC_ELEMENTS) {
-                    profiler_dynamicElements.dynamicElement--;
-                }
-
-                clearInterval(intervalId);
-                return resolve(element);
-            }
-        }, DYNAMIC_ELEMENT_FREQUENCY);
+        observer.observe(element, { childList: true });
     });
-}
-
-interface ObserveAction {
-    (elment: HTMLElement): void | boolean;
 }
 
 const observeForInstances = new Map<string, MutationObserver>();
 
-export function observeFor(name: string, root: Element, action: ObserveAction, includeChilds: boolean = true) {
+export function observeFor(name: string, root: Element, action: (elment: HTMLElement) => void | boolean, includeChilds: boolean = true) {
     if (name && observeForInstances.has(name)) {
-        observeForInstances.get(name).disconnect();
+        observeForInstances.get(name)!.disconnect();
         observeForInstances.delete(name);
 
         if (DEBUG && PROFILE_DYNAMIC_ELEMENTS) {
@@ -62,15 +43,16 @@ export function observeFor(name: string, root: Element, action: ObserveAction, i
         profiler_dynamicElements.observeFor++;
     }
 
-    let observer = new MutationObserver(mutations => {
+    let isValid = true;
+    const observer = new MutationObserver((mutations, observer) => {
         for (const mutation of mutations) {
             for (const node of mutation.addedNodes) {
-                if (observer && node instanceof HTMLElement) {
+                if (isValid && node instanceof HTMLElement) {
                     const result = action(node);
 
                     if (result != undefined && result == true) {
                         observer.disconnect();
-                        observer = null;
+                        isValid = false;
 
                         if (DEBUG && PROFILE_DYNAMIC_ELEMENTS) {
                             profiler_dynamicElements.observeFor--;
@@ -131,7 +113,7 @@ export function animate(action: Function, seconds: number, step: number = 10) {
     }, step);
 }
 
-export function PascalCase(input: string): string {
+export function pascalCase(input: string): string {
     if (!input) {
         return input;
     }

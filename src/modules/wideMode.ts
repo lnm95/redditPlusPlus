@@ -1,9 +1,10 @@
-import wideModeStyle from './wideMode.less';
-import { css } from './customCSS';
-import { settings } from './settings/settings';
 import { observeFor } from '../utils/tools';
-import { notify } from './toaster';
+import { css } from './customCSS';
 import { renderRightSidebar } from './rightSidebar';
+import { settings } from './settings/settings';
+import { notify } from './toaster';
+
+import wideModeStyle from './wideMode.less';
 
 function safePixels(value: string): string {
     return `${parseInt(value)}px`;
@@ -25,19 +26,19 @@ export function renderWideMode(pageContainer: Element, rightSidebar: Element) {
 
     renderRightSidebar(rightSidebar);
 
-    const originContainer = rightSidebar.parentElement;
+    const originContainer = rightSidebar.parentElement!;
 
     let isWideMode = !(window.innerWidth >= 1392);
 
-    const mainContainer = pageContainer.querySelector(`.main-container`);
+    const mainContainer = pageContainer.querySelector(`.main-container`)!;
     mainContainer.className = `main-container gap-lg w-full`;
 
     // fix for context lookup
     observeFor(`WIDEMODE_PAGE`, pageContainer, renderContextPopup, false);
-    
-    if(settings.REMOVE_RIGHT_SIDEBAR.isDisabled()) {
+
+    if (settings.REMOVE_RIGHT_SIDEBAR.isDisabled()) {
         observeFor(`WIDEMODE_CONTEXT`, originContainer, renderContextPopup, false);
-    }    
+    }
 
     function renderContextPopup(element: HTMLElement): boolean {
         if (element?.classList?.contains(`rounded-[16px]`) ?? false) {
@@ -58,17 +59,17 @@ export function renderWideMode(pageContainer: Element, rightSidebar: Element) {
 
     function refreshAppRender() {
         if (window.innerWidth >= 1392 && !isWideMode) {
-            if(settings.REMOVE_RIGHT_SIDEBAR.isDisabled()) {
+            if (settings.REMOVE_RIGHT_SIDEBAR.isDisabled()) {
                 pageContainer.prepend(rightSidebar);
-            }            
+            }
 
             isWideMode = true;
         }
 
         if (window.innerWidth < 1392 && isWideMode) {
-            if(settings.REMOVE_RIGHT_SIDEBAR.isDisabled()) {
+            if (settings.REMOVE_RIGHT_SIDEBAR.isDisabled()) {
                 originContainer.append(rightSidebar);
-            }            
+            }
             isWideMode = false;
         }
     }

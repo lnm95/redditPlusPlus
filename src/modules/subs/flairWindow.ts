@@ -1,19 +1,20 @@
-import { appendElement } from '../../utils/element';
 import { renderUIOptions } from '../../utils/UI/options';
 import { renderUIToggle } from '../../utils/UI/toggle';
+import { appendElement } from '../../utils/element';
 import { Window } from '../../utils/window';
 import { css } from '../customCSS';
 import { getFlairData, renderFlair, setFlairData } from './flair';
 import { renderFlairBar } from './flairBar';
-import style from './flairWindow.less';
 import { FLAIR_BANNED, FLAIR_BLURED, FLAIR_HIDDEN, subs } from './subs';
+
+import style from './flairWindow.less';
 
 css.addStyle(style);
 
 export const flairsWindow: Window = new Window('Flairs settings', renderFlairsWindow, closeFlairsWindow);
 
 class FlairWindowContext {
-    sub: string;
+    sub!: string;
 }
 
 const visabilityOptions = [`Show`, `Blur`, `Hide`];
@@ -65,5 +66,7 @@ function renderFlairsWindow(win: Window, context: FlairWindowContext) {
 function closeFlairsWindow() {
     const main = document.body.querySelector(`#main-content`);
 
-    renderFlairBar(main);
+    if (main) {
+        renderFlairBar(main);
+    }
 }

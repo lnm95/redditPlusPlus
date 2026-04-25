@@ -1,13 +1,8 @@
 export const NONE_COLOR: string = 'none';
 export const CURRENT_COLOR: string = 'currentColor';
 
-export class SVGViewBox {
-    w: number;
-    h: number;
-}
-
 export interface SVGConfig {
-    viewBox?: SVGViewBox;
+    viewBox?: string;
     strokeColor?: string;
     fillColor?: string;
 }
@@ -23,8 +18,8 @@ export function buildSvg(graphic: any, w: number, h: number, config?: SVGConfig)
     svg.setAttribute(`width`, `${w}px`);
     svg.setAttribute(`height`, `${h}px`);
 
-    if (viewBox != null) {
-        svg.setAttribute(`viewBox`, `0 0 ${viewBox.w} ${viewBox.h}`);
+    if (viewBox) {
+        svg.setAttribute(`viewBox`, viewBox);
     }
 
     svg.setAttribute(`fill`, fillColor);

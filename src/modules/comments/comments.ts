@@ -1,24 +1,26 @@
+import { PROFILE_USER_DATA, SHOW_RENDERED_COMMENTS, profiler_comments } from '../../_debug/debug';
 import { ContentType, MAX_LOAD_LAG } from '../../defines';
+import { dynamic } from '../../utils/dynamic';
 import { imageViewer } from '../../utils/imageViewer';
-import { checkIsRendered, dynamicElement } from '../../utils/tools';
-import { css } from '../customCSS';
-import { settings } from '../settings/settings';
-import hideShareStyle from './hideShare.less';
-import style from './comments.less';
+import { checkIsRendered, observeChildren } from '../../utils/tools';
 import { renderCommentBookmark } from '../bookmark';
-import { renderContextMenu } from './contextMenu';
-import { renderUserTags } from './userTags';
 import { renderCollapseAward } from '../collapseAwards';
-import { OnCommentsTreeLoaded, renderCommentsSortButtons } from './sortButtons';
-import { SHOW_RENDERED_COMMENTS, PROFILE_USER_DATA, profiler_comments } from '../../_debug/debug';
-import { renderMoreReplies } from './moreReplies';
-import { renderUserInfo } from '../users/userInfo';
+import { css } from '../customCSS';
 import { filterComment } from '../filters/filters';
+import { settings } from '../settings/settings';
+import { renderUserInfo } from '../users/userInfo';
+import { renderContextMenu } from './contextMenu';
+import { renderGuidlines } from './guidelines';
+import { renderMoreReplies } from './moreReplies';
+import { OnCommentsTreeLoaded, renderCommentsSortButtons } from './sortButtons';
+import { renderUserTags } from './userTags';
 
-let rootIntersector: IntersectionObserver = null;
-let commentsIntersector: IntersectionObserver = null;
+import style from './comments.less';
+import hideShareStyle from './hideShare.less';
 
-let commentsMutations: MutationObserver = null;
+let rootIntersector: IntersectionObserver | null = null;
+let commentsIntersector: IntersectionObserver | null = null;
+let commentsMutations: MutationObserver | null = null;
 
 export async function renderComments(container: Element) {
     css.addStyle(style, `comments`);
@@ -38,17 +40,17 @@ export async function renderComments(container: Element) {
         rootIntersector = new IntersectionObserver(
             entries => {
                 for (const entry of entries) {
-                    if (entry.isIntersecting) {
-                        renderComment(entry.target.parentElement);
+                    if (entry.isIntersecting && isComment(entry.target.parentElement)) {
+                        renderComment(entry.target.parentElement!);
 
                         // registry childs when root becomes visible
-                        registerAllComments(entry.target.parentElement);
+                        registerAllComments(entry.target.parentElement!);
 
                         if (DEBUG && PROFILE_USER_DATA) {
                             profiler_comments.observedRoots--;
                         }
 
-                        rootIntersector.unobserve(entry.target);
+                        rootIntersector?.unobserve(entry.target);
                     }
                 }
             },
@@ -67,14 +69,14 @@ export async function renderComments(container: Element) {
         commentsIntersector = new IntersectionObserver(
             entries => {
                 for (const entry of entries) {
-                    if (entry.isIntersecting) {
-                        renderComment(entry.target.parentElement);
+                    if (entry.isIntersecting && isComment(entry.target.parentElement)) {
+                        renderComment(entry.target.parentElement!);
 
                         if (DEBUG && PROFILE_USER_DATA) {
                             profiler_comments.observedChilds--;
                         }
 
-                        commentsIntersector.unobserve(entry.target);
+                        commentsIntersector!.unobserve(entry.target);
                     }
                 }
             },
@@ -111,12 +113,12 @@ export async function renderComments(container: Element) {
                             }
                         }
 
-                        if (settings.HIDE_RELATED_POSTS.isEnabled() && node.matches(`h2`) && node.textContent.includes(`Related posts`)) {
+                        if (settings.HIDE_RELATED_POSTS.isEnabled() && node.matches(`h2`) && node.textContent?.includes(`Related posts`)) {
                             const relatedHeader = node;
                             const relatedPosts = relatedHeader.nextSibling;
 
                             relatedHeader.remove();
-                            relatedPosts.remove();
+                            relatedPosts?.remove();
                         }
                     }
                 }
@@ -140,7 +142,7 @@ function registerAllRoots(container: Element) {
 function registerRoot(comment: Element) {
     if (checkIsRendered(comment)) return;
 
-    rootIntersector.observe(comment.querySelector(`div[slot="commentMeta"]`));
+    rootIntersector!.observe(comment.querySelector(`div[slot="commentMeta"]`)!);
 
     if (DEBUG && PROFILE_USER_DATA) {
         profiler_comments.observedRoots++;
@@ -156,7 +158,7 @@ function registerAllComments(container: Element) {
 function registerComment(comment: Element) {
     if (checkIsRendered(comment)) return;
 
-    commentsIntersector.observe(comment.querySelector(`div[slot="commentMeta"]`));
+    commentsIntersector!.observe(comment.querySelector(`div[slot="commentMeta"]`)!);
 
     if (DEBUG && PROFILE_USER_DATA) {
         profiler_comments.observedChilds++;
@@ -164,10 +166,13 @@ function registerComment(comment: Element) {
 }
 
 export async function renderComment(comment: Element) {
+    renderGuidlines(comment);
+
     // skip [deleted]
     if (comment.getAttribute(`author`) == `[deleted]`) return;
 
-    const commentBody = comment.querySelector(`div[slot="comment"]`);
+    const commentBody = comment.querySelector(`div[slot="comment"]`)!;
+    const commentMeta = comment.querySelector(`div[slot="commentMeta"]`)!;
 
     if (DEBUG && SHOW_RENDERED_COMMENTS) {
         commentBody.classList.add(`pp_debug_rendered`);
@@ -184,19 +189,25 @@ export async function renderComment(comment: Element) {
             return;
         }
 
-        const isMod = comment.querySelector(`div[slot="commentMeta"]`)?.querySelector(`shreddit-comment-author-modifier-icon[distinguished-as="MODERATOR"]`) != null;
-        const isPinned = comment.querySelector(`shreddit-comment-badges`)?.shadowRoot?.querySelector(`svg[icon-name="pin-fill"]`) != null;
+        dynamic(() => {
+            const isMod = commentMeta.querySelector(`shreddit-comment-author-modifier-icon[distinguished-as="MODERATOR"]`) != null;
+            const isPinned = comment.querySelector(`shreddit-comment-badges`)?.shadowRoot?.querySelector(`svg[icon-name="pin-fill"]`) != null;
 
-        if (isMod && isPinned) {
-            comment.setAttribute(`collapsed`, ``);
-            return;
-        }
+            return isMod && isPinned ? true : null;
+        }, MAX_LOAD_LAG).then(result => {
+            if (result) {
+                comment.setAttribute(`collapsed`, ``);
+            }
+        });
     }
 
     renderMoreReplies(comment);
 
     // add anchors
-    const nickname = comment.querySelector(`div[slot="commentMeta"]`).querySelector(`faceplate-tracker[noun="comment_author"]`)?.parentElement?.parentElement;
+    const commentAuthor = commentMeta.querySelector(`faceplate-tracker[noun="comment_author"]`);
+    const nickname = commentAuthor?.parentElement?.parentElement;
+
+    if (!nickname || !nickname.parentElement) return;
 
     const tagsAnchor = document.createElement(`div`);
     tagsAnchor.setAttribute(`pp-anchor`, `tags`);
@@ -207,16 +218,16 @@ export async function renderComment(comment: Element) {
         nickname.after(tagsAnchor);
     }
 
-    const time = await dynamicElement(() => nickname.parentElement.querySelector(`time`)?.parentElement, MAX_LOAD_LAG);
+    const time = await dynamic(() => nickname?.parentElement?.querySelector(`time`)?.parentElement, MAX_LOAD_LAG);
 
     const infoAnchor = document.createElement(`div`);
     infoAnchor.setAttribute(`pp-anchor`, `info`);
     time?.before(infoAnchor);
 
     // make ghosted when karma below zero
-    if (settings.GHOSTED_COMMENTS.isEnabled() && parseInt(comment.getAttribute(`score`)) < 0) {
-        comment.querySelector(`div[slot="commentAvatar"]`).classList.add(`pp_muted_avatar`);
-        comment.querySelector(`faceplate-tracker[noun="comment_author"]`).querySelector(`a`).style.color = `#a5a5a5`;
+    if (settings.GHOSTED_COMMENTS.isEnabled() && parseInt(comment.getAttribute(`score`) ?? `0`) < 0) {
+        comment.querySelector(`div[slot="commentAvatar"]`)!.classList.add(`pp_muted_avatar`);
+        commentAuthor.querySelector(`a`)!.style.color = `#a5a5a5`;
         commentBody.classList.add(`pp_muted_content`);
     }
 
@@ -224,10 +235,10 @@ export async function renderComment(comment: Element) {
     const imageContainer = commentBody.querySelector(`figure[class="rte-media"]`);
     if (imageContainer != null && settings.IMAGE_VIEWER.isEnabled()) {
         const imageAnchor = imageContainer.querySelector(`a`) as HTMLAnchorElement;
-        const href = imageAnchor.getAttribute(`href`);
+        const href = imageAnchor.href;
         imageAnchor.removeAttribute(`href`);
 
-        let image = imageContainer.querySelector(`img`) as HTMLImageElement | HTMLVideoElement;
+        let image = imageContainer.querySelector(`img`) as HTMLImageElement | HTMLVideoElement | any;
         if (image == null) {
             image = imageContainer.querySelector(`shreddit-player`);
         }
@@ -238,17 +249,25 @@ export async function renderComment(comment: Element) {
         });
     }
 
-    renderCollapseAward(comment, ContentType.Comment);
-
     renderUserTags(comment);
 
-    const userId = comment.getAttribute(`author`);
-    const userName = comment.querySelector(`faceplate-tracker[noun="comment_author"]`).querySelector(`a`);
+    const userId = comment.getAttribute(`author`)!;
+    const userName = commentAuthor.querySelector(`a`)!;
     renderUserInfo(userId, userName, tagsAnchor, infoAnchor, ContentType.Comment);
 
-    const contextMenuButton = await dynamicElement(() => comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`rpl-dropdown`));
+    waitActionRow(comment);
+}
 
-    renderCommentBookmark(comment);
+async function waitActionRow(comment: Element) {
+    const actionRow = await observeChildren(comment.querySelector(`div[slot="actionRow"]`)!);
+
+    renderCollapseAward(comment, ContentType.Comment);
+
+    const contextMenuButton = await dynamic(() => comment.querySelector(`shreddit-overflow-menu`)?.shadowRoot?.querySelector(`rpl-dropdown`));
+
+    if (!contextMenuButton) return;
+
+    renderCommentBookmark(comment, contextMenuButton);
 
     contextMenuButton.addEventListener(
         `click`,
@@ -257,4 +276,8 @@ export async function renderComment(comment: Element) {
         },
         { once: true }
     );
+}
+
+function isComment(element: Element | null): boolean {
+    return element?.matches(`shreddit-comment`) ?? false;
 }

@@ -1,29 +1,38 @@
 import { SHOW_RENDERED_POSTS } from '../../_debug/debug';
-import { ContentType, MAX_LOAD_LAG, MIN_LOAD_LAG } from '../../defines';
+import { ContentType, MAX_LOAD_LAG } from '../../defines';
 import { Database, DatabaseConfig, ICleanupableData } from '../../utils/database';
+import { dynamic } from '../../utils/dynamic';
+import { appendElement } from '../../utils/element';
 import { imageViewer } from '../../utils/imageViewer';
 import { requestAPI } from '../../utils/redditAPI';
 import { buildSvg } from '../../utils/svg';
-import { checkIsRendered, dynamicElement } from '../../utils/tools';
-import { appendElement } from '../../utils/element';
-import { renderBookmarkPost } from '../bookmark';
+import { checkIsRendered } from '../../utils/tools';
+import { bookmarksCss, renderBookmarkPost } from '../bookmark';
 import { renderCollapseAward } from '../collapseAwards';
-import { css } from '../customCSS';
+import { CustomCSS } from '../customCSS';
+import { filterPost } from '../filters/filters';
 import { settings } from '../settings/settings';
 import { FlairData, renderFlair } from '../subs/flair';
-import { flairs } from '../subs/subs';
-import { notify, pp_log } from '../toaster';
+import { pp_log } from '../toaster';
 import { renderUserInfo } from '../users/userInfo';
-import style from './posts.less';
-import backplatesStyle from './postsBackplates.less';
 
 import unwrapButtonSvg from '@resources/postUnwrapButton.svg';
-import { filterPost } from '../filters/filters';
+
+import postsStyle from './posts.less';
+import backplatesStyle from './postsBackplates.less';
+import shareButtonStyle from './shareButton.less';
+
+const postsCss = new CustomCSS();
+postsCss.addStyle(postsStyle);
+postsCss.register(document);
+
+const shareButtonCss = new CustomCSS();
+shareButtonCss.addStyle(shareButtonStyle);
+shareButtonCss.register(document);
 
 class PostData implements ICleanupableData {
-    timestamp: number;
-
-    flair: FlairData;
+    timestamp!: number;
+    flair?: FlairData;
 }
 
 const posts: Database<PostData> = new Database<PostData>(`POSTS`, { isCleanupable: true, validator: postDataValidator, loader: postDataLoader } as DatabaseConfig<PostData>);
@@ -33,7 +42,7 @@ function postDataValidator(subData: PostData) {
 }
 
 async function postDataLoader(post: string): Promise<PostData> {
-    let postData = { flair: null } as PostData;
+    let postData = {} as PostData;
 
     const postId = post.split(`:`);
 
@@ -59,20 +68,30 @@ async function postDataLoader(post: string): Promise<PostData> {
     return postData;
 }
 
-css.addStyle(style);
-
 if (settings.BACKPLATES.isEnabled()) {
-    css.addStyle(backplatesStyle);
+    postsCss.addStyle(backplatesStyle);
 }
 
 export async function renderPost(post: Element) {
     if (checkIsRendered(post)) return;
 
+    const shadowRoot = await dynamic(() => post.shadowRoot, MAX_LOAD_LAG * 4);
+
+    if (!shadowRoot) {
+        pp_log(`${post.getAttribute(`permalink`)} wasn't loaded properly, waiting for loading...`);
+        new MutationObserver((_, observer) => {
+            renderPost(post);
+            observer.disconnect();
+        }).observe(post, { childList: true });
+        return;
+    }
+
+    postsCss.register(shadowRoot);
+    bookmarksCss.register(shadowRoot);
+
     renderPostFlair(post);
 
     filterPost(post);
-
-    applyShadowRoot(post);
 
     renderHeader(post);
     renderContent(post);
@@ -86,7 +105,7 @@ export async function renderPost(post: Element) {
     if (settings.SELECTABLE_POSTS.isEnabled()) {
         post.querySelector(`a[slot="full-post-link"]`)?.remove();
 
-        const tittle = await dynamicElement(() => post.querySelector(`a[slot="title"]`), MAX_LOAD_LAG);
+        const tittle = await dynamic(() => post.querySelector(`a[slot="title"]`), MAX_LOAD_LAG);
         tittle?.classList?.add(`pp_post_tittle`);
     }
 
@@ -96,19 +115,27 @@ export async function renderPost(post: Element) {
 }
 
 export function getSub(post: Element): string {
-    return post.getAttribute(`subreddit-prefixed-name`).replace(`r/`, ``);
+    return post.getAttribute(`subreddit-prefixed-name`)!.replace(`r/`, ``);
 }
 
 async function renderPostFlair(post: Element) {
     const sub = getSub(post);
 
-    const postFlairContainer = await dynamicElement(() => post.querySelector(`shreddit-post-flair`), MAX_LOAD_LAG);
-    const postFlair = (await dynamicElement(() => postFlairContainer?.querySelector(`a`), MIN_LOAD_LAG)) as HTMLAnchorElement;
+    const dynamicResult = await dynamic(() => {
+        const container = post.querySelector(`shreddit-post-flair`);
+        const flair = container?.querySelector<HTMLAnchorElement>(`a`);
+
+        return container && flair ? ([container, flair] as const) : null;
+    }, MAX_LOAD_LAG);
+
+    if (!dynamicResult) return;
+
+    const [postFlairContainer, postFlair] = dynamicResult;
 
     let flairText: string = ``;
 
     if (postFlair == null) {
-        if (settings.FLAIR_SHOW_ALWAYS.isEnabled()) {
+        if (settings.FLAIR_SHOW_ALWAYS.isEnabled() && postFlairContainer) {
             const permalink = post.getAttribute(`permalink`)?.split(`/`);
 
             if (permalink == null || permalink.length < 5) {
@@ -124,7 +151,7 @@ async function renderPostFlair(post: Element) {
                 renderFlair(postFlairContainer, sub, postData.flair, true);
             }
 
-            flairText = postData.flair.text;
+            flairText = postData.flair?.text ?? ``;
         }
     } else {
         const split = postFlair.href?.split(`%22`);
@@ -134,28 +161,39 @@ async function renderPostFlair(post: Element) {
     post.setAttribute(`pp_flair`, flairText);
 }
 
-async function applyShadowRoot(post: Element) {
-    const shadowRootLock = await dynamicElement(() => post.shadowRoot);
-
-    css.register(post.shadowRoot);
-}
-
 async function renderShareButtonPost(post: Element) {
-    const shareButton = await dynamicElement(() => post.shadowRoot?.querySelector(`shreddit-post-share-button`)?.shadowRoot?.querySelector(`button`));
+    if (post.getAttribute(`view-context`) == `CommentsPage`) {
+        const shareButton = await dynamic(() => post.querySelector(`.share-dropdown-menu`));
 
-    css.register(shareButton.parentNode.parentNode as ShadowRoot);
+        shareButton?.classList.add(`pp_post_shareButton`);
+    } else {
+        const dynamicResult = await dynamic(() => {
+            const shadowRoot = post.shadowRoot?.querySelector(`shreddit-post-share-button`)?.shadowRoot;
+            const shareButton = shadowRoot?.querySelector(`button`);
 
-    shareButton.classList.add(`pp_post_shareButton`);
+            return shadowRoot && shareButton ? ([shadowRoot, shareButton] as const) : null;
+        });
+
+        if (dynamicResult) {
+            const [shadowRoot, shareButton] = dynamicResult;
+
+            shareButtonCss.register(shadowRoot);
+
+            shareButton.classList.add(`pp_post_shareButton`);
+        }
+    }
 }
 
 async function renderHeader(post: Element) {
-    const author = post.getAttribute(`author`);
+    const author = post.getAttribute(`author`)!;
     const viewContext = post.getAttribute(`view-context`);
 
     if (viewContext == `AggregateFeed` || viewContext == `CustomFeed`) {
         if (settings.SHOW_POST_AUTHOR.isDisabled()) return;
 
-        const anchor = await dynamicElement(() => post.querySelector(`span[slot="credit-bar"]`)?.querySelector(`.created-separator`), MAX_LOAD_LAG);
+        const anchor = await dynamic(() => post.querySelector(`span[slot="credit-bar"]`)?.querySelector(`.created-separator`), MAX_LOAD_LAG);
+
+        if (!anchor) return;
 
         const userNameLink = document.createElement(`a`);
         userNameLink.classList.add(`flex`, `items-center`, `text-neutral-content`, `visited:text-neutral-content-weak`, `a`, `cursor-pointer`, `no-visited`, `no-underline`, `hover:no-underline`);
@@ -174,11 +212,13 @@ async function renderHeader(post: Element) {
         renderUserInfo(author, userName, anchor, anchor, ContentType.Post);
     } else {
         // userInfo
-        const creditBar = await dynamicElement(() => post.querySelector(`[slot="credit-bar"]`), MAX_LOAD_LAG); // usually it's span, but sometimes div
-        const userName = await dynamicElement(() => creditBar.querySelector(`span[slot="authorName"]`)?.querySelector(`a`)?.querySelector(`.whitespace-nowrap`), MAX_LOAD_LAG);
+        const creditBar = await dynamic(() => post.querySelector(`[slot="credit-bar"]`), MAX_LOAD_LAG); // usually it's span, but sometimes div
+        const userName = await dynamic(() => creditBar?.querySelector(`span[slot="authorName"]`)?.querySelector(`a`)?.querySelector(`.whitespace-nowrap`), MAX_LOAD_LAG);
 
-        const anchor = creditBar.querySelector(`.created-separator`);
-        if (anchor == null) return; // post view
+        const anchor = creditBar?.querySelector(`.created-separator`);
+
+        // skip post view
+        if (!anchor || !userName) return;
 
         renderUserInfo(author, userName, anchor, anchor, ContentType.Post);
     }
@@ -193,13 +233,12 @@ async function renderContent(post: Element) {
     }
 
     // feed view
-
-    const postContent = await dynamicElement(() => post.querySelector(`.feed-card-text-preview`), MAX_LOAD_LAG);
+    const postContent = await dynamic(() => post.querySelector(`.feed-card-text-preview`), MAX_LOAD_LAG);
 
     if (postContent == null) return;
 
     if (settings.SELECTABLE_POSTS.isEnabled()) {
-        postContent.parentElement.parentElement.removeAttribute(`href`);
+        postContent.parentElement!.parentElement!.removeAttribute(`href`);
     }
 
     // fix bad formated text
@@ -237,11 +276,11 @@ async function registerImages(post: Element, isFeed: boolean) {
     if (settings.IMAGE_VIEWER.isDisabled()) return;
 
     if (isFeed) {
-        const anyImage = await dynamicElement(() => post.querySelector(`faceplate-img`), MAX_LOAD_LAG);
+        const anyImage = await dynamic(() => post.querySelector(`faceplate-img`), MAX_LOAD_LAG);
 
         if (anyImage != null) {
             post.querySelectorAll(`faceplate-img`).forEach(imageContainer => {
-                const href = imageContainer.getAttribute(`src`);
+                const href = imageContainer.getAttribute(`src`)!;
 
                 let image = imageContainer.shadowRoot?.querySelector(`img`) as HTMLImageElement;
                 if (image != null) {
@@ -256,10 +295,10 @@ async function registerImages(post: Element, isFeed: boolean) {
     } else {
         post.querySelectorAll(`figure[class="rte-media"]`).forEach(imageContainer => {
             const imageAnchor = imageContainer.querySelector(`a`) as HTMLAnchorElement;
-            const href = imageAnchor.getAttribute(`href`);
+            const href = imageAnchor.href;
             imageAnchor.removeAttribute(`href`);
 
-            let image = imageContainer.querySelector(`img`) as HTMLImageElement | HTMLVideoElement;
+            let image = imageContainer.querySelector(`img`) as HTMLImageElement | HTMLVideoElement | any;
             if (image == null) {
                 image = imageContainer.querySelector(`shreddit-player-2`);
             }
@@ -273,8 +312,9 @@ async function registerImages(post: Element, isFeed: boolean) {
 }
 
 async function renderUnwrapPostButton(post: Element, postContent: Element) {
-    // hack to await when post loaded properly
-    const postShadowRoot = await dynamicElement(() => post.shadowRoot, MAX_LOAD_LAG);
+    const shadowRoot = await dynamic(() => post.shadowRoot, MAX_LOAD_LAG);
+
+    if (!shadowRoot) return;
 
     const renderedHeight = postContent.getBoundingClientRect().height;
 
@@ -284,7 +324,7 @@ async function renderUnwrapPostButton(post: Element, postContent: Element) {
 
     if (actualHeight > renderedHeight + 5) {
         const unwrapContainer = appendElement(post, `div`, `pp_post_unwrapContainer`);
-        post.shadowRoot.append(unwrapContainer);
+        shadowRoot.append(unwrapContainer);
         const unwrapButton = appendElement(unwrapContainer, `div`, `pp_post_unwrapButton`);
 
         const unwrapIcon = buildSvg(unwrapButtonSvg, 25, 25);

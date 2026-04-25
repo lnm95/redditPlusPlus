@@ -2,17 +2,17 @@ import { appendElement } from '../../utils/element';
 import { flairs } from './subs';
 
 export class FlairData {
-    text: string;
-    color: string;
-    background: string;
-    richtext: Array<RichElement>;
+    text!: string;
+    color!: string;
+    background!: string;
+    richtext!: Array<RichElement>;
 }
 
 export class RichElement {
-    t: string;
-    e: string;
-    u: string;
-    a: string;
+    t!: string;
+    e!: string;
+    u!: string;
+    a!: string;
 }
 
 export function getFlairData(sub: string, flair: string, category: string): boolean {

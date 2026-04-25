@@ -1,6 +1,6 @@
 import { appendElement } from '../utils/element';
-import { settings } from './settings/settings';
 import { css } from './customCSS';
+import { settings } from './settings/settings';
 
 import style from './notifications.less';
 
@@ -9,6 +9,7 @@ if (settings.NOTIFY_POPUP.isEnabled()) {
 }
 
 export function renderNotifications(container: Element) {
+    /*
     container.querySelectorAll(`div[data-testid="notification-item"]`).forEach(item => {
         const tittle = item.querySelector(`div[data-testid="title"]`);
 
@@ -32,5 +33,5 @@ export function renderNotifications(container: Element) {
             spanAgo.textContent = ` ago`;
             time.after(spanAgo);
         }
-    });
+    });*/
 }

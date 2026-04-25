@@ -1,18 +1,19 @@
 import { MAX_LOAD_LAG } from '../../defines';
 import { Database, DatabaseFactory } from '../../utils/database';
-import { dynamicElement } from '../../utils/tools';
+import { dynamic } from '../../utils/dynamic';
 import { renderCustomFeed } from '../customFeed/customFeed';
 import { renderPost } from '../posts/posts';
 import { getCurrentSub, renderSub } from '../subs/subs';
+import { pp_log } from '../toaster';
 import { renderFeedButtons } from './feedButtons';
 import { FeedLocation, getFeedLocation } from './feedLocation';
 import { redirectConfigs } from './feedRedirect';
 import { FeedSort } from './feedSort';
 
 export class FeedData {
-    redirect: boolean;
-    defaultSort: FeedSort;
-    hiddenSort: Array<FeedSort>;
+    redirect!: boolean;
+    defaultSort!: FeedSort;
+    hiddenSort!: Array<FeedSort>;
 }
 
 export const defaultSorts = new Map<FeedLocation, FeedSort>([
@@ -26,7 +27,7 @@ export const defaultSorts = new Map<FeedLocation, FeedSort>([
 export const defaultFeedData: Database<FeedData> = new Database<FeedData>(`DEFAULT_FEED_DATA`, {
     factory: function (id: string) {
         const location: FeedLocation = FeedLocation[id as keyof typeof FeedLocation];
-        const config = redirectConfigs.get(location);
+        const config = redirectConfigs.get(location)!;
 
         return { redirect: !config.isOptional, defaultSort: defaultSorts.get(location), hiddenSort: [] } as FeedData;
     }
@@ -36,10 +37,15 @@ export const customFeedData: Database<FeedData> = new Database<FeedData>(`CUSTOM
 export const subsFeedData: Database<FeedData> = new Database<FeedData>(`SUBS_FEED_DATA`, { factory: DatabaseFactory.Null });
 export const subsLatestSort: Database<FeedSort> = new Database<FeedSort>(`SUBS_LATEST_SORT`, { factory: DatabaseFactory.Null });
 
-let postObserver: MutationObserver = null;
+let postObserver: MutationObserver | undefined;
 
 export async function renderFeed(container: Element) {
-    const main = await dynamicElement(() => container.querySelector(`#subgrid-container`));
+    const main = await dynamic(() => container.querySelector(`#subgrid-container`));
+
+    if (!main) {
+        pp_log(`Failed to render feed`);
+        return;
+    }
 
     // render embedded posts
     main.querySelectorAll(`shreddit-post`).forEach(post => {
@@ -87,7 +93,7 @@ export async function renderFeed(container: Element) {
 }
 
 export function initializePostObserver(target: Element) {
-    if (postObserver != null) {
+    if (postObserver) {
         postObserver.disconnect();
     }
 
@@ -103,7 +109,7 @@ export function initializePostObserver(target: Element) {
 
                     // load r/all posts
                     if (node.matches(`article`)) {
-                        renderPost(node.querySelector(`shreddit-post`));
+                        renderPost(node.querySelector(`shreddit-post`)!);
                     }
                 }
             }

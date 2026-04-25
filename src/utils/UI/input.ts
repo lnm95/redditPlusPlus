@@ -1,10 +1,14 @@
-import { css } from '../../modules/customCSS';
-import { appendSvg, buildSvg, CURRENT_COLOR, NONE_COLOR, SVGConfig } from '../svg';
+import { CustomCSS } from '../../modules/customCSS';
 import { appendElement } from '../element';
+import { CURRENT_COLOR, NONE_COLOR, SVGConfig, appendSvg, buildSvg } from '../svg';
+
 import inputClearSvg from '@resources/inputClear.svg';
+
 import style from './input.less';
 
-css.addStyle(style);
+const inputCss = new CustomCSS();
+inputCss.register(document);
+inputCss.addStyle(style);
 
 export interface InputParams {
     icon?: any;
@@ -30,7 +34,7 @@ export function renderUIInput(container: Element, placeholder: string, value: st
     inputButton.setAttribute(`tabindex`, `0`);
 
     const inputShadowRoot = inputButton.attachShadow({ mode: 'open' });
-    css.register(inputShadowRoot);
+    inputCss.register(inputShadowRoot);
 
     const inputPanel = appendElement(inputButton, `span`, [`pp_ui_input_panel`, `flex`, `items-center`, `justify-center`]);
     inputShadowRoot.appendChild(inputPanel);
@@ -58,19 +62,19 @@ export function renderUIInput(container: Element, placeholder: string, value: st
         input.value = value;
     }
 
-    let clearButton: HTMLElement = null;
+    let cleanButtonElement: HTMLElement | undefined;
     if (cleanButton == true) {
         const clearContainer = appendElement(inputContainer, `div`, `pp_ui_input_clearContainer`);
-        clearButton = appendElement(clearContainer, `button`, [`pp_ui_input_clearButton`, `button-plain`]);
-        clearButton.classList.toggle(`pp_hidden`, (input.value?.length ?? 0) == 0);
+        cleanButtonElement = appendElement(clearContainer, `button`, [`pp_ui_input_clearButton`, `button-plain`]);
+        cleanButtonElement.classList.toggle(`pp_hidden`, (input.value?.length ?? 0) == 0);
         const clearIcon = buildSvg(inputClearSvg, 16, 16);
-        clearButton.append(clearIcon);
+        cleanButtonElement.append(clearIcon);
 
-        clearButton.addEventListener(`click`, () => {
+        cleanButtonElement.addEventListener(`click`, () => {
             input.value = filter(``);
             onChange(input.value);
 
-            clearButton.classList.toggle(`pp_hidden`, true);
+            cleanButtonElement?.classList.toggle(`pp_hidden`, true);
         });
     }
 
@@ -79,7 +83,7 @@ export function renderUIInput(container: Element, placeholder: string, value: st
         onChange(value);
 
         if (cleanButton == true) {
-            clearButton.classList.toggle(`pp_hidden`, value.length == 0);
+            cleanButtonElement?.classList.toggle(`pp_hidden`, value.length == 0);
         }
     });
 
@@ -91,7 +95,7 @@ export function renderUIInput(container: Element, placeholder: string, value: st
         }
 
         if (cleanButton == true) {
-            clearButton.classList.toggle(`pp_hidden`, value.length == 0);
+            cleanButtonElement?.classList.toggle(`pp_hidden`, value.length == 0);
         }
     });
 

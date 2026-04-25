@@ -1,15 +1,17 @@
+import { ButtonSize, ButtonVariant, renderUIButton } from '../../utils/UI/button';
 import { appendElement } from '../../utils/element';
-import { appendSvg, buildSvg, CURRENT_COLOR, NONE_COLOR } from '../../utils/svg';
+import { CURRENT_COLOR, NONE_COLOR, appendSvg, buildSvg } from '../../utils/svg';
 import { Window } from '../../utils/window';
-import { prefs, PrefsKey } from '../settings/prefs';
-import { ensureValidProfileMenu, ProfileMenuElement, profileMenuElementConfigs, ProfileMenuElementData, renderProfileMenu } from './profileMenu';
-import dragAnchorSvg from '@resources/dragAnchor.svg';
+import { css } from '../customCSS';
+import { PrefsKey, prefs } from '../settings/prefs';
+import { ProfileMenuElement, ProfileMenuElementData, ensureValidProfileMenu, profileMenuElementConfigs, renderProfileMenu } from './profileMenu';
+
 import deleteButtonSvg from '@resources/deleteButton.svg';
+import dragAnchorSvg from '@resources/dragAnchor.svg';
 import hiddenIcoSvg from '@resources/hiddenIco.svg';
 import showIcoSvg from '@resources/showIco.svg';
+
 import style from './profileMenuWindow.less';
-import { css } from '../customCSS';
-import { ButtonSize, ButtonVariant, renderUIButton } from '../../utils/UI/button';
 
 css.addStyle(style);
 
@@ -36,11 +38,11 @@ function renderProfileMenuWindow(win: Window, context: any) {
     addSeparatorButton();
 
     // drag elements
-    let draggedMenuElement: HTMLElement = null;
+    let draggedMenuElement: HTMLElement | null = null;
 
     elements.addEventListener(`dragstart`, e => {
         const target = e.target as HTMLElement;
-        if (target.matches(`li`)) {
+        if (target.matches(`li`) && e.dataTransfer) {
             draggedMenuElement = target;
             draggedMenuElement.classList.toggle(`pp_filter_dragged`, true);
 
@@ -57,7 +59,7 @@ function renderProfileMenuWindow(win: Window, context: any) {
     });
 
     elements.addEventListener(`dragend`, e => {
-        draggedMenuElement.classList.toggle(`pp_filter_dragged`, false);
+        draggedMenuElement?.classList.toggle(`pp_filter_dragged`, false);
         draggedMenuElement = null;
     });
 
@@ -74,10 +76,10 @@ function renderProfileMenuWindow(win: Window, context: any) {
 
         const targetMenuElement = getMenuElementRoot(e.target as HTMLElement);
 
-        if (targetMenuElement == null) return;
+        if (!targetMenuElement || !draggedMenuElement) return;
 
-        const fromIndex = parseInt(draggedMenuElement.getAttribute(`index`));
-        const toIndex = parseInt(targetMenuElement.getAttribute(`index`));
+        const fromIndex = parseInt(draggedMenuElement?.getAttribute(`index`) ?? `0`);
+        const toIndex = parseInt(targetMenuElement?.getAttribute(`index`) ?? `0`);
 
         // move data
         const movedFilter = menuElements[fromIndex];
@@ -96,7 +98,7 @@ function renderProfileMenuWindow(win: Window, context: any) {
         let currentMenuElement = elements.firstElementChild;
         let currentIndex: number = 0;
 
-        while (currentMenuElement.hasAttribute(DRAG_TAG)) {
+        while (currentMenuElement?.hasAttribute(DRAG_TAG)) {
             currentMenuElement.setAttribute(`index`, currentIndex.toString());
             currentIndex++;
 
@@ -104,7 +106,7 @@ function renderProfileMenuWindow(win: Window, context: any) {
         }
     });
 
-    function getMenuElementRoot(element: HTMLElement): HTMLElement {
+    function getMenuElementRoot(element: HTMLElement): HTMLElement | null {
         let current = element;
         while (!current.hasAttribute(DRAG_TAG) && current.parentElement != null) {
             current = current.parentElement;
@@ -115,16 +117,14 @@ function renderProfileMenuWindow(win: Window, context: any) {
 
     // elements
 
-    function addElement(elementData: ProfileMenuElementData, addButton: Element = null) {
+    function addElement(elementData: ProfileMenuElementData, addButton?: Element) {
         const elementArea = appendElement(elements, `li`, `pp_filter_element`);
         elementArea.style.borderColor = borderColor();
 
         elementArea.toggleAttribute(DRAG_TAG, true);
         elementArea.setAttribute(`index`, menuElements.findIndex(f => f == elementData).toString());
 
-        if (addButton != null) {
-            addButton.before(elementArea);
-        }
+        addButton?.before(elementArea);
 
         const elementPanel = appendElement(elementArea, `div`);
 
@@ -151,7 +151,7 @@ function renderProfileMenuWindow(win: Window, context: any) {
             appendElement(tittleContainer, `hr`);
         } else {
             const elementTittle = appendElement(tittleContainer, `span`);
-            elementTittle.textContent = profileMenuElementConfigs.get(elementData.element).tittle;
+            elementTittle.textContent = profileMenuElementConfigs.get(elementData.element)!.tittle;
         }
 
         function borderColor(): string {
@@ -160,16 +160,13 @@ function renderProfileMenuWindow(win: Window, context: any) {
 
         // delete/hide button
         const isDeletable = elementData.element == ProfileMenuElement.Separator;
-        const isOptional = isDeletable || profileMenuElementConfigs.get(elementData.element).isOptional;
+        const isOptional = isDeletable || profileMenuElementConfigs.get(elementData.element)!.isOptional;
         if (isOptional) {
             const deleteSpan = appendElement(elementPanel, `span`);
             const deleteButton = appendElement(deleteSpan, `div`, [`pp_ui_options_arrow`, `button`, `button-plain`, `button-medium`, `px-[var(--rem8)]`]);
-            let deleteButtonIcon: Element = null;
-            if (isDeletable) {
-                deleteButtonIcon = appendSvg(deleteButton, deleteButtonSvg, 24, 24, { strokeColor: NONE_COLOR, fillColor: CURRENT_COLOR });
-            } else {
-                deleteButtonIcon = appendSvg(deleteButton, elementData.hidden ? hiddenIcoSvg : showIcoSvg, 18, 18, { strokeColor: CURRENT_COLOR, fillColor: NONE_COLOR });
-            }
+            let deleteButtonIcon: Element = isDeletable
+                ? appendSvg(deleteButton, deleteButtonSvg, 24, 24, { strokeColor: NONE_COLOR, fillColor: CURRENT_COLOR })
+                : appendSvg(deleteButton, elementData.hidden ? hiddenIcoSvg : showIcoSvg, 18, 18, { strokeColor: CURRENT_COLOR, fillColor: NONE_COLOR });
 
             deleteButton.addEventListener(`click`, () => {
                 if (isDeletable) {

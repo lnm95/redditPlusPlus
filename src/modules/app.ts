@@ -1,27 +1,27 @@
-import { checkIsRendered, dynamicElement } from '../utils/tools';
+import { MAX_LOAD_LAG } from '../defines';
+import { dynamic } from '../utils/dynamic';
+import { checkIsRendered } from '../utils/tools';
+import { closeAllWindows } from '../utils/window';
+import { renderBiggerFonts } from './biggerFonts';
+import { renderComments } from './comments/comments';
+import { css } from './customCSS';
+import { renderFeed } from './feed/feed';
+import { clearHiddenContentButton } from './filters/hiddenContent';
+import { renderRightSidebar } from './rightSidebar';
+import { renderSidebar } from './sidebar/sidebar';
+import { pp_log } from './toaster';
+import { renderUserPage } from './users/userPage';
+import { renderUserSearch } from './users/userSearchPage';
 import { renderWideMode } from './wideMode';
 
 import style from './app.less';
-import { css } from './customCSS';
-import { renderSidebar } from './sidebar/sidebar';
-import { renderBiggerFonts } from './biggerFonts';
-import { renderFeed } from './feed/feed';
-import { notify } from './toaster';
-import { renderComments } from './comments/comments';
-import { renderScrollToTop } from './scrollToTop';
-import { renderUserPage } from './users/userPage';
-import { clearHiddenContentButton } from './filters/hiddenContent';
-import { closeAllWindows } from '../utils/window';
-import { renderRightSidebar } from './rightSidebar';
-import { renderUserSearch } from './users/userSearchPage';
-import { MAX_LOAD_LAG } from '../defines';
 
 export async function renderApp() {
     css.addStyle(style, `app`);
 
-    const app = await dynamicElement(() => document.body.querySelector(`shreddit-app`)?.querySelector(`.grid-container`));
+    const app = await dynamic(() => document.body.querySelector(`shreddit-app`)?.querySelector(`.grid-container`));
 
-    if (checkIsRendered(app)) return;
+    if (!app || checkIsRendered(app)) return;
 
     clearHiddenContentButton();
 
@@ -39,17 +39,22 @@ export async function renderApp() {
 
     renderComments(document.body);
 
-    const leftSidebar = await dynamicElement(() => document.body.querySelector(`#left-sidebar-container`), 3000);
-    
-    const pageContainer = leftSidebar.parentElement;
+    const leftSidebar = await dynamic(() => document.body.querySelector(`#left-sidebar-container`), MAX_LOAD_LAG * 2);
+
+    if (!leftSidebar) {
+        pp_log(`Failed to render app`);
+        return;
+    }
+
+    const pageContainer = leftSidebar.parentElement!;
     pageContainer.classList.add(`pp_pageContainer`);
 
     renderSidebar(leftSidebar);
 
-    const mainFeed = pageContainer.querySelector(`.subgrid-container`);
+    const mainFeed = pageContainer.querySelector(`.subgrid-container`)!;
     mainFeed.classList.add(`pp_mainFeed`);
 
-    const rightSidebar = await dynamicElement(() => document.body.querySelector(`#right-sidebar-container`), MAX_LOAD_LAG);
+    const rightSidebar = await dynamic(() => document.body.querySelector(`#right-sidebar-container`), MAX_LOAD_LAG);
 
     if (rightSidebar != null) {
         renderRightSidebar(rightSidebar);

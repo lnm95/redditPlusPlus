@@ -13,6 +13,6 @@
         "allowJs": false,
         "checkJs": false,
         "removeComments": true,
-        "strict": false
+        "strict": true
     }
 }

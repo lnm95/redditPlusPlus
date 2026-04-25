@@ -1,26 +1,25 @@
-import { appendSvg, buildSvg } from '../../utils/svg';
-import { checkIsRendered, dynamicElement } from '../../utils/tools';
+import { MAX_LOAD_LAG } from '../../defines';
+import { dynamic } from '../../utils/dynamic';
 import { appendElement, prependElement } from '../../utils/element';
+import { appendSvg, buildSvg } from '../../utils/svg';
+import { checkIsRendered } from '../../utils/tools';
 import { css } from '../customCSS';
+import { getCurrentCustomFeed } from '../customFeed/customFeed';
 import { settings } from '../settings/settings';
-import { FeedLocation, getFeedLocation } from './feedLocation';
-import { FeedSort, getFeedSorts } from './feedSort';
 import { getCurrentSub } from '../subs/subs';
-import style from './feedButtons.less';
+import { customFeedData, defaultFeedData, generateFeedHref, subsFeedData, subsLatestSort } from './feed';
+import { FeedLocation, getFeedLocation } from './feedLocation';
+import { FeedSettingsContext, feedSettingsWindow } from './feedSettings/feedSettingsWindow';
+import { FeedSort, getFeedSorts } from './feedSort';
 
 import buttonBest from '@resources/feedButtons/feedButtonBest.svg';
-
-import settingsSvg from '@resources/settingsGear.svg';
-
 import buttonHot from '@resources/feedButtons/feedButtonHot.svg';
 import buttonNew from '@resources/feedButtons/feedButtonNew.svg';
 import buttonRising from '@resources/feedButtons/feedButtonRising.svg';
 import buttonTop from '@resources/feedButtons/feedButtonTop.svg';
+import settingsSvg from '@resources/settingsGear.svg';
 
-import { MAX_LOAD_LAG } from '../../defines';
-import { FeedSettingsContext, feedSettingsWindow } from './feedSettings/feedSettingsWindow';
-import { customFeedData, defaultFeedData, FeedData, generateFeedHref, subsFeedData, subsLatestSort } from './feed';
-import { getCurrentCustomFeed } from '../customFeed/customFeed';
+import style from './feedButtons.less';
 
 css.addStyle(style);
 
@@ -37,21 +36,23 @@ export async function renderFeedButtons(main: Element) {
 
     if (checkIsRendered(main)) return;
 
-    const feedPanel = await dynamicElement(() => main.querySelector(`shreddit-async-loader[bundlename="shreddit_sort_dropdown"]`), MAX_LOAD_LAG);
+    const feedPanel = await dynamic(() => main.querySelector(`shreddit-async-loader[bundlename="shreddit_sort_dropdown"]`), MAX_LOAD_LAG);
 
-    const sortDropdown = await dynamicElement(() => feedPanel?.querySelector(`shreddit-sort-dropdown`), MAX_LOAD_LAG);
+    if (!feedPanel) return;
+
+    const sortDropdown = await dynamic(() => feedPanel.querySelector(`shreddit-sort-dropdown`), MAX_LOAD_LAG);
 
     // skip invalid dropdown
-    if (sortDropdown == null || sortDropdown.getAttribute(`trigger-id`) == `comment-sort-button`) return;
+    if (!sortDropdown || sortDropdown.getAttribute(`trigger-id`) == `comment-sort-button`) return;
 
     feedPanel.classList.add(`pp_feedPanel`);
 
-    const feedPanelContent = sortDropdown.parentElement.parentElement;
+    const feedPanelContent = sortDropdown.parentElement!.parentElement!;
 
     const location = getFeedLocation();
 
     // remove rudiment
-    if (location == FeedLocation.Custom && feedPanel.previousElementSibling.className == `s:invisible`) {
+    if (location == FeedLocation.Custom && feedPanel.previousElementSibling?.className == `s:invisible`) {
         feedPanel.previousElementSibling.remove();
     }
 
@@ -63,17 +64,20 @@ export async function renderFeedButtons(main: Element) {
     let data = defaultFeedData.get(FeedLocation[location]);
     if (location == FeedLocation.Sub) {
         const sub = getCurrentSub();
-        const subData = subsFeedData.get(sub);
 
-        if (subData) {
-            data = subData;
+        if (sub) {
+            const subData = subsFeedData.get(sub);
+
+            if (subData) {
+                data = subData;
+            }
+
+            subsLatestSort.set(sub, currentSort);
         }
-
-        subsLatestSort.set(sub, currentSort);
     }
     if (location == FeedLocation.Custom) {
         const custom = getCurrentCustomFeed();
-        const customData = customFeedData.get(custom);
+        const customData = custom ? customFeedData.get(custom) : null;
 
         if (customData != null) {
             data = customData;
@@ -82,8 +86,8 @@ export async function renderFeedButtons(main: Element) {
 
     const sorts = getFeedSorts(location);
 
-    if (feedPanel.parentElement.className != `flex justify-between flex-wrap mb-xs mt-xs`) {
-        feedPanel.parentElement.style.marginBottom = `1rem`;
+    if (feedPanel.parentElement!.className != `flex justify-between flex-wrap mb-xs mt-xs`) {
+        feedPanel.parentElement!.style.marginBottom = `1rem`;
     }
 
     const buttonsContainer = prependElement(feedPanelContent, `div`, `pp_feedPanel_buttons`);

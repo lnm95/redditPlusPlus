@@ -1,9 +1,10 @@
 import { css } from '../modules/customCSS';
-import { CURRENT_COLOR, NONE_COLOR, buildSvg } from './svg';
 import { appendElement } from './element';
-import style from './window.less';
+import { CURRENT_COLOR, NONE_COLOR, buildSvg } from './svg';
 
 import closeWindowButtonSvg from '@resources/windowCloseButton.svg';
+
+import style from './window.less';
 
 css.addStyle(style);
 
@@ -22,19 +23,16 @@ export function closeAllWindows() {
 export class Window {
     tittleContent: string;
     render: WindowRenderer;
-    onClose: Function;
-    container: Element;
-    tittle: Element;
-    content: Element;
-    closeButton: Element;
+    onClose: Function | null;
+    container!: Element;
+    tittle!: Element;
+    content!: Element;
+    closeButton!: Element;
 
-    constructor(tittle: string, render: WindowRenderer, onClose: Function = null) {
+    constructor(tittle: string, render: WindowRenderer, onClose: Function | null = null) {
         this.tittleContent = tittle;
         this.render = render;
         this.onClose = onClose;
-        this.container = null;
-        this.content = null;
-        this.closeButton = null;
     }
 
     build() {
@@ -80,24 +78,24 @@ export class Window {
     }
 
     open(context: any = null) {
-        if (this.container == null) {
+        if (!this.container) {
             this.build();
         }
 
         for (const w of currentWindows) {
-            w.container.remove();
+            w.container?.remove();
         }
 
         currentWindows.push(this);
 
-        document.body.appendChild(this.container);
-        document.body.parentElement.style.overflow = 'hidden';
+        document.body.appendChild(this.container!);
+        document.documentElement.style.overflow = 'hidden';
 
         this.render(this, context);
     }
 
     close() {
-        this.container.remove();
+        this.container!.remove();
 
         currentWindows.splice(
             currentWindows.findIndex(w => w == this),
@@ -105,23 +103,21 @@ export class Window {
         );
 
         if (currentWindows.length <= 0) {
-            document.body.parentElement.style.overflow = 'visible';
+            document.documentElement.style.overflow = 'visible';
         }
 
         // cleanup content
-        while (this.content.firstChild) {
-            this.content.removeChild(this.content.lastChild);
+        while (this.content?.firstChild) {
+            this.content.removeChild(this.content.firstChild);
         }
 
         // show previous window
         if (currentWindows.length > 0) {
             const previous = currentWindows[currentWindows.length - 1];
 
-            document.body.appendChild(previous.container);
+            document.body.appendChild(previous.container!);
         }
 
-        if (this.onClose != null) {
-            this.onClose();
-        }
+        this.onClose?.();
     }
 }

@@ -1,32 +1,44 @@
-import { observeFor } from '../utils/tools';
-import { checkIsRendered, dynamicElement } from '../utils/tools';
+import { dynamic } from '../utils/dynamic';
 import { appendElement } from '../utils/element';
+import { observeFor } from '../utils/tools';
+import { checkIsRendered } from '../utils/tools';
 import { css } from './customCSS';
-import style from './header.less';
 import { renderNotifications } from './notifications';
-import { settings } from './settings/settings';
 import { renderProfileMenu } from './profileMenu/profileMenu';
+import { settings } from './settings/settings';
+
+import style from './header.less';
 
 css.addStyle(style);
 
-let notificationsInitialized = false;
+//let notificationsInitialized = false;
 
 export async function renderHeader(container: Element) {
-    const nav = await dynamicElement(() => container.querySelector(`reddit-header-large`)?.querySelector(`nav`));
+    const nav = await dynamic(() => container.querySelector(`reddit-header-large`)?.querySelector(`nav`));
 
-    if (checkIsRendered(nav)) return;
+    if (!nav || checkIsRendered(nav)) return;
 
-    const userPanel = await dynamicElement(() => nav.querySelector(`span[data-part="inbox"]`)?.parentElement?.parentElement);
+    const logo = container.querySelector(`#reddit-logo`)!;
+    const logoPP = appendElement(logo, `div`, `pp_logo`);
+    logoPP.textContent = `++`;
+    if (DEBUG) {
+        logoPP.innerHTML = logoPP.textContent + ` <sup>(dev ${VERSION})</sup>`;
+    }
 
-    userPanel.classList.add(`pp_userPanel`);
-    userPanel.addEventListener(
-        `click`,
-        () => {
-            renderProfileMenu();
-        },
-        { once: true }
-    );
+    dynamic(() => nav.querySelector(`span[data-part="inbox"]`)?.parentElement?.parentElement).then(userPanel => {
+        if (!userPanel) return;
 
+        userPanel.classList.add(`pp_userPanel`);
+        userPanel.addEventListener(
+            `click`,
+            () => {
+                renderProfileMenu();
+            },
+            { once: true }
+        );
+    });
+
+    /*
     if (settings.NOTIFY_POPUP.isEnabled() && !notificationsInitialized) {
         notificationsInitialized = true;
         observeFor(`HEADER`, document.body, (element: HTMLElement) => {
@@ -34,12 +46,5 @@ export async function renderHeader(container: Element) {
                 renderNotifications(element);
             }
         });
-    }
-
-    const logo = container.querySelector(`#reddit-logo`);
-    const logoPP = appendElement(logo, `div`, `pp_logo`);
-    logoPP.textContent = `++`;
-    if (DEBUG) {
-        logoPP.innerHTML = logoPP.textContent + ` <sup>(dev ${VERSION})</sup>`;
-    }
+    }*/
 }

@@ -1,5 +1,6 @@
 import { css } from '../../modules/customCSS';
 import { appendElement } from '../element';
+
 import style from './toggle.less';
 
 css.addStyle(style);

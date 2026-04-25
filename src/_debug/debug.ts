@@ -1,11 +1,11 @@
 import { css } from '../modules/customCSS';
 import { notify } from '../modules/toaster';
-import { dynamicElement } from '../utils/tools';
 import { appendElement } from '../utils/element';
+
 import style from './debug.less';
 
 class DebugProfiler {
-    box: HTMLElement = null;
+    box?: HTMLElement;
     stats: Array<object> = [];
 
     databases: Map<string, number> = new Map<string, number>();
@@ -21,9 +21,14 @@ class DebugProfiler {
     async render() {
         if (!SHOW_PROFILER) return;
 
-        const documentBody = await dynamicElement(() => document.body);
+        if (document.body == null) {
+            setTimeout(() => {
+                this.render();
+            }, 500);
+            return;
+        }
 
-        const container = appendElement(documentBody, `div`, `pp_debug_profilerContainer`);
+        const container = appendElement(document.body, `div`, `pp_debug_profilerContainer`);
         this.box = appendElement(container, `div`, `pp_debug_profiler`);
 
         setInterval(() => {
@@ -44,13 +49,13 @@ class DebugProfiler {
                 }
             }
 
-            this.box.textContent = data;
+            this.box!.textContent = data;
         }, 500);
     }
 }
 
 class DynamicElementStat {
-    dynamicElement: number = 0;
+    dynamicRequests: number = 0;
     observeFor: number = 0;
 }
 

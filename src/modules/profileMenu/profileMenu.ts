@@ -1,19 +1,18 @@
-import settingsSvg from '@resources/profileMenu/settings.svg';
-import savedSvg from '@resources/profileMenu/saved.svg';
-import upvotedSvg from '@resources/profileMenu/upvoted.svg';
-import postsSvg from '@resources/profileMenu/posts.svg';
+import { appendElement } from '../../utils/element';
+import { NONE_COLOR, buildSvg } from '../../utils/svg';
+import { css } from '../customCSS';
+import { PrefsKey, prefs } from '../settings/prefs';
+import { settingsWindow } from '../settings/settingsWindow';
+import { pp_log } from '../toaster';
+
 import commentsSvg from '@resources/profileMenu/comments.svg';
 import historySvg from '@resources/profileMenu/history.svg';
+import postsSvg from '@resources/profileMenu/posts.svg';
+import savedSvg from '@resources/profileMenu/saved.svg';
+import settingsSvg from '@resources/profileMenu/settings.svg';
+import upvotedSvg from '@resources/profileMenu/upvoted.svg';
 
-import { settingsWindow } from '../settings/settingsWindow';
-import { buildSvg, NONE_COLOR } from '../../utils/svg';
-import { css } from '../customCSS';
 import style from './profileMenu.less';
-import { checkIsRendered } from '../../utils/tools';
-import { appendElement } from '../../utils/element';
-import { prefs, PrefsKey } from '../settings/prefs';
-import { pp_log } from '../toaster';
-import { title } from 'process';
 
 css.addStyle(style);
 
@@ -41,19 +40,15 @@ export enum ProfileMenuElement {
     History
 }
 
-export interface FindProfileMenuElement {
-    (element: Element): Element;
-}
-
 export interface ProfileMenuElementConfig {
     tittle: string;
     icon?: any;
     isCustom?: boolean;
     isOptional: boolean;
     noun?: string;
-    find?: FindProfileMenuElement;
-    action?: Function;
-    getHref?: Function;
+    find?: (element: Element) => Element | null;
+    action?: () => void;
+    getHref?: () => string;
 }
 
 export interface ProfileMenuElementData {
@@ -255,9 +250,7 @@ const defaultLayout = Array<ProfileMenuElement>(
     ProfileMenuElement.PlusPlus
 );
 
-
-let originElements: Map<ProfileMenuElement, Element> = null;
-let undefinedElements: Array<Element> = null;
+let originElements: Map<ProfileMenuElement, Element> | undefined;
 let currentUser: string;
 
 export function ensureValidProfileMenu(elements: Array<ProfileMenuElementData>): Array<ProfileMenuElementData> {
@@ -290,11 +283,16 @@ function GetCurrentUser(): string {
 }
 
 export function renderProfileMenu() {
-    let profileMenu = document.getElementById(`user-drawer-content`);
+    const profileMenu = document.getElementById(`user-drawer-content`);
+
+    if (!profileMenu) return;
+
     profileMenu.classList.toggle(`pp_defaultText`, true);
 
+    const undefinedElements = new Array<Element>();
+
     // initialization
-    if (originElements == null) {
+    if (!originElements) {
         // get user
         const profileAnchor = profileMenu.querySelector(`faceplate-tracker[noun="profile"]`)?.querySelector(`a`) as HTMLAnchorElement;
         if (profileAnchor != null) {
@@ -302,38 +300,31 @@ export function renderProfileMenu() {
         }
 
         // custom buttons
-        let originButton = profileMenu.querySelector(`faceplate-tracker[noun="settings"]`);
-
-        if (originButton == null) {
-            originButton = profileMenu.querySelector(`faceplate-tracker[noun="login"]`);
-        }
+        const originButton = profileMenu.querySelector(`faceplate-tracker[noun="settings"]`) ?? profileMenu.querySelector(`faceplate-tracker[noun="login"]`);
 
         profileMenuElementConfigs.forEach((config, element) => {
             if (config.isCustom != undefined && config.isCustom) {
-                renderCustomButton(originButton, config);
+                renderCustomButton(originButton!, config);
             }
         });
 
         // origin elements search and cleaning
         const searchingElements = Object.values(ProfileMenuElement) as Array<ProfileMenuElement>;
         originElements = new Map<ProfileMenuElement, Element>();
-        undefinedElements = new Array<Element>();
 
         profileMenu.querySelectorAll(`ul`).forEach(ul => {
             for (const element of [...searchingElements]) {
                 const noun = profileMenuElementConfigs.get(element)?.noun;
-                let find: Function;
-                if (noun != undefined) {
-                    find = (element: Element) => {
-                        return element.querySelector(`faceplate-tracker[noun="${noun}"]`);
-                    }
-                } else {
-                    find = profileMenuElementConfigs.get(element)?.find;
-                }
+                const find =
+                    noun != undefined
+                        ? (element: Element) => {
+                              return element.querySelector(`faceplate-tracker[noun="${noun}"]`);
+                          }
+                        : profileMenuElementConfigs.get(element)?.find;
 
-                const foundElement = find != null ? find(ul) : null;
+                const foundElement = find?.(ul);
                 if (foundElement) {
-                    originElements.set(element, foundElement);
+                    originElements!.set(element, foundElement);
                     foundElement.remove();
                     searchingElements.splice(searchingElements.indexOf(element), 1);
                 }
@@ -356,7 +347,6 @@ export function renderProfileMenu() {
     // render elements
     let elementsData = prefs.get(PrefsKey.PROFILE_MENU_ELEMENTS) as Array<ProfileMenuElementData>;
     elementsData = ensureValidProfileMenu(elementsData);
-
 
     if (undefinedElements.length > 0) {
         pp_log(`Detected ${undefinedElements.length} undefined elements in the Profile menu`);
@@ -384,20 +374,22 @@ export function renderProfileMenu() {
     }
 
     function addUl(): Element {
-        return appendElement(profileMenu, `ul`, [`w-100`, `p-0`, `m-0`, `list-none`, `my-xs`]);
+        return appendElement(profileMenu!, `ul`, [`w-100`, `p-0`, `m-0`, `list-none`, `my-xs`]);
     }
 
     function addHr(): void {
-        appendElement(profileMenu, `hr`, [`h-px`, `w-100`, `bg-neutral-border-weak`, `border-0`]);
+        appendElement(profileMenu!, `hr`, [`h-px`, `w-100`, `bg-neutral-border-weak`, `border-0`]);
     }
 }
 
 function renderCustomButton(originButton: Element, config: ProfileMenuElementConfig) {
-
     let ppSettingsButton = originButton.cloneNode(true) as Element;
-    ppSettingsButton.setAttribute(`noun`, config.noun);
 
-    originButton.parentNode.appendChild(ppSettingsButton);
+    if (config.noun) {
+        ppSettingsButton.setAttribute(`noun`, config.noun);
+    }
+
+    originButton.parentNode!.appendChild(ppSettingsButton);
 
     const anchor = ppSettingsButton.querySelector(`a`) as HTMLAnchorElement;
     if (config.getHref != undefined) {
@@ -406,16 +398,16 @@ function renderCustomButton(originButton: Element, config: ProfileMenuElementCon
         anchor.removeAttribute(`href`);
     }
 
-    const originSvg = ppSettingsButton.querySelector(`svg`);
+    const originSvg = ppSettingsButton.querySelector(`svg`)!;
     const svg = buildSvg(config.icon, 20, 20, { strokeColor: NONE_COLOR });
     originSvg.replaceWith(svg);
 
-    let text = ppSettingsButton.querySelector(`.text-body-2`);
+    let text = ppSettingsButton.querySelector(`.text-body-2`)!;
     text.textContent = config.tittle;
 
-    if (config.action != undefined) {
+    if (config.action) {
         ppSettingsButton.addEventListener(`click`, () => {
-            config.action();
+            config.action!();
         });
     }
 }

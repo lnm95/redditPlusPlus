@@ -1,8 +1,7 @@
 import { Database } from '../../utils/database';
 import { BookmarkMode } from '../bookmarkMode';
 import { AwardsMode } from '../collapseAwardsMode';
-import { FeedLocation } from '../feed/feedLocation';
-import { getFeedSorts } from '../feed/feedSort';
+import { GuidelinesColor } from '../comments/guidelinesColor';
 import { RedirectMode } from '../redirectMode';
 import { UsernameMode } from '../users/usernameMode';
 
@@ -26,8 +25,8 @@ export class SettingBoolProperty {
         return !this.isEnabled();
     }
 
-    switch(overridedValue: boolean = null): void {
-        settingsDatabase.set(this.name, overridedValue == null ? this.isDisabled() : overridedValue);
+    switch(overridedValue?: boolean): void {
+        settingsDatabase.set(this.name, overridedValue == undefined ? this.isDisabled() : overridedValue);
     }
 
     getChild(postfix: string, defaultValue: boolean = true): SettingBoolProperty {
@@ -71,11 +70,11 @@ export class SettingStringProperty {
     defaultValue: string;
     filter: (input: string) => string;
 
-    constructor(name: string, defaultValue: string, filter: (input: string) => string = null) {
+    constructor(name: string, defaultValue: string, filter?: (input: string) => string) {
         this.name = name;
         this.defaultValue = defaultValue;
 
-        this.filter = filter != null ? filter : (input: string) => input;
+        this.filter = filter != undefined ? filter : (input: string) => input;
     }
 
     get(): string {
@@ -173,6 +172,8 @@ class SettingsManager {
     public COLLAPSE_AUTOMODERATOR = new SettingBoolProperty(`collapseAutomoderator`);
     public SAVED_BOOKMARK_COMMENTS = new SettingDropdownProperty(`savedBookmarkComments`, Object.values(BookmarkMode), 1);
     public HIDE_RELATED_POSTS = new SettingBoolProperty(`hideRelatedPosts`, false);
+    public GUIDELINES_COLOR = new SettingDropdownProperty(`guidelinesColor`, Object.values(GuidelinesColor), 0);
+    public GUIDELINES_THICK = new SettingBoolProperty(`guidelinesThick`, false);
 
     constructor() {
         // Reload all pages with dirted settings

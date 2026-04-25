@@ -1,13 +1,13 @@
+import { renderUIOptions } from '../../../utils/UI/options';
+import { renderUIToggle } from '../../../utils/UI/toggle';
 import { ChangesObserver, ChangesSource } from '../../../utils/changesObserver';
 import { Database } from '../../../utils/database';
 import { appendElement } from '../../../utils/element';
-import { renderUIOptions } from '../../../utils/UI/options';
-import { renderUIToggle } from '../../../utils/UI/toggle';
 import { Window } from '../../../utils/window';
 import { css } from '../../customCSS';
 import { getCurrentCustomFeed, realCustomFeedTittle } from '../../customFeed/customFeed';
 import { getCurrentSub } from '../../subs/subs';
-import { customFeedData, defaultFeedData, defaultSorts, FeedData, subsFeedData } from '../feed';
+import { FeedData, customFeedData, defaultFeedData, defaultSorts, subsFeedData } from '../feed';
 import { FeedLocation } from '../feedLocation';
 import { redirectConfigs } from '../feedRedirect';
 import { FeedSort, getFeedSorts } from '../feedSort';
@@ -22,78 +22,93 @@ export interface FeedSettingsContext {
     location: FeedLocation;
 }
 
+class Override {
+    key: string | null = null;
+    database: Database<FeedData> | null = null;
+    data: FeedData | null = null;
+    area: Element | null = null;
+
+    set(data: FeedData | null): void {
+        this.data = data;
+        this.database!.set(this.key!, data);
+
+        this.renderArea();
+    }
+
+    isOverrided(): boolean {
+        return this.data != null;
+    }
+
+    renderArea() {
+        this.area?.classList.toggle(`pp_feedSettings_overrideSub`, this.isOverrided());
+    }
+}
+
 const changes = new ChangesObserver();
 const sortChanges = new Map<FeedSort, ChangesSource>();
 
 function renderFeedSettingsWindow(win: Window, context: any) {
     changes.Reset();
-    changes.RenderBanner(win.content);
+    changes.RenderBanner(win.content!);
 
     const location = (context as FeedSettingsContext).location;
-    const redirectConfig = redirectConfigs.get(location);
+    const redirectConfig = redirectConfigs.get(location)!;
 
-    const scroll = appendElement(win.content, `div`, [`pp_window_scrollContent`, `styled-scrollbars`]);
+    const scroll = appendElement(win.content!, `div`, [`pp_window_scrollContent`, `styled-scrollbars`]);
     const commonArea = appendElement(scroll, `div`, `pp_window_elementsContainer`);
 
-    let defaultData: FeedData = defaultFeedData.get(FeedLocation[location]);
-    let overrideDatabase: Database<FeedData> = null;
-    let overrideKey: string = null;
-    let overrideData: FeedData = null;
-    let isOverrided: boolean = false;
-    let overrideArea: Element = null;
+    const defaultData: FeedData = defaultFeedData.get(FeedLocation[location]);
+
+    const override = new Override();
 
     function getOverrideTittle() {
         if (location == FeedLocation.Custom) {
-            return `${realCustomFeedTittle ?? overrideKey} custom feed`;
+            return `${realCustomFeedTittle ?? override.key} custom feed`;
         } else {
-            return `r/${overrideKey}`;
+            return `r/${override.key}`;
         }
     }
 
     if (redirectConfig.isOverridable) {
         const isSub = location == FeedLocation.Sub;
-        overrideDatabase = isSub ? subsFeedData : customFeedData;
-        overrideKey = isSub ? getCurrentSub() : getCurrentCustomFeed();
-        overrideData = overrideDatabase.get(overrideKey);
+        override.database = isSub ? subsFeedData : customFeedData;
+        override.key = isSub ? getCurrentSub() : getCurrentCustomFeed();
 
-        const propertyArea = appendElement(commonArea, `div`, `pp_window_element`);
+        if (override.database && override.key) {
+            override.data = override.database.get(override.key);
 
-        const header = appendElement(propertyArea, `div`, `pp_settings_propertyHeader`);
-        const tittle = appendElement(header, `div`, `pp_settings_propertyHeader_tittle`);
-        tittle.textContent = `Override ${getOverrideTittle()}`;
-        const description = appendElement(header, `div`, `pp_settings_propertyHeader_description`);
-        description.textContent = `Apply settings to this ${isSub ? `subreddit` : `custom feed`} only`;
+            const propertyArea = appendElement(commonArea, `div`, `pp_window_element`);
 
-        const buttonContainer = appendElement(propertyArea, `div`, `pp_settings_propertyButtonContainer`);
-        const controlArea = appendElement(buttonContainer, `div`, `pp_window_controlArea`);
+            const header = appendElement(propertyArea, `div`, `pp_settings_propertyHeader`);
+            const tittle = appendElement(header, `div`, `pp_settings_propertyHeader_tittle`);
+            tittle.textContent = `Override ${getOverrideTittle()}`;
+            const description = appendElement(header, `div`, `pp_settings_propertyHeader_description`);
+            description.textContent = `Apply settings to this ${isSub ? `subreddit` : `custom feed`} only`;
 
-        isOverrided = overrideData != null;
+            const buttonContainer = appendElement(propertyArea, `div`, `pp_settings_propertyButtonContainer`);
+            const controlArea = appendElement(buttonContainer, `div`, `pp_window_controlArea`);
 
-        renderUIToggle(controlArea, isOverrided, (state: boolean) => {
-            if (state) {
-                overrideData = {
-                    redirect: defaultData.redirect,
-                    defaultSort: defaultData.defaultSort,
-                    hiddenSort: [...defaultData.hiddenSort]
-                } as FeedData;
+            renderUIToggle(controlArea, override.isOverrided(), (state: boolean) => {
+                if (state) {
+                    override.set({
+                        redirect: defaultData.redirect,
+                        defaultSort: defaultData.defaultSort,
+                        hiddenSort: [...defaultData.hiddenSort]
+                    } as FeedData);
+                } else {
+                    override.set(null);
+                }
 
-                overrideDatabase.set(overrideKey, overrideData);
-            } else {
-                overrideDatabase.set(overrideKey, null);
-            }
-
-            isOverrided = state;
-            overrideArea.classList.toggle(`pp_feedSettings_overrideSub`, isOverrided);
-
-            renderWindowTittle();
-            renderOverrideArea();
-        });
+                renderWindowTittle();
+                renderOverrideArea();
+            });
+        }
     }
 
     renderWindowTittle();
 
     function renderWindowTittle() {
-        win.tittle.innerHTML = isOverrided ? `Feed sort: <span class="pp_feedSettings_overrideTittle">${getOverrideTittle()}</span>` : `Feed sort: ${redirectConfig.tittle}`;
+        win.tittle.innerHTML = override.isOverrided() ? `Feed sort: <span class="pp_feedSettings_overrideTittle">${getOverrideTittle()}</span>` : `Feed sort: ${redirectConfig.tittle}`;
     }
 
     const sorts = getFeedSorts(location);
@@ -101,29 +116,29 @@ function renderFeedSettingsWindow(win: Window, context: any) {
     renderOverrideArea();
 
     function renderOverrideArea() {
-        if (overrideArea != null) {
-            overrideArea.remove();
-            overrideArea = null;
+        if (override.area != null) {
+            override.area.remove();
+            override.area = null;
         }
 
-        overrideArea = appendElement(scroll, `div`, `pp_window_elementsContainer`);
-        overrideArea.classList.toggle(`pp_feedSettings_overrideSub`, isOverrided);
+        override.area = appendElement(scroll, `div`, `pp_window_elementsContainer`);
+        override.renderArea();
 
-        const currentData = isOverrided ? overrideData : defaultData;
+        const currentData = override.isOverrided() ? override.data! : defaultData;
 
         function saveCurrentData() {
-            if (isOverrided) {
-                overrideDatabase.set(overrideKey, currentData);
+            if (override.isOverrided()) {
+                override.set(currentData);
             } else {
                 defaultFeedData.set(FeedLocation[location], currentData);
             }
         }
 
-        let defaultSortToogle: Element = null;
+        let defaultSortToogle: Element | null = null;
 
         // enable redirect
         if (redirectConfig.isOptional) {
-            const propertyArea = appendElement(overrideArea, `div`, `pp_window_element`);
+            const propertyArea = appendElement(override.area, `div`, `pp_window_element`);
 
             const header = appendElement(propertyArea, `div`, `pp_settings_propertyHeader`);
             const tittle = appendElement(header, `div`, `pp_settings_propertyHeader_tittle`);
@@ -138,13 +153,13 @@ function renderFeedSettingsWindow(win: Window, context: any) {
                 currentData.redirect = state;
                 saveCurrentData();
 
-                defaultSortToogle.classList.toggle(`pp_ui_disabled`, !currentData.redirect);
+                defaultSortToogle?.classList.toggle(`pp_ui_disabled`, !currentData.redirect);
             });
         }
 
         // default sort
         {
-            const propertyArea = appendElement(overrideArea, `div`, `pp_window_element`);
+            const propertyArea = appendElement(override.area, `div`, `pp_window_element`);
 
             const header = appendElement(propertyArea, `div`, `pp_settings_propertyHeader`);
             const tittle = appendElement(header, `div`, `pp_settings_propertyHeader_tittle`);
@@ -159,17 +174,17 @@ function renderFeedSettingsWindow(win: Window, context: any) {
             defaultSortToogle = renderUIOptions(controlArea, sorts.indexOf(currentData.defaultSort), sorts, (index: number) => {
                 currentData.defaultSort = sorts[index];
                 saveCurrentData();
-            }).parentElement.parentElement.parentElement;
+            }).parentElement!.parentElement!.parentElement!;
 
             defaultSortToogle.classList.toggle(`pp_ui_disabled`, !currentData.redirect);
         }
 
         // buttons visability
-        const subtittleSections = appendElement(overrideArea, `h3`, `pp_settings_subtittle`);
+        const subtittleSections = appendElement(override.area, `h3`, `pp_settings_subtittle`);
         subtittleSections.textContent = `Visible buttons`;
 
         sorts.forEach(sort => {
-            const propertyArea = appendElement(overrideArea, `div`, `pp_window_element`);
+            const propertyArea = appendElement(override.area!, `div`, `pp_window_element`);
 
             const header = appendElement(propertyArea, `div`, `pp_settings_propertyHeader`);
             const tittle = appendElement(header, `div`, `pp_settings_propertyHeader_tittle`);
@@ -180,9 +195,9 @@ function renderFeedSettingsWindow(win: Window, context: any) {
             const controlArea = appendElement(buttonContainer, `div`, `pp_window_controlArea`);
 
             const defaultValue = !currentData.hiddenSort.includes(sort);
-            let changesSource: ChangesSource = null;
+            let changesSource: ChangesSource;
             if (sortChanges.has(sort)) {
-                changesSource = sortChanges.get(sort);
+                changesSource = sortChanges.get(sort)!;
                 changesSource.Capture(defaultValue);
             } else {
                 changesSource = changes.CreateSource(defaultValue);
