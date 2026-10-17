@@ -114,23 +114,15 @@ function renderBookmarkButton(referenceButton: Element, originButton: Element, s
     button.removeAttribute(`data-action-bar-action`);
 
     function replaceIcon(graphic: any, name: string) {
-        dynamic(() => button.querySelector(`rpl-icon[name="${name}"]`)?.shadowRoot?.querySelector(`svg`), MAX_LOAD_LAG).then(originSvg => {
+        dynamic(() => button.querySelector(`span .${name}`)?.querySelector(`svg`), MAX_LOAD_LAG).then(originSvg => {
             if (!originSvg) return;
             const iconSvg = buildSvg(graphic, 16, 16) as SVGSVGElement;
             originSvg.replaceWith(iconSvg);
         });
-        //const iconSvg = buildSvg(graphic, 16, 16) as SVGSVGElement;
-        //button.querySelector(`rpl-icon[name="${name}"]`)?.shadowRoot?.querySelector(`svg`)?.replaceWith(iconSvg);
     }
 
-    replaceIcon(bookmarkSavedSvg, `downvote-fill`);
-    replaceIcon(bookmarkUnsavedSvg, `downvote`);
-    /*
-    const enabledSvg = buildSvg(bookmarkSavedSvg, 16, 16) as SVGSVGElement;
-    button.querySelector(`.vote-icon-fill`)!.querySelector(`svg`)!.replaceWith(enabledSvg);
-
-    const disabledSvg = buildSvg(bookmarkUnsavedSvg, 16, 16) as SVGSVGElement;
-    button.querySelector(`.vote-icon-outline`)!.querySelector(`svg`)!.replaceWith(disabledSvg);*/
+    replaceIcon(bookmarkSavedSvg, `vote-icon-fill`);
+    replaceIcon(bookmarkUnsavedSvg, `vote-icon-outline`);
 
     button.setAttribute(`aria-pressed`, state.toString());
 

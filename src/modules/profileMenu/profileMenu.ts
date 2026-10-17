@@ -417,7 +417,7 @@ function renderCustomButton(originButton: Element, config: ProfileMenuElementCon
         anchor.removeAttribute(`href`);
     }
 
-    dynamic(() => ppSettingsButton.querySelector(`rpl-icon[name="settings"]`)?.shadowRoot?.querySelector(`svg`), MAX_LOAD_LAG).then(originSvg => {
+    dynamic(() => ppSettingsButton.querySelector(`svg`), MAX_LOAD_LAG).then(originSvg => {
         if (!originSvg) return;
         const svg = buildSvg(config.icon, 20, 20, { strokeColor: NONE_COLOR });
         originSvg.replaceWith(svg);

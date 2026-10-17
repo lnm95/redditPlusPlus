@@ -62,7 +62,7 @@ export async function renderSubFilter(container: Element) {
     manageSubsLink.replaceWith(input);
     input.prepend(manageSubsLink);
 
-    dynamic(() => manageSubsLink.querySelector(`rpl-icon[name="settings"]`)?.shadowRoot?.querySelector(`svg`), MAX_LOAD_LAG).then(originSvg => {
+    dynamic(() => manageSubsLink.querySelector(`svg`), MAX_LOAD_LAG).then(originSvg => {
         if (!originSvg) return;
 
         const iconSvg = buildSvg(subsManagerSvg, 20, 20);
