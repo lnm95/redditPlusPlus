@@ -114,15 +114,15 @@ function renderBookmarkButton(referenceButton: Element, originButton: Element, s
     button.removeAttribute(`data-action-bar-action`);
 
     function replaceIcon(graphic: any, name: string) {
-        dynamic(() => button.querySelector(`span .${name}`)?.querySelector(`svg`), MAX_LOAD_LAG).then(originSvg => {
+        dynamic(() => button.querySelector(`svg[icon-name="${name}"]`), MAX_LOAD_LAG).then(originSvg => {
             if (!originSvg) return;
             const iconSvg = buildSvg(graphic, 16, 16) as SVGSVGElement;
             originSvg.replaceWith(iconSvg);
         });
     }
 
-    replaceIcon(bookmarkSavedSvg, `vote-icon-fill`);
-    replaceIcon(bookmarkUnsavedSvg, `vote-icon-outline`);
+    replaceIcon(bookmarkSavedSvg, `downvote-fill`);
+    replaceIcon(bookmarkUnsavedSvg, `downvote`);
 
     button.setAttribute(`aria-pressed`, state.toString());
 

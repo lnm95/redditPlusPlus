@@ -19,13 +19,11 @@ export const redirectConfigs = new Map<FeedLocation, RedirectConfig>([
 ]);
 
 function isRedirectable() {
-    if (window.location.href == `https://www.reddit.com/`) return true;
+    if (window.location.href == `https://www.reddit.com/`) return false;
 
     if (window.location.href.includes(`/?f=flair_name`)) return false;
 
-    if (window.location.href.includes(`?feed=home`)) {
-        return window.location.href.includes(`reddit.com/?feed=home`);
-    }
+    if (window.location.href.includes(`reddit.com/?feed=home`)) return false;
 
     const subSplit = window.location.href.split(`/r/`);
     if (subSplit.length == 2) {
